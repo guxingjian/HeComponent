@@ -22,7 +22,6 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     if(self = [super initWithFrame:frame]){
         self.rightItemWidth = 50;
-        _selectedIndex = -1;
     }
     return self;
 }
@@ -30,7 +29,6 @@
 - (void)awakeFromNib{
     [super awakeFromNib];
     self.rightItemWidth = 50;
-    _selectedIndex = -1;
 }
 
 - (NSMutableArray *)arrayTabButtons{
@@ -42,12 +40,8 @@
 
 - (CGFloat)tabItemMaxHeight{
     if(_arrayTabItem.count > 0){
-        Heqingzhao_MultiChannelTopBarTabItem* tabItem = _arrayTabItem.firstObject;
-        if(tabItem.normalFont.pointSize > tabItem.selectedFont.pointSize){
-            return tabItem.normalFont.pointSize + 1;
-        }else{
-            return tabItem.selectedFont.pointSize + 1;
-        }
+        Heqingzhao_MultiChannelConfig* tabItem = _arrayTabItem.firstObject;
+        return tabItem.topBarConfig.maxHeight;
     }
     return 0;
 }
@@ -81,23 +75,23 @@
         }
         
         btnTab.tag = i;
-        Heqingzhao_MultiChannelTopBarTabItem* item = [arrayTabItem objectAtIndex:i];
-        btnTab.frame = CGRectMake(fPosX, 0, item.fCurrentWidth, fScrollHeight);
-        [btnTab setTitle:item.normalTitle forState:UIControlStateNormal];
-        [btnTab setTitleColor:item.normalTextColor forState:UIControlStateNormal];
-        [btnTab setTitle:item.selectedTitle forState:UIControlStateSelected];
-        [btnTab setTitleColor:item.selectedTextColor forState:UIControlStateSelected];
+        Heqingzhao_MultiChannelConfig* item = [arrayTabItem objectAtIndex:i];
+        btnTab.frame = CGRectMake(fPosX, 0, item.topBarConfig.maxWidth, fScrollHeight);
+        [btnTab setTitle:item.topBarConfig.normalTitle forState:UIControlStateNormal];
+        [btnTab setTitleColor:item.topBarConfig.normalTextColor forState:UIControlStateNormal];
+        [btnTab setTitle:item.topBarConfig.selectedTitle forState:UIControlStateSelected];
+        [btnTab setTitleColor:item.topBarConfig.selectedTextColor forState:UIControlStateSelected];
         [btnTab addTarget:self action:@selector(tabItemAction:) forControlEvents:UIControlEventTouchUpInside];
         if(0 == item.status){
-            btnTab.titleLabel.font = item.normalFont;
+            btnTab.titleLabel.font = item.topBarConfig.normalFont;
         }else{
-            btnTab.titleLabel.font = item.selectedFont;
+            btnTab.titleLabel.font = item.topBarConfig.selectedFont;
         }
         
         if(!btnTab.superview){
             [_tabItemScrollView addSubview:btnTab];
         }
-        fPosX += item.fCurrentWidth;
+        fPosX += item.topBarConfig.maxWidth;
         if(i != arrayTabItem.count - 1){
             fPosX += self.tabItemSpace;
         }else{
@@ -141,7 +135,7 @@
     if(_selectedIndex == btn.tag)
         return ;
     
-    Heqingzhao_MultiChannelTopBarTabItem* item = nil;
+    Heqingzhao_MultiChannelConfig* item = nil;
     if([self.barDelegate respondsToSelector:@selector(topBar:willSelectIndex:item:)]){
         item = [self.arrayTabItem objectAtIndex:btn.tag];
         [self.barDelegate topBar:self willSelectIndex:btn.tag item:item];
@@ -154,50 +148,57 @@
     }
 }
 
-- (void)setSelectedIndex:(NSInteger)selectedIndex animated:(BOOL)animated{
+- (void)setSelectedIndex:(NSInteger)selectedIndex{
     if(_selectedIndex == selectedIndex)
         return ;
-    
+    [self setSelectedIndex:selectedIndex animated:YES];
+}
+
+- (void)setSelectedIndex:(NSInteger)selectedIndex animated:(BOOL)animated{
     if(selectedIndex < 0 || selectedIndex >= self.arrayTabItem.count)
         return ;
     
-    Heqingzhao_MultiChannelTopBarTabItem* item = nil;
-    UIButton* btn = nil;
+    Heqingzhao_MultiChannelConfig* preItem = nil;
+    UIButton* preBtn = nil;
     if(_selectedIndex >= 0 && _selectedIndex < self.arrayTabItem.count){
-        item = [self.arrayTabItem objectAtIndex:_selectedIndex];
-        btn = [self.arrayTabButtons objectAtIndex:_selectedIndex];
-        
-        btn.selected = NO;
-        btn.titleLabel.font = item.normalFont;
-        item.status = 0;
+        preItem = [self.arrayTabItem objectAtIndex:_selectedIndex];
+        preBtn = [self.arrayTabButtons objectAtIndex:_selectedIndex];
+        preBtn.selected = NO;
+        preBtn.titleLabel.font = preItem.topBarConfig.normalFont;
+        preItem.status = 0;
     }
     
     _selectedIndex = selectedIndex;
     
-    item = [self.arrayTabItem objectAtIndex:_selectedIndex];
-    btn = [self.arrayTabButtons objectAtIndex:_selectedIndex];
+    Heqingzhao_MultiChannelConfig* item = [self.arrayTabItem objectAtIndex:_selectedIndex];
+    UIButton* btn = [self.arrayTabButtons objectAtIndex:_selectedIndex];
     item.status = 1;
     btn.selected = YES;
-    btn.titleLabel.font = item.selectedFont;
+    btn.titleLabel.font = item.topBarConfig.selectedFont;
 
     if(animated){
-        [self animateLineViewWithNewFrame:CGRectMake(btn.left, self.animateLineView.y, btn.width, self.animateLineView.height)];
+
+        [UIView beginAnimations:@"lineview_animation" context:nil];
+        [UIView setAnimationDuration:0.3];
+        
+        self.animateLineView.frame = CGRectMake(btn.left, self.animateLineView.y, btn.width, self.animateLineView.height);
+        preBtn.layer.transform = CATransform3DIdentity;
+        btn.layer.transform = CATransform3DScale(CATransform3DIdentity, item.topBarConfig.selectedScale, item.topBarConfig.selectedScale, 1);
+        
+        [UIView commitAnimations];
         [Heqingzhao_TabbarAdjustPosition showHiddenTabWith:btn splitDis:self.tabItemSpace containerScrollView:_tabItemScrollView animation:YES];
     }else{
         self.animateLineView.frame = CGRectMake(btn.left, self.animateLineView.y, btn.width, self.animateLineView.height);
+        
+        [CATransaction begin];
+        [CATransaction setAnimationDuration:0];
+        preBtn.layer.transform = CATransform3DIdentity;
+        btn.layer.transform = CATransform3DScale(CATransform3DIdentity, item.topBarConfig.selectedScale, item.topBarConfig.selectedScale, 1);
+        [CATransaction commit];
+        
         [Heqingzhao_TabbarAdjustPosition showHiddenTabWith:btn splitDis:self.tabItemSpace containerScrollView:_tabItemScrollView animation:NO];
     }
     
-}
-
-- (void)animateLineViewWithNewFrame:(CGRect)frame{
-    
-    [UIView beginAnimations:@"lineview_animation" context:nil];
-    [UIView setAnimationDuration:0.3];
-    
-    self.animateLineView.frame = frame;
-    
-    [UIView commitAnimations];
 }
 
 - (UIView *)animateLineView{
@@ -323,6 +324,8 @@
     self.tabItemScrollView.frame = frame;
     [self buildTabItems];
 }
+
+
 
 - (void)layoutSubviews{
     [super layoutSubviews];

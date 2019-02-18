@@ -6,22 +6,16 @@
 //  Copyright © 2019年 qingzhao. All rights reserved.
 //
 
-#import "Heqingzhao_MultiChannelTopBarTabItem.h"
+#import "Heqingzhao_MultiChannelConfig.h"
 
-@interface Heqingzhao_MultiChannelTopBarTabItem()
+@interface Heqingzhao_MultiChannelTopBarConfig()
 
 @property(nonatomic, assign)CGSize normalSize;
 @property(nonatomic, assign)CGSize selectedSize;
 
 @end
 
-@implementation Heqingzhao_MultiChannelTopBarTabItem
-
-- (void)setNormalTitle:(NSString *)normalTitle{
-    if(!self.itemIdentifier)
-        self.itemIdentifier = normalTitle;
-    _normalTitle = normalTitle;
-}
+@implementation Heqingzhao_MultiChannelTopBarConfig
 
 - (NSString *)selectedTitle{
     if(!_selectedTitle)
@@ -39,15 +33,6 @@
     if(!_selectedTextColor)
         return _normalTextColor;
     return _selectedTextColor;
-}
-
-- (BOOL)isEqual:(id)object
-{
-    if(![object isKindOfClass:[self class]])
-        return [super isEqual:object];
-    
-    Heqingzhao_MultiChannelTopBarTabItem* item = (Heqingzhao_MultiChannelTopBarTabItem*)object;
-    return [self.itemIdentifier isEqual:item.itemIdentifier];
 }
 
 - (CGSize)normalSize{
@@ -72,18 +57,51 @@
     return _selectedSize;
 }
 
-- (CGFloat)fCurrentWidth{
-    if(0 == self.status){
+- (CGFloat)maxWidth{
+    if(self.normalSize.width > self.selectedSize.width)
         return self.normalSize.width;
-    }
     return self.selectedSize.width;
 }
 
-- (CGFloat)fCurrentHeight{
-    if(0 == self.status){
+- (CGFloat)maxHeight{
+    if(self.normalSize.height > self.selectedSize.height)
         return self.normalSize.height;
-    }
     return self.selectedSize.height;
 }
 
+- (CGFloat)selectedScale{
+    if(0 == _selectedScale){
+        return 1;
+    }
+    return _selectedScale;
+}
+
 @end
+
+@implementation Heqingzhao_MultiChannelConfig
+
+- (Heqingzhao_MultiChannelTopBarConfig *)topBarConfig{
+    if(!_topBarConfig){
+        _topBarConfig = [[Heqingzhao_MultiChannelTopBarConfig alloc] init];
+    }
+    return _topBarConfig;
+}
+
+- (BOOL)isEqual:(id)object
+{
+    if(![object isKindOfClass:[self class]])
+        return [super isEqual:object];
+    
+    Heqingzhao_MultiChannelConfig* item = (Heqingzhao_MultiChannelConfig*)object;
+    return [self.itemIdentifier isEqual:item.itemIdentifier];
+}
+
+- (NSString *)itemIdentifier{
+    if(!_itemIdentifier){
+        _itemIdentifier = self.topBarConfig.normalTitle;
+    }
+    return _itemIdentifier;
+}
+
+@end
+

@@ -12,6 +12,8 @@
 
 @interface ViewController ()
 
+@property(nonatomic, strong)Heqingzhao_MultiChannelTopBar* topBar;
+
 @end
 
 @implementation ViewController
@@ -29,12 +31,13 @@
     UIColor* normalColor = [UIColor blackColor];
     UIColor* selectedColor = [UIColor blueColor];
     for(NSString* title in arrayChannels){
-        Heqingzhao_MultiChannelTopBarTabItem* item = [[Heqingzhao_MultiChannelTopBarTabItem alloc] init];
-        item.normalTitle = title;
-        item.normalTextColor = normalColor;
-        item.normalFont = font;
+        Heqingzhao_MultiChannelConfig* item = [[Heqingzhao_MultiChannelConfig alloc] init];
+        item.topBarConfig.normalTitle = title;
+        item.topBarConfig.normalTextColor = normalColor;
+        item.topBarConfig.normalFont = font;
         
-        item.selectedTextColor = selectedColor;
+        item.topBarConfig.selectedTextColor = selectedColor;
+        item.topBarConfig.selectedScale = 1.1;
         [arrayItems addObject:item];
     }
     
@@ -44,12 +47,14 @@
     topBar.itemBottomDistance = 20;
     topBar.animateLineViewDis = 16;
     topBar.backgroundColor = [UIColor yellowColor];
-    
     topBar.arrayTabItem = arrayItems;
-    
     [self.view addSubview:topBar];
     
+    self.topBar = topBar;
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.topBar setSelectedIndex:8 animated:NO];
+}
 
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C94138DC221A476800AFA04F /* Heqingzhao_MultiChannelContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = C94138DB221A476800AFA04F /* Heqingzhao_MultiChannelContentView.m */; };
 		C9BB1E48221551D90050B493 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BB1E47221551D90050B493 /* AppDelegate.m */; };
 		C9BB1E4B221551D90050B493 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BB1E4A221551D90050B493 /* ViewController.m */; };
 		C9BB1E4E221551D90050B493 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9BB1E4C221551D90050B493 /* Main.storyboard */; };
@@ -16,11 +17,13 @@
 		C9BB1E952216CEAC0050B493 /* UIView+view_frame.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BB1E8A2216CEAC0050B493 /* UIView+view_frame.m */; };
 		C9BB1E962216CEAC0050B493 /* Heqingzhao_TabbarAdjustPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BB1E8D2216CEAC0050B493 /* Heqingzhao_TabbarAdjustPosition.m */; };
 		C9BB1E972216CEAC0050B493 /* Heqingzhao_MultiChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BB1E8E2216CEAC0050B493 /* Heqingzhao_MultiChannelViewController.m */; };
-		C9BB1E982216CEAC0050B493 /* Heqingzhao_MultiChannelTopBarTabItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BB1E8F2216CEAC0050B493 /* Heqingzhao_MultiChannelTopBarTabItem.m */; };
+		C9BB1E982216CEAC0050B493 /* Heqingzhao_MultiChannelConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BB1E8F2216CEAC0050B493 /* Heqingzhao_MultiChannelConfig.m */; };
 		C9BB1E992216CEAC0050B493 /* Heqingzhao_MultiChannelTopBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BB1E932216CEAC0050B493 /* Heqingzhao_MultiChannelTopBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C94138DA221A476800AFA04F /* Heqingzhao_MultiChannelContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_MultiChannelContentView.h; sourceTree = "<group>"; };
+		C94138DB221A476800AFA04F /* Heqingzhao_MultiChannelContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_MultiChannelContentView.m; sourceTree = "<group>"; };
 		C9BB1E43221551D90050B493 /* HeComponent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeComponent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9BB1E46221551D90050B493 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C9BB1E47221551D90050B493 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -35,12 +38,12 @@
 		C9BB1E8B2216CEAC0050B493 /* UIView+view_frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+view_frame.h"; sourceTree = "<group>"; };
 		C9BB1E8D2216CEAC0050B493 /* Heqingzhao_TabbarAdjustPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_TabbarAdjustPosition.m; sourceTree = "<group>"; };
 		C9BB1E8E2216CEAC0050B493 /* Heqingzhao_MultiChannelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_MultiChannelViewController.m; sourceTree = "<group>"; };
-		C9BB1E8F2216CEAC0050B493 /* Heqingzhao_MultiChannelTopBarTabItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_MultiChannelTopBarTabItem.m; sourceTree = "<group>"; };
+		C9BB1E8F2216CEAC0050B493 /* Heqingzhao_MultiChannelConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_MultiChannelConfig.m; sourceTree = "<group>"; };
 		C9BB1E902216CEAC0050B493 /* Heqingzhao_MultiChannelTopBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_MultiChannelTopBar.h; sourceTree = "<group>"; };
 		C9BB1E912216CEAC0050B493 /* Heqingzhao_TabbarAdjustPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_TabbarAdjustPosition.h; sourceTree = "<group>"; };
 		C9BB1E922216CEAC0050B493 /* Heqingzhao_MultiChannelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_MultiChannelViewController.h; sourceTree = "<group>"; };
 		C9BB1E932216CEAC0050B493 /* Heqingzhao_MultiChannelTopBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_MultiChannelTopBar.m; sourceTree = "<group>"; };
-		C9BB1E942216CEAC0050B493 /* Heqingzhao_MultiChannelTopBarTabItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_MultiChannelTopBarTabItem.h; sourceTree = "<group>"; };
+		C9BB1E942216CEAC0050B493 /* Heqingzhao_MultiChannelConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_MultiChannelConfig.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +102,8 @@
 		C9BB1E892216CEAC0050B493 /* common */ = {
 			isa = PBXGroup;
 			children = (
-				C9BB1E8A2216CEAC0050B493 /* UIView+view_frame.m */,
 				C9BB1E8B2216CEAC0050B493 /* UIView+view_frame.h */,
+				C9BB1E8A2216CEAC0050B493 /* UIView+view_frame.m */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -114,8 +117,10 @@
 				C9BB1E922216CEAC0050B493 /* Heqingzhao_MultiChannelViewController.h */,
 				C9BB1E902216CEAC0050B493 /* Heqingzhao_MultiChannelTopBar.h */,
 				C9BB1E932216CEAC0050B493 /* Heqingzhao_MultiChannelTopBar.m */,
-				C9BB1E942216CEAC0050B493 /* Heqingzhao_MultiChannelTopBarTabItem.h */,
-				C9BB1E8F2216CEAC0050B493 /* Heqingzhao_MultiChannelTopBarTabItem.m */,
+				C9BB1E942216CEAC0050B493 /* Heqingzhao_MultiChannelConfig.h */,
+				C9BB1E8F2216CEAC0050B493 /* Heqingzhao_MultiChannelConfig.m */,
+				C94138DA221A476800AFA04F /* Heqingzhao_MultiChannelContentView.h */,
+				C94138DB221A476800AFA04F /* Heqingzhao_MultiChannelContentView.m */,
 			);
 			path = multiChannels;
 			sourceTree = "<group>";
@@ -191,7 +196,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9BB1E962216CEAC0050B493 /* Heqingzhao_TabbarAdjustPosition.m in Sources */,
-				C9BB1E982216CEAC0050B493 /* Heqingzhao_MultiChannelTopBarTabItem.m in Sources */,
+				C94138DC221A476800AFA04F /* Heqingzhao_MultiChannelContentView.m in Sources */,
+				C9BB1E982216CEAC0050B493 /* Heqingzhao_MultiChannelConfig.m in Sources */,
 				C9BB1E4B221551D90050B493 /* ViewController.m in Sources */,
 				C9BB1E992216CEAC0050B493 /* Heqingzhao_MultiChannelTopBar.m in Sources */,
 				C9BB1E56221551DC0050B493 /* main.m in Sources */,
