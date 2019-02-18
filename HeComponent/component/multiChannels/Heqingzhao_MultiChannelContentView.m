@@ -13,6 +13,7 @@
 
 @property(nonatomic, strong)UIScrollView* contentScrollView;
 @property(nonatomic, strong)NSMutableDictionary* dicContentView;
+@property(nonatomic, assign)BOOL enableScroll;
 
 @end
 
@@ -44,8 +45,8 @@
     
     UIView* channelView = [self.dicContentView objectForKey:config.itemIdentifier];
     if(!channelView){
-        if([config.contentProvider respondsToSelector:@selector(contentView)]){
-            channelView = [config.contentProvider contentView];
+        if([config.contentProvider respondsToSelector:@selector(contentViewWithIndex:config:)]){
+            channelView = [config.contentProvider contentViewWithIndex:nIndex config:config];
         }
         if(!channelView){
             channelView = [[UIView alloc] initWithFrame:self.contentScrollView.bounds];
@@ -67,14 +68,17 @@
 }
 
 - (void)didSelectIndex:(NSInteger)nIndex animated:(BOOL)animated  triggerDelegate:(BOOL)bTrigger{
-    [self.contentScrollView setContentOffset:CGPointMake(nIndex*self.contentScrollView.width, 0) animated:animated];
+    self.enableScroll = NO;
+    [self.contentScrollView setContentOffset:CGPointMake(nIndex*self.contentScrollView.width, 0)];
+    
     
     Heqingzhao_MultiChannelConfig* config = [self.arrayTabItem objectAtIndex:nIndex];
     if(bTrigger){
         if([self.delegate respondsToSelector:@selector(multiChannelContentView:didSelectIndex:withChannelView:andConfig:)]){
-            [self.delegate multiChannelContentView:self willSelectIndex:nIndex withChannelView:[self.dicContentView objectForKey:config.itemIdentifier] andConfig:config];
+            [self.delegate multiChannelContentView:self didSelectIndex:nIndex withChannelView:[self.dicContentView objectForKey:config.itemIdentifier] andConfig:config];
         }
     }
+    self.enableScroll = YES;
 }
 
 - (void)setSelectedIndex:(NSInteger)selectedIndex{
@@ -103,7 +107,7 @@
     if(preIndex >= 0){
         [self willSelectIndex:preIndex triggerDelegate:NO];
     }
-    if(afterIndex <= self.arrayTabItem.count){
+    if(afterIndex < self.arrayTabItem.count){
         [self willSelectIndex:afterIndex triggerDelegate:NO];
     }
 }
@@ -129,20 +133,27 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if(!self.enableScroll)
+        return ;
+    
     CGFloat fOffsetX = scrollView.contentOffset.x;
+    if(fOffsetX >= scrollView.contentSize.width || fOffsetX <= 0)
+        return ;
+    
     CGFloat fIndex = fOffsetX/scrollView.width;
     if([self.delegate respondsToSelector:@selector(multiChannelContentView:scrollingWithIndex:)]){
         [self.delegate multiChannelContentView:self scrollingWithIndex:fIndex];
     }
     
-    NSInteger nIndex = (NSInteger)fIndex;
     if(fIndex > _selectedIndex){
+        NSInteger nIndex = (NSInteger)fIndex;
         if(nIndex != _selectedIndex){
             [self setSelectedIndex:nIndex animated:NO];
         }
     }else if(fIndex < _selectedIndex){
-        if(nIndex != _selectedIndex - 1){
-            [self setSelectedIndex:nIndex animated:NO];
+        NSInteger nIndex = (NSInteger)(_selectedIndex - fIndex);
+        if(nIndex == 1){
+            [self setSelectedIndex:_selectedIndex - 1 animated:NO];
         }
     }
 }

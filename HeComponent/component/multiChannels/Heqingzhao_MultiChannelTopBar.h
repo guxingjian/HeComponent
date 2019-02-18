@@ -16,6 +16,8 @@
 @required
 - (void)topBar:(Heqingzhao_MultiChannelTopBar*)topBar willSelectIndex:(NSInteger)index item:(Heqingzhao_MultiChannelConfig*)item;
 - (void)topBar:(Heqingzhao_MultiChannelTopBar*)topBar didSelectIndex:(NSInteger)index item:(Heqingzhao_MultiChannelConfig*)item;
+
+@optional
 - (void)rightItemAction:(UIButton*)btn arrayItems:(NSArray*)arrayItems;
 
 @end
@@ -28,7 +30,7 @@ typedef NS_OPTIONS(NSInteger, Heqingzhao_MultiChannelTopBarLayout){
 
 @interface Heqingzhao_MultiChannelTopBar : UIView
 
-@property(nonatomic, weak)IBOutlet id<Heqingzhao_MultiChannelTopBarDelegate> barDelegate;
+@property(nonatomic, weak)IBOutlet id<Heqingzhao_MultiChannelTopBarDelegate> delegate;
 
 // 为了提高效率， 请在设置完下边所需参数后再设置arrayTabItem，因为在设置arrayTabItem的时候会创建tabItem
 @property(nonatomic, strong)IBOutletCollection(Heqingzhao_MultiChannelConfig)NSArray* arrayTabItem;

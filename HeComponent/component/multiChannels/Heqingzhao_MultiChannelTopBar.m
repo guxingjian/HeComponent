@@ -136,15 +136,15 @@
         return ;
     
     Heqingzhao_MultiChannelConfig* item = nil;
-    if([self.barDelegate respondsToSelector:@selector(topBar:willSelectIndex:item:)]){
+    if([self.delegate respondsToSelector:@selector(topBar:willSelectIndex:item:)]){
         item = [self.arrayTabItem objectAtIndex:btn.tag];
-        [self.barDelegate topBar:self willSelectIndex:btn.tag item:item];
+        [self.delegate topBar:self willSelectIndex:btn.tag item:item];
     }
 
     [self setSelectedIndex:btn.tag animated:YES];
     
-    if([self.barDelegate respondsToSelector:@selector(topBar:didSelectIndex:item:)]){
-        [self.barDelegate topBar:self didSelectIndex:btn.tag item:item];
+    if([self.delegate respondsToSelector:@selector(topBar:didSelectIndex:item:)]){
+        [self.delegate topBar:self didSelectIndex:btn.tag item:item];
     }
 }
 
@@ -312,8 +312,8 @@
 }
 
 - (void)rightItemAction:(UIButton*)btn{
-    if([self.barDelegate respondsToSelector:@selector(rightItemAction:)]){
-        [self.barDelegate rightItemAction:btn arrayItems:self.arrayTabItem];
+    if([self.delegate respondsToSelector:@selector(rightItemAction:)]){
+        [self.delegate rightItemAction:btn arrayItems:self.arrayTabItem];
     }
 }
 
@@ -325,7 +325,27 @@
     [self buildTabItems];
 }
 
-
+- (void)scrollToIndex:(CGFloat)fIndex{
+    NSInteger nTargetIndex = -1;
+    CGFloat fScale = 0;
+    
+    if(fIndex > _selectedIndex){
+        nTargetIndex = _selectedIndex + 1;
+        fScale = fIndex - _selectedIndex;
+    }else if(fIndex < _selectedIndex){
+        nTargetIndex = _selectedIndex - 1;
+        fScale = _selectedIndex - fIndex;
+    }
+    
+    if(nTargetIndex < 0 || nTargetIndex >= self.arrayTabItem.count)
+        return ;
+    if(_selectedIndex < 0 || _selectedIndex >= self.arrayTabButtons.count)
+        return ;
+    
+    UIButton* targetBtn = [self.arrayTabButtons objectAtIndex:nTargetIndex];
+    UIButton* currentBtn = [self.arrayTabButtons objectAtIndex:_selectedIndex];
+    self.animateLineView.frame = CGRectMake(currentBtn.x + fScale*(targetBtn.x - currentBtn.x), self.animateLineView.y, self.animateLineView.width, self.animateLineView.height);
+}
 
 - (void)layoutSubviews{
     [super layoutSubviews];

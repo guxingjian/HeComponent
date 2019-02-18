@@ -25,9 +25,11 @@
 
 @end
 
+@class Heqingzhao_MultiChannelConfig;
+
 @protocol Heqingzhao_MultiChannelConfigProtocol <NSObject>
 @required
-- (UIView*)contentView;
+- (UIView*)contentViewWithIndex:(NSInteger)nIndex config:(Heqingzhao_MultiChannelConfig*)config;
 
 @end
 
