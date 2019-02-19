@@ -40,7 +40,7 @@ typedef NS_OPTIONS(NSInteger, Heqingzhao_MultiChannelTopBarLayout){
 @property(nonatomic, assign)CGFloat itemBottomDistance;
 
 
-@property(nonatomic, assign)CGFloat tabItemSpace;// 第一个item距离左边为tabItemSpace，item之间的间距为tabItemSpace
+@property(nonatomic, assign)CGFloat tabItemSpace;// 第一个item距离左边为edgeSpace，item之间的间距为tabItemSpace
 @property(nonatomic, assign)CGFloat edgeSpace;//第一个item和最后一个item距离边界的距离，默认为tabItemSpace
 
 @property(nonatomic, assign)BOOL hideAnimatedLine; // 选中标题下边的横线是否隐藏
@@ -53,8 +53,13 @@ typedef NS_OPTIONS(NSInteger, Heqingzhao_MultiChannelTopBarLayout){
 
 - (void)setSelectedIndex:(NSInteger)selectedIndex animated:(BOOL)animated;
 
-- (CGFloat)tabItemMaxHeight;
+- (CGFloat)tabItemMaxHeight; // 获取tab的最大高度，可以由子类重写
+
+// 可以由子类重写 自定义动画
 - (void)indexChangedAnimationWithPreIndex:(NSInteger)preIndex;
+
+// 当contentView左右滑动的时候，必须调用这个函数，fIndex为浮点数的索引
+// 可由子类重写，自定义行为
 - (void)scrollToIndex:(CGFloat)fIndex;
 
 @end

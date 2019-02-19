@@ -19,6 +19,8 @@
 		C9BB1E972216CEAC0050B493 /* Heqingzhao_MultiChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BB1E8E2216CEAC0050B493 /* Heqingzhao_MultiChannelViewController.m */; };
 		C9BB1E982216CEAC0050B493 /* Heqingzhao_MultiChannelConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BB1E8F2216CEAC0050B493 /* Heqingzhao_MultiChannelConfig.m */; };
 		C9BB1E992216CEAC0050B493 /* Heqingzhao_MultiChannelTopBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BB1E932216CEAC0050B493 /* Heqingzhao_MultiChannelTopBar.m */; };
+		C9BDB028221BF5BB00FC4168 /* MultiChannelDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BDB027221BF5BB00FC4168 /* MultiChannelDemoViewController.m */; };
+		C9BDB02B221BF6D800FC4168 /* UIColor+extension_qingzhao.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BDB02A221BF6D800FC4168 /* UIColor+extension_qingzhao.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,10 @@
 		C9BB1E922216CEAC0050B493 /* Heqingzhao_MultiChannelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_MultiChannelViewController.h; sourceTree = "<group>"; };
 		C9BB1E932216CEAC0050B493 /* Heqingzhao_MultiChannelTopBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_MultiChannelTopBar.m; sourceTree = "<group>"; };
 		C9BB1E942216CEAC0050B493 /* Heqingzhao_MultiChannelConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_MultiChannelConfig.h; sourceTree = "<group>"; };
+		C9BDB026221BF5BB00FC4168 /* MultiChannelDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultiChannelDemoViewController.h; sourceTree = "<group>"; };
+		C9BDB027221BF5BB00FC4168 /* MultiChannelDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultiChannelDemoViewController.m; sourceTree = "<group>"; };
+		C9BDB029221BF6D800FC4168 /* UIColor+extension_qingzhao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+extension_qingzhao.h"; sourceTree = "<group>"; };
+		C9BDB02A221BF6D800FC4168 /* UIColor+extension_qingzhao.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+extension_qingzhao.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +85,8 @@
 				C9BB1E5C221552D00050B493 /* component */,
 				C9BB1E46221551D90050B493 /* AppDelegate.h */,
 				C9BB1E47221551D90050B493 /* AppDelegate.m */,
+				C9BDB026221BF5BB00FC4168 /* MultiChannelDemoViewController.h */,
+				C9BDB027221BF5BB00FC4168 /* MultiChannelDemoViewController.m */,
 				C9BB1E49221551D90050B493 /* ViewController.h */,
 				C9BB1E4A221551D90050B493 /* ViewController.m */,
 				C9BB1E4C221551D90050B493 /* Main.storyboard */,
@@ -104,6 +112,8 @@
 			children = (
 				C9BB1E8B2216CEAC0050B493 /* UIView+view_frame.h */,
 				C9BB1E8A2216CEAC0050B493 /* UIView+view_frame.m */,
+				C9BDB029221BF6D800FC4168 /* UIColor+extension_qingzhao.h */,
+				C9BDB02A221BF6D800FC4168 /* UIColor+extension_qingzhao.m */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -113,8 +123,8 @@
 			children = (
 				C9BB1E912216CEAC0050B493 /* Heqingzhao_TabbarAdjustPosition.h */,
 				C9BB1E8D2216CEAC0050B493 /* Heqingzhao_TabbarAdjustPosition.m */,
-				C9BB1E8E2216CEAC0050B493 /* Heqingzhao_MultiChannelViewController.m */,
 				C9BB1E922216CEAC0050B493 /* Heqingzhao_MultiChannelViewController.h */,
+				C9BB1E8E2216CEAC0050B493 /* Heqingzhao_MultiChannelViewController.m */,
 				C9BB1E902216CEAC0050B493 /* Heqingzhao_MultiChannelTopBar.h */,
 				C9BB1E932216CEAC0050B493 /* Heqingzhao_MultiChannelTopBar.m */,
 				C9BB1E942216CEAC0050B493 /* Heqingzhao_MultiChannelConfig.h */,
@@ -201,8 +211,10 @@
 				C9BB1E4B221551D90050B493 /* ViewController.m in Sources */,
 				C9BB1E992216CEAC0050B493 /* Heqingzhao_MultiChannelTopBar.m in Sources */,
 				C9BB1E56221551DC0050B493 /* main.m in Sources */,
+				C9BDB02B221BF6D800FC4168 /* UIColor+extension_qingzhao.m in Sources */,
 				C9BB1E48221551D90050B493 /* AppDelegate.m in Sources */,
 				C9BB1E972216CEAC0050B493 /* Heqingzhao_MultiChannelViewController.m in Sources */,
+				C9BDB028221BF5BB00FC4168 /* MultiChannelDemoViewController.m in Sources */,
 				C9BB1E952216CEAC0050B493 /* UIView+view_frame.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

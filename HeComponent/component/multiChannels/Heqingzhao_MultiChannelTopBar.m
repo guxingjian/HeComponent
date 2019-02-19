@@ -9,6 +9,7 @@
 #import "Heqingzhao_MultiChannelTopBar.h"
 #import "UIView+view_frame.h"
 #import "Heqingzhao_TabbarAdjustPosition.h"
+#import "UIColor+extension_qingzhao.h"
 
 @interface Heqingzhao_MultiChannelTopBar()
 
@@ -19,10 +20,13 @@
 
 @implementation Heqingzhao_MultiChannelTopBar
 
+@synthesize edgeSpace = _edgeSpace;
+
 - (instancetype)initWithFrame:(CGRect)frame{
     if(self = [super initWithFrame:frame]){
         self.rightItemWidth = 50;
         _selectedIndex = -1;
+        self.backgroundColor = [UIColor colorWithHexString:@"#F3F4F9"];
     }
     return self;
 }
@@ -114,11 +118,8 @@
         self.arrayTabButtons = [NSMutableArray arrayWithArray:[self.arrayTabButtons subarrayWithRange:NSMakeRange(0, arrayTabItem.count)]];
     }
     
-    if(Heqingzhao_MultiChannelTopBarLayout_Divide == self.tabItemLayout && self.arrayTabButtons.count > 0){
-        if(fPosX > _tabItemScrollView.width)
-            return ;
-        
-        CGFloat fSplit = _tabItemScrollView.width/self.arrayTabButtons.count;
+    if(Heqingzhao_MultiChannelTopBarLayout_Divide == self.tabItemLayout && self.arrayTabButtons.count > 0 && fPosX <= _tabItemScrollView.width){
+        CGFloat fSplit = _tabItemScrollView.width /self.arrayTabButtons.count;
         for(NSInteger i = 0; i < self.arrayTabButtons.count; ++ i){
             UIView* btn = [self.arrayTabButtons objectAtIndex:i];
             btn.frame = CGRectMake(i*fSplit + fSplit/2 - btn.width, btn.y, btn.width, btn.height);
@@ -165,7 +166,10 @@
     [UIView beginAnimations:@"lineview_animation" context:nil];
     [UIView setAnimationDuration:0.3];
     
-    self.animateLineView.frame = CGRectMake(btn.left, self.animateLineView.y, btn.width, self.animateLineView.height);
+    if(!self.hideAnimatedLine){
+        self.animateLineView.frame = CGRectMake(btn.left, self.animateLineView.y, btn.width, self.animateLineView.height);
+    }
+    
     preBtn.layer.transform = CATransform3DIdentity;
     btn.layer.transform = CATransform3DScale(CATransform3DIdentity, item.topBarConfig.selectedScale, item.topBarConfig.selectedScale, 1);
     
@@ -219,10 +223,17 @@
     
 }
 
+- (void)setHideAnimatedLine:(BOOL)hideAnimatedLine{
+    self.animateLineView.hidden = YES;
+}
+
 - (UIView *)animateLineView{
     if(!_animateLineView){
         
-        UIButton* btn = [self.arrayTabButtons objectAtIndex:self.selectedIndex];
+        UIButton* btn = nil;
+        if(_selectedIndex >= 0 && _selectedIndex < self.arrayTabButtons.count){
+            btn = [self.arrayTabButtons objectAtIndex:_selectedIndex];
+        }
         _animateLineView = [[UIView alloc] initWithFrame:CGRectMake(btn.left, _tabItemScrollView.height - self.animateLineViewDis - 2, btn.width, 2)];
         _animateLineView.backgroundColor = [UIColor blueColor];
         [_tabItemScrollView addSubview:_animateLineView];
@@ -258,7 +269,6 @@
 }
 
 - (void)setItemBottomDistance:(CGFloat)itemBottomDistance{
-    
     CGFloat fRightHeight = 0;
     if(_tabItemScrollView){
         _tabItemScrollView.frame = CGRectMake(_tabItemScrollView.left, self.height - itemBottomDistance*2 + [self tabItemMaxHeight], _tabItemScrollView.width, itemBottomDistance*2 + [self tabItemMaxHeight]);
@@ -275,14 +285,21 @@
 
 - (CGFloat)edgeSpace{
     if(0 == _edgeSpace){
-        return _tabItemSpace;
+        return 15;
     }
     return _edgeSpace;
 }
 
+- (void)setEdgeSpace:(CGFloat)edgeSpace{
+    _edgeSpace = edgeSpace;
+    if(_tabItemScrollView){
+        [self buildTabItems];
+    }
+}
+
 - (void)setTabItemSpace:(CGFloat)tabItemSpace{
     if(_tabItemScrollView){
-        CGFloat fPosX = tabItemSpace;
+        CGFloat fPosX = self.edgeSpace;
         for(UIView* btn in self.arrayTabButtons){
             btn.frame = CGRectMake(fPosX, btn.y, btn.width, btn.height);
             fPosX += btn.width + tabItemSpace;
@@ -363,26 +380,31 @@
     UIButton* targetBtn = [self.arrayTabButtons objectAtIndex:nTargetIndex];
     UIButton* currentBtn = [self.arrayTabButtons objectAtIndex:_selectedIndex];
     
-    CGFloat fMaxWidth = targetBtn.center.x - currentBtn.center.x;
-    if(fMaxWidth < 0){
-        fMaxWidth = -fMaxWidth;
+    if(!self.hideAnimatedLine){
+        CGFloat fMaxWidth = targetBtn.center.x - currentBtn.center.x;
+        if(fMaxWidth < 0){
+            fMaxWidth = -fMaxWidth;
+        }
+        if(fMaxWidth > 50){
+            fMaxWidth = 50;
+        }
+        
+        CGFloat fLineW = 0;
+        if(fScale <= 0.5){
+            fLineW = 4*(currentBtn.width - fMaxWidth)*(fScale - 0.5)*(fScale-0.5) + fMaxWidth;
+        }else{
+            fLineW = 4*(targetBtn.width - fMaxWidth)*(fScale - 0.5)*(fScale-0.5) + fMaxWidth;
+        }
+        
+        CGFloat fPosX = 0;
+        if(fIndex < _selectedIndex){
+            fPosX = (currentBtn.x - targetBtn.x)*(fScale-1)*(fScale-1) + targetBtn.x;
+        }else {
+            CGFloat fRight = (currentBtn.right - targetBtn.right)*(fScale-1)*(fScale-1) + targetBtn.right;
+            fPosX = fRight - fLineW;
+        }
+        self.animateLineView.frame = CGRectMake(fPosX, self.animateLineView.y, fLineW, self.animateLineView.height);
     }
-    
-    CGFloat fLineW = 0;
-    if(fScale <= 0.5){
-        fLineW = 4*(currentBtn.width - fMaxWidth)*(fScale - 0.5)*(fScale-0.5) + fMaxWidth;
-    }else{
-        fLineW = 4*(targetBtn.width - fMaxWidth)*(fScale - 0.5)*(fScale-0.5) + fMaxWidth;
-    }
-    
-    CGFloat fPosX = 0;
-    if(fIndex < _selectedIndex){
-        fPosX = (currentBtn.x - targetBtn.x)*(fScale-1)*(fScale-1) + targetBtn.x;
-    }else {
-        CGFloat fRight = (currentBtn.right - targetBtn.right)*(fScale-1)*(fScale-1) + targetBtn.right;
-        fPosX = fRight - fLineW;
-    }
-    self.animateLineView.frame = CGRectMake(fPosX, self.animateLineView.y, fLineW, self.animateLineView.height);
     
     Heqingzhao_MultiChannelConfig* currentConfig = [self.arrayTabItem objectAtIndex:_selectedIndex];
     Heqingzhao_MultiChannelConfig* targetConfig = [self.arrayTabItem objectAtIndex:nTargetIndex];

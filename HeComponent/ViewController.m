@@ -26,8 +26,10 @@
     
     Heqingzhao_MultiChannelTopBar* topBar = [[Heqingzhao_MultiChannelTopBar alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 80)];
     topBar.delegate = self;
+    topBar.tabItemLayout = Heqingzhao_MultiChannelTopBarLayout_Divide;
+    topBar.hideAnimatedLine = YES;
     
-    NSArray* arrayChannels = @[@"沪深", @"港股",@"美股",@"英股",@"环球",@"外汇",@"基金",@"债券",@"新三板",@"数字货币",];
+    NSArray* arrayChannels = @[@"沪深", @"港股",@"美股"];
     NSMutableArray* arrayItems = [NSMutableArray array];
     
     UIFont* font = [UIFont systemFontOfSize:15];
@@ -88,11 +90,11 @@
 }
 
 - (void)topBar:(Heqingzhao_MultiChannelTopBar *)topBar willSelectIndex:(NSInteger)index item:(Heqingzhao_MultiChannelConfig *)item{
-    self.contentView.selectedIndex = index;
+//    self.contentView.selectedIndex = index;
 }
 
 - (void)topBar:(Heqingzhao_MultiChannelTopBar *)topBar didSelectIndex:(NSInteger)index item:(Heqingzhao_MultiChannelConfig *)item{
-//    self.contentView.selectedIndex = index;
+    self.contentView.selectedIndex = index;
 }
 
 - (void)multiChannelContentView:(Heqingzhao_MultiChannelContentView *)contentView willSelectIndex:(NSInteger)nIndex withChannelView:(UIView *)view andConfig:(Heqingzhao_MultiChannelConfig *)config{
