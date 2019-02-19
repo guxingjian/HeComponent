@@ -88,15 +88,15 @@
 }
 
 - (void)topBar:(Heqingzhao_MultiChannelTopBar *)topBar willSelectIndex:(NSInteger)index item:(Heqingzhao_MultiChannelConfig *)item{
-//    self.contentView.selectedIndex = index;
-}
-
-- (void)topBar:(Heqingzhao_MultiChannelTopBar *)topBar didSelectIndex:(NSInteger)index item:(Heqingzhao_MultiChannelConfig *)item{
     self.contentView.selectedIndex = index;
 }
 
+- (void)topBar:(Heqingzhao_MultiChannelTopBar *)topBar didSelectIndex:(NSInteger)index item:(Heqingzhao_MultiChannelConfig *)item{
+//    self.contentView.selectedIndex = index;
+}
+
 - (void)multiChannelContentView:(Heqingzhao_MultiChannelContentView *)contentView willSelectIndex:(NSInteger)nIndex withChannelView:(UIView *)view andConfig:(Heqingzhao_MultiChannelConfig *)config{
-    
+    self.topBar.selectedIndex = nIndex;
 }
 
 - (void)multiChannelContentView:(Heqingzhao_MultiChannelContentView *)contentView didSelectIndex:(NSInteger)nIndex withChannelView:(UIView *)view andConfig:(Heqingzhao_MultiChannelConfig *)config{

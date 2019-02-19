@@ -9,6 +9,8 @@
 #import "Heqingzhao_MultiChannelContentView.h"
 #import "UIView+view_frame.h"
 
+#define indexChangedDistance 0.99999f
+
 @interface Heqingzhao_MultiChannelContentView()<UIScrollViewDelegate>
 
 @property(nonatomic, strong)UIScrollView* contentScrollView;
@@ -18,6 +20,18 @@
 @end
 
 @implementation Heqingzhao_MultiChannelContentView
+
+- (instancetype)initWithFrame:(CGRect)frame{
+    if(self = [super initWithFrame:frame]){
+        _selectedIndex = -1;
+    }
+    return self;
+}
+
+- (void)awakeFromNib{
+    [super awakeFromNib];
+    _selectedIndex = -1;
+}
 
 - (UIScrollView *)contentScrollView{
     if(!_contentScrollView){
@@ -71,7 +85,6 @@
     self.enableScroll = NO;
     [self.contentScrollView setContentOffset:CGPointMake(nIndex*self.contentScrollView.width, 0)];
     
-    
     Heqingzhao_MultiChannelConfig* config = [self.arrayTabItem objectAtIndex:nIndex];
     if(bTrigger){
         if([self.delegate respondsToSelector:@selector(multiChannelContentView:didSelectIndex:withChannelView:andConfig:)]){
@@ -82,12 +95,13 @@
 }
 
 - (void)setSelectedIndex:(NSInteger)selectedIndex{
-    if(_selectedIndex == selectedIndex)
-        return ;
     [self setSelectedIndex:selectedIndex animated:YES];
 }
 
 - (void)setSelectedIndex:(NSInteger)selectedIndex animated:(BOOL)animated{
+    if(_selectedIndex == selectedIndex)
+        return ;
+    
     if(selectedIndex < 0 || selectedIndex >= self.arrayTabItem.count)
         return ;
     
@@ -133,26 +147,24 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    if(!self.enableScroll)
+    if(!_enableScroll)
         return ;
     
     CGFloat fOffsetX = scrollView.contentOffset.x;
-    if(fOffsetX >= scrollView.contentSize.width || fOffsetX <= 0)
-        return ;
-    
     CGFloat fIndex = fOffsetX/scrollView.width;
-    if([self.delegate respondsToSelector:@selector(multiChannelContentView:scrollingWithIndex:)]){
-        [self.delegate multiChannelContentView:self scrollingWithIndex:fIndex];
+    
+    if(fOffsetX >= 0 && fOffsetX <= scrollView.contentSize.width){
+        if([self.delegate respondsToSelector:@selector(multiChannelContentView:scrollingWithIndex:)]){
+            [self.delegate multiChannelContentView:self scrollingWithIndex:fIndex];
+        }
     }
     
     if(fIndex > _selectedIndex){
-        NSInteger nIndex = (NSInteger)fIndex;
-        if(nIndex != _selectedIndex){
-            [self setSelectedIndex:nIndex animated:NO];
+        if((fIndex - _selectedIndex) >= indexChangedDistance){
+            [self setSelectedIndex:_selectedIndex + 1 animated:NO];
         }
     }else if(fIndex < _selectedIndex){
-        NSInteger nIndex = (NSInteger)(_selectedIndex - fIndex);
-        if(nIndex == 1){
+        if((_selectedIndex - fIndex) >= indexChangedDistance){
             [self setSelectedIndex:_selectedIndex - 1 animated:NO];
         }
     }

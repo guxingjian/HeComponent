@@ -13,7 +13,7 @@
 @interface Heqingzhao_MultiChannelTopBar()
 
 @property(nonatomic, strong)UIScrollView* tabItemScrollView;
-@property(nonatomic, strong)NSMutableArray* arrayTabButtons;
+@property(nonatomic, readwrite)NSMutableArray* arrayTabButtons;
 
 @end
 
@@ -22,6 +22,7 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     if(self = [super initWithFrame:frame]){
         self.rightItemWidth = 50;
+        _selectedIndex = -1;
     }
     return self;
 }
@@ -29,6 +30,7 @@
 - (void)awakeFromNib{
     [super awakeFromNib];
     self.rightItemWidth = 50;
+    _selectedIndex = -1;
 }
 
 - (NSMutableArray *)arrayTabButtons{
@@ -149,12 +151,31 @@
 }
 
 - (void)setSelectedIndex:(NSInteger)selectedIndex{
-    if(_selectedIndex == selectedIndex)
-        return ;
     [self setSelectedIndex:selectedIndex animated:YES];
 }
 
+- (void)indexChangedAnimationWithPreIndex:(NSInteger)preIndex{
+    UIButton* preBtn = nil;
+    if(preIndex >= 0 && preIndex < self.arrayTabButtons.count){
+        preBtn = [self.arrayTabButtons objectAtIndex:preIndex];
+    }
+    
+    Heqingzhao_MultiChannelConfig* item = [self.arrayTabItem objectAtIndex:_selectedIndex];
+    UIButton* btn = [self.arrayTabButtons objectAtIndex:_selectedIndex];
+    [UIView beginAnimations:@"lineview_animation" context:nil];
+    [UIView setAnimationDuration:0.3];
+    
+    self.animateLineView.frame = CGRectMake(btn.left, self.animateLineView.y, btn.width, self.animateLineView.height);
+    preBtn.layer.transform = CATransform3DIdentity;
+    btn.layer.transform = CATransform3DScale(CATransform3DIdentity, item.topBarConfig.selectedScale, item.topBarConfig.selectedScale, 1);
+    
+    [UIView commitAnimations];
+}
+
 - (void)setSelectedIndex:(NSInteger)selectedIndex animated:(BOOL)animated{
+    if(_selectedIndex == selectedIndex)
+        return ;
+    
     if(selectedIndex < 0 || selectedIndex >= self.arrayTabItem.count)
         return ;
     
@@ -163,29 +184,26 @@
     if(_selectedIndex >= 0 && _selectedIndex < self.arrayTabItem.count){
         preItem = [self.arrayTabItem objectAtIndex:_selectedIndex];
         preBtn = [self.arrayTabButtons objectAtIndex:_selectedIndex];
+        [preBtn setTitleColor:preItem.topBarConfig.normalTextColor forState:UIControlStateNormal];
+        [preBtn setTitleColor:preItem.topBarConfig.selectedTextColor forState:UIControlStateSelected];
         preBtn.selected = NO;
         preBtn.titleLabel.font = preItem.topBarConfig.normalFont;
         preItem.status = 0;
     }
     
+    NSInteger preIndex = _selectedIndex;
     _selectedIndex = selectedIndex;
     
     Heqingzhao_MultiChannelConfig* item = [self.arrayTabItem objectAtIndex:_selectedIndex];
     UIButton* btn = [self.arrayTabButtons objectAtIndex:_selectedIndex];
     item.status = 1;
+    [btn setTitleColor:item.topBarConfig.normalTextColor forState:UIControlStateNormal];
+    [btn setTitleColor:item.topBarConfig.selectedTextColor forState:UIControlStateSelected];
     btn.selected = YES;
     btn.titleLabel.font = item.topBarConfig.selectedFont;
 
     if(animated){
-
-        [UIView beginAnimations:@"lineview_animation" context:nil];
-        [UIView setAnimationDuration:0.3];
-        
-        self.animateLineView.frame = CGRectMake(btn.left, self.animateLineView.y, btn.width, self.animateLineView.height);
-        preBtn.layer.transform = CATransform3DIdentity;
-        btn.layer.transform = CATransform3DScale(CATransform3DIdentity, item.topBarConfig.selectedScale, item.topBarConfig.selectedScale, 1);
-        
-        [UIView commitAnimations];
+        [self indexChangedAnimationWithPreIndex:preIndex];
         [Heqingzhao_TabbarAdjustPosition showHiddenTabWith:btn splitDis:self.tabItemSpace containerScrollView:_tabItemScrollView animation:YES];
     }else{
         self.animateLineView.frame = CGRectMake(btn.left, self.animateLineView.y, btn.width, self.animateLineView.height);
@@ -337,14 +355,59 @@
         fScale = _selectedIndex - fIndex;
     }
     
-    if(nTargetIndex < 0 || nTargetIndex >= self.arrayTabItem.count)
+    if(nTargetIndex < 0 || nTargetIndex >= self.arrayTabButtons.count)
         return ;
     if(_selectedIndex < 0 || _selectedIndex >= self.arrayTabButtons.count)
         return ;
     
     UIButton* targetBtn = [self.arrayTabButtons objectAtIndex:nTargetIndex];
     UIButton* currentBtn = [self.arrayTabButtons objectAtIndex:_selectedIndex];
-    self.animateLineView.frame = CGRectMake(currentBtn.x + fScale*(targetBtn.x - currentBtn.x), self.animateLineView.y, self.animateLineView.width, self.animateLineView.height);
+    
+    CGFloat fMaxWidth = targetBtn.center.x - currentBtn.center.x;
+    if(fMaxWidth < 0){
+        fMaxWidth = -fMaxWidth;
+    }
+    
+    CGFloat fLineW = 0;
+    if(fScale <= 0.5){
+        fLineW = 4*(currentBtn.width - fMaxWidth)*(fScale - 0.5)*(fScale-0.5) + fMaxWidth;
+    }else{
+        fLineW = 4*(targetBtn.width - fMaxWidth)*(fScale - 0.5)*(fScale-0.5) + fMaxWidth;
+    }
+    
+    CGFloat fPosX = 0;
+    if(fIndex < _selectedIndex){
+        fPosX = (currentBtn.x - targetBtn.x)*(fScale-1)*(fScale-1) + targetBtn.x;
+    }else {
+        CGFloat fRight = (currentBtn.right - targetBtn.right)*(fScale-1)*(fScale-1) + targetBtn.right;
+        fPosX = fRight - fLineW;
+    }
+    self.animateLineView.frame = CGRectMake(fPosX, self.animateLineView.y, fLineW, self.animateLineView.height);
+    
+    Heqingzhao_MultiChannelConfig* currentConfig = [self.arrayTabItem objectAtIndex:_selectedIndex];
+    Heqingzhao_MultiChannelConfig* targetConfig = [self.arrayTabItem objectAtIndex:nTargetIndex];
+    CGFloat fCurrentScale = [self originValue:currentConfig.topBarConfig.selectedScale targetValue:1 xFac:fScale];
+    CGFloat fTargetScale = [self originValue:1 targetValue:targetConfig.topBarConfig.selectedScale xFac:fScale];
+    currentBtn.layer.transform = CATransform3DScale(CATransform3DIdentity, fCurrentScale, fCurrentScale, 1);
+    targetBtn.layer.transform = CATransform3DScale(CATransform3DIdentity, fTargetScale, fTargetScale, 1);
+    
+    CGFloat currentSelectedColorBuffer[4] = {};
+    [currentConfig.topBarConfig.selectedTextColor getRed:(CGFloat*)currentSelectedColorBuffer green:(CGFloat*)currentSelectedColorBuffer + 1 blue:(CGFloat*)currentSelectedColorBuffer + 2 alpha:(CGFloat*)currentSelectedColorBuffer + 3];
+    CGFloat currentNormalBuffer[4] = {};
+    [currentConfig.topBarConfig.normalTextColor getRed:(CGFloat*)currentNormalBuffer green:(CGFloat*)currentNormalBuffer + 1 blue:(CGFloat*)currentNormalBuffer + 2 alpha:(CGFloat*)currentNormalBuffer + 3];
+    UIColor* currentColor = [UIColor colorWithRed:[self originValue:currentSelectedColorBuffer[0] targetValue:currentNormalBuffer[0] xFac:fScale] green:[self originValue:currentSelectedColorBuffer[1] targetValue:currentNormalBuffer[1] xFac:fScale] blue:[self originValue:currentSelectedColorBuffer[2] targetValue:currentNormalBuffer[2] xFac:fScale] alpha:1];
+    [currentBtn setTitleColor:currentColor forState:UIControlStateSelected];
+
+    CGFloat targetSelectedColorBuffer[4] = {};
+    [targetConfig.topBarConfig.selectedTextColor getRed:(CGFloat*)targetSelectedColorBuffer green:(CGFloat*)targetSelectedColorBuffer + 1 blue:(CGFloat*)targetSelectedColorBuffer + 2 alpha:(CGFloat*)targetSelectedColorBuffer + 3];
+    CGFloat targetNormalBuffer[4] = {};
+    [targetConfig.topBarConfig.normalTextColor getRed:(CGFloat*)targetNormalBuffer green:(CGFloat*)targetNormalBuffer + 1 blue:(CGFloat*)targetNormalBuffer + 2 alpha:(CGFloat*)targetNormalBuffer + 3];
+    UIColor* targetColor = [UIColor colorWithRed:[self originValue:targetNormalBuffer[0] targetValue:targetSelectedColorBuffer[0] xFac:fScale] green:[self originValue:targetNormalBuffer[1] targetValue:targetSelectedColorBuffer[1] xFac:fScale] blue:[self originValue:targetNormalBuffer[2] targetValue:targetSelectedColorBuffer[2] xFac:fScale] alpha:1];
+    [targetBtn setTitleColor:targetColor forState:UIControlStateNormal];
+}
+                                                  
+- (CGFloat)originValue:(CGFloat)sv targetValue:(CGFloat)tv xFac:(CGFloat)fScale{
+    return (tv - sv)*fScale + sv;
 }
 
 - (void)layoutSubviews{

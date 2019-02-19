@@ -13,11 +13,9 @@
 
 @protocol Heqingzhao_MultiChannelTopBarDelegate <NSObject>
 
-@required
+@optional
 - (void)topBar:(Heqingzhao_MultiChannelTopBar*)topBar willSelectIndex:(NSInteger)index item:(Heqingzhao_MultiChannelConfig*)item;
 - (void)topBar:(Heqingzhao_MultiChannelTopBar*)topBar didSelectIndex:(NSInteger)index item:(Heqingzhao_MultiChannelConfig*)item;
-
-@optional
 - (void)rightItemAction:(UIButton*)btn arrayItems:(NSArray*)arrayItems;
 
 @end
@@ -30,10 +28,10 @@ typedef NS_OPTIONS(NSInteger, Heqingzhao_MultiChannelTopBarLayout){
 
 @interface Heqingzhao_MultiChannelTopBar : UIView
 
-@property(nonatomic, weak)IBOutlet id<Heqingzhao_MultiChannelTopBarDelegate> delegate;
+@property(nonatomic, weak)id<Heqingzhao_MultiChannelTopBarDelegate> delegate;
 
 // 为了提高效率， 请在设置完下边所需参数后再设置arrayTabItem，因为在设置arrayTabItem的时候会创建tabItem
-@property(nonatomic, strong)IBOutletCollection(Heqingzhao_MultiChannelConfig)NSArray* arrayTabItem;
+@property(nonatomic, strong)NSArray* arrayTabItem;
 
 @property(nonatomic, strong)UIImage* rightItemImage; // 如果设置了，使用rightItemImage创建一个按钮
 @property(nonatomic, assign)CGFloat rightItemWidth; // rightItem的宽度
@@ -51,10 +49,12 @@ typedef NS_OPTIONS(NSInteger, Heqingzhao_MultiChannelTopBarLayout){
 @property(nonatomic, assign)NSInteger selectedIndex;
 
 @property(nonatomic, assign)Heqingzhao_MultiChannelTopBarLayout tabItemLayout;
+@property(nonatomic, readonly)NSMutableArray* arrayTabButtons;
 
 - (void)setSelectedIndex:(NSInteger)selectedIndex animated:(BOOL)animated;
 
 - (CGFloat)tabItemMaxHeight;
+- (void)indexChangedAnimationWithPreIndex:(NSInteger)preIndex;
 - (void)scrollToIndex:(CGFloat)fIndex;
 
 @end

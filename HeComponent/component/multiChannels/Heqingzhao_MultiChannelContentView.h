@@ -12,7 +12,7 @@
 @class Heqingzhao_MultiChannelContentView;
 
 @protocol Heqingzhao_MultiChannelContentViewDelegate <NSObject>
-@required
+@optional
 
 - (void)multiChannelContentView:(Heqingzhao_MultiChannelContentView*)contentView willSelectIndex:(NSInteger)nIndex withChannelView:(UIView*)view andConfig:(Heqingzhao_MultiChannelConfig*)config;
 - (void)multiChannelContentView:(Heqingzhao_MultiChannelContentView*)contentView didSelectIndex:(NSInteger)nIndex withChannelView:(UIView*)view andConfig:(Heqingzhao_MultiChannelConfig*)config;
