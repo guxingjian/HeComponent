@@ -16,7 +16,7 @@
 @optional
 - (void)topBar:(Heqingzhao_MultiChannelTopBar*)topBar willSelectIndex:(NSInteger)index item:(Heqingzhao_MultiChannelConfig*)item;
 - (void)topBar:(Heqingzhao_MultiChannelTopBar*)topBar didSelectIndex:(NSInteger)index item:(Heqingzhao_MultiChannelConfig*)item;
-- (void)rightItemAction:(UIButton*)btn arrayItems:(NSArray*)arrayItems;
+- (void)topBar:(Heqingzhao_MultiChannelTopBar*)topBar rightItemAction:(UIButton*)btn arrayItems:(NSArray*)arrayItems;
 
 @end
 

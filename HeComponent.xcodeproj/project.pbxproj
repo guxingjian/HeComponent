@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C94138DC221A476800AFA04F /* Heqingzhao_MultiChannelContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = C94138DB221A476800AFA04F /* Heqingzhao_MultiChannelContentView.m */; };
+		C9B0AD6B221D259C00F747B1 /* Heqingzhao_SinglePixelView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B0AD69221D259C00F747B1 /* Heqingzhao_SinglePixelView.m */; };
+		C9B0AD6E221D32DA00F747B1 /* Heqingzhao_MultiChannelEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B0AD6D221D32DA00F747B1 /* Heqingzhao_MultiChannelEditCell.m */; };
 		C9BB1E48221551D90050B493 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BB1E47221551D90050B493 /* AppDelegate.m */; };
 		C9BB1E4B221551D90050B493 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BB1E4A221551D90050B493 /* ViewController.m */; };
 		C9BB1E4E221551D90050B493 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9BB1E4C221551D90050B493 /* Main.storyboard */; };
@@ -21,11 +23,18 @@
 		C9BB1E992216CEAC0050B493 /* Heqingzhao_MultiChannelTopBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BB1E932216CEAC0050B493 /* Heqingzhao_MultiChannelTopBar.m */; };
 		C9BDB028221BF5BB00FC4168 /* MultiChannelDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BDB027221BF5BB00FC4168 /* MultiChannelDemoViewController.m */; };
 		C9BDB02B221BF6D800FC4168 /* UIColor+extension_qingzhao.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BDB02A221BF6D800FC4168 /* UIColor+extension_qingzhao.m */; };
+		C9BDB02F221BFB3700FC4168 /* down_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9BDB02D221BFB3700FC4168 /* down_arrow@2x.png */; };
+		C9BDB030221BFB3700FC4168 /* down_arrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9BDB02E221BFB3700FC4168 /* down_arrow@3x.png */; };
+		C9BDB068221C237100FC4168 /* Heqingzhao_MultiChannelEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BDB067221C237100FC4168 /* Heqingzhao_MultiChannelEditViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C94138DA221A476800AFA04F /* Heqingzhao_MultiChannelContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_MultiChannelContentView.h; sourceTree = "<group>"; };
 		C94138DB221A476800AFA04F /* Heqingzhao_MultiChannelContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_MultiChannelContentView.m; sourceTree = "<group>"; };
+		C9B0AD69221D259C00F747B1 /* Heqingzhao_SinglePixelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_SinglePixelView.m; sourceTree = "<group>"; };
+		C9B0AD6A221D259C00F747B1 /* Heqingzhao_SinglePixelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_SinglePixelView.h; sourceTree = "<group>"; };
+		C9B0AD6C221D32DA00F747B1 /* Heqingzhao_MultiChannelEditCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_MultiChannelEditCell.h; sourceTree = "<group>"; };
+		C9B0AD6D221D32DA00F747B1 /* Heqingzhao_MultiChannelEditCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_MultiChannelEditCell.m; sourceTree = "<group>"; };
 		C9BB1E43221551D90050B493 /* HeComponent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeComponent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9BB1E46221551D90050B493 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C9BB1E47221551D90050B493 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -50,6 +59,10 @@
 		C9BDB027221BF5BB00FC4168 /* MultiChannelDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultiChannelDemoViewController.m; sourceTree = "<group>"; };
 		C9BDB029221BF6D800FC4168 /* UIColor+extension_qingzhao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+extension_qingzhao.h"; sourceTree = "<group>"; };
 		C9BDB02A221BF6D800FC4168 /* UIColor+extension_qingzhao.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+extension_qingzhao.m"; sourceTree = "<group>"; };
+		C9BDB02D221BFB3700FC4168 /* down_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down_arrow@2x.png"; sourceTree = "<group>"; };
+		C9BDB02E221BFB3700FC4168 /* down_arrow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down_arrow@3x.png"; sourceTree = "<group>"; };
+		C9BDB066221C237100FC4168 /* Heqingzhao_MultiChannelEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_MultiChannelEditViewController.h; sourceTree = "<group>"; };
+		C9BDB067221C237100FC4168 /* Heqingzhao_MultiChannelEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_MultiChannelEditViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +114,7 @@
 		C9BB1E5C221552D00050B493 /* component */ = {
 			isa = PBXGroup;
 			children = (
+				C9BDB02C221BFB3700FC4168 /* resource */,
 				C9BB1E892216CEAC0050B493 /* common */,
 				C9BB1E8C2216CEAC0050B493 /* multiChannels */,
 			);
@@ -110,6 +124,8 @@
 		C9BB1E892216CEAC0050B493 /* common */ = {
 			isa = PBXGroup;
 			children = (
+				C9B0AD6A221D259C00F747B1 /* Heqingzhao_SinglePixelView.h */,
+				C9B0AD69221D259C00F747B1 /* Heqingzhao_SinglePixelView.m */,
 				C9BB1E8B2216CEAC0050B493 /* UIView+view_frame.h */,
 				C9BB1E8A2216CEAC0050B493 /* UIView+view_frame.m */,
 				C9BDB029221BF6D800FC4168 /* UIColor+extension_qingzhao.h */,
@@ -123,16 +139,29 @@
 			children = (
 				C9BB1E912216CEAC0050B493 /* Heqingzhao_TabbarAdjustPosition.h */,
 				C9BB1E8D2216CEAC0050B493 /* Heqingzhao_TabbarAdjustPosition.m */,
-				C9BB1E922216CEAC0050B493 /* Heqingzhao_MultiChannelViewController.h */,
-				C9BB1E8E2216CEAC0050B493 /* Heqingzhao_MultiChannelViewController.m */,
-				C9BB1E902216CEAC0050B493 /* Heqingzhao_MultiChannelTopBar.h */,
-				C9BB1E932216CEAC0050B493 /* Heqingzhao_MultiChannelTopBar.m */,
 				C9BB1E942216CEAC0050B493 /* Heqingzhao_MultiChannelConfig.h */,
 				C9BB1E8F2216CEAC0050B493 /* Heqingzhao_MultiChannelConfig.m */,
+				C9BB1E902216CEAC0050B493 /* Heqingzhao_MultiChannelTopBar.h */,
+				C9BB1E932216CEAC0050B493 /* Heqingzhao_MultiChannelTopBar.m */,
 				C94138DA221A476800AFA04F /* Heqingzhao_MultiChannelContentView.h */,
 				C94138DB221A476800AFA04F /* Heqingzhao_MultiChannelContentView.m */,
+				C9BB1E922216CEAC0050B493 /* Heqingzhao_MultiChannelViewController.h */,
+				C9BB1E8E2216CEAC0050B493 /* Heqingzhao_MultiChannelViewController.m */,
+				C9BDB066221C237100FC4168 /* Heqingzhao_MultiChannelEditViewController.h */,
+				C9BDB067221C237100FC4168 /* Heqingzhao_MultiChannelEditViewController.m */,
+				C9B0AD6C221D32DA00F747B1 /* Heqingzhao_MultiChannelEditCell.h */,
+				C9B0AD6D221D32DA00F747B1 /* Heqingzhao_MultiChannelEditCell.m */,
 			);
 			path = multiChannels;
+			sourceTree = "<group>";
+		};
+		C9BDB02C221BFB3700FC4168 /* resource */ = {
+			isa = PBXGroup;
+			children = (
+				C9BDB02D221BFB3700FC4168 /* down_arrow@2x.png */,
+				C9BDB02E221BFB3700FC4168 /* down_arrow@3x.png */,
+			);
+			path = resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,9 +221,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9BDB02F221BFB3700FC4168 /* down_arrow@2x.png in Resources */,
 				C9BB1E53221551DC0050B493 /* LaunchScreen.storyboard in Resources */,
 				C9BB1E50221551DC0050B493 /* Assets.xcassets in Resources */,
 				C9BB1E4E221551D90050B493 /* Main.storyboard in Resources */,
+				C9BDB030221BFB3700FC4168 /* down_arrow@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,7 +236,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9BDB068221C237100FC4168 /* Heqingzhao_MultiChannelEditViewController.m in Sources */,
+				C9B0AD6E221D32DA00F747B1 /* Heqingzhao_MultiChannelEditCell.m in Sources */,
 				C9BB1E962216CEAC0050B493 /* Heqingzhao_TabbarAdjustPosition.m in Sources */,
+				C9B0AD6B221D259C00F747B1 /* Heqingzhao_SinglePixelView.m in Sources */,
 				C94138DC221A476800AFA04F /* Heqingzhao_MultiChannelContentView.m in Sources */,
 				C9BB1E982216CEAC0050B493 /* Heqingzhao_MultiChannelConfig.m in Sources */,
 				C9BB1E4B221551D90050B493 /* ViewController.m in Sources */,

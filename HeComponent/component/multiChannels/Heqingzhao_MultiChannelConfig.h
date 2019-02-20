@@ -29,11 +29,15 @@
 
 @protocol Heqingzhao_MultiChannelConfigProtocol <NSObject>
 @required
+
+// 当contentView移动到选定的view之前，会调用对应的config的contentProvider的这个方法
+// 可以在这个方法中提供自定义view，以及做一些网络请求之类的操作
+// 在移动到指定index后，会自动预加载index-1和index+1(如果和之前的index不同)的view
 - (UIView*)contentViewWithIndex:(NSInteger)nIndex config:(Heqingzhao_MultiChannelConfig*)config;
 
 @end
 
-@interface Heqingzhao_MultiChannelConfig : NSObject
+@interface Heqingzhao_MultiChannelConfig : NSObject<NSCoding>
 
 @property(nonatomic, strong)NSString* itemIdentifier; // 默认为normalTitle
 

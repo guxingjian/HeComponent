@@ -25,6 +25,14 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     if(self = [super initWithFrame:frame]){
         self.rightItemWidth = 50;
+        NSString* strPath = nil;
+        if([UIScreen mainScreen].scale == 2){
+            strPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"down_arrow@2x" ofType:@"png"];
+        }else if([UIScreen mainScreen].scale == 3){
+            strPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"down_arrow@3x" ofType:@"png"];
+        }
+        
+        self.rightItemImage = [UIImage imageWithContentsOfFile:strPath];
         _selectedIndex = -1;
         self.backgroundColor = [UIColor colorWithHexString:@"#F3F4F9"];
     }
@@ -34,6 +42,8 @@
 - (void)awakeFromNib{
     [super awakeFromNib];
     self.rightItemWidth = 50;
+    NSString* strPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"down_image" ofType:@"png"];
+    self.rightItemImage = [UIImage imageWithContentsOfFile:strPath];
     _selectedIndex = -1;
 }
 
@@ -93,6 +103,7 @@
         }else{
             btnTab.titleLabel.font = item.topBarConfig.selectedFont;
         }
+        btnTab.selected = item.status;
         
         if(!btnTab.superview){
             [_tabItemScrollView addSubview:btnTab];
@@ -264,7 +275,7 @@
     [self buildTabItems];
     
     if(self.customRightView){
-        self.customRightView.frame = CGRectMake(self.customRightView.left, self.height - _tabItemScrollView.height - self.itemBottomDistance*2, self.customRightView.width, _tabItemScrollView.height + self.itemBottomDistance*2);
+        self.customRightView.frame = CGRectMake(self.customRightView.x, _tabItemScrollView.y, self.customRightView.width, _tabItemScrollView.height);
     }
 }
 
@@ -273,14 +284,12 @@
     if(_tabItemScrollView){
         _tabItemScrollView.frame = CGRectMake(_tabItemScrollView.left, self.height - itemBottomDistance*2 + [self tabItemMaxHeight], _tabItemScrollView.width, itemBottomDistance*2 + [self tabItemMaxHeight]);
         fRightHeight = _tabItemScrollView.height;
+        
+        if(self.customRightView){
+            self.customRightView.frame = CGRectMake(self.customRightView.left, _tabItemScrollView.y, self.customRightView.width, _tabItemScrollView.height);
+        }
     }
     _itemBottomDistance = itemBottomDistance;
-    if(self.customRightView){
-        if(0 == fRightHeight){
-            fRightHeight =  self.rightItemImage.size.height;
-        }
-        self.customRightView.frame = CGRectMake(self.customRightView.left, self.height - fRightHeight, self.customRightView.width, fRightHeight);
-    }
 }
 
 - (CGFloat)edgeSpace{
@@ -340,6 +349,7 @@
     }
     
     UIButton* btn = [[UIButton alloc] initWithFrame:CGRectMake(self.width - fWidth, self.height - fHeight, fWidth, fHeight)];
+    [btn setImage:rightItemImage forState:UIControlStateNormal];
     [self addSubview:btn];
     [btn addTarget:self action:@selector(rightItemAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.customRightView removeFromSuperview];
@@ -347,8 +357,8 @@
 }
 
 - (void)rightItemAction:(UIButton*)btn{
-    if([self.delegate respondsToSelector:@selector(rightItemAction:)]){
-        [self.delegate rightItemAction:btn arrayItems:self.arrayTabItem];
+    if([self.delegate respondsToSelector:@selector(topBar:rightItemAction:arrayItems:)]){
+        [self.delegate topBar:self rightItemAction:btn arrayItems:self.arrayTabItem];
     }
 }
 
@@ -436,7 +446,11 @@
     [super layoutSubviews];
     
     [self setupScrollFrame:CGRectMake(0, self.height - self.tabItemScrollView.height, self.width - self.rightItemWidth, self.tabItemScrollView.height)];
-    self.customRightView.frame = CGRectMake(self.width - self.customRightView.width, self.height - self.customRightView.height, self.customRightView.width, self.customRightView.height);
+    
+    CGRect rtCustom = CGRectMake(self.width - self.customRightView.width, self.height - self.customRightView.height, self.customRightView.width, self.customRightView.height);
+    if(!CGRectEqualToRect(rtCustom, self.customRightView.frame)){
+        self.customRightView.frame = rtCustom;
+    }
 }
 
 @end

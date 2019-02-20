@@ -8,18 +8,28 @@
 
 #import "Heqingzhao_MultiChannelViewController.h"
 #import "UIView+view_frame.h"
+#import "Heqingzhao_MultiChannelEditViewController.h"
 
-@interface Heqingzhao_MultiChannelViewController ()
+#define MultiChannel_UnSelectedChannel_Key @"MultiChannel_UnSelectedChannel_Key"
+#define MultiChannel_SelectedChannel_Key @"MultiChannel_SelectedChannel_Key"
+
+@interface Heqingzhao_MultiChannelViewController ()<Heqingzhao_MultiChannelEditViewControllerDelegate>
 
 @end
 
 @implementation Heqingzhao_MultiChannelViewController
 
+- (CGFloat)topNaviHeight{
+    return 88;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    Heqingzhao_MultiChannelTopBar* topBar = [[Heqingzhao_MultiChannelTopBar alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 80)];
+    CGFloat fNaviHeight = [self topNaviHeight];
+    
+    Heqingzhao_MultiChannelTopBar* topBar = [[Heqingzhao_MultiChannelTopBar alloc] initWithFrame:CGRectMake(0, 0, self.view.width, fNaviHeight)];
     topBar.delegate = self;
     [self.view addSubview:topBar];
     self.topBar = topBar;
@@ -33,6 +43,40 @@
 
 - (void)topBar:(Heqingzhao_MultiChannelTopBar *)topBar didSelectIndex:(NSInteger)index item:(Heqingzhao_MultiChannelConfig *)item{
     self.contentView.selectedIndex = index;
+}
+
+- (void)topBar:(Heqingzhao_MultiChannelTopBar *)topBar rightItemAction:(UIButton *)btn arrayItems:(NSArray *)arrayItems{
+    Heqingzhao_MultiChannelEditViewController* editVc = [[Heqingzhao_MultiChannelEditViewController alloc] init];
+    editVc.delegate = self;
+    editVc.selectedTabConfigs = arrayItems;
+    
+    editVc.unselectedTabConfigs = [[NSUserDefaults standardUserDefaults] objectForKey:MultiChannel_UnSelectedChannel_Key];
+    [self presentViewController:editVc animated:YES completion:^{
+        
+    }];
+}
+
+- (void)saveSelectedConfig:(NSArray *)selectedConfig unSelectedConfig:(NSArray *)unSelectedConfig{
+    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    NSMutableArray* arrayTempSelected = [NSMutableArray array];
+    for(Heqingzhao_MultiChannelConfig* config in selectedConfig){
+        NSData* data = [NSKeyedArchiver archivedDataWithRootObject:config requiringSecureCoding:YES error:nil];
+        if(data){
+            [arrayTempSelected addObject:data];
+        }
+    }
+    [userDefaults setObject:[NSArray arrayWithArray:arrayTempSelected] forKey:MultiChannel_SelectedChannel_Key];
+    
+    NSMutableArray* arrayTempUnSelected = [NSMutableArray array];
+    for(Heqingzhao_MultiChannelConfig* config in unSelectedConfig){
+        NSData* data = [NSKeyedArchiver archivedDataWithRootObject:config requiringSecureCoding:YES error:nil];
+        if(data){
+            [arrayTempUnSelected addObject:data];
+        }
+    }
+    [userDefaults setObject:[NSArray arrayWithArray:arrayTempUnSelected] forKey:MultiChannel_UnSelectedChannel_Key];
+    [self.topBar setArrayTabItem:selectedConfig];
 }
 
 - (void)multiChannelContentView:(Heqingzhao_MultiChannelContentView *)contentView didSelectIndex:(NSInteger)nIndex withChannelView:(UIView *)view andConfig:(Heqingzhao_MultiChannelConfig *)config{

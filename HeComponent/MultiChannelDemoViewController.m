@@ -8,6 +8,8 @@
 
 #import "MultiChannelDemoViewController.h"
 
+#define MultiChannel_SelectedChannel_Key @"MultiChannel_SelectedChannel_Key"
+
 @interface MultiChannelDemoViewController ()
 
 @end
@@ -20,22 +22,34 @@
     
     Heqingzhao_MultiChannelTopBar* topBar = self.topBar;
     
-    NSArray* arrayChannels = @[@"tab1", @"tab2",@"tab3",@"tab4", @"tab5",@"tab6",@"tab7", @"tab8",@"tab9"];
     NSMutableArray* arrayItems = [NSMutableArray array];
     
-    UIFont* font = [UIFont systemFontOfSize:15];
-    UIColor* normalColor = [UIColor blackColor];
-    UIColor* selectedColor = [UIColor blueColor];
-    for(NSString* title in arrayChannels){
-        Heqingzhao_MultiChannelConfig* item = [[Heqingzhao_MultiChannelConfig alloc] init];
-        item.topBarConfig.normalTitle = title;
-        item.topBarConfig.normalTextColor = normalColor;
-        item.topBarConfig.normalFont = font;
+    NSArray* arrayConfig = [[NSUserDefaults standardUserDefaults] objectForKey:MultiChannel_SelectedChannel_Key];
+    if(!arrayConfig){
+        UIFont* font = [UIFont systemFontOfSize:15];
+        UIColor* normalColor = [UIColor blackColor];
+        UIColor* selectedColor = [UIColor blueColor];
+        for(NSInteger i = 0; i < 10; ++ i){
+            NSString* title = [NSString stringWithFormat:@"tab%ld", i];
+            Heqingzhao_MultiChannelConfig* item = [[Heqingzhao_MultiChannelConfig alloc] init];
+            item.topBarConfig.normalTitle = title;
+            item.topBarConfig.normalTextColor = normalColor;
+            item.topBarConfig.normalFont = font;
+            
+            item.topBarConfig.selectedTextColor = selectedColor;
+            item.topBarConfig.selectedScale = 1.1;
+            item.contentProvider = self;// 可以自由设定，可以是当前类，也可以是指定的类
+            [arrayItems addObject:item];
+        }
+    }else{
+        [arrayItems addObjectsFromArray:arrayConfig];
         
-        item.topBarConfig.selectedTextColor = selectedColor;
-        item.topBarConfig.selectedScale = 1.1;
-        item.contentProvider = self;
-        [arrayItems addObject:item];
+        UIFont* font = [UIFont systemFontOfSize:15];
+        for(NSInteger i = 0; i < arrayItems.count; ++ i){
+            Heqingzhao_MultiChannelConfig* item = [arrayItems objectAtIndex:i];
+            item.topBarConfig.normalFont = font;
+            item.contentProvider = self;// 可以自由设定，可以是当前类，也可以是指定的类
+        }
     }
     
     //    topBar.rightItemWidth = 80;
