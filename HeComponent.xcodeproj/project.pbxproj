@@ -26,6 +26,11 @@
 		C9BDB02F221BFB3700FC4168 /* down_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9BDB02D221BFB3700FC4168 /* down_arrow@2x.png */; };
 		C9BDB030221BFB3700FC4168 /* down_arrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9BDB02E221BFB3700FC4168 /* down_arrow@3x.png */; };
 		C9BDB068221C237100FC4168 /* Heqingzhao_MultiChannelEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BDB067221C237100FC4168 /* Heqingzhao_MultiChannelEditViewController.m */; };
+		C9D3B4DF221ECA3C00A8E573 /* label_delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9D3B4DD221ECA3B00A8E573 /* label_delete@2x.png */; };
+		C9D3B4E0221ECA3C00A8E573 /* label_delete@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9D3B4DE221ECA3B00A8E573 /* label_delete@3x.png */; };
+		C9D3B4E5221ECE8D00A8E573 /* Heqingzhao_ImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D3B4E4221ECE8D00A8E573 /* Heqingzhao_ImageLoader.m */; };
+		C9D3B4E8221ECECC00A8E573 /* navi_back@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9D3B4E6221ECECC00A8E573 /* navi_back@3x.png */; };
+		C9D3B4E9221ECECC00A8E573 /* navi_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9D3B4E7221ECECC00A8E573 /* navi_back@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +68,12 @@
 		C9BDB02E221BFB3700FC4168 /* down_arrow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down_arrow@3x.png"; sourceTree = "<group>"; };
 		C9BDB066221C237100FC4168 /* Heqingzhao_MultiChannelEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_MultiChannelEditViewController.h; sourceTree = "<group>"; };
 		C9BDB067221C237100FC4168 /* Heqingzhao_MultiChannelEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_MultiChannelEditViewController.m; sourceTree = "<group>"; };
+		C9D3B4DD221ECA3B00A8E573 /* label_delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "label_delete@2x.png"; sourceTree = "<group>"; };
+		C9D3B4DE221ECA3B00A8E573 /* label_delete@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "label_delete@3x.png"; sourceTree = "<group>"; };
+		C9D3B4E3221ECE8D00A8E573 /* Heqingzhao_ImageLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_ImageLoader.h; sourceTree = "<group>"; };
+		C9D3B4E4221ECE8D00A8E573 /* Heqingzhao_ImageLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_ImageLoader.m; sourceTree = "<group>"; };
+		C9D3B4E6221ECECC00A8E573 /* navi_back@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navi_back@3x.png"; sourceTree = "<group>"; };
+		C9D3B4E7221ECECC00A8E573 /* navi_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navi_back@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +141,8 @@
 				C9BB1E8A2216CEAC0050B493 /* UIView+view_frame.m */,
 				C9BDB029221BF6D800FC4168 /* UIColor+extension_qingzhao.h */,
 				C9BDB02A221BF6D800FC4168 /* UIColor+extension_qingzhao.m */,
+				C9D3B4E3221ECE8D00A8E573 /* Heqingzhao_ImageLoader.h */,
+				C9D3B4E4221ECE8D00A8E573 /* Heqingzhao_ImageLoader.m */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -160,6 +173,10 @@
 			children = (
 				C9BDB02D221BFB3700FC4168 /* down_arrow@2x.png */,
 				C9BDB02E221BFB3700FC4168 /* down_arrow@3x.png */,
+				C9D3B4DD221ECA3B00A8E573 /* label_delete@2x.png */,
+				C9D3B4DE221ECA3B00A8E573 /* label_delete@3x.png */,
+				C9D3B4E7221ECECC00A8E573 /* navi_back@2x.png */,
+				C9D3B4E6221ECECC00A8E573 /* navi_back@3x.png */,
 			);
 			path = resource;
 			sourceTree = "<group>";
@@ -221,10 +238,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9D3B4E0221ECA3C00A8E573 /* label_delete@3x.png in Resources */,
 				C9BDB02F221BFB3700FC4168 /* down_arrow@2x.png in Resources */,
 				C9BB1E53221551DC0050B493 /* LaunchScreen.storyboard in Resources */,
+				C9D3B4E9221ECECC00A8E573 /* navi_back@2x.png in Resources */,
 				C9BB1E50221551DC0050B493 /* Assets.xcassets in Resources */,
+				C9D3B4E8221ECECC00A8E573 /* navi_back@3x.png in Resources */,
 				C9BB1E4E221551D90050B493 /* Main.storyboard in Resources */,
+				C9D3B4DF221ECA3C00A8E573 /* label_delete@2x.png in Resources */,
 				C9BDB030221BFB3700FC4168 /* down_arrow@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,6 +270,7 @@
 				C9BB1E48221551D90050B493 /* AppDelegate.m in Sources */,
 				C9BB1E972216CEAC0050B493 /* Heqingzhao_MultiChannelViewController.m in Sources */,
 				C9BDB028221BF5BB00FC4168 /* MultiChannelDemoViewController.m in Sources */,
+				C9D3B4E5221ECE8D00A8E573 /* Heqingzhao_ImageLoader.m in Sources */,
 				C9BB1E952216CEAC0050B493 /* UIView+view_frame.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

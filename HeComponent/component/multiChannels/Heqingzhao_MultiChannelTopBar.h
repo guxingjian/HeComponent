@@ -51,6 +51,7 @@ typedef NS_OPTIONS(NSInteger, Heqingzhao_MultiChannelTopBarLayout){
 @property(nonatomic, assign)Heqingzhao_MultiChannelTopBarLayout tabItemLayout;
 @property(nonatomic, readonly)NSMutableArray* arrayTabButtons;
 
+// 方法中不会检查设置的selectedIndex和原来的selectedIndex是否相等，需要自己判断
 - (void)setSelectedIndex:(NSInteger)selectedIndex animated:(BOOL)animated;
 
 - (CGFloat)tabItemMaxHeight; // 获取tab的最大高度，可以由子类重写

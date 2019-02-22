@@ -11,26 +11,14 @@
 #import "Heqingzhao_SinglePixelView.h"
 #import "UIColor+extension_qingzhao.h"
 #import "Heqingzhao_MultiChannelEditCell.h"
+#import "Heqingzhao_ImageLoader.h"
 
-@interface Heqingzhao_flowLayout : UICollectionViewFlowLayout
-
-@property(nonatomic, strong)NSMutableDictionary* dicLayout;
-
-@end
-
-@implementation Heqingzhao_flowLayout
-
-@end
-
-@interface Heqingzhao_MultiChannelEditViewController ()<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate>
+@interface Heqingzhao_MultiChannelEditViewController ()<Heqingzhao_MultiChannelEditCellProtocol>
 
 @property(nonatomic, strong)UICollectionView* collectionView;
-@property(nonatomic, readwrite)NSIndexPath* movingIndexPath;
 @property(nonatomic, readwrite)NSMutableArray* tempSelectedTabConfigs;
 @property(nonatomic, readwrite)NSMutableArray* tempUnselectedTabConfigs;
-@property(nonatomic, strong)UICollectionReusableView* unSelectedSectionView;
-
-@property(nonatomic, assign)CGFloat fPosY;
+@property(nonatomic, assign)BOOL channelEditting;
 
 @end
 
@@ -54,15 +42,21 @@
         self.title = @"编辑频道";
     }
     
+    UIButton* btnBack = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
+    [btnBack setImage:[Heqingzhao_ImageLoader loadImage:@"navi_back"] forState:UIControlStateNormal];
+    [btnBack addTarget:self action:@selector(backAction:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem* backItem = [[UIBarButtonItem alloc] initWithCustomView:btnBack];
+    
     UIButton* btnSave = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
     [btnSave addTarget:self action:@selector(saveChannels:) forControlEvents:UIControlEventTouchUpInside];
-    [btnSave setTitle:@"完成" forState:UIControlStateNormal];
+    [btnSave setTitle:@"保存" forState:UIControlStateNormal];
     [btnSave setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     btnSave.titleLabel.font = [UIFont systemFontOfSize:15];
     UIBarButtonItem* btnItem = [[UIBarButtonItem alloc] initWithCustomView:btnSave];
     
     if(self.navigationController){
         self.navigationItem.rightBarButtonItem = btnItem;
+        self.navigationItem.leftBarButtonItem = backItem;
         return ;
     }
     
@@ -75,19 +69,12 @@
     naviBar.barTintColor = topView.backgroundColor;
     UINavigationItem* naviItem = [[UINavigationItem alloc] initWithTitle:self.title];
     naviItem.rightBarButtonItem = btnItem;
+    naviItem.leftBarButtonItem = backItem;
     naviBar.items = @[naviItem];
     [self.view addSubview:naviBar];
 }
 
-- (void)saveChannels:(UIButton*)btn{
-    
-    NSLog(@"selectedConfig: %@", self.tempSelectedTabConfigs);
-    NSLog(@"unselectedConfig: %@", self.tempUnselectedTabConfigs);
-    
-    if([self.delegate respondsToSelector:@selector(saveSelectedConfig:unSelectedConfig:)]){
-        [self.delegate saveSelectedConfig:self.tempSelectedTabConfigs unSelectedConfig:self.tempUnselectedTabConfigs];
-    }
-    
+- (void)backAction:(UIButton*)btn{
     if(self.navigationController){
         [self.navigationController popViewControllerAnimated:YES];
         return ;
@@ -96,12 +83,21 @@
     }];
 }
 
+- (void)saveChannels:(UIButton*)btn{
+    if(self.channelEditting){
+        self.channelEditting = NO;
+        [self reloadSelectedCellsEditting];
+    }
+    if([self.delegate respondsToSelector:@selector(saveSelectedConfig:unSelectedConfig:)]){
+        [self.delegate saveSelectedConfig:self.tempSelectedTabConfigs unSelectedConfig:self.tempUnselectedTabConfigs];
+    }
+}
+
 - (void)buildCollectionView{
-    
-    Heqingzhao_flowLayout* layout = [[Heqingzhao_flowLayout alloc] init];
-    layout.minimumLineSpacing = 10;
+    UICollectionViewFlowLayout* layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.minimumLineSpacing = 15;
     layout.minimumInteritemSpacing = 10;
-    layout.sectionInset = UIEdgeInsetsMake(10, 10, 0, 10);
+    layout.sectionInset = UIEdgeInsetsMake(15, 15, 0, 15);
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
     
     CGFloat fNaviHeight = [self topNaviHeight];
@@ -109,7 +105,7 @@
     collectionView.backgroundColor = [UIColor whiteColor];
     collectionView.alwaysBounceVertical = YES;
     [collectionView registerClass:[Heqingzhao_MultiChannelEditCell class] forCellWithReuseIdentifier:@"editCell"];
-        [collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"sectionTitle"];
+    [collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"sectionTitle"];
     collectionView.delegate = self;
     collectionView.dataSource = self;
     [self.view addSubview:collectionView];
@@ -120,17 +116,14 @@
     tapGes.delegate = self;
 }
 
-- (NSIndexPath*)findTargetIndexPath:(CGPoint)pt{ // 
-    UICollectionViewCell* cell = nil;
-    CGPoint centerPt = CGPointZero;
-    for(NSInteger i = 0; i < self.tempUnselectedTabConfigs.count; ++ i){
-        NSIndexPath* indexPath = [NSIndexPath indexPathForRow:i inSection:1];
-        cell = [_collectionView cellForItemAtIndexPath:indexPath];
-        centerPt = [_collectionView convertPoint:CGPointMake(cell.width/2,cell.height/2) fromView:cell];
-        if((pt.x - centerPt.x < 20 && pt.x - centerPt.x > -10) && (pt.y - centerPt.y < 10 && pt.y - centerPt.y > -10)) // 不精准的比较
-            return indexPath;
+- (void)reloadSelectedCellsEditting{
+    for(NSInteger i = 0; i < self.tempSelectedTabConfigs.count; ++ i){
+        NSIndexPath* indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+        Heqingzhao_MultiChannelEditCell* cell = (Heqingzhao_MultiChannelEditCell*)[_collectionView cellForItemAtIndexPath:indexPath];
+        if(!cell)
+            continue;
+        cell.editting = self.channelEditting;
     }
-    return [NSIndexPath indexPathForRow:self.tempUnselectedTabConfigs.count inSection:1];
 }
 
 - (void)panGesAction:(UILongPressGestureRecognizer*)gestureRecognizer{
@@ -140,26 +133,18 @@
     if(UIGestureRecognizerStateBegan == gestureRecognizer.state){
         if(1 == indexPath.section)
             return ;
-        self.movingIndexPath = indexPath;
         [colView beginInteractiveMovementForItemAtIndexPath:indexPath];
+        self.channelEditting = YES;
+        [self reloadSelectedCellsEditting];
     }else if(UIGestureRecognizerStateEnded == gestureRecognizer.state){
-        
         [colView endInteractiveMovement];
-        if(pt.y > self.fPosY && self.movingIndexPath){
-            
-            Heqingzhao_MultiChannelConfig* config = [self.tempSelectedTabConfigs objectAtIndex:self.movingIndexPath.row];
-            [self.tempSelectedTabConfigs removeObject:config];
-            NSIndexPath* targetIndexPath = [self findTargetIndexPath:pt];
-            [self.tempUnselectedTabConfigs insertObject:config atIndex:targetIndexPath.row];
-            [colView moveItemAtIndexPath:self.movingIndexPath toIndexPath:targetIndexPath];
-            [self updateUnsectedSectionPosY];
-        }
-        self.movingIndexPath = nil;
+        
+        // to do ... 跨section拖动
+        
     }else if(UIGestureRecognizerStateChanged == gestureRecognizer.state){
         [colView updateInteractiveMovementTargetPosition:pt];
     }else{
         [colView cancelInteractiveMovement];
-        self.movingIndexPath = nil;
     }
 }
 
@@ -180,24 +165,17 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    NSInteger nRet = 0;
     if(0 == section){
-        return self.tempSelectedTabConfigs.count;
+        nRet = self.tempSelectedTabConfigs.count;
     }else if(1 == section){
-        return self.tempUnselectedTabConfigs.count;
+        nRet = self.tempUnselectedTabConfigs.count;
     }
-    return 0;
+    return nRet;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
     return CGSizeMake(collectionView.width, 50);
-}
-
-- (void)updateUnsectedSectionPosY{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        UICollectionReusableView* tempView = self.unSelectedSectionView;
-        CGPoint pt = [self.collectionView convertPoint:CGPointMake(0, tempView.height) fromView:tempView];
-        self.fPosY = pt.y;
-    });
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
@@ -208,8 +186,6 @@
     if(0 == indexPath.section){
         strTitle = @"长按编辑频道";
     }else if(1 == indexPath.section){
-        self.unSelectedSectionView = suplementView;
-        [self updateUnsectedSectionPosY];
         strTitle = @"添加频道";
     }
 
@@ -234,17 +210,7 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSArray* arrayConfigs = nil;
-    if(0 == indexPath.section){
-        arrayConfigs = self.tempSelectedTabConfigs;
-    }else{
-        arrayConfigs = self.tempUnselectedTabConfigs;
-    }
-    
-    if(indexPath.row < arrayConfigs.count){
-        return CGSizeMake(80, 32);
-    }
-    return CGSizeZero;
+    return CGSizeMake(70, 32);
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -260,9 +226,23 @@
     if(indexPath.row < arrayConfigs.count){
         Heqingzhao_MultiChannelConfig* config = [arrayConfigs objectAtIndex:indexPath.row];
         [cell setConfig:config];
+        [cell setStatus:!indexPath.section];
+        cell.delegate = self;
+        if(self.channelEditting && 0 == indexPath.section){
+            cell.editting = YES;
+        }else{
+            cell.editting = NO;
+        }
     }
-    cell.indexPath = indexPath;
+    
     return cell;
+}
+
+- (NSIndexPath *)collectionView:(UICollectionView *)collectionView targetIndexPathForMoveFromItemAtIndexPath:(NSIndexPath *)originalIndexPath toProposedIndexPath:(NSIndexPath *)proposedIndexPath{
+    if(1 == proposedIndexPath.section){
+        return nil;
+    }
+    return proposedIndexPath;
 }
 
 - (void)adjustArray:(NSMutableArray*)arrayImages withBeginIndex:(NSInteger)nBeginIndex endIndex:(NSInteger)nEndIndex{
@@ -289,39 +269,39 @@
 - (void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath{
     if(0 == sourceIndexPath.section && 0 == destinationIndexPath.section)
     {
-        NSMutableArray* arrayTempArray = nil;
-        if(0 == sourceIndexPath.section){
-            arrayTempArray = self.tempSelectedTabConfigs;
-        }else if(1 == sourceIndexPath.section){
-            arrayTempArray = self.tempUnselectedTabConfigs;
-        }
-        
+        NSMutableArray* arrayTempArray = self.tempSelectedTabConfigs;
         NSInteger nBeginIndex = sourceIndexPath.row;
         NSInteger nEndIndex = destinationIndexPath.row;
         [self adjustArray:arrayTempArray withBeginIndex:nBeginIndex endIndex:nEndIndex];
-        return ;
     }
-    
-    NSMutableArray* arraySource = nil;
-    NSMutableArray* arrayDes = nil;
-    if(0 == sourceIndexPath.section && 1 == destinationIndexPath.section){
-        arraySource = self.tempSelectedTabConfigs;
-        arrayDes = self.tempUnselectedTabConfigs;
-    }else if(1 == sourceIndexPath.section && 0 == destinationIndexPath.section){
-        arraySource = self.tempUnselectedTabConfigs;
-        arrayDes = self.tempSelectedTabConfigs;
-    }
-    Heqingzhao_MultiChannelConfig* config = [arraySource objectAtIndex:sourceIndexPath.row];
-    [arraySource removeObject:config];
-    [arrayDes insertObject:config atIndex:destinationIndexPath.row];
-    [collectionView reloadData];
 }
 
-- (NSIndexPath *)collectionView:(UICollectionView *)collectionView targetIndexPathForMoveFromItemAtIndexPath:(NSIndexPath *)originalIndexPath toProposedIndexPath:(NSIndexPath *)proposedIndexPath{
-    if(1 == proposedIndexPath.section){
-        return nil;
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    if(0 == indexPath.section)
+        return ;
+    
+    if(indexPath.row < self.tempUnselectedTabConfigs.count){
+        
+        Heqingzhao_MultiChannelEditCell* editCell = (Heqingzhao_MultiChannelEditCell*)[collectionView cellForItemAtIndexPath:indexPath];
+        [editCell setStatus:1];
+        [editCell setEditting:self.channelEditting];
+        Heqingzhao_MultiChannelConfig* config = [self.tempUnselectedTabConfigs objectAtIndex:indexPath.row];
+        [self.tempUnselectedTabConfigs removeObject:config];
+        [self.tempSelectedTabConfigs addObject:config];
+        [collectionView moveItemAtIndexPath:indexPath toIndexPath:[NSIndexPath indexPathForRow:self.tempSelectedTabConfigs.count - 1 inSection:0]];
+    
     }
-    return proposedIndexPath;
+}
+
+- (void)willRemoveeditCell:(Heqingzhao_MultiChannelEditCell *)cell{
+    [cell setStatus:0];
+    [cell setEditting:NO];
+    
+    NSIndexPath* indexPath = [self.collectionView indexPathForCell:cell];
+    Heqingzhao_MultiChannelConfig* config = [self.tempSelectedTabConfigs objectAtIndex:indexPath.row];
+    [self.tempSelectedTabConfigs removeObject:config];
+    [self.tempUnselectedTabConfigs insertObject:config atIndex:0];
+    [self.collectionView moveItemAtIndexPath:indexPath toIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
 }
 
 @end

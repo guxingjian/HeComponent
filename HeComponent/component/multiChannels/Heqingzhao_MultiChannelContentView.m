@@ -16,6 +16,8 @@
 @property(nonatomic, strong)UIScrollView* contentScrollView;
 @property(nonatomic, strong)NSMutableDictionary* dicContentView;
 @property(nonatomic, assign)BOOL enableScroll;
+@property(nonatomic, strong)NSMutableArray* banReuseView;
+@property(nonatomic, strong)UIView* currentContentView;
 
 @end
 
@@ -52,77 +54,121 @@
     return _dicContentView;
 }
 
-- (void)willSelectIndex:(NSInteger)nIndex triggerDelegate:(BOOL)bTrigger{
-    Heqingzhao_MultiChannelConfig* config = [self.arrayTabItem objectAtIndex:nIndex];
-    if(config.itemIdentifier.length == 0)
-        return ;
+- (NSMutableArray *)banReuseView{
+    if(!_banReuseView){
+        _banReuseView = [NSMutableArray array];
+    }
+    return _banReuseView;
+}
+
+- (UIView*)loadContentViewWithIndex:(NSInteger)nIndex{
+    UIView* channelView = nil;
     
-    UIView* channelView = [self.dicContentView objectForKey:config.itemIdentifier];
-    if(!channelView){
+    Heqingzhao_MultiChannelConfig* config = [self.arrayTabItem objectAtIndex:nIndex];
+    if(!self.enableReuseContentView){
         if([config.contentProvider respondsToSelector:@selector(contentViewWithIndex:config:)]){
             channelView = [config.contentProvider contentViewWithIndex:nIndex config:config];
         }
         if(!channelView){
             channelView = [[UIView alloc] initWithFrame:self.contentScrollView.bounds];
         }
+    }else{
+        NSMutableArray* arrayViews = [self.dicContentView objectForKey:config.contentResuseIdentifier];
+        if(!arrayViews){
+            arrayViews = [NSMutableArray array];
+            [self.dicContentView setObject:arrayViews forKey:config.contentResuseIdentifier];
+        }
         
-        [self.dicContentView setObject:channelView forKey:config.itemIdentifier];
-        [self.contentScrollView addSubview:channelView];
+        for(UIView* reuseView in arrayViews){
+            if(![self.banReuseView containsObject:reuseView]){
+                channelView = reuseView;
+                break ;
+            }
+        }
+        if(!channelView){
+            if([config.contentProvider respondsToSelector:@selector(contentViewWithIndex:config:)]){
+                channelView = [config.contentProvider contentViewWithIndex:nIndex config:config];
+            }
+            if(!channelView){
+                channelView = [[UIView alloc] initWithFrame:self.contentScrollView.bounds];
+            }
+            
+            [arrayViews addObject:channelView];
+            [self.contentScrollView addSubview:channelView];
+        }
     }
+    
     CGRect frame = CGRectMake(nIndex*self.contentScrollView.width, 0, self.contentScrollView.width, self.contentScrollView.height);
     if(!CGRectEqualToRect(frame, channelView.frame)){
         channelView.frame = frame;
+        [self.contentScrollView bringSubviewToFront:channelView];
     }
     
-    if(bTrigger){
-        if([self.delegate respondsToSelector:@selector(multiChannelContentView:willSelectIndex:withChannelView:andConfig:)]){
-            [self.delegate multiChannelContentView:self willSelectIndex:nIndex withChannelView:channelView andConfig:config];
-        }
-    }
+    return channelView;
 }
 
-- (void)didSelectIndex:(NSInteger)nIndex animated:(BOOL)animated  triggerDelegate:(BOOL)bTrigger{
+- (UIView*)willSelectIndex:(NSInteger)nIndex{
+    UIView* channelView = [self loadContentViewWithIndex:nIndex];
+    if([self.delegate respondsToSelector:@selector(multiChannelContentView:willSelectIndex:withChannelView:andConfig:)]){
+        [self.delegate multiChannelContentView:self willSelectIndex:nIndex withChannelView:channelView andConfig:[self.arrayTabItem objectAtIndex:nIndex]];
+    }
+    return channelView;
+}
+
+- (void)didSelectIndex:(NSInteger)nIndex{
     self.enableScroll = NO;
     [self.contentScrollView setContentOffset:CGPointMake(nIndex*self.contentScrollView.width, 0)];
     
     Heqingzhao_MultiChannelConfig* config = [self.arrayTabItem objectAtIndex:nIndex];
-    if(bTrigger){
-        if([self.delegate respondsToSelector:@selector(multiChannelContentView:didSelectIndex:withChannelView:andConfig:)]){
-            [self.delegate multiChannelContentView:self didSelectIndex:nIndex withChannelView:[self.dicContentView objectForKey:config.itemIdentifier] andConfig:config];
-        }
+    if([self.delegate respondsToSelector:@selector(multiChannelContentView:didSelectIndex:withChannelView:andConfig:)]){
+        [self.delegate multiChannelContentView:self didSelectIndex:nIndex withChannelView:[self.dicContentView objectForKey:config.itemIdentifier] andConfig:config];
     }
     self.enableScroll = YES;
 }
 
 - (void)setSelectedIndex:(NSInteger)selectedIndex{
+    if(_selectedIndex == selectedIndex)
+        return ;
     [self setSelectedIndex:selectedIndex animated:YES];
 }
 
 - (void)setSelectedIndex:(NSInteger)selectedIndex animated:(BOOL)animated{
-    if(_selectedIndex == selectedIndex)
-        return ;
-    
     if(selectedIndex < 0 || selectedIndex >= self.arrayTabItem.count)
         return ;
+    
+    [self.banReuseView removeAllObjects];
     
     NSInteger preIndex = -1;
     NSInteger afterIndex = -1;
     if(selectedIndex - 1 != _selectedIndex){
         preIndex = selectedIndex - 1;
+    }else{
+        if(self.currentContentView){
+            [self.banReuseView addObject:self.currentContentView];
+        }
     }
     if(selectedIndex + 1 != _selectedIndex){
         afterIndex = selectedIndex + 1;
+    }else{
+        if(self.currentContentView){
+            [self.banReuseView addObject:self.currentContentView];
+        }
     }
-
-    [self willSelectIndex:selectedIndex triggerDelegate:YES];
-    _selectedIndex = selectedIndex;
-    [self didSelectIndex:selectedIndex animated:animated triggerDelegate:YES];
     
-    if(preIndex >= 0){
-        [self willSelectIndex:preIndex triggerDelegate:NO];
+    UIView* channelView = [self willSelectIndex:selectedIndex];
+    [self.banReuseView addObject:channelView];
+
+    _selectedIndex = selectedIndex;
+    [self didSelectIndex:selectedIndex];
+    self.currentContentView = channelView;
+    
+    if(preIndex >= 0 && preIndex < self.arrayTabItem.count){
+        channelView = [self willSelectIndex:preIndex];
+        [self.banReuseView addObject:channelView];
     }
-    if(afterIndex < self.arrayTabItem.count){
-        [self willSelectIndex:afterIndex triggerDelegate:NO];
+    if(afterIndex >= 0 && afterIndex < self.arrayTabItem.count){
+        channelView = [self willSelectIndex:afterIndex];
+        [self.banReuseView addObject:channelView]; // 最后一个可加可不加
     }
 }
 

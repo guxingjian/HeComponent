@@ -66,10 +66,6 @@
     self.contentView = channelContentView;
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [self.topBar setSelectedIndex:8 animated:NO];
-}
-
 - (NSArray*)colorArray{
     return @[[UIColor whiteColor], [UIColor grayColor], [UIColor greenColor], [UIColor blueColor], [UIColor yellowColor]];
 }

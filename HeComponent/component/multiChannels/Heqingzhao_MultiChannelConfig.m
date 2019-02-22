@@ -8,7 +8,7 @@
 
 #import "Heqingzhao_MultiChannelConfig.h"
 
-@interface Heqingzhao_MultiChannelTopBarConfig()<NSCoding>
+@interface Heqingzhao_MultiChannelTopBarConfig()<NSSecureCoding>
 
 @property(nonatomic, assign)CGSize normalSize;
 @property(nonatomic, assign)CGSize selectedSize;
@@ -76,56 +76,61 @@
     return _selectedScale;
 }
 
+- (instancetype)initWithCoder:(NSCoder *)aDecoder{
+    if(self = [super init]){
+        self.normalTitle = [aDecoder decodeObjectForKey:@"normalTitle"];
+        NSString* strFontName = [aDecoder decodeObjectForKey:@"normalFont_fontName"];
+        if(strFontName.length > 0){
+            self.normalFont = [UIFont fontWithName:strFontName size:[aDecoder decodeFloatForKey:@"normalFont_pointSize"]];
+        }else{
+            self.normalFont = [UIFont systemFontOfSize:[aDecoder decodeFloatForKey:@"normalFont_pointSize"]];
+        }
+        self.normalTextColor = [UIColor colorWithRed:[aDecoder decodeFloatForKey:@"normalTextColor_r"] green:[aDecoder decodeFloatForKey:@"normalTextColor_g"] blue:[aDecoder decodeFloatForKey:@"normalTextColor_b"] alpha:[aDecoder decodeFloatForKey:@"normalTextColor_a"]];
+        
+        self.selectedTitle = [aDecoder decodeObjectForKey:@"selectedTitle"];
+        strFontName = [aDecoder decodeObjectForKey:@"selectedFont_fontName"];
+        if(strFontName.length > 0){
+            self.selectedFont = [UIFont fontWithName:strFontName size:[aDecoder decodeFloatForKey:@"selectedFont_pointSize"]];
+        }else{
+            self.selectedFont = [UIFont systemFontOfSize:[aDecoder decodeFloatForKey:@"selectedFont_pointSize"]];
+        }
+       self.selectedTextColor = [UIColor colorWithRed:[aDecoder decodeFloatForKey:@"selectedTextColor_r"] green:[aDecoder decodeFloatForKey:@"selectedTextColor_g"] blue:[aDecoder decodeFloatForKey:@"selectedTextColor_b"] alpha:[aDecoder decodeFloatForKey:@"selectedTextColor_a"]];
+        self.selectedScale = [aDecoder decodeFloatForKey:@"selectedScale"];;
+    }
+    return self;
+}
+
 - (void)encodeWithCoder:(NSCoder *)aCoder{
-    [aCoder setValue:self.normalTitle forKey:@"normalTitle"];
-    
-//    [aCoder setValue:self.normalFont.fontName forKey:@"normalFont_fontName"];
-//    [aCoder setValue:[NSNumber numberWithFloat:self.normalFont.pointSize] forKey:@"normalFont_pointSize"];
+    [aCoder encodeObject:self.normalTitle forKey:@"normalTitle"];
+    if(self.normalFont.fontName.length > 0){
+        [aCoder encodeObject:self.normalFont.fontName forKey:@"normalFont_fontName"];
+    }
+    [aCoder encodeFloat:self.normalFont.pointSize forKey:@"normalFont_pointSize"];
     
     CGFloat colorBuffer[4] = {};
     [self.normalTextColor getRed:(CGFloat*)colorBuffer green:((CGFloat*)colorBuffer + 1) blue:((CGFloat*)colorBuffer + 2) alpha:((CGFloat*)colorBuffer + 3)];
-    [aCoder setValue:[NSNumber numberWithFloat:colorBuffer[0]] forKey:@"normalTextColor_r"];
-    [aCoder setValue:[NSNumber numberWithFloat:colorBuffer[1]] forKey:@"normalTextColor_g"];
-    [aCoder setValue:[NSNumber numberWithFloat:colorBuffer[2]] forKey:@"normalTextColor_b"];
-    [aCoder setValue:[NSNumber numberWithFloat:colorBuffer[3]] forKey:@"normalTextColor_a"];
+    [aCoder encodeFloat:colorBuffer[0] forKey:@"normalTextColor_r"];
+    [aCoder encodeFloat:colorBuffer[1] forKey:@"normalTextColor_g"];
+    [aCoder encodeFloat:colorBuffer[2] forKey:@"normalTextColor_b"];
+    [aCoder encodeFloat:colorBuffer[3] forKey:@"normalTextColor_a"];
     
-    [aCoder setValue:self.selectedTitle forKey:@"selectedTitle"];
-//    [aCoder setValue:self.selectedFont.fontName forKey:@"selectedFont_fontName"];
-//    [aCoder setValue:[NSNumber numberWithFloat:self.selectedFont.pointSize] forKey:@"selectedFont_pointSize"];
+    [aCoder encodeObject:self.selectedTitle forKey:@"selectedTitle"];
+    
+    if(self.selectedFont.fontName.length > 0){
+        [aCoder encodeObject:self.selectedFont.fontName forKey:@"selectedFont_fontName"];
+    }
+    [aCoder encodeFloat:self.selectedFont.pointSize forKey:@"selectedFont_pointSize"];
     
     [self.selectedTextColor getRed:(CGFloat*)colorBuffer green:((CGFloat*)colorBuffer + 1) blue:((CGFloat*)colorBuffer + 2) alpha:((CGFloat*)colorBuffer + 3)];
-    [aCoder setValue:[NSNumber numberWithFloat:colorBuffer[0]] forKey:@"selectedTextColor_r"];
-    [aCoder setValue:[NSNumber numberWithFloat:colorBuffer[1]] forKey:@"selectedTextColor_g"];
-    [aCoder setValue:[NSNumber numberWithFloat:colorBuffer[2]] forKey:@"selectedTextColor_b"];
-    [aCoder setValue:[NSNumber numberWithFloat:colorBuffer[3]] forKey:@"selectedTextColor_a"];
-    
-    [aCoder setValue:[NSNumber numberWithFloat:self.selectedScale] forKey:@"selectedScale"];
+    [aCoder encodeFloat:colorBuffer[0] forKey:@"selectedTextColor_r"];
+    [aCoder encodeFloat:colorBuffer[1] forKey:@"selectedTextColor_g"];
+    [aCoder encodeFloat:colorBuffer[2] forKey:@"selectedTextColor_b"];
+    [aCoder encodeFloat:colorBuffer[3] forKey:@"selectedTextColor_a"];
+    [aCoder encodeFloat:self.selectedScale forKey:@"selectedScale"];
 }
 
-- (instancetype)initWithCoder:(NSCoder *)aDecoder{
-    if(self = [super init]){
-        self.normalTitle = [aDecoder valueForKey:@"normalTitle"];
-        NSNumber* num = [aDecoder valueForKey:@"normalFont_pointSize"];
-//        self.normalFont = [UIFont fontWithName:[aDecoder valueForKey:@"normalFont_fontName"] size:num.floatValue];
-        NSNumber* num_r = [aDecoder valueForKey:@"normalTextColor_r"];
-        NSNumber* num_g = [aDecoder valueForKey:@"normalTextColor_g"];
-        NSNumber* num_b = [aDecoder valueForKey:@"normalTextColor_b"];
-        NSNumber* num_a = [aDecoder valueForKey:@"normalTextColor_a"];
-        self.normalTextColor = [UIColor colorWithRed:num_r.floatValue green:num_g.floatValue blue:num_b.floatValue alpha:num_a.floatValue];
-        
-        self.selectedTitle = [aDecoder valueForKey:@"selectedTitle"];
-        num = [aDecoder valueForKey:@"selectedFont_pointSize"];
-//        self.selectedFont = [UIFont fontWithName:[aDecoder valueForKey:@"selectedFont_fontName"] size:num.floatValue];
-        num_r = [aDecoder valueForKey:@"selectedTextColor_r"];
-        num_g = [aDecoder valueForKey:@"selectedTextColor_g"];
-        num_b = [aDecoder valueForKey:@"selectedTextColor_b"];
-        num_a = [aDecoder valueForKey:@"selectedTextColor_a"];
-        self.selectedTextColor = [UIColor colorWithRed:num_r.floatValue green:num_g.floatValue blue:num_b.floatValue alpha:num_a.floatValue];
-        
-        num = [aDecoder valueForKey:@"selectedScale"];
-        self.selectedScale = num.floatValue;
-    }
-    return self;
++ (BOOL)supportsSecureCoding{
+    return YES;
 }
 
 @end
@@ -160,19 +165,83 @@
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder{
-    [aCoder setValue:self.itemIdentifier forKey:@"itemIdentifier"];
-    [aCoder setValue:[NSNumber numberWithBool:self.status] forKey:@"status"];
+    [aCoder encodeObject:self.itemIdentifier forKey:@"itemIdentifier"];
+//    [aCoder encodeBool:self.status forKey:@"status"];
     [self.topBarConfig encodeWithCoder:aCoder];
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder{
     if(self = [super init]){
-        self.itemIdentifier = [aDecoder valueForKey:@"itemIdentifier"];
-        NSNumber* num = [aDecoder valueForKey:@"status"];
-        self.status = [num boolValue];
+        self.itemIdentifier = [aDecoder decodeObjectForKey:@"itemIdentifier"];
+//        self.status = [aDecoder decodeBoolForKey:@"status"];
         self.topBarConfig = [[Heqingzhao_MultiChannelTopBarConfig alloc] initWithCoder:aDecoder];
     }
     return self;
+}
+
+- (NSString *)contentResuseIdentifier{
+    if(!_contentResuseIdentifier){
+        return self.itemIdentifier;
+    }
+    return _contentResuseIdentifier;
+}
+
++ (BOOL)supportsSecureCoding{
+    return YES;
+}
+
++ (void)saveConfigArray:(NSArray *)array dataKey:(NSString *)key{
+    if(array.count == 0)
+        return ;
+    
+    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+    NSMutableArray* arrayTemp = [NSMutableArray array];
+    for(Heqingzhao_MultiChannelConfig* config in array){
+        if(![config isKindOfClass:[Heqingzhao_MultiChannelConfig class]])
+            continue ;
+        NSError* error = nil;
+        NSData* data = [NSKeyedArchiver archivedDataWithRootObject:config requiringSecureCoding:YES error:&error];
+        if(!data || error)
+            continue;
+        [arrayTemp addObject:data];
+    }
+    [userDefaults setObject:[NSArray arrayWithArray:arrayTemp] forKey:key];
+    [userDefaults synchronize];
+}
+
++ (NSArray *)getConfigArrayWithKey:(NSString *)key{
+    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+    NSArray* arrayConfig = [userDefaults objectForKey:key];
+    
+    NSMutableArray* arrayItems = [NSMutableArray array];
+    for(NSInteger i = 0; i < arrayConfig.count; ++ i){
+        NSData* data = [arrayConfig objectAtIndex:i];
+        NSError* error = nil;
+        Heqingzhao_MultiChannelConfig* config = [NSKeyedUnarchiver unarchivedObjectOfClass:[Heqingzhao_MultiChannelConfig class] fromData:data error:&error];
+        if(error)
+            continue;
+        [arrayItems addObject:config];
+    }
+    
+    return arrayItems;
+}
+
++ (NSArray *)getConfigArrayWithKey:(NSString *)key contentProvider:(id<Heqingzhao_MultiChannelConfigProtocol>)contentProvider{
+    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+    NSArray* arrayConfig = [userDefaults objectForKey:key];
+    
+    NSMutableArray* arrayItems = [NSMutableArray array];
+    for(NSInteger i = 0; i < arrayConfig.count; ++ i){
+        NSData* data = [arrayConfig objectAtIndex:i];
+        NSError* error = nil;
+        Heqingzhao_MultiChannelConfig* config = [NSKeyedUnarchiver unarchivedObjectOfClass:[Heqingzhao_MultiChannelConfig class] fromData:data error:&error];
+        if(error)
+            continue;
+        config.contentProvider = contentProvider;
+        [arrayItems addObject:config];
+    }
+    
+    return arrayItems;
 }
 
 @end

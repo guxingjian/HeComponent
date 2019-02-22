@@ -10,6 +10,7 @@
 #import "UIView+view_frame.h"
 #import "Heqingzhao_TabbarAdjustPosition.h"
 #import "UIColor+extension_qingzhao.h"
+#import "Heqingzhao_ImageLoader.h"
 
 @interface Heqingzhao_MultiChannelTopBar()
 
@@ -25,14 +26,7 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     if(self = [super initWithFrame:frame]){
         self.rightItemWidth = 50;
-        NSString* strPath = nil;
-        if([UIScreen mainScreen].scale == 2){
-            strPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"down_arrow@2x" ofType:@"png"];
-        }else if([UIScreen mainScreen].scale == 3){
-            strPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"down_arrow@3x" ofType:@"png"];
-        }
-        
-        self.rightItemImage = [UIImage imageWithContentsOfFile:strPath];
+        self.rightItemImage = [Heqingzhao_ImageLoader loadImage:@"down_arrow"];
         _selectedIndex = -1;
         self.backgroundColor = [UIColor colorWithHexString:@"#F3F4F9"];
     }
@@ -42,8 +36,7 @@
 - (void)awakeFromNib{
     [super awakeFromNib];
     self.rightItemWidth = 50;
-    NSString* strPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"down_image" ofType:@"png"];
-    self.rightItemImage = [UIImage imageWithContentsOfFile:strPath];
+    self.rightItemImage = [Heqingzhao_ImageLoader loadImage:@"down_arrow"];
     _selectedIndex = -1;
 }
 
@@ -62,11 +55,11 @@
     return 0;
 }
 
-- (void)buildTabItems
+- (UIButton*)buildTabItems
 {
     NSArray* arrayTabItem = self.arrayTabItem;
     if(arrayTabItem.count == 0)
-        return ;
+        return nil;
     
     CGFloat fScrollHeight = self.itemBottomDistance*2;
     fScrollHeight += [self tabItemMaxHeight];
@@ -75,6 +68,7 @@
         _tabItemScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, self.height - fScrollHeight, self.width - self.rightItemWidth, fScrollHeight)];
         _tabItemScrollView.showsVerticalScrollIndicator = NO;
         _tabItemScrollView.showsHorizontalScrollIndicator = NO;
+        _tabItemScrollView.alwaysBounceHorizontal = YES;
         [self addSubview:_tabItemScrollView];
     }
     
@@ -84,6 +78,7 @@
         UIButton* btnTab = nil;
         if(i < self.arrayTabButtons.count){
             btnTab = [self.arrayTabButtons objectAtIndex:i];
+            btnTab.layer.transform = CATransform3DIdentity;
         }
         else{
             btnTab = [[UIButton alloc] initWithFrame:CGRectZero];
@@ -102,6 +97,7 @@
             btnTab.titleLabel.font = item.topBarConfig.normalFont;
         }else{
             btnTab.titleLabel.font = item.topBarConfig.selectedFont;
+            btnTab.layer.transform = CATransform3DScale(CATransform3DIdentity, item.topBarConfig.selectedScale, item.topBarConfig.selectedScale, 1);
         }
         btnTab.selected = item.status;
         
@@ -119,8 +115,6 @@
             selectedBtn = btnTab;
         }
     }
-    _tabItemScrollView.contentSize = CGSizeMake(fPosX, 0);
-    
     if(self.arrayTabButtons.count > arrayTabItem.count){
         for(NSInteger i = arrayTabItem.count; i < self.arrayTabButtons.count; ++ i){
             UIView* view = [self.arrayTabButtons objectAtIndex:i];
@@ -135,13 +129,17 @@
             UIView* btn = [self.arrayTabButtons objectAtIndex:i];
             btn.frame = CGRectMake(i*fSplit + fSplit/2 - btn.width, btn.y, btn.width, btn.height);
         }
-        _tabItemScrollView.contentSize = CGSizeMake(_tabItemScrollView.width, 0);
     }
+    
+    if(fPosX < _tabItemScrollView.width){
+        fPosX = _tabItemScrollView.width;
+    }
+    _tabItemScrollView.contentSize = CGSizeMake(fPosX, 0);
     
     if(!selectedBtn){
         selectedBtn = self.arrayTabButtons.firstObject;
     }
-    [self setSelectedIndex:selectedBtn.tag animated:NO];
+    return selectedBtn;
 }
 
 - (void)tabItemAction:(UIButton*)btn{
@@ -163,6 +161,8 @@
 }
 
 - (void)setSelectedIndex:(NSInteger)selectedIndex{
+    if(_selectedIndex == selectedIndex)
+        return ;
     [self setSelectedIndex:selectedIndex animated:YES];
 }
 
@@ -188,9 +188,6 @@
 }
 
 - (void)setSelectedIndex:(NSInteger)selectedIndex animated:(BOOL)animated{
-    if(_selectedIndex == selectedIndex)
-        return ;
-    
     if(selectedIndex < 0 || selectedIndex >= self.arrayTabItem.count)
         return ;
     
@@ -272,8 +269,10 @@
         return ;
     
     _arrayTabItem = arrayTabItem;
-    [self buildTabItems];
-    
+    UIButton* selectedBtn = [self buildTabItems];
+    if(selectedBtn){
+        [self setSelectedIndex:selectedBtn.tag animated:NO];
+    }
     if(self.customRightView){
         self.customRightView.frame = CGRectMake(self.customRightView.x, _tabItemScrollView.y, self.customRightView.width, _tabItemScrollView.height);
     }

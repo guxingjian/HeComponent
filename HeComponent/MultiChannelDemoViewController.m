@@ -22,14 +22,14 @@
     
     Heqingzhao_MultiChannelTopBar* topBar = self.topBar;
     
-    NSMutableArray* arrayItems = [NSMutableArray array];
-    
-    NSArray* arrayConfig = [[NSUserDefaults standardUserDefaults] objectForKey:MultiChannel_SelectedChannel_Key];
-    if(!arrayConfig){
+    NSArray* arrayConfig = [Heqingzhao_MultiChannelConfig getConfigArrayWithKey:MultiChannel_SelectedChannel_Key contentProvider:self];
+    if(arrayConfig.count == 0){
+        NSMutableArray* arrayItems = [NSMutableArray array];
+        
         UIFont* font = [UIFont systemFontOfSize:15];
         UIColor* normalColor = [UIColor blackColor];
         UIColor* selectedColor = [UIColor blueColor];
-        for(NSInteger i = 0; i < 10; ++ i){
+        for(NSInteger i = 0; i < 5; ++ i){
             NSString* title = [NSString stringWithFormat:@"tab%ld", i];
             Heqingzhao_MultiChannelConfig* item = [[Heqingzhao_MultiChannelConfig alloc] init];
             item.topBarConfig.normalTitle = title;
@@ -39,17 +39,11 @@
             item.topBarConfig.selectedTextColor = selectedColor;
             item.topBarConfig.selectedScale = 1.1;
             item.contentProvider = self;// 可以自由设定，可以是当前类，也可以是指定的类
+            item.contentResuseIdentifier = @"contentView";
+            
             [arrayItems addObject:item];
         }
-    }else{
-        [arrayItems addObjectsFromArray:arrayConfig];
-        
-        UIFont* font = [UIFont systemFontOfSize:15];
-        for(NSInteger i = 0; i < arrayItems.count; ++ i){
-            Heqingzhao_MultiChannelConfig* item = [arrayItems objectAtIndex:i];
-            item.topBarConfig.normalFont = font;
-            item.contentProvider = self;// 可以自由设定，可以是当前类，也可以是指定的类
-        }
+        arrayConfig = arrayItems;
     }
     
     //    topBar.rightItemWidth = 80;
@@ -57,9 +51,10 @@
     topBar.edgeSpace = 15;
     topBar.itemBottomDistance = 20;
     topBar.animateLineViewDis = 16;
-    topBar.arrayTabItem = arrayItems;
+    topBar.arrayTabItem = arrayConfig;
     
-    self.contentView.arrayTabItem = arrayItems;
+    self.contentView.enableReuseContentView = YES;
+    self.contentView.arrayTabItem = arrayConfig;
 }
 
 /*

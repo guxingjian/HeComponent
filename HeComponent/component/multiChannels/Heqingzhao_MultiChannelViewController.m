@@ -10,9 +10,6 @@
 #import "UIView+view_frame.h"
 #import "Heqingzhao_MultiChannelEditViewController.h"
 
-#define MultiChannel_UnSelectedChannel_Key @"MultiChannel_UnSelectedChannel_Key"
-#define MultiChannel_SelectedChannel_Key @"MultiChannel_SelectedChannel_Key"
-
 @interface Heqingzhao_MultiChannelViewController ()<Heqingzhao_MultiChannelEditViewControllerDelegate>
 
 @end
@@ -50,33 +47,37 @@
     editVc.delegate = self;
     editVc.selectedTabConfigs = arrayItems;
     
-    editVc.unselectedTabConfigs = [[NSUserDefaults standardUserDefaults] objectForKey:MultiChannel_UnSelectedChannel_Key];
+    NSArray* arrayConfig = [[NSUserDefaults standardUserDefaults] objectForKey:MultiChannel_UnSelectedChannel_Key];
+    NSMutableArray* arrayUnSelectedConfig = [NSMutableArray array];
+    
+    for(NSInteger i = 0; i < arrayConfig.count; ++ i){
+        NSData* data = [arrayConfig objectAtIndex:i];
+        Heqingzhao_MultiChannelConfig* config = [NSKeyedUnarchiver unarchivedObjectOfClass:[Heqingzhao_MultiChannelConfig class] fromData:data error:nil];
+        if(config){
+            [arrayUnSelectedConfig addObject:config];
+        }
+        config.contentProvider = self;
+    }
+    
+    editVc.unselectedTabConfigs = arrayUnSelectedConfig;
     [self presentViewController:editVc animated:YES completion:^{
         
     }];
 }
 
 - (void)saveSelectedConfig:(NSArray *)selectedConfig unSelectedConfig:(NSArray *)unSelectedConfig{
-    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
-    
-    NSMutableArray* arrayTempSelected = [NSMutableArray array];
-    for(Heqingzhao_MultiChannelConfig* config in selectedConfig){
-        NSData* data = [NSKeyedArchiver archivedDataWithRootObject:config requiringSecureCoding:YES error:nil];
-        if(data){
-            [arrayTempSelected addObject:data];
-        }
-    }
-    [userDefaults setObject:[NSArray arrayWithArray:arrayTempSelected] forKey:MultiChannel_SelectedChannel_Key];
-    
-    NSMutableArray* arrayTempUnSelected = [NSMutableArray array];
-    for(Heqingzhao_MultiChannelConfig* config in unSelectedConfig){
-        NSData* data = [NSKeyedArchiver archivedDataWithRootObject:config requiringSecureCoding:YES error:nil];
-        if(data){
-            [arrayTempUnSelected addObject:data];
-        }
-    }
-    [userDefaults setObject:[NSArray arrayWithArray:arrayTempUnSelected] forKey:MultiChannel_UnSelectedChannel_Key];
     [self.topBar setArrayTabItem:selectedConfig];
+    [self.contentView setArrayTabItem:selectedConfig];
+    
+    [Heqingzhao_MultiChannelConfig saveConfigArray:selectedConfig dataKey:MultiChannel_SelectedChannel_Key];
+    [Heqingzhao_MultiChannelConfig saveConfigArray:unSelectedConfig dataKey:MultiChannel_UnSelectedChannel_Key];
+}
+
+- (void)multiChannelContentView:(Heqingzhao_MultiChannelContentView *)contentView willSelectIndex:(NSInteger)nIndex withChannelView:(UIView *)view andConfig:(Heqingzhao_MultiChannelConfig *)config{
+    UILabel* labelContent = [view viewWithTag:1001];
+    labelContent.text = config.topBarConfig.normalTitle;
+    NSArray* array = [self colorArray];
+    view.backgroundColor = [array objectAtIndex:(nIndex%array.count)];
 }
 
 - (void)multiChannelContentView:(Heqingzhao_MultiChannelContentView *)contentView didSelectIndex:(NSInteger)nIndex withChannelView:(UIView *)view andConfig:(Heqingzhao_MultiChannelConfig *)config{
@@ -100,6 +101,7 @@
     labelContent.text = config.topBarConfig.normalTitle;
     labelContent.textAlignment = NSTextAlignmentCenter;
     [contentView addSubview:labelContent];
+    labelContent.tag = 1001;
     
     NSArray* array = [self colorArray];
     contentView.backgroundColor = [array objectAtIndex:(nIndex%array.count)];

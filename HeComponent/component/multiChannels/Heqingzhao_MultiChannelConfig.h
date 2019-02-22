@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+#define MultiChannel_UnSelectedChannel_Key @"MultiChannel_UnSelectedChannel_Key"
+#define MultiChannel_SelectedChannel_Key @"MultiChannel_SelectedChannel_Key"
+
 @interface Heqingzhao_MultiChannelTopBarConfig : NSObject
 
 @property(nonatomic, strong)NSString* normalTitle;
@@ -37,13 +40,18 @@
 
 @end
 
-@interface Heqingzhao_MultiChannelConfig : NSObject<NSCoding>
+@interface Heqingzhao_MultiChannelConfig : NSObject<NSSecureCoding>
 
 @property(nonatomic, strong)NSString* itemIdentifier; // 默认为normalTitle
+@property(nonatomic, strong)NSString* contentResuseIdentifier; // 用于contentView中的view复用, 默认为itemIdentifier
 
 @property(nonatomic, assign)BOOL status; // 0 未选中，1 选中
 @property(nonatomic, strong)Heqingzhao_MultiChannelTopBarConfig* topBarConfig;
 @property(nonatomic, weak)id<Heqingzhao_MultiChannelConfigProtocol> contentProvider;
 
+// 将config数据保存到userDefaults
++ (void)saveConfigArray:(NSArray*)array dataKey:(NSString*)key;
++ (NSArray*)getConfigArrayWithKey:(NSString*)key;
++ (NSArray*)getConfigArrayWithKey:(NSString*)key contentProvider:(id<Heqingzhao_MultiChannelConfigProtocol>)contentProvider;
 
 @end
