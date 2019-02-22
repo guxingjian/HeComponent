@@ -9,6 +9,7 @@
 #import "Heqingzhao_MultiChannelViewController.h"
 #import "UIView+view_frame.h"
 #import "Heqingzhao_MultiChannelEditViewController.h"
+#import "Heqingzhao_AppContext.h"
 
 @interface Heqingzhao_MultiChannelViewController ()<Heqingzhao_MultiChannelEditViewControllerDelegate>
 
@@ -16,15 +17,11 @@
 
 @implementation Heqingzhao_MultiChannelViewController
 
-- (CGFloat)topNaviHeight{
-    return 88;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    CGFloat fNaviHeight = [self topNaviHeight];
+    CGFloat fNaviHeight = [[Heqingzhao_AppContext sharedAppContext] topNaviHeight];
     
     Heqingzhao_MultiChannelTopBar* topBar = [[Heqingzhao_MultiChannelTopBar alloc] initWithFrame:CGRectMake(0, 0, self.view.width, fNaviHeight)];
     topBar.delegate = self;

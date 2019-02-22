@@ -39,7 +39,7 @@
             item.topBarConfig.selectedTextColor = selectedColor;
             item.topBarConfig.selectedScale = 1.1;
             item.contentProvider = self;// 可以自由设定，可以是当前类，也可以是指定的类
-            item.contentResuseIdentifier = @"contentView";
+            item.contentResuseIdentifier = @"contentView"; // 设置contentView重用标识
             
             [arrayItems addObject:item];
         }
@@ -51,9 +51,12 @@
     topBar.edgeSpace = 15;
     topBar.itemBottomDistance = 20;
     topBar.animateLineViewDis = 16;
+    
+    // 最好在设置arrayTabItem之前设置好参数
     topBar.arrayTabItem = arrayConfig;
     
     self.contentView.enableReuseContentView = YES;
+    // 最好在设置arrayTabItem之前设置好参数
     self.contentView.arrayTabItem = arrayConfig;
 }
 

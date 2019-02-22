@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C9052A4622201449003EF4B8 /* Heqingzhao_AppContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C9052A4522201449003EF4B8 /* Heqingzhao_AppContext.m */; };
 		C94138DC221A476800AFA04F /* Heqingzhao_MultiChannelContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = C94138DB221A476800AFA04F /* Heqingzhao_MultiChannelContentView.m */; };
 		C9B0AD6B221D259C00F747B1 /* Heqingzhao_SinglePixelView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B0AD69221D259C00F747B1 /* Heqingzhao_SinglePixelView.m */; };
 		C9B0AD6E221D32DA00F747B1 /* Heqingzhao_MultiChannelEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B0AD6D221D32DA00F747B1 /* Heqingzhao_MultiChannelEditCell.m */; };
@@ -34,6 +35,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C9052A4422201449003EF4B8 /* Heqingzhao_AppContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_AppContext.h; sourceTree = "<group>"; };
+		C9052A4522201449003EF4B8 /* Heqingzhao_AppContext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_AppContext.m; sourceTree = "<group>"; };
 		C94138DA221A476800AFA04F /* Heqingzhao_MultiChannelContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_MultiChannelContentView.h; sourceTree = "<group>"; };
 		C94138DB221A476800AFA04F /* Heqingzhao_MultiChannelContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_MultiChannelContentView.m; sourceTree = "<group>"; };
 		C9B0AD69221D259C00F747B1 /* Heqingzhao_SinglePixelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_SinglePixelView.m; sourceTree = "<group>"; };
@@ -143,6 +146,8 @@
 				C9BDB02A221BF6D800FC4168 /* UIColor+extension_qingzhao.m */,
 				C9D3B4E3221ECE8D00A8E573 /* Heqingzhao_ImageLoader.h */,
 				C9D3B4E4221ECE8D00A8E573 /* Heqingzhao_ImageLoader.m */,
+				C9052A4422201449003EF4B8 /* Heqingzhao_AppContext.h */,
+				C9052A4522201449003EF4B8 /* Heqingzhao_AppContext.m */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -262,6 +267,7 @@
 				C9BB1E962216CEAC0050B493 /* Heqingzhao_TabbarAdjustPosition.m in Sources */,
 				C9B0AD6B221D259C00F747B1 /* Heqingzhao_SinglePixelView.m in Sources */,
 				C94138DC221A476800AFA04F /* Heqingzhao_MultiChannelContentView.m in Sources */,
+				C9052A4622201449003EF4B8 /* Heqingzhao_AppContext.m in Sources */,
 				C9BB1E982216CEAC0050B493 /* Heqingzhao_MultiChannelConfig.m in Sources */,
 				C9BB1E4B221551D90050B493 /* ViewController.m in Sources */,
 				C9BB1E992216CEAC0050B493 /* Heqingzhao_MultiChannelTopBar.m in Sources */,

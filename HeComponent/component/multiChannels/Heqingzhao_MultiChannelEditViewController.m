@@ -12,6 +12,8 @@
 #import "UIColor+extension_qingzhao.h"
 #import "Heqingzhao_MultiChannelEditCell.h"
 #import "Heqingzhao_ImageLoader.h"
+#import <AudioToolbox/AudioToolbox.h>
+#import "Heqingzhao_AppContext.h"
 
 @interface Heqingzhao_MultiChannelEditViewController ()<Heqingzhao_MultiChannelEditCellProtocol>
 
@@ -23,10 +25,6 @@
 @end
 
 @implementation Heqingzhao_MultiChannelEditViewController
-
-- (CGFloat)topNaviHeight{
-    return 88;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -60,7 +58,7 @@
         return ;
     }
     
-    CGFloat fNaviHeight = [self topNaviHeight];
+    CGFloat fNaviHeight = [[Heqingzhao_AppContext sharedAppContext] topNaviHeight];
     UIView* topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, fNaviHeight)];
     topView.backgroundColor = [UIColor colorWithHexString:@"#F3F4F9"];
     [self.view addSubview:topView];
@@ -100,7 +98,7 @@
     layout.sectionInset = UIEdgeInsetsMake(15, 15, 0, 15);
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
     
-    CGFloat fNaviHeight = [self topNaviHeight];
+    CGFloat fNaviHeight = [[Heqingzhao_AppContext sharedAppContext] topNaviHeight];
     UICollectionView* collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, fNaviHeight, self.view.width, self.view.height - fNaviHeight) collectionViewLayout:layout];
     collectionView.backgroundColor = [UIColor whiteColor];
     collectionView.alwaysBounceVertical = YES;
@@ -136,6 +134,7 @@
         [colView beginInteractiveMovementForItemAtIndexPath:indexPath];
         self.channelEditting = YES;
         [self reloadSelectedCellsEditting];
+        AudioServicesPlaySystemSound(1520);
     }else if(UIGestureRecognizerStateEnded == gestureRecognizer.state){
         [colView endInteractiveMovement];
         

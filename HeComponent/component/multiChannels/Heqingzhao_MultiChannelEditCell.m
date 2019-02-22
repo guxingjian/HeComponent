@@ -82,7 +82,7 @@
 
 - (void)layoutSubviews{
     [super layoutSubviews];
-    self.labelTitle.frame = self.contentView.bounds;
+    self.labelTitle.frame = CGRectMake(self.deleteBtn.width/2, self.deleteBtn.height/2, self.width - self.deleteBtn.width, self.height - self.deleteBtn.height);
 }
 
 @end
