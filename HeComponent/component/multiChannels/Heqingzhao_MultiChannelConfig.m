@@ -8,7 +8,7 @@
 
 #import "Heqingzhao_MultiChannelConfig.h"
 
-@interface Heqingzhao_MultiChannelTopBarConfig()<NSSecureCoding>
+@interface Heqingzhao_MultiChannelTopBarConfig()
 
 @property(nonatomic, assign)CGSize normalSize;
 @property(nonatomic, assign)CGSize selectedSize;
@@ -186,6 +186,11 @@
     return _contentResuseIdentifier;
 }
 
+//- (id)copy{
+//    Heqingzhao_MultiChannelConfig* cfg = [[Heqingzhao_MultiChannelConfig alloc] init];
+//    cfg.
+//}
+
 + (BOOL)supportsSecureCoding{
     return YES;
 }
@@ -196,13 +201,22 @@
     
     NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
     NSMutableArray* arrayTemp = [NSMutableArray array];
-    for(Heqingzhao_MultiChannelConfig* config in array){
+    NSArray* arrayConfig = [array copy];
+    for(Heqingzhao_MultiChannelConfig* config in arrayConfig){
         if(![config isKindOfClass:[Heqingzhao_MultiChannelConfig class]])
             continue ;
-        NSError* error = nil;
-        NSData* data = [NSKeyedArchiver archivedDataWithRootObject:config requiringSecureCoding:YES error:&error];
-        if(!data || error)
+        NSData* data = nil;
+        if(@available(iOS 12.0, *)){
+            NSError* error = nil;
+            data =[NSKeyedArchiver archivedDataWithRootObject:config requiringSecureCoding:YES error:&error];
+            if(error)
+                continue;
+        }else{
+            data = [NSKeyedArchiver archivedDataWithRootObject:config];
+        }
+        if(!data)
             continue;
+        
         [arrayTemp addObject:data];
     }
     [userDefaults setObject:[NSArray arrayWithArray:arrayTemp] forKey:key];
@@ -216,9 +230,16 @@
     NSMutableArray* arrayItems = [NSMutableArray array];
     for(NSInteger i = 0; i < arrayConfig.count; ++ i){
         NSData* data = [arrayConfig objectAtIndex:i];
-        NSError* error = nil;
-        Heqingzhao_MultiChannelConfig* config = [NSKeyedUnarchiver unarchivedObjectOfClass:[Heqingzhao_MultiChannelConfig class] fromData:data error:&error];
-        if(error)
+        Heqingzhao_MultiChannelConfig* config = nil;
+        if(@available(iOS 12.0, *)){
+            NSError* error = nil;
+            config = [NSKeyedUnarchiver unarchivedObjectOfClass:self fromData:data error:&error];
+            if(error)
+                continue;
+        }else{
+            config = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        }
+        if(!config)
             continue;
         [arrayItems addObject:config];
     }
@@ -233,15 +254,43 @@
     NSMutableArray* arrayItems = [NSMutableArray array];
     for(NSInteger i = 0; i < arrayConfig.count; ++ i){
         NSData* data = [arrayConfig objectAtIndex:i];
-        NSError* error = nil;
-        Heqingzhao_MultiChannelConfig* config = [NSKeyedUnarchiver unarchivedObjectOfClass:[Heqingzhao_MultiChannelConfig class] fromData:data error:&error];
-        if(error)
+        Heqingzhao_MultiChannelConfig* config = nil;
+        if(@available(iOS 12.0, *)){
+            NSError* error = nil;
+            config = [NSKeyedUnarchiver unarchivedObjectOfClass:self fromData:data error:&error];
+            if(error)
+                continue;
+        }else{
+            config = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        }
+        if(!config)
             continue;
         config.contentProvider = contentProvider;
         [arrayItems addObject:config];
     }
     
     return arrayItems;
+}
+
++ (NSArray *)configArrayWithArray:(NSArray *)arrayConfig insertConfig:(Heqingzhao_MultiChannelConfig *)config atIndex:(NSInteger (^)(Heqingzhao_MultiChannelConfig *cfg, NSInteger nIndex))indexBlock{
+    
+    NSInteger nRet = -1;
+    for(NSInteger i = 0; i< arrayConfig.count; ++ i){
+        Heqingzhao_MultiChannelConfig* tempCfg = [arrayConfig objectAtIndex:i];
+        if(-1 == nRet){
+            nRet = indexBlock(tempCfg, i);
+        }
+        if([config.itemIdentifier isEqualToString:tempCfg.itemIdentifier]){
+            nRet = -1;
+            break;
+        }
+    }
+    if(nRet < 0 || nRet > arrayConfig.count)
+        return arrayConfig;
+    
+    NSMutableArray* arrayTemp = [NSMutableArray arrayWithArray:arrayConfig];
+    [arrayTemp insertObject:config atIndex:nRet];
+    return arrayTemp;
 }
 
 @end

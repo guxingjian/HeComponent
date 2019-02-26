@@ -9,7 +9,6 @@
 #import "Heqingzhao_MultiChannelTopBar.h"
 #import "UIView+view_frame.h"
 #import "Heqingzhao_TabbarAdjustPosition.h"
-#import "UIColor+extension_qingzhao.h"
 #import "Heqingzhao_ImageLoader.h"
 
 @interface Heqingzhao_MultiChannelTopBar()
@@ -28,7 +27,7 @@
         self.rightItemWidth = 50;
         self.rightItemImage = [Heqingzhao_ImageLoader loadImage:@"down_arrow"];
         _selectedIndex = -1;
-        self.backgroundColor = [UIColor colorWithHexString:@"#F3F4F9"];
+//        self.backgroundColor = [UIColor colorWithHexString:@"#F3F4F9"];
     }
     return self;
 }
@@ -38,6 +37,7 @@
     self.rightItemWidth = 50;
     self.rightItemImage = [Heqingzhao_ImageLoader loadImage:@"down_arrow"];
     _selectedIndex = -1;
+//    self.backgroundColor = [UIColor colorWithHexString:@"#F3F4F9"];
 }
 
 - (NSMutableArray *)arrayTabButtons{
@@ -82,6 +82,7 @@
         }
         else{
             btnTab = [[UIButton alloc] initWithFrame:CGRectZero];
+            btnTab.autoresizingMask = UIViewAutoresizingFlexibleHeight;
             [self.arrayTabButtons addObject:btnTab];
         }
         
@@ -243,6 +244,7 @@
             btn = [self.arrayTabButtons objectAtIndex:_selectedIndex];
         }
         _animateLineView = [[UIView alloc] initWithFrame:CGRectMake(btn.left, _tabItemScrollView.height - self.animateLineViewDis - 2, btn.width, 2)];
+        _animateLineView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
         _animateLineView.backgroundColor = [UIColor blueColor];
         [_tabItemScrollView addSubview:_animateLineView];
     }
@@ -279,11 +281,8 @@
 }
 
 - (void)setItemBottomDistance:(CGFloat)itemBottomDistance{
-    CGFloat fRightHeight = 0;
     if(_tabItemScrollView){
         _tabItemScrollView.frame = CGRectMake(_tabItemScrollView.left, self.height - itemBottomDistance*2 + [self tabItemMaxHeight], _tabItemScrollView.width, itemBottomDistance*2 + [self tabItemMaxHeight]);
-        fRightHeight = _tabItemScrollView.height;
-        
         if(self.customRightView){
             self.customRightView.frame = CGRectMake(self.customRightView.left, _tabItemScrollView.y, self.customRightView.width, _tabItemScrollView.height);
         }
@@ -328,9 +327,9 @@
 }
 
 - (void)setRightItemImage:(UIImage *)rightItemImage{
-    if(self.customRightView && !_rightItemImage)
-        return ;
-    
+//    if(self.customRightView && !_rightItemImage)
+//        return ;
+//
     _rightItemImage = rightItemImage;
     
     CGFloat fHeight = 0;

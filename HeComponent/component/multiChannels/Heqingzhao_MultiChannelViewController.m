@@ -10,6 +10,7 @@
 #import "UIView+view_frame.h"
 #import "Heqingzhao_MultiChannelEditViewController.h"
 #import "Heqingzhao_AppContext.h"
+#import "UIColor+extension_qingzhao.h"
 
 @interface Heqingzhao_MultiChannelViewController ()<Heqingzhao_MultiChannelEditViewControllerDelegate>
 
@@ -25,6 +26,7 @@
     
     Heqingzhao_MultiChannelTopBar* topBar = [[Heqingzhao_MultiChannelTopBar alloc] initWithFrame:CGRectMake(0, 0, self.view.width, fNaviHeight)];
     topBar.delegate = self;
+    topBar.backgroundColor = [UIColor colorWithHexString:@"#F3F4F9"];
     [self.view addSubview:topBar];
     self.topBar = topBar;
     

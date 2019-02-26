@@ -94,15 +94,18 @@
             }
             
             [arrayViews addObject:channelView];
-            [self.contentScrollView addSubview:channelView];
         }
     }
     
     CGRect frame = CGRectMake(nIndex*self.contentScrollView.width, 0, self.contentScrollView.width, self.contentScrollView.height);
     if(!CGRectEqualToRect(frame, channelView.frame)){
         channelView.frame = frame;
-        [self.contentScrollView bringSubviewToFront:channelView];
     }
+    if(![_contentScrollView.subviews containsObject:channelView]){
+        channelView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+        [_contentScrollView addSubview:channelView];
+    }
+    [self.contentScrollView bringSubviewToFront:channelView];
     
     return channelView;
 }
@@ -222,13 +225,7 @@
         return ;
     
     self.contentScrollView.frame = self.bounds;
-    for(NSInteger i = 0; i < self.arrayTabItem.count; ++ i){
-        Heqingzhao_MultiChannelConfig* config = [self.arrayTabItem objectAtIndex:i];
-        UIView* view = [self.dicContentView objectForKey:config.itemIdentifier];
-        if(view){
-            view.frame = CGRectMake(i*self.contentScrollView.width, view.top, self.contentScrollView.width, view.height);
-        }
-    }
+    
 }
 
 @end

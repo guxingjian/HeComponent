@@ -11,6 +11,8 @@
 		C94138DC221A476800AFA04F /* Heqingzhao_MultiChannelContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = C94138DB221A476800AFA04F /* Heqingzhao_MultiChannelContentView.m */; };
 		C9B0AD6B221D259C00F747B1 /* Heqingzhao_SinglePixelView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B0AD69221D259C00F747B1 /* Heqingzhao_SinglePixelView.m */; };
 		C9B0AD6E221D32DA00F747B1 /* Heqingzhao_MultiChannelEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B0AD6D221D32DA00F747B1 /* Heqingzhao_MultiChannelEditCell.m */; };
+		C9B4E3B62223B78A00454349 /* Heqingzhao_tableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B4E3B52223B78A00454349 /* Heqingzhao_tableViewController.m */; };
+		C9B4E3B92223B80300454349 /* Heqingzhao_tableViewConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B4E3B82223B80300454349 /* Heqingzhao_tableViewConfig.m */; };
 		C9BB1E48221551D90050B493 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BB1E47221551D90050B493 /* AppDelegate.m */; };
 		C9BB1E4B221551D90050B493 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BB1E4A221551D90050B493 /* ViewController.m */; };
 		C9BB1E4E221551D90050B493 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9BB1E4C221551D90050B493 /* Main.storyboard */; };
@@ -43,6 +45,10 @@
 		C9B0AD6A221D259C00F747B1 /* Heqingzhao_SinglePixelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_SinglePixelView.h; sourceTree = "<group>"; };
 		C9B0AD6C221D32DA00F747B1 /* Heqingzhao_MultiChannelEditCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_MultiChannelEditCell.h; sourceTree = "<group>"; };
 		C9B0AD6D221D32DA00F747B1 /* Heqingzhao_MultiChannelEditCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_MultiChannelEditCell.m; sourceTree = "<group>"; };
+		C9B4E3B42223B78A00454349 /* Heqingzhao_tableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_tableViewController.h; sourceTree = "<group>"; };
+		C9B4E3B52223B78A00454349 /* Heqingzhao_tableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_tableViewController.m; sourceTree = "<group>"; };
+		C9B4E3B72223B80300454349 /* Heqingzhao_tableViewConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_tableViewConfig.h; sourceTree = "<group>"; };
+		C9B4E3B82223B80300454349 /* Heqingzhao_tableViewConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_tableViewConfig.m; sourceTree = "<group>"; };
 		C9BB1E43221551D90050B493 /* HeComponent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeComponent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9BB1E46221551D90050B493 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C9BB1E47221551D90050B493 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -90,6 +96,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C9B4E3B32223B75B00454349 /* tableDataCotroller */ = {
+			isa = PBXGroup;
+			children = (
+				C9B4E3B42223B78A00454349 /* Heqingzhao_tableViewController.h */,
+				C9B4E3B52223B78A00454349 /* Heqingzhao_tableViewController.m */,
+				C9B4E3B72223B80300454349 /* Heqingzhao_tableViewConfig.h */,
+				C9B4E3B82223B80300454349 /* Heqingzhao_tableViewConfig.m */,
+			);
+			path = tableDataCotroller;
+			sourceTree = "<group>";
+		};
 		C9BB1E3A221551D90050B493 = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +145,7 @@
 		C9BB1E5C221552D00050B493 /* component */ = {
 			isa = PBXGroup;
 			children = (
+				C9B4E3B32223B75B00454349 /* tableDataCotroller */,
 				C9BDB02C221BFB3700FC4168 /* resource */,
 				C9BB1E892216CEAC0050B493 /* common */,
 				C9BB1E8C2216CEAC0050B493 /* multiChannels */,
@@ -265,8 +283,10 @@
 				C9BDB068221C237100FC4168 /* Heqingzhao_MultiChannelEditViewController.m in Sources */,
 				C9B0AD6E221D32DA00F747B1 /* Heqingzhao_MultiChannelEditCell.m in Sources */,
 				C9BB1E962216CEAC0050B493 /* Heqingzhao_TabbarAdjustPosition.m in Sources */,
+				C9B4E3B92223B80300454349 /* Heqingzhao_tableViewConfig.m in Sources */,
 				C9B0AD6B221D259C00F747B1 /* Heqingzhao_SinglePixelView.m in Sources */,
 				C94138DC221A476800AFA04F /* Heqingzhao_MultiChannelContentView.m in Sources */,
+				C9B4E3B62223B78A00454349 /* Heqingzhao_tableViewController.m in Sources */,
 				C9052A4622201449003EF4B8 /* Heqingzhao_AppContext.m in Sources */,
 				C9BB1E982216CEAC0050B493 /* Heqingzhao_MultiChannelConfig.m in Sources */,
 				C9BB1E4B221551D90050B493 /* ViewController.m in Sources */,
@@ -420,7 +440,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K4MHPN3EKX;
 				INFOPLIST_FILE = HeComponent/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -436,7 +458,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K4MHPN3EKX;
 				INFOPLIST_FILE = HeComponent/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

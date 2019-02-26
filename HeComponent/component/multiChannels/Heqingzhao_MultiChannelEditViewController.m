@@ -59,17 +59,17 @@
     }
     
     CGFloat fNaviHeight = [[Heqingzhao_AppContext sharedAppContext] topNaviHeight];
-    UIView* topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, fNaviHeight)];
+    UIView* topView = [[UIView alloc] initWithFrame:CGRectMake(0, fNaviHeight - 64, self.view.width, 64)];
     topView.backgroundColor = [UIColor colorWithHexString:@"#F3F4F9"];
     [self.view addSubview:topView];
     
-    UINavigationBar* naviBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, fNaviHeight - 44, self.view.width, 44)];
+    UINavigationBar* naviBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 64)];
     naviBar.barTintColor = topView.backgroundColor;
     UINavigationItem* naviItem = [[UINavigationItem alloc] initWithTitle:self.title];
     naviItem.rightBarButtonItem = btnItem;
     naviItem.leftBarButtonItem = backItem;
     naviBar.items = @[naviItem];
-    [self.view addSubview:naviBar];
+    [topView addSubview:naviBar];
 }
 
 - (void)backAction:(UIButton*)btn{
