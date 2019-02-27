@@ -53,6 +53,8 @@ typedef NS_OPTIONS(NSInteger, Heqingzhao_MultiChannelTopBarLayout){
 
 // 方法中不会检查设置的selectedIndex和原来的selectedIndex是否相等，需要自己判断
 - (void)setSelectedIndex:(NSInteger)selectedIndex animated:(BOOL)animated;
+- (void)setSelectedIndexWithComparion:(BOOL (^)(Heqingzhao_MultiChannelConfig* config))compareBlock;
+- (void)setSelectedIndexWithComparion:(BOOL (^)(Heqingzhao_MultiChannelConfig* config))compareBlock animated:(BOOL)animated;
 
 - (CGFloat)tabItemMaxHeight; // 获取tab的最大高度，可以由子类重写
 
@@ -61,6 +63,6 @@ typedef NS_OPTIONS(NSInteger, Heqingzhao_MultiChannelTopBarLayout){
 
 // 当contentView左右滑动的时候，必须调用这个函数，fIndex为浮点数的索引
 // 可由子类重写，自定义行为
-- (void)scrollToIndex:(CGFloat)fIndex;
+- (void)scrollToIndex:(CGFloat)fIndex gradient:(BOOL)gradient;
 
 @end

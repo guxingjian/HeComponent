@@ -40,12 +40,12 @@
         self.title = @"编辑频道";
     }
     
-    UIButton* btnBack = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
+    UIButton* btnBack = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 60)];
     [btnBack setImage:[Heqingzhao_ImageLoader loadImage:@"navi_back"] forState:UIControlStateNormal];
     [btnBack addTarget:self action:@selector(backAction:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem* backItem = [[UIBarButtonItem alloc] initWithCustomView:btnBack];
     
-    UIButton* btnSave = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
+    UIButton* btnSave = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 60)];
     [btnSave addTarget:self action:@selector(saveChannels:) forControlEvents:UIControlEventTouchUpInside];
     [btnSave setTitle:@"保存" forState:UIControlStateNormal];
     [btnSave setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -58,13 +58,18 @@
         return ;
     }
     
+    CGFloat fTopBarHeight = [[Heqingzhao_AppContext sharedAppContext] topBarHeight];
     CGFloat fNaviHeight = [[Heqingzhao_AppContext sharedAppContext] topNaviHeight];
-    UIView* topView = [[UIView alloc] initWithFrame:CGRectMake(0, fNaviHeight - 64, self.view.width, 64)];
-    topView.backgroundColor = [UIColor colorWithHexString:@"#F3F4F9"];
+    
+    UIView* topContentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, fTopBarHeight)];
+    topContentView.backgroundColor = [UIColor colorWithHexString:@"#F3F4F9"];
+    [self.view addSubview:topContentView];
+    
+    UIView* topView = [[UIView alloc] initWithFrame:CGRectMake(0, topContentView.height - fNaviHeight, self.view.width, fNaviHeight)];
     [self.view addSubview:topView];
     
-    UINavigationBar* naviBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 64)];
-    naviBar.barTintColor = topView.backgroundColor;
+    UINavigationBar* naviBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, topView.width, fNaviHeight)];
+    naviBar.barTintColor = topContentView.backgroundColor;
     UINavigationItem* naviItem = [[UINavigationItem alloc] initWithTitle:self.title];
     naviItem.rightBarButtonItem = btnItem;
     naviItem.leftBarButtonItem = backItem;
@@ -86,7 +91,7 @@
         self.channelEditting = NO;
         [self reloadSelectedCellsEditting];
     }
-    if([self.delegate respondsToSelector:@selector(saveSelectedConfig:unSelectedConfig:)]){
+    if(![self.tempSelectedTabConfigs isEqualToArray:self.selectedTabConfigs] && [self.delegate respondsToSelector:@selector(saveSelectedConfig:unSelectedConfig:)]){
         [self.delegate saveSelectedConfig:self.tempSelectedTabConfigs unSelectedConfig:self.tempUnselectedTabConfigs];
     }
 }
@@ -98,8 +103,8 @@
     layout.sectionInset = UIEdgeInsetsMake(15, 15, 0, 15);
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
     
-    CGFloat fNaviHeight = [[Heqingzhao_AppContext sharedAppContext] topNaviHeight];
-    UICollectionView* collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, fNaviHeight, self.view.width, self.view.height - fNaviHeight) collectionViewLayout:layout];
+    CGFloat fTopBarHeight = [[Heqingzhao_AppContext sharedAppContext] topBarHeight];
+    UICollectionView* collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, fTopBarHeight, self.view.width, self.view.height - fTopBarHeight) collectionViewLayout:layout];
     collectionView.backgroundColor = [UIColor whiteColor];
     collectionView.alwaysBounceVertical = YES;
     [collectionView registerClass:[Heqingzhao_MultiChannelEditCell class] forCellWithReuseIdentifier:@"editCell"];

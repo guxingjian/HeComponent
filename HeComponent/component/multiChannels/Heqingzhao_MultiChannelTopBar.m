@@ -144,21 +144,7 @@
 }
 
 - (void)tabItemAction:(UIButton*)btn{
-    
-    if(_selectedIndex == btn.tag)
-        return ;
-    
-    Heqingzhao_MultiChannelConfig* item = nil;
-    if([self.delegate respondsToSelector:@selector(topBar:willSelectIndex:item:)]){
-        item = [self.arrayTabItem objectAtIndex:btn.tag];
-        [self.delegate topBar:self willSelectIndex:btn.tag item:item];
-    }
-
-    [self setSelectedIndex:btn.tag animated:YES];
-    
-    if([self.delegate respondsToSelector:@selector(topBar:didSelectIndex:item:)]){
-        [self.delegate topBar:self didSelectIndex:btn.tag item:item];
-    }
+    [self setSelectedIndex:btn.tag];
 }
 
 - (void)setSelectedIndex:(NSInteger)selectedIndex{
@@ -204,10 +190,14 @@
         preItem.status = 0;
     }
     
+    Heqingzhao_MultiChannelConfig* item = [self.arrayTabItem objectAtIndex:selectedIndex];
+    if([self.delegate respondsToSelector:@selector(topBar:willSelectIndex:item:)]){
+        [self.delegate topBar:self willSelectIndex:selectedIndex item:item];
+    }
+    
     NSInteger preIndex = _selectedIndex;
     _selectedIndex = selectedIndex;
-    
-    Heqingzhao_MultiChannelConfig* item = [self.arrayTabItem objectAtIndex:_selectedIndex];
+
     UIButton* btn = [self.arrayTabButtons objectAtIndex:_selectedIndex];
     item.status = 1;
     [btn setTitleColor:item.topBarConfig.normalTextColor forState:UIControlStateNormal];
@@ -229,7 +219,9 @@
         
         [Heqingzhao_TabbarAdjustPosition showHiddenTabWith:btn splitDis:self.tabItemSpace containerScrollView:_tabItemScrollView animation:NO];
     }
-    
+    if([self.delegate respondsToSelector:@selector(topBar:didSelectIndex:item:)]){
+        [self.delegate topBar:self didSelectIndex:_selectedIndex item:item];
+    }
 }
 
 - (void)setHideAnimatedLine:(BOOL)hideAnimatedLine{
@@ -368,7 +360,7 @@
     [self buildTabItems];
 }
 
-- (void)scrollToIndex:(CGFloat)fIndex{
+- (void)scrollToIndex:(CGFloat)fIndex gradient:(BOOL)gradient{
     NSInteger nTargetIndex = -1;
     CGFloat fScale = 0;
     
@@ -414,26 +406,28 @@
         self.animateLineView.frame = CGRectMake(fPosX, self.animateLineView.y, fLineW, self.animateLineView.height);
     }
     
-    Heqingzhao_MultiChannelConfig* currentConfig = [self.arrayTabItem objectAtIndex:_selectedIndex];
-    Heqingzhao_MultiChannelConfig* targetConfig = [self.arrayTabItem objectAtIndex:nTargetIndex];
-    CGFloat fCurrentScale = [self originValue:currentConfig.topBarConfig.selectedScale targetValue:1 xFac:fScale];
-    CGFloat fTargetScale = [self originValue:1 targetValue:targetConfig.topBarConfig.selectedScale xFac:fScale];
-    currentBtn.layer.transform = CATransform3DScale(CATransform3DIdentity, fCurrentScale, fCurrentScale, 1);
-    targetBtn.layer.transform = CATransform3DScale(CATransform3DIdentity, fTargetScale, fTargetScale, 1);
-    
-    CGFloat currentSelectedColorBuffer[4] = {};
-    [currentConfig.topBarConfig.selectedTextColor getRed:(CGFloat*)currentSelectedColorBuffer green:(CGFloat*)currentSelectedColorBuffer + 1 blue:(CGFloat*)currentSelectedColorBuffer + 2 alpha:(CGFloat*)currentSelectedColorBuffer + 3];
-    CGFloat currentNormalBuffer[4] = {};
-    [currentConfig.topBarConfig.normalTextColor getRed:(CGFloat*)currentNormalBuffer green:(CGFloat*)currentNormalBuffer + 1 blue:(CGFloat*)currentNormalBuffer + 2 alpha:(CGFloat*)currentNormalBuffer + 3];
-    UIColor* currentColor = [UIColor colorWithRed:[self originValue:currentSelectedColorBuffer[0] targetValue:currentNormalBuffer[0] xFac:fScale] green:[self originValue:currentSelectedColorBuffer[1] targetValue:currentNormalBuffer[1] xFac:fScale] blue:[self originValue:currentSelectedColorBuffer[2] targetValue:currentNormalBuffer[2] xFac:fScale] alpha:1];
-    [currentBtn setTitleColor:currentColor forState:UIControlStateSelected];
-
-    CGFloat targetSelectedColorBuffer[4] = {};
-    [targetConfig.topBarConfig.selectedTextColor getRed:(CGFloat*)targetSelectedColorBuffer green:(CGFloat*)targetSelectedColorBuffer + 1 blue:(CGFloat*)targetSelectedColorBuffer + 2 alpha:(CGFloat*)targetSelectedColorBuffer + 3];
-    CGFloat targetNormalBuffer[4] = {};
-    [targetConfig.topBarConfig.normalTextColor getRed:(CGFloat*)targetNormalBuffer green:(CGFloat*)targetNormalBuffer + 1 blue:(CGFloat*)targetNormalBuffer + 2 alpha:(CGFloat*)targetNormalBuffer + 3];
-    UIColor* targetColor = [UIColor colorWithRed:[self originValue:targetNormalBuffer[0] targetValue:targetSelectedColorBuffer[0] xFac:fScale] green:[self originValue:targetNormalBuffer[1] targetValue:targetSelectedColorBuffer[1] xFac:fScale] blue:[self originValue:targetNormalBuffer[2] targetValue:targetSelectedColorBuffer[2] xFac:fScale] alpha:1];
-    [targetBtn setTitleColor:targetColor forState:UIControlStateNormal];
+    if(gradient){
+        Heqingzhao_MultiChannelConfig* currentConfig = [self.arrayTabItem objectAtIndex:_selectedIndex];
+        Heqingzhao_MultiChannelConfig* targetConfig = [self.arrayTabItem objectAtIndex:nTargetIndex];
+        CGFloat fCurrentScale = [self originValue:currentConfig.topBarConfig.selectedScale targetValue:1 xFac:fScale];
+        CGFloat fTargetScale = [self originValue:1 targetValue:targetConfig.topBarConfig.selectedScale xFac:fScale];
+        currentBtn.layer.transform = CATransform3DScale(CATransform3DIdentity, fCurrentScale, fCurrentScale, 1);
+        targetBtn.layer.transform = CATransform3DScale(CATransform3DIdentity, fTargetScale, fTargetScale, 1);
+        
+        CGFloat currentSelectedColorBuffer[4] = {};
+        [currentConfig.topBarConfig.selectedTextColor getRed:(CGFloat*)currentSelectedColorBuffer green:(CGFloat*)currentSelectedColorBuffer + 1 blue:(CGFloat*)currentSelectedColorBuffer + 2 alpha:(CGFloat*)currentSelectedColorBuffer + 3];
+        CGFloat currentNormalBuffer[4] = {};
+        [currentConfig.topBarConfig.normalTextColor getRed:(CGFloat*)currentNormalBuffer green:(CGFloat*)currentNormalBuffer + 1 blue:(CGFloat*)currentNormalBuffer + 2 alpha:(CGFloat*)currentNormalBuffer + 3];
+        UIColor* currentColor = [UIColor colorWithRed:[self originValue:currentSelectedColorBuffer[0] targetValue:currentNormalBuffer[0] xFac:fScale] green:[self originValue:currentSelectedColorBuffer[1] targetValue:currentNormalBuffer[1] xFac:fScale] blue:[self originValue:currentSelectedColorBuffer[2] targetValue:currentNormalBuffer[2] xFac:fScale] alpha:1];
+        [currentBtn setTitleColor:currentColor forState:UIControlStateSelected];
+        
+        CGFloat targetSelectedColorBuffer[4] = {};
+        [targetConfig.topBarConfig.selectedTextColor getRed:(CGFloat*)targetSelectedColorBuffer green:(CGFloat*)targetSelectedColorBuffer + 1 blue:(CGFloat*)targetSelectedColorBuffer + 2 alpha:(CGFloat*)targetSelectedColorBuffer + 3];
+        CGFloat targetNormalBuffer[4] = {};
+        [targetConfig.topBarConfig.normalTextColor getRed:(CGFloat*)targetNormalBuffer green:(CGFloat*)targetNormalBuffer + 1 blue:(CGFloat*)targetNormalBuffer + 2 alpha:(CGFloat*)targetNormalBuffer + 3];
+        UIColor* targetColor = [UIColor colorWithRed:[self originValue:targetNormalBuffer[0] targetValue:targetSelectedColorBuffer[0] xFac:fScale] green:[self originValue:targetNormalBuffer[1] targetValue:targetSelectedColorBuffer[1] xFac:fScale] blue:[self originValue:targetNormalBuffer[2] targetValue:targetSelectedColorBuffer[2] xFac:fScale] alpha:1];
+        [targetBtn setTitleColor:targetColor forState:UIControlStateNormal];
+    }
 }
                                                   
 - (CGFloat)originValue:(CGFloat)sv targetValue:(CGFloat)tv xFac:(CGFloat)fScale{
@@ -448,6 +442,24 @@
     CGRect rtCustom = CGRectMake(self.width - self.customRightView.width, self.height - self.customRightView.height, self.customRightView.width, self.customRightView.height);
     if(!CGRectEqualToRect(rtCustom, self.customRightView.frame)){
         self.customRightView.frame = rtCustom;
+    }
+}
+
+- (void)setSelectedIndexWithComparion:(BOOL (^)(Heqingzhao_MultiChannelConfig* config))compareBlock{
+    [self setSelectedIndexWithComparion:compareBlock animated:NO];
+}
+
+- (void)setSelectedIndexWithComparion:(BOOL (^)(Heqingzhao_MultiChannelConfig* config))compareBlock animated:(BOOL)animated{
+    NSInteger nIndex = -1;
+    for(NSInteger i = 0; i < self.arrayTabItem.count; ++ i){
+        Heqingzhao_MultiChannelConfig* config = [self.arrayTabItem objectAtIndex:i];
+        if(compareBlock(config)){
+            nIndex = i;
+            break;
+        }
+    }
+    if(nIndex != -1 && nIndex != self.selectedIndex){
+        [self setSelectedIndex:nIndex animated:animated];
     }
 }
 

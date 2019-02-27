@@ -137,20 +137,19 @@
 
 @implementation Heqingzhao_MultiChannelConfig
 
+- (BOOL)isEqual:(id)object{
+    if(![object isKindOfClass:[self class]])
+        return NO;
+    
+    Heqingzhao_MultiChannelConfig* config = (Heqingzhao_MultiChannelConfig*)object;
+    return [self.itemIdentifier isEqualToString:config.itemIdentifier];
+}
+
 - (Heqingzhao_MultiChannelTopBarConfig *)topBarConfig{
     if(!_topBarConfig){
         _topBarConfig = [[Heqingzhao_MultiChannelTopBarConfig alloc] init];
     }
     return _topBarConfig;
-}
-
-- (BOOL)isEqual:(id)object
-{
-    if(![object isKindOfClass:[self class]])
-        return [super isEqual:object];
-    
-    Heqingzhao_MultiChannelConfig* item = (Heqingzhao_MultiChannelConfig*)object;
-    return [self.itemIdentifier isEqual:item.itemIdentifier];
 }
 
 - (NSString *)itemIdentifier{
@@ -166,14 +165,14 @@
 
 - (void)encodeWithCoder:(NSCoder *)aCoder{
     [aCoder encodeObject:self.itemIdentifier forKey:@"itemIdentifier"];
-//    [aCoder encodeBool:self.status forKey:@"status"];
+    [aCoder encodeBool:self.status forKey:@"status"];
     [self.topBarConfig encodeWithCoder:aCoder];
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder{
     if(self = [super init]){
         self.itemIdentifier = [aDecoder decodeObjectForKey:@"itemIdentifier"];
-//        self.status = [aDecoder decodeBoolForKey:@"status"];
+        self.status = [aDecoder decodeBoolForKey:@"status"];
         self.topBarConfig = [[Heqingzhao_MultiChannelTopBarConfig alloc] initWithCoder:aDecoder];
     }
     return self;

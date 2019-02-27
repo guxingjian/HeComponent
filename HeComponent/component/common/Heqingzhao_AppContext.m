@@ -75,13 +75,21 @@ static Heqingzhao_AppContext* appContext = nil;
 }
 
 - (CGFloat)topNaviHeight{
-    if(Heqingzhao_IPhoneType_IPhone4 == _iPhoneType ||
-       Heqingzhao_IPhoneType_IPhone5 == _iPhoneType ||
-       Heqingzhao_IPhoneType_IPhone6 == _iPhoneType ||
-       Heqingzhao_IPhoneType_IPhone6P == _iPhoneType){
+    if(Heqingzhao_IPhoneType_IPhoneX == _iPhoneType){
         return 64;
     }
-    return 88;
+    return 44;
+}
+
+- (CGFloat)topStatusBarHeight{
+    if(Heqingzhao_IPhoneType_IPhoneX == _iPhoneType){
+        return 24;
+    }
+    return 20;
+}
+
+- (CGFloat)topBarHeight{
+    return [self topNaviHeight] + [self topStatusBarHeight];
 }
 
 @end

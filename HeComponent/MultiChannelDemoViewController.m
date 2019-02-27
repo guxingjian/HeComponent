@@ -49,8 +49,8 @@
     //    topBar.rightItemWidth = 80;
     topBar.tabItemSpace = 30;
     topBar.edgeSpace = 15;
-    topBar.itemBottomDistance = 20;
-    topBar.animateLineViewDis = 16;
+    topBar.itemBottomDistance = 15;
+    topBar.animateLineViewDis = 13;
     
     // 最好在设置arrayTabItem之前设置好参数
     topBar.arrayTabItem = arrayConfig;

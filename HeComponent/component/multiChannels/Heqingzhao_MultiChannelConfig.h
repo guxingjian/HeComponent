@@ -11,7 +11,7 @@
 #define MultiChannel_UnSelectedChannel_Key @"MultiChannel_UnSelectedChannel_Key"
 #define MultiChannel_SelectedChannel_Key @"MultiChannel_SelectedChannel_Key"
 
-@interface Heqingzhao_MultiChannelTopBarConfig : NSObject<NSSecureCoding,NSCopying>
+@interface Heqingzhao_MultiChannelTopBarConfig : NSObject<NSSecureCoding>
 
 @property(nonatomic, strong)NSString* normalTitle;
 @property(nonatomic, strong)UIFont* normalFont;
@@ -40,7 +40,7 @@
 
 @end
 
-@interface Heqingzhao_MultiChannelConfig : NSObject<NSSecureCoding, NSCopying>
+@interface Heqingzhao_MultiChannelConfig : NSObject<NSSecureCoding>
 
 @property(nonatomic, strong)NSString* itemIdentifier; // 默认为normalTitle
 @property(nonatomic, strong)NSString* contentResuseIdentifier; // 用于contentView中的view复用, 默认为itemIdentifier

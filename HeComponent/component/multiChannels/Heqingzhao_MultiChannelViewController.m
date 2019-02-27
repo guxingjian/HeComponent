@@ -22,9 +22,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    CGFloat fNaviHeight = [[Heqingzhao_AppContext sharedAppContext] topNaviHeight];
+    CGFloat fTopBarHeight = [[Heqingzhao_AppContext sharedAppContext] topBarHeight];
     
-    Heqingzhao_MultiChannelTopBar* topBar = [[Heqingzhao_MultiChannelTopBar alloc] initWithFrame:CGRectMake(0, 0, self.view.width, fNaviHeight)];
+    Heqingzhao_MultiChannelTopBar* topBar = [[Heqingzhao_MultiChannelTopBar alloc] initWithFrame:CGRectMake(0, 0, self.view.width, fTopBarHeight)];
     topBar.delegate = self;
     topBar.backgroundColor = [UIColor colorWithHexString:@"#F3F4F9"];
     [self.view addSubview:topBar];
@@ -45,20 +45,7 @@
     Heqingzhao_MultiChannelEditViewController* editVc = [[Heqingzhao_MultiChannelEditViewController alloc] init];
     editVc.delegate = self;
     editVc.selectedTabConfigs = arrayItems;
-    
-    NSArray* arrayConfig = [[NSUserDefaults standardUserDefaults] objectForKey:MultiChannel_UnSelectedChannel_Key];
-    NSMutableArray* arrayUnSelectedConfig = [NSMutableArray array];
-    
-    for(NSInteger i = 0; i < arrayConfig.count; ++ i){
-        NSData* data = [arrayConfig objectAtIndex:i];
-        Heqingzhao_MultiChannelConfig* config = [NSKeyedUnarchiver unarchivedObjectOfClass:[Heqingzhao_MultiChannelConfig class] fromData:data error:nil];
-        if(config){
-            [arrayUnSelectedConfig addObject:config];
-        }
-        config.contentProvider = self;
-    }
-    
-    editVc.unselectedTabConfigs = arrayUnSelectedConfig;
+    editVc.unselectedTabConfigs = [Heqingzhao_MultiChannelConfig getConfigArrayWithKey:MultiChannel_UnSelectedChannel_Key];
     [self presentViewController:editVc animated:YES completion:^{
         
     }];
@@ -84,7 +71,7 @@
 }
 
 - (void)multiChannelContentView:(Heqingzhao_MultiChannelContentView *)contentView scrollingWithIndex:(CGFloat)fIndex{
-    [self.topBar scrollToIndex:fIndex];
+    [self.topBar scrollToIndex:fIndex gradient:YES];
 }
 
 - (NSArray*)colorArray{

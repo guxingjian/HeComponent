@@ -102,7 +102,7 @@
 }
 
 - (void)multiChannelContentView:(Heqingzhao_MultiChannelContentView *)contentView scrollingWithIndex:(CGFloat)fIndex{
-    [self.topBar scrollToIndex:fIndex];
+    [self.topBar scrollToIndex:fIndex gradient:YES];
 }
 
 @end
