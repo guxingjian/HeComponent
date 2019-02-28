@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		C9052A4622201449003EF4B8 /* Heqingzhao_AppContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C9052A4522201449003EF4B8 /* Heqingzhao_AppContext.m */; };
 		C94138DC221A476800AFA04F /* Heqingzhao_MultiChannelContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = C94138DB221A476800AFA04F /* Heqingzhao_MultiChannelContentView.m */; };
+		C96DEB462226597F00538E65 /* Heqingzhao_tableViewBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C96DEB452226597F00538E65 /* Heqingzhao_tableViewBaseCell.m */; };
 		C9B0AD6B221D259C00F747B1 /* Heqingzhao_SinglePixelView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B0AD69221D259C00F747B1 /* Heqingzhao_SinglePixelView.m */; };
 		C9B0AD6E221D32DA00F747B1 /* Heqingzhao_MultiChannelEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B0AD6D221D32DA00F747B1 /* Heqingzhao_MultiChannelEditCell.m */; };
 		C9B4E3B62223B78A00454349 /* Heqingzhao_tableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B4E3B52223B78A00454349 /* Heqingzhao_tableViewController.m */; };
-		C9B4E3B92223B80300454349 /* Heqingzhao_tableViewConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B4E3B82223B80300454349 /* Heqingzhao_tableViewConfig.m */; };
+		C9B4E3B92223B80300454349 /* Heqingzhao_tableViewSectionConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B4E3B82223B80300454349 /* Heqingzhao_tableViewSectionConfig.m */; };
 		C9BB1E48221551D90050B493 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BB1E47221551D90050B493 /* AppDelegate.m */; };
 		C9BB1E4B221551D90050B493 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BB1E4A221551D90050B493 /* ViewController.m */; };
 		C9BB1E4E221551D90050B493 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9BB1E4C221551D90050B493 /* Main.storyboard */; };
@@ -41,14 +42,16 @@
 		C9052A4522201449003EF4B8 /* Heqingzhao_AppContext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_AppContext.m; sourceTree = "<group>"; };
 		C94138DA221A476800AFA04F /* Heqingzhao_MultiChannelContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_MultiChannelContentView.h; sourceTree = "<group>"; };
 		C94138DB221A476800AFA04F /* Heqingzhao_MultiChannelContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_MultiChannelContentView.m; sourceTree = "<group>"; };
+		C96DEB442226597F00538E65 /* Heqingzhao_tableViewBaseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_tableViewBaseCell.h; sourceTree = "<group>"; };
+		C96DEB452226597F00538E65 /* Heqingzhao_tableViewBaseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_tableViewBaseCell.m; sourceTree = "<group>"; };
 		C9B0AD69221D259C00F747B1 /* Heqingzhao_SinglePixelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_SinglePixelView.m; sourceTree = "<group>"; };
 		C9B0AD6A221D259C00F747B1 /* Heqingzhao_SinglePixelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_SinglePixelView.h; sourceTree = "<group>"; };
 		C9B0AD6C221D32DA00F747B1 /* Heqingzhao_MultiChannelEditCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_MultiChannelEditCell.h; sourceTree = "<group>"; };
 		C9B0AD6D221D32DA00F747B1 /* Heqingzhao_MultiChannelEditCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_MultiChannelEditCell.m; sourceTree = "<group>"; };
 		C9B4E3B42223B78A00454349 /* Heqingzhao_tableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_tableViewController.h; sourceTree = "<group>"; };
 		C9B4E3B52223B78A00454349 /* Heqingzhao_tableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_tableViewController.m; sourceTree = "<group>"; };
-		C9B4E3B72223B80300454349 /* Heqingzhao_tableViewConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_tableViewConfig.h; sourceTree = "<group>"; };
-		C9B4E3B82223B80300454349 /* Heqingzhao_tableViewConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_tableViewConfig.m; sourceTree = "<group>"; };
+		C9B4E3B72223B80300454349 /* Heqingzhao_tableViewSectionConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_tableViewSectionConfig.h; sourceTree = "<group>"; };
+		C9B4E3B82223B80300454349 /* Heqingzhao_tableViewSectionConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_tableViewSectionConfig.m; sourceTree = "<group>"; };
 		C9BB1E43221551D90050B493 /* HeComponent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeComponent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9BB1E46221551D90050B493 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C9BB1E47221551D90050B493 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -101,8 +104,10 @@
 			children = (
 				C9B4E3B42223B78A00454349 /* Heqingzhao_tableViewController.h */,
 				C9B4E3B52223B78A00454349 /* Heqingzhao_tableViewController.m */,
-				C9B4E3B72223B80300454349 /* Heqingzhao_tableViewConfig.h */,
-				C9B4E3B82223B80300454349 /* Heqingzhao_tableViewConfig.m */,
+				C9B4E3B72223B80300454349 /* Heqingzhao_tableViewSectionConfig.h */,
+				C9B4E3B82223B80300454349 /* Heqingzhao_tableViewSectionConfig.m */,
+				C96DEB442226597F00538E65 /* Heqingzhao_tableViewBaseCell.h */,
+				C96DEB452226597F00538E65 /* Heqingzhao_tableViewBaseCell.m */,
 			);
 			path = tableDataCotroller;
 			sourceTree = "<group>";
@@ -281,9 +286,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9BDB068221C237100FC4168 /* Heqingzhao_MultiChannelEditViewController.m in Sources */,
+				C96DEB462226597F00538E65 /* Heqingzhao_tableViewBaseCell.m in Sources */,
 				C9B0AD6E221D32DA00F747B1 /* Heqingzhao_MultiChannelEditCell.m in Sources */,
 				C9BB1E962216CEAC0050B493 /* Heqingzhao_TabbarAdjustPosition.m in Sources */,
-				C9B4E3B92223B80300454349 /* Heqingzhao_tableViewConfig.m in Sources */,
+				C9B4E3B92223B80300454349 /* Heqingzhao_tableViewSectionConfig.m in Sources */,
 				C9B0AD6B221D259C00F747B1 /* Heqingzhao_SinglePixelView.m in Sources */,
 				C94138DC221A476800AFA04F /* Heqingzhao_MultiChannelContentView.m in Sources */,
 				C9B4E3B62223B78A00454349 /* Heqingzhao_tableViewController.m in Sources */,
