@@ -75,14 +75,18 @@ static Heqingzhao_AppContext* appContext = nil;
 }
 
 - (CGFloat)topNaviHeight{
-    if(Heqingzhao_IPhoneType_IPhoneX == _iPhoneType){
+    if(Heqingzhao_IPhoneType_IPhoneX == _iPhoneType ||
+       Heqingzhao_IPhoneType_IPhoneXR == _iPhoneType ||
+       Heqingzhao_IPhoneType_IPhoneXSMax == _iPhoneType){
         return 64;
     }
     return 44;
 }
 
 - (CGFloat)topStatusBarHeight{
-    if(Heqingzhao_IPhoneType_IPhoneX == _iPhoneType){
+    if(Heqingzhao_IPhoneType_IPhoneX == _iPhoneType ||
+       Heqingzhao_IPhoneType_IPhoneXR == _iPhoneType ||
+       Heqingzhao_IPhoneType_IPhoneXSMax == _iPhoneType){
         return 24;
     }
     return 20;

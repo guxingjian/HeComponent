@@ -7,6 +7,7 @@
 //
 
 #import "MultiChannelDemoViewController.h"
+#import "TableControllerDemoViewController.h"
 
 #define MultiChannel_SelectedChannel_Key @"MultiChannel_SelectedChannel_Key"
 
@@ -58,6 +59,19 @@
     self.contentView.enableReuseContentView = YES;
     // 最好在设置arrayTabItem之前设置好参数
     self.contentView.arrayTabItem = arrayConfig;
+}
+
+- (UIView *)contentViewWithIndex:(NSInteger)nIndex config:(Heqingzhao_MultiChannelConfig *)config{
+    UIView* contentView = nil;
+    if([config.topBarConfig.normalTitle isEqualToString:@"tab0"]){
+        TableControllerDemoViewController* tableViewController = [[TableControllerDemoViewController alloc] init];
+        contentView = tableViewController.view;
+        [self addChildViewController:tableViewController];
+    }else{
+        contentView = [super contentViewWithIndex:nIndex config:config];
+    }
+    
+    return contentView;
 }
 
 /*

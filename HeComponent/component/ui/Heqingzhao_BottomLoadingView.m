@@ -1,18 +1,14 @@
 //
-//  Heqingzhao_topLoadingView.m
+//  Heqingzhao_bottomLoadingView.m
 //  HeComponent
 //
 //  Created by qingzhao on 2019/2/28.
 //  Copyright © 2019年 qingzhao. All rights reserved.
 //
 
-#import "Heqingzhao_topLoadingView.h"
+#import "Heqingzhao_BottomLoadingView.h"
 
-@interface Heqingzhao_topLoadingView()
-
-@end
-
-@implementation Heqingzhao_topLoadingView
+@implementation Heqingzhao_BottomLoadingView
 
 - (UILabel *)labelText{
     if(!_labelText){
@@ -27,29 +23,28 @@
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if(self = [super initWithFrame:frame]){
-        self.labelText.text = @"下拉刷新数据";
+        self.labelText.text = @"上拉加载更多数据";
     }
     return self;
 }
 
 - (void)startLoading{
-    [super startLoading];
-    self.labelText.text = @"请求中...";
+    self.labelText.text = @"加载中...";
 }
 
 - (void)endLoading{
-    [super endLoading];
-    self.labelText.text = @"请求完毕";
+    self.labelText.text = @"加载完毕";
 }
 
 - (void)willMoveToWindow:(UIWindow *)newWindow{
     [super willMoveToWindow:newWindow];
-    self.labelText.text = @"下拉刷新数据";
+    self.labelText.text = @"上拉加载更多数据";
 }
 
 - (void)layoutSubviews{
     [super layoutSubviews];
     self.labelText.frame = self.bounds;
 }
+
 
 @end

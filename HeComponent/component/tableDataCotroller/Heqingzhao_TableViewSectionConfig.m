@@ -6,15 +6,13 @@
 //  Copyright © 2019年 qingzhao. All rights reserved.
 //
 
-#import "Heqingzhao_tableViewSectionConfig.h"
+#import "Heqingzhao_TableViewSectionConfig.h"
 
-@implementation Heqingzhao_tableViewCellConfig
+@implementation Heqingzhao_TableViewCellConfig
 
 - (CGFloat)cellHeight{
-    if(0 == _cellHeight){
-        if([self.userData respondsToSelector:@selector(cellHeight)]){
-            _cellHeight = [self.userData cellHeight];
-        }
+    if([self.cellHeightDelegate respondsToSelector:@selector(cellHeightWithUserData:)]){
+        return [self.cellHeightDelegate cellHeightWithUserData:self.userData];
     }
     return _cellHeight;
 }
@@ -28,6 +26,6 @@
 
 @end
 
-@implementation Heqingzhao_tableViewSectionConfig
+@implementation Heqingzhao_TableViewSectionConfig
 
 @end

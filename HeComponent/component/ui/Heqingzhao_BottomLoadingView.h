@@ -6,9 +6,9 @@
 //  Copyright © 2019年 qingzhao. All rights reserved.
 //
 
-#import "Heqingzhao_loadingView.h"
+#import "Heqingzhao_LoadingView.h"
 
-@interface Heqingzhao_bottomLoadingView : Heqingzhao_loadingView
+@interface Heqingzhao_BottomLoadingView : Heqingzhao_LoadingView
 
 @property(nonatomic, strong)UILabel* labelText;
 
