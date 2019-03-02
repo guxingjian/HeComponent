@@ -7,49 +7,28 @@
 //
 
 #import "Heqingzhao_TopLoadingView.h"
-
-@interface Heqingzhao_TopLoadingView()
-
-@end
+#import "UIView+view_frame.h"
 
 @implementation Heqingzhao_TopLoadingView
 
-- (UILabel *)labelText{
-    if(!_labelText){
-        _labelText = [[UILabel alloc] initWithFrame:self.bounds];
-        _labelText.textAlignment = NSTextAlignmentCenter;
-        _labelText.font = [UIFont systemFontOfSize:15];
-        _labelText.textColor = [UIColor blackColor];
-        [self addSubview:_labelText];
-    }
-    return _labelText;
-}
-
 - (instancetype)initWithFrame:(CGRect)frame{
     if(self = [super initWithFrame:frame]){
-        self.labelText.text = @"下拉刷新数据";
+        self.style = Heqingzhao_LoadingViewStyle_LoadingView1;
     }
     return self;
 }
 
-- (void)startLoading{
-    [super startLoading];
-    self.labelText.text = @"请求中...";
-}
-
-- (void)endLoading{
-    [super endLoading];
-    self.labelText.text = @"请求完毕";
-}
-
-- (void)willMoveToWindow:(UIWindow *)newWindow{
-    [super willMoveToWindow:newWindow];
-    self.labelText.text = @"下拉刷新数据";
-}
-
-- (void)layoutSubviews{
-    [super layoutSubviews];
-    self.labelText.frame = self.bounds;
+- (void)setLoadingState:(Heqingzhao_LoadingViewState)loadingState{
+    [super setLoadingState:loadingState];
+    if(Heqingzhao_LoadingViewState_Normal == loadingState){
+        self.stateLabel.text = @"下拉刷新数据";
+    }else if(Heqingzhao_LoadingViewState_PrePareLoading == loadingState){
+        self.stateLabel.text = @"松开刷新数据";
+    }else if(Heqingzhao_LoadingViewState_Loading == loadingState){
+        self.stateLabel.text = @"请求中...";
+    }else if(Heqingzhao_LoadingViewState_EndLoading == loadingState){
+        self.stateLabel.text = @"请求完毕";
+    }
 }
 
 @end

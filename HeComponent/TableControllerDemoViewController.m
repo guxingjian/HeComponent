@@ -11,10 +11,13 @@
 #import "Heqingzhao_TopLoadingView.h"
 #import "UIView+view_frame.h"
 #import "Heqingzhao_AppContext.h"
+#import "Heqingzhao_BottomLoadingView.h"
 
 @interface TableControllerDemoViewController ()
 
 @property(nonatomic, strong)Heqingzhao_TableViewController* tableController;
+@property(nonatomic, assign)NSInteger pageIndex;
+@property(nonatomic, assign)NSInteger pageSize;
 
 @end
 
@@ -24,6 +27,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    self.pageIndex = 0;
+    self.pageSize = 20;
     
     UITableView* tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
@@ -39,10 +45,8 @@
     [tableController installTopLoadingView:topLoadingView loadingHandler:^{
         [weakSelf refreshTableController];
     }];
-//    [tableController.topLoadingView startLoading];
-    
     NSMutableArray* arrayCells = [NSMutableArray array];
-    for(NSInteger i = 0; i < 20; ++ i){
+    for(NSInteger i = 0; i < self.pageSize; ++ i){
         Heqingzhao_TableViewCellConfig* cellConfig = [[Heqingzhao_TableViewCellConfig alloc] init];
         cellConfig.cellHeight = 80;
         cellConfig.userData = [NSString stringWithFormat:@"cell_%ld", i];
@@ -51,12 +55,18 @@
     }
     self.tableController.arrayCells = arrayCells;
     [self.tableController reloadData];
+    
+    Heqingzhao_BottomLoadingView* bottomLoadingView = [[Heqingzhao_BottomLoadingView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 50)];
+    [tableController installBottomLoadingView:bottomLoadingView loadingHandler:^{
+        [weakSelf loadMoreData];
+    }];
 }
 
 - (void)refreshTableController{
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.pageIndex = 0;
         NSMutableArray* arrayCells = [NSMutableArray array];
-        for(NSInteger i = 0; i < 20; ++ i){
+        for(NSInteger i = 0; i < self.pageSize; ++ i){
             Heqingzhao_TableViewCellConfig* cellConfig = [[Heqingzhao_TableViewCellConfig alloc] init];
             cellConfig.cellHeight = 80;
             cellConfig.userData = [NSString stringWithFormat:@"cell_%ld", i];
@@ -66,6 +76,23 @@
         self.tableController.arrayCells = arrayCells;
         [self.tableController reloadData];
         [self.tableController.topLoadingView endLoading];
+    });
+}
+
+- (void)loadMoreData{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        NSMutableArray* arrayCells = [NSMutableArray arrayWithArray:self.tableController.arrayCells];
+        self.pageIndex ++;
+        for(NSInteger i = self.pageSize*self.pageIndex; i < self.pageSize*self.pageIndex + self.pageSize; ++ i){
+            Heqingzhao_TableViewCellConfig* cellConfig = [[Heqingzhao_TableViewCellConfig alloc] init];
+            cellConfig.cellHeight = 80;
+            cellConfig.userData = [NSString stringWithFormat:@"cell_%ld", i];
+            cellConfig.cellName = @"TableControllerDemoCell";
+            [arrayCells addObject:cellConfig];
+        }
+        self.tableController.arrayCells = arrayCells;
+        [self.tableController reloadData];
+        [self.tableController.bottomLoadingView endLoading];
     });
 }
 

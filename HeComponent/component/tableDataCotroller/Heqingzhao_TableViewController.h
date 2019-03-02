@@ -35,6 +35,7 @@
 @property(nonatomic, strong)Heqingzhao_LoadingView* topLoadingView;
 @property(nonatomic, strong)Heqingzhao_LoadingView* bottomLoadingView;
 
+
 - (void)reloadData;
 
 // 调用后会使用handler回调, 而不是delegate

@@ -10,6 +10,4 @@
 
 @interface Heqingzhao_TopLoadingView : Heqingzhao_LoadingView
 
-@property(nonatomic, strong)UILabel* labelText;
-
 @end
