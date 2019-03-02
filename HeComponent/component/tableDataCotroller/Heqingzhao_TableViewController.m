@@ -51,7 +51,7 @@
     tableView.estimatedRowHeight = 0;
     tableView.estimatedSectionHeaderHeight = 0;
     tableView.estimatedSectionFooterHeight = 0;
-    [_tableView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:nil];
+    [_tableView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -282,14 +282,18 @@
         if(@available(iOS 11.0, *)){
             fAdjust = scrollView.adjustedContentInset.top;
         }
-        _topLoadingView.loadingScale = (-_fEdgeTop - fAdjust - fOffsetY)/_topLoadingView.height;
-        if(Heqingzhao_LoadingViewState_Normal == _topLoadingView.loadingState){
-            if(fOffsetY < (-insets.top - fAdjust - _topLoadingView.height) - Min_Equal_dis){
-                _topLoadingView.loadingState = Heqingzhao_LoadingViewState_PrePareLoading;
-            }
-        }else if(Heqingzhao_LoadingViewState_PrePareLoading == _topLoadingView.loadingState){
-            if(fOffsetY > (-insets.top - fAdjust - _topLoadingView.height) + Min_Equal_dis){
-                _topLoadingView.loadingState = Heqingzhao_LoadingViewState_Normal;
+        CGFloat fPosY = -insets.top - fAdjust;
+        if(fOffsetY < fPosY){
+            if(Heqingzhao_LoadingViewState_Normal == _topLoadingView.loadingState){
+                if(fOffsetY < (fPosY - _topLoadingView.height) - Min_Equal_dis){
+                    _topLoadingView.loadingState = Heqingzhao_LoadingViewState_PrePareLoading;
+                }
+                _topLoadingView.loadingScale = (-_fEdgeTop - fAdjust - fOffsetY)/_topLoadingView.height;
+            }else if(Heqingzhao_LoadingViewState_PrePareLoading == _topLoadingView.loadingState){
+                if(fOffsetY > (fPosY - _topLoadingView.height) + Min_Equal_dis){
+                    _topLoadingView.loadingState = Heqingzhao_LoadingViewState_Normal;
+                }
+                _topLoadingView.loadingScale = (-_fEdgeTop - fAdjust - fOffsetY)/_topLoadingView.height;
             }
         }
     }
@@ -298,6 +302,9 @@
             _fEdgeBottom = insets.bottom;
         }
         CGFloat fTargetPosY = scrollView.contentSize.height + _fEdgeBottom - scrollView.height;
+        if(@available(iOS 11.0, *)){
+            fTargetPosY += scrollView.adjustedContentInset.bottom;
+        }
         if(fOffsetY > fTargetPosY){
             _bottomLoadingView.loadingScale = (fOffsetY - fTargetPosY)/_bottomLoadingView.height;
             if(Heqingzhao_LoadingViewState_Normal == _bottomLoadingView.loadingState){
@@ -358,11 +365,14 @@
         _tableView.contentInset = UIEdgeInsetsMake(insets.top, insets.left, self.fEdgeBottom, insets.right);
         self.bottomLoadingView.loadingState = Heqingzhao_LoadingViewState_Normal;
         self.fEdgeBottom = MAXFLOAT;
+        [self tableViewChangeContentSize:_tableView.contentSize];
     }
 }
 
 - (void)scrollViewDidChangeAdjustedContentInset:(UIScrollView *)scrollView{
-    [self tableViewChangeContentSize:scrollView.contentSize];
+    if(Heqingzhao_LoadingViewState_Loading != _bottomLoadingView.loadingState){
+        [self tableViewChangeContentSize:scrollView.contentSize];
+    }
 }
 
 - (void)tableViewChangeContentSize:(CGSize)size{
@@ -374,10 +384,8 @@
     }
     
     if(fVisibleHeight >= _tableView.height){
-        if(_bottomLoadingView.loadingState != Heqingzhao_LoadingViewState_Loading){
-            _bottomLoadingView.hidden = NO;
-            _bottomLoadingView.frame = CGRectMake(0, size.height + _tableView.contentInset.bottom + fAdjust, _tableView.width, _bottomLoadingView.height);
-        }
+        _bottomLoadingView.hidden = NO;
+        _bottomLoadingView.frame = CGRectMake(0, size.height + _tableView.contentInset.bottom + fAdjust, _tableView.width, _bottomLoadingView.height);
     }else{
         _bottomLoadingView.hidden = YES;
     }
@@ -395,7 +403,11 @@
         if(!_bottomLoadingView)
             return;
         NSNumber* numSize = [change objectForKey:NSKeyValueChangeNewKey];
+        NSNumber* numOldSize = [change objectForKey:NSKeyValueChangeOldKey];
         CGSize size = [numSize CGSizeValue];
+        CGSize sizeOld = [numOldSize CGSizeValue];
+        if(CGSizeEqualToSize(size, sizeOld))
+            return ;
         [self tableViewChangeContentSize:size];
     }
 }
