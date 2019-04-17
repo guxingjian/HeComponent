@@ -48,7 +48,6 @@ static Heqingzhao_AppContext* appContext = nil;
     }
     
     //  iPhone5,6,6p比例一致，iPhoneX iPhoneXs iPhoneXsMax, iPhoneR 比例一致
-    [UIDevice]
     if(320 == size.width){
         if(480 == size.height){
             _iPhoneType = Heqingzhao_IPhoneType_IPhone4;

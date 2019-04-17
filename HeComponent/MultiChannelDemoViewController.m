@@ -30,7 +30,7 @@
         UIFont* font = [UIFont systemFontOfSize:15];
         UIColor* normalColor = [UIColor blackColor];
         UIColor* selectedColor = [UIColor blueColor];
-        for(NSInteger i = 0; i < 5; ++ i){
+        for(NSInteger i = 0; i < 20; ++ i){
             NSString* title = [NSString stringWithFormat:@"tab%ld", i];
             Heqingzhao_MultiChannelConfig* item = [[Heqingzhao_MultiChannelConfig alloc] init];
             item.topBarConfig.normalTitle = title;

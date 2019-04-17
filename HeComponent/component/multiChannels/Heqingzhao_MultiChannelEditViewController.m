@@ -21,6 +21,9 @@
 @property(nonatomic, readwrite)NSMutableArray* tempSelectedTabConfigs;
 @property(nonatomic, readwrite)NSMutableArray* tempUnselectedTabConfigs;
 @property(nonatomic, assign)BOOL channelEditting;
+@property(nonatomic, assign)BOOL bWillEnd;
+@property(nonatomic, assign)CGPoint pt;
+@property(nonatomic, strong)UIView* sectionHeader;
 
 @end
 
@@ -132,23 +135,28 @@
 - (void)panGesAction:(UILongPressGestureRecognizer*)gestureRecognizer{
     UICollectionView* colView = self.collectionView;
     CGPoint pt = [gestureRecognizer locationInView:colView];
+    self.pt = pt;
     NSIndexPath* indexPath = [colView indexPathForItemAtPoint:pt];
     if(UIGestureRecognizerStateBegan == gestureRecognizer.state){
         if(1 == indexPath.section)
             return ;
+        self.bWillEnd = NO;
+        self.pt = pt;
         [colView beginInteractiveMovementForItemAtIndexPath:indexPath];
         self.channelEditting = YES;
         [self reloadSelectedCellsEditting];
         AudioServicesPlaySystemSound(1520);
     }else if(UIGestureRecognizerStateEnded == gestureRecognizer.state){
+        self.bWillEnd = YES;
+        [colView updateInteractiveMovementTargetPosition:CGPointMake(pt.x + 1, pt.y + 1)];
         [colView endInteractiveMovement];
-        
-        // to do ... 跨section拖动
-        
+        self.pt = CGPointZero;
     }else if(UIGestureRecognizerStateChanged == gestureRecognizer.state){
         [colView updateInteractiveMovementTargetPosition:pt];
+        
     }else{
         [colView cancelInteractiveMovement];
+        self.pt = CGPointZero;
     }
 }
 
@@ -179,7 +187,7 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
-    return CGSizeMake(collectionView.width, 50);
+     return CGSizeMake(collectionView.width, 50);
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
@@ -191,6 +199,12 @@
         strTitle = @"长按编辑频道";
     }else if(1 == indexPath.section){
         strTitle = @"添加频道";
+        if(self.tempUnselectedTabConfigs.count == 0){
+            suplementView.hidden = YES;
+        }else{
+            suplementView.hidden = NO;
+        }
+        self.sectionHeader = suplementView;
     }
 
     UILabel* labelTitle = [suplementView viewWithTag:1001];
@@ -242,12 +256,16 @@
     return cell;
 }
 
-//- (NSIndexPath *)collectionView:(UICollectionView *)collectionView targetIndexPathForMoveFromItemAtIndexPath:(NSIndexPath *)originalIndexPath toProposedIndexPath:(NSIndexPath *)proposedIndexPath{
-//    if(1 == proposedIndexPath.section){
-//        return nil;
-//    }
-//    return proposedIndexPath;
-//}
+- (NSIndexPath *)collectionView:(UICollectionView *)collectionView targetIndexPathForMoveFromItemAtIndexPath:(NSIndexPath *)originalIndexPath toProposedIndexPath:(NSIndexPath *)proposedIndexPath{
+    if(self.pt.y > self.sectionHeader.y){
+        if(self.bWillEnd){
+            self.sectionHeader.hidden = NO;
+            return [NSIndexPath indexPathForRow:0 inSection:1];
+        }
+        return nil;
+    }
+    return proposedIndexPath;
+}
 
 - (void)adjustArray:(NSMutableArray*)arrayImages withBeginIndex:(NSInteger)nBeginIndex endIndex:(NSInteger)nEndIndex{
     NSString* sourceImage = [arrayImages objectAtIndex:nBeginIndex];
@@ -277,6 +295,10 @@
         NSInteger nBeginIndex = sourceIndexPath.row;
         NSInteger nEndIndex = destinationIndexPath.row;
         [self adjustArray:arrayTempArray withBeginIndex:nBeginIndex endIndex:nEndIndex];
+    }else if(0 == sourceIndexPath.section && 1 == destinationIndexPath.section){
+        NSObject* obj = [self.tempSelectedTabConfigs objectAtIndex:sourceIndexPath.row];
+        [self.tempSelectedTabConfigs removeObjectAtIndex:sourceIndexPath.row];
+        [self.tempUnselectedTabConfigs insertObject:obj atIndex:0];
     }
 }
 
@@ -293,7 +315,9 @@
         [self.tempUnselectedTabConfigs removeObject:config];
         [self.tempSelectedTabConfigs addObject:config];
         [collectionView moveItemAtIndexPath:indexPath toIndexPath:[NSIndexPath indexPathForRow:self.tempSelectedTabConfigs.count - 1 inSection:0]];
-    
+        if(self.tempUnselectedTabConfigs.count == 0){
+            self.sectionHeader.hidden = YES;
+        }
     }
 }
 
