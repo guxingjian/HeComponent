@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Heqingzhao_DUContext.h"
 
 @interface AppDelegate ()
 
@@ -14,6 +15,10 @@
 
 @implementation AppDelegate
 
+- (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
+    [[Heqingzhao_DUContext sharedDUContext] resetJSDataWithDirectory:[[NSBundle mainBundle] bundlePath]];
+    return YES;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.

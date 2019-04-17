@@ -8,8 +8,8 @@
 
 #import "MultiChannelDemoViewController.h"
 #import "TableControllerDemoViewController.h"
-
-#define MultiChannel_SelectedChannel_Key @"MultiChannel_SelectedChannel_Key"
+#import "DUDemoChildObject.h"
+#import <objc/runtime.h>
 
 @interface MultiChannelDemoViewController ()
 
@@ -59,6 +59,24 @@
     self.contentView.enableReuseContentView = YES;
     // 最好在设置arrayTabItem之前设置好参数
     self.contentView.arrayTabItem = arrayConfig;
+    
+//    DUDemoChildObject* childObj = [[DUDemoChildObject alloc] init];
+//    [childObj test];
+    
+    [self test:^(NSInteger nIndex) {
+        NSLog(@"nIndex: %ld", nIndex);
+    }];
+
+
+//
+//    Method me = class_getInstanceMethod([self class], @selector(test:));
+//    const char* methodDes = method_getTypeEncoding(me);
+//    NSLog(@"methodDes: %s", methodDes);
+}
+
+- (void)test:(void(^)(NSInteger nIndex))compleHandler{
+    NSLog(@"test");
+    compleHandler(100);
 }
 
 - (UIView *)contentViewWithIndex:(NSInteger)nIndex config:(Heqingzhao_MultiChannelConfig *)config{

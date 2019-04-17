@@ -242,12 +242,12 @@
     return cell;
 }
 
-- (NSIndexPath *)collectionView:(UICollectionView *)collectionView targetIndexPathForMoveFromItemAtIndexPath:(NSIndexPath *)originalIndexPath toProposedIndexPath:(NSIndexPath *)proposedIndexPath{
-    if(1 == proposedIndexPath.section){
-        return nil;
-    }
-    return proposedIndexPath;
-}
+//- (NSIndexPath *)collectionView:(UICollectionView *)collectionView targetIndexPathForMoveFromItemAtIndexPath:(NSIndexPath *)originalIndexPath toProposedIndexPath:(NSIndexPath *)proposedIndexPath{
+//    if(1 == proposedIndexPath.section){
+//        return nil;
+//    }
+//    return proposedIndexPath;
+//}
 
 - (void)adjustArray:(NSMutableArray*)arrayImages withBeginIndex:(NSInteger)nBeginIndex endIndex:(NSInteger)nEndIndex{
     NSString* sourceImage = [arrayImages objectAtIndex:nBeginIndex];
