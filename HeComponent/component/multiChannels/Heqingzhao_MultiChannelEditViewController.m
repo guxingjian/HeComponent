@@ -61,23 +61,26 @@
         return ;
     }
     
-    CGFloat fTopBarHeight = [[Heqingzhao_AppContext sharedAppContext] topBarHeight];
     CGFloat fNaviHeight = [[Heqingzhao_AppContext sharedAppContext] topNaviHeight];
+    CGFloat fStatusHeight = [[Heqingzhao_AppContext sharedAppContext] topStatusBarHeight];
     
-    UIView* topContentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, fTopBarHeight)];
-    topContentView.backgroundColor = [UIColor colorWithHexString:@"#F3F4F9"];
-    [self.view addSubview:topContentView];
+    UIView* naviContentView = [[UIView alloc] initWithFrame:CGRectMake(0, fStatusHeight, self.view.width, fNaviHeight)];
+    [self.view addSubview:naviContentView];
     
-    UIView* topView = [[UIView alloc] initWithFrame:CGRectMake(0, topContentView.height - fNaviHeight, self.view.width, fNaviHeight)];
-    [self.view addSubview:topView];
-    
-    UINavigationBar* naviBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, topView.width, fNaviHeight)];
-    naviBar.barTintColor = topContentView.backgroundColor;
+    UINavigationBar* naviBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, fStatusHeight, self.view.width, fNaviHeight)];
     UINavigationItem* naviItem = [[UINavigationItem alloc] initWithTitle:self.title];
     naviItem.rightBarButtonItem = btnItem;
     naviItem.leftBarButtonItem = backItem;
     naviBar.items = @[naviItem];
-    [topView addSubview:naviBar];
+    [naviContentView addSubview:naviBar];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
 }
 
 - (void)backAction:(UIButton*)btn{
@@ -85,7 +88,7 @@
         [self.navigationController popViewControllerAnimated:YES];
         return ;
     }
-    [self dismissViewControllerAnimated:YES completion:^{
+    [self dismissViewControllerAnimated:YES completion  :^{
     }];
 }
 
@@ -257,7 +260,7 @@
 }
 
 - (NSIndexPath *)collectionView:(UICollectionView *)collectionView targetIndexPathForMoveFromItemAtIndexPath:(NSIndexPath *)originalIndexPath toProposedIndexPath:(NSIndexPath *)proposedIndexPath{
-    if(self.pt.y > self.sectionHeader.y){
+    if(self.pt.y > self.sectionHeader.bottom){
         if(self.bWillEnd){
             self.sectionHeader.hidden = NO;
             return [NSIndexPath indexPathForRow:0 inSection:1];

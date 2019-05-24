@@ -52,6 +52,15 @@
 }
 
 - (void)saveSelectedConfig:(NSArray *)selectedConfig unSelectedConfig:(NSArray *)unSelectedConfig{
+    if(selectedConfig.count > 0){
+        Heqingzhao_MultiChannelConfig* config = selectedConfig.firstObject;
+        id<Heqingzhao_MultiChannelConfigProtocol> contentProvider = config.contentProvider;
+        for(Heqingzhao_MultiChannelConfig* config in selectedConfig){
+            if(!config.contentProvider){
+                config.contentProvider = contentProvider;
+            }
+        }
+    }
     [self.topBar setArrayTabItem:selectedConfig];
     [self.contentView setArrayTabItem:selectedConfig];
     

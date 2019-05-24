@@ -41,6 +41,8 @@
 		C9D3B4E5221ECE8D00A8E573 /* Heqingzhao_ImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D3B4E4221ECE8D00A8E573 /* Heqingzhao_ImageLoader.m */; };
 		C9D3B4E8221ECECC00A8E573 /* navi_back@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9D3B4E6221ECECC00A8E573 /* navi_back@3x.png */; };
 		C9D3B4E9221ECECC00A8E573 /* navi_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9D3B4E7221ECECC00A8E573 /* navi_back@2x.png */; };
+		C9D4A94722978DC800FEFD5E /* Heqingzhao_CrashCatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D4A94622978DC800FEFD5E /* Heqingzhao_CrashCatcher.m */; };
+		C9D4A95C2297EA7B00FEFD5E /* UINavigationBar+layoutSubViews.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D4A95B2297EA7B00FEFD5E /* UINavigationBar+layoutSubViews.m */; };
 		C9DFFD29222802D500A8374C /* Heqingzhao_TopLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DFFD28222802D500A8374C /* Heqingzhao_TopLoadingView.m */; };
 		C9DFFD2D222806DE00A8374C /* Heqingzhao_LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DFFD2C222806DE00A8374C /* Heqingzhao_LoadingView.m */; };
 		C9DFFD3022280B4D00A8374C /* Heqingzhao_BottomLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DFFD2F22280B4D00A8374C /* Heqingzhao_BottomLoadingView.m */; };
@@ -107,6 +109,10 @@
 		C9D3B4E4221ECE8D00A8E573 /* Heqingzhao_ImageLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_ImageLoader.m; sourceTree = "<group>"; };
 		C9D3B4E6221ECECC00A8E573 /* navi_back@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navi_back@3x.png"; sourceTree = "<group>"; };
 		C9D3B4E7221ECECC00A8E573 /* navi_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navi_back@2x.png"; sourceTree = "<group>"; };
+		C9D4A94522978DC800FEFD5E /* Heqingzhao_CrashCatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_CrashCatcher.h; sourceTree = "<group>"; };
+		C9D4A94622978DC800FEFD5E /* Heqingzhao_CrashCatcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_CrashCatcher.m; sourceTree = "<group>"; };
+		C9D4A95A2297EA7B00FEFD5E /* UINavigationBar+layoutSubViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+layoutSubViews.h"; sourceTree = "<group>"; };
+		C9D4A95B2297EA7B00FEFD5E /* UINavigationBar+layoutSubViews.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+layoutSubViews.m"; sourceTree = "<group>"; };
 		C9DFFD27222802D500A8374C /* Heqingzhao_TopLoadingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_TopLoadingView.h; sourceTree = "<group>"; };
 		C9DFFD28222802D500A8374C /* Heqingzhao_TopLoadingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_TopLoadingView.m; sourceTree = "<group>"; };
 		C9DFFD2B222806DE00A8374C /* Heqingzhao_LoadingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_LoadingView.h; sourceTree = "<group>"; };
@@ -208,6 +214,7 @@
 				C9B4E3B32223B75B00454349 /* tableDataCotroller */,
 				C9DFFD2A222806B100A8374C /* ui */,
 				C952BC8A222CFF20006B22DC /* dynamicupdate */,
+				C9D4A94422978C9000FEFD5E /* crashvc */,
 			);
 			path = component;
 			sourceTree = "<group>";
@@ -225,6 +232,8 @@
 				C9D3B4E4221ECE8D00A8E573 /* Heqingzhao_ImageLoader.m */,
 				C9052A4422201449003EF4B8 /* Heqingzhao_AppContext.h */,
 				C9052A4522201449003EF4B8 /* Heqingzhao_AppContext.m */,
+				C9D4A95A2297EA7B00FEFD5E /* UINavigationBar+layoutSubViews.h */,
+				C9D4A95B2297EA7B00FEFD5E /* UINavigationBar+layoutSubViews.m */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -261,6 +270,15 @@
 				C9D3B4E6221ECECC00A8E573 /* navi_back@3x.png */,
 			);
 			path = resource;
+			sourceTree = "<group>";
+		};
+		C9D4A94422978C9000FEFD5E /* crashvc */ = {
+			isa = PBXGroup;
+			children = (
+				C9D4A94522978DC800FEFD5E /* Heqingzhao_CrashCatcher.h */,
+				C9D4A94622978DC800FEFD5E /* Heqingzhao_CrashCatcher.m */,
+			);
+			path = crashvc;
 			sourceTree = "<group>";
 		};
 		C9DFFD2A222806B100A8374C /* ui */ = {
@@ -359,6 +377,7 @@
 				C9B0AD6E221D32DA00F747B1 /* Heqingzhao_MultiChannelEditCell.m in Sources */,
 				C9BB1E962216CEAC0050B493 /* Heqingzhao_TabbarAdjustPosition.m in Sources */,
 				C9E86AD1222FB7C500F85E19 /* DUDemoObject.m in Sources */,
+				C9D4A94722978DC800FEFD5E /* Heqingzhao_CrashCatcher.m in Sources */,
 				C9DFFD2D222806DE00A8374C /* Heqingzhao_LoadingView.m in Sources */,
 				C9B4E3B92223B80300454349 /* Heqingzhao_TableViewSectionConfig.m in Sources */,
 				C9B0AD6B221D259C00F747B1 /* Heqingzhao_SinglePixelView.m in Sources */,
@@ -376,6 +395,7 @@
 				C9BB1E48221551D90050B493 /* AppDelegate.m in Sources */,
 				C9BB1E972216CEAC0050B493 /* Heqingzhao_MultiChannelViewController.m in Sources */,
 				C952BC90222D1802006B22DC /* Heqingzhao_MethodCollection.m in Sources */,
+				C9D4A95C2297EA7B00FEFD5E /* UINavigationBar+layoutSubViews.m in Sources */,
 				C9BDB028221BF5BB00FC4168 /* MultiChannelDemoViewController.m in Sources */,
 				C9E86AD4222FB7DC00F85E19 /* DUDemoChildObject.m in Sources */,
 				C9D3B4E5221ECE8D00A8E573 /* Heqingzhao_ImageLoader.m in Sources */,
