@@ -34,7 +34,6 @@
     
     Heqingzhao_MultiChannelContentView* channelContentView = [[Heqingzhao_MultiChannelContentView alloc] initWithFrame:CGRectMake(0, topBar.bottom, self.view.width, self.view.height - topBar.bottom)];
     channelContentView.delegate = self;
-    
     [self.view addSubview:channelContentView];
     self.contentView = channelContentView;
 }

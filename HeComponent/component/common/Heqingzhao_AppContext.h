@@ -38,4 +38,7 @@ typedef NS_OPTIONS(NSInteger, Heqingzhao_IPhoneType){
 // 竖屏顶部导航栏+状态栏高度
 - (CGFloat)topBarHeight;
 
+// 屏幕底部间距
+- (CGFloat)screenBottomEdge;
+
 @end

@@ -13,6 +13,7 @@
 #import "Heqingzhao_AppContext.h"
 #import "Heqingzhao_BottomLoadingView.h"
 #import "Heqingzhao_ScrollAdListView.h"
+#import "UIColor+extension_qingzhao.h"
 
 @interface TableControllerDemoViewController ()<Heqingzhao_ScrollAdListViewDelegate>
 
@@ -37,7 +38,7 @@
     [self.view addSubview:tableView];
     
     UIView* headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 120)];
-    headerView.backgroundColor = [UIColor grayColor];
+    headerView.backgroundColor = [UIColor colorWithHexString:@"#908CEE"];
     tableView.tableHeaderView = headerView;
     Heqingzhao_ScrollAdListView* adListView = [[Heqingzhao_ScrollAdListView alloc] initWithFrame:headerView.bounds];
     [headerView addSubview:adListView];
