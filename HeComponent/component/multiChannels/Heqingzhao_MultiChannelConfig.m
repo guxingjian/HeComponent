@@ -165,14 +165,14 @@
 
 - (void)encodeWithCoder:(NSCoder *)aCoder{
     [aCoder encodeObject:self.itemIdentifier forKey:@"itemIdentifier"];
-    [aCoder encodeBool:self.status forKey:@"status"];
+//    [aCoder encodeBool:self.status forKey:@"status"];
     [self.topBarConfig encodeWithCoder:aCoder];
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder{
     if(self = [super init]){
         self.itemIdentifier = [aDecoder decodeObjectForKey:@"itemIdentifier"];
-        self.status = [aDecoder decodeBoolForKey:@"status"];
+//        self.status = [aDecoder decodeBoolForKey:@"status"];
         self.topBarConfig = [[Heqingzhao_MultiChannelTopBarConfig alloc] initWithCoder:aDecoder];
     }
     return self;

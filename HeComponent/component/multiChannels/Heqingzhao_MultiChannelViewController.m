@@ -12,6 +12,8 @@
 #import "Heqingzhao_AppContext.h"
 #import "UIColor+extension_qingzhao.h"
 
+#define LABEL_TAG 139018423
+
 @interface Heqingzhao_MultiChannelViewController ()<Heqingzhao_MultiChannelEditViewControllerDelegate>
 
 @end
@@ -69,7 +71,7 @@
 }
 
 - (void)multiChannelContentView:(Heqingzhao_MultiChannelContentView *)contentView willSelectIndex:(NSInteger)nIndex withChannelView:(UIView *)view andConfig:(Heqingzhao_MultiChannelConfig *)config{
-    UILabel* labelContent = [view viewWithTag:1001];
+    UILabel* labelContent = [view viewWithTag:LABEL_TAG];
     labelContent.text = config.topBarConfig.normalTitle;
     NSArray* array = [self colorArray];
     view.backgroundColor = [array objectAtIndex:(nIndex%array.count)];
@@ -96,7 +98,7 @@
     labelContent.text = config.topBarConfig.normalTitle;
     labelContent.textAlignment = NSTextAlignmentCenter;
     [contentView addSubview:labelContent];
-    labelContent.tag = 1001;
+    labelContent.tag = LABEL_TAG;
     
     NSArray* array = [self colorArray];
     contentView.backgroundColor = [array objectAtIndex:(nIndex%array.count)];
