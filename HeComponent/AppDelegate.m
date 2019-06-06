@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "Heqingzhao_DUContext.h"
+#import "MultiChannelDemoViewController.h"
+#import "Heqingzhao_RubishManager.h"
 
 @interface AppDelegate ()
 
@@ -17,11 +19,28 @@
 
 - (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
     [[Heqingzhao_DUContext sharedDUContext] resetJSDataWithDirectory:[[NSBundle mainBundle] bundlePath]];
+    
+    // 可以在测试阶段运行所有功能，收集未使用过的垃圾资源
+#if DEBUG
+    Heqingzhao_RubishManager* rubishManager = [Heqingzhao_RubishManager sharedManager];
+    rubishManager.arrayClassPreStr = @[@"DUDemo"];
+    [[Heqingzhao_RubishManager sharedManager] collectAllClassName];
+    [[Heqingzhao_RubishManager sharedManager] collectAllImageName];
+    [[Heqingzhao_RubishManager sharedManager] collectAllXibName];
+#endif
+    
     return YES;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    MultiChannelDemoViewController* demoVc = [[MultiChannelDemoViewController alloc] init];
+    UINavigationController* navi = [[UINavigationController alloc] initWithRootViewController:demoVc];
+    navi.navigationBar.hidden = YES;
+    self.window.rootViewController = navi;
+    
+    
     return YES;
 }
 

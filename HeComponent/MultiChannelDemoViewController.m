@@ -9,6 +9,9 @@
 #import "MultiChannelDemoViewController.h"
 #import "TableControllerDemoViewController.h"
 #import "DUDemoChildObject.h"
+#import "UIView+view_frame.h"
+#import "Heqingzhao_RubishManager.h"
+
 #import <objc/runtime.h>
 
 @interface MultiChannelDemoViewController ()
@@ -72,6 +75,13 @@
 //    Method me = class_getInstanceMethod([self class], @selector(test:));
 //    const char* methodDes = method_getTypeEncoding(me);
 //    NSLog(@"methodDes: %s", methodDes);
+    
+    unsigned int methodCount;
+    Method* methodBuffer = class_copyMethodList([NSObject class], &methodCount);
+    for(unsigned int i = 0; i < methodCount; ++ i){
+        method_getDescription(methodBuffer[i]);
+        method_getName(methodBuffer[i]);
+    }
 }
 
 - (void)test:(void(^)(NSInteger nIndex))compleHandler{
@@ -85,11 +95,23 @@
         TableControllerDemoViewController* tableViewController = [[TableControllerDemoViewController alloc] init];
         contentView = tableViewController.view;
         [self addChildViewController:tableViewController];
+    }else if([config.topBarConfig.normalTitle isEqualToString:@"tab1"]){
+        contentView = [[UIView alloc] initWithFrame:self.contentView.bounds];
+        UIButton* btnCollect = [[UIButton alloc] initWithFrame:CGRectMake(0, contentView.height/2 - 80/2, contentView.width, 80)];
+        [btnCollect setTitle:@"点击收集垃圾资源" forState:UIControlStateNormal];
+        [btnCollect setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        btnCollect.titleLabel.font = [UIFont systemFontOfSize:15];
+        [btnCollect addTarget:self action:@selector(collectAction:) forControlEvents:UIControlEventTouchUpInside];
+        [contentView addSubview:btnCollect];
     }else{
         contentView = [super contentViewWithIndex:nIndex config:config];
     }
     
     return contentView;
+}
+
+- (void)collectAction:(UIButton*)btn{
+    [[Heqingzhao_RubishManager sharedManager] analyzeUnUsedResource];
 }
 
 /*

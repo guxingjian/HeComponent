@@ -46,6 +46,13 @@
 		C9BDB02F221BFB3700FC4168 /* down_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9BDB02D221BFB3700FC4168 /* down_arrow@2x.png */; };
 		C9BDB030221BFB3700FC4168 /* down_arrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9BDB02E221BFB3700FC4168 /* down_arrow@3x.png */; };
 		C9BDB068221C237100FC4168 /* Heqingzhao_MultiChannelEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BDB067221C237100FC4168 /* Heqingzhao_MultiChannelEditViewController.m */; };
+		C9CF39DC22A8AE8700BB1FA8 /* Heqingzhao_BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CF39DB22A8AE8700BB1FA8 /* Heqingzhao_BaseViewController.m */; };
+		C9CF39E422A8F05B00BB1FA8 /* Heqingzhao_RubishManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CF39E322A8F05B00BB1FA8 /* Heqingzhao_RubishManager.m */; };
+		C9CF39E722A8F07300BB1FA8 /* NSObject+classNameCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CF39E622A8F07200BB1FA8 /* NSObject+classNameCollection.m */; };
+		C9CF39EA22A9094700BB1FA8 /* UIViewController+nibCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CF39E822A9094700BB1FA8 /* UIViewController+nibCollection.m */; };
+		C9CF39ED22A90C2500BB1FA8 /* NSBundle+nibCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CF39EB22A90C2500BB1FA8 /* NSBundle+nibCollection.m */; };
+		C9CF39EF22A90E2D00BB1FA8 /* Heqingzhao_RubishTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9CF39EE22A90E2D00BB1FA8 /* Heqingzhao_RubishTestViewController.xib */; };
+		C9CF39F222A912B200BB1FA8 /* UIImage+nameCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CF39F022A912B100BB1FA8 /* UIImage+nameCollection.m */; };
 		C9D260BF2228D962009AE2EF /* TableControllerDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D260BE2228D962009AE2EF /* TableControllerDemoViewController.m */; };
 		C9D260C22228DCCC009AE2EF /* TableControllerDemoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D260C12228DCCC009AE2EF /* TableControllerDemoCell.m */; };
 		C9D3B4DF221ECA3C00A8E573 /* label_delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9D3B4DD221ECA3B00A8E573 /* label_delete@2x.png */; };
@@ -119,6 +126,19 @@
 		C9BDB02E221BFB3700FC4168 /* down_arrow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down_arrow@3x.png"; sourceTree = "<group>"; };
 		C9BDB066221C237100FC4168 /* Heqingzhao_MultiChannelEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_MultiChannelEditViewController.h; sourceTree = "<group>"; };
 		C9BDB067221C237100FC4168 /* Heqingzhao_MultiChannelEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_MultiChannelEditViewController.m; sourceTree = "<group>"; };
+		C9CF39DA22A8AE8700BB1FA8 /* Heqingzhao_BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_BaseViewController.h; sourceTree = "<group>"; };
+		C9CF39DB22A8AE8700BB1FA8 /* Heqingzhao_BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_BaseViewController.m; sourceTree = "<group>"; };
+		C9CF39E222A8F05B00BB1FA8 /* Heqingzhao_RubishManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_RubishManager.h; sourceTree = "<group>"; };
+		C9CF39E322A8F05B00BB1FA8 /* Heqingzhao_RubishManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_RubishManager.m; sourceTree = "<group>"; };
+		C9CF39E522A8F07200BB1FA8 /* NSObject+classNameCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+classNameCollection.h"; sourceTree = "<group>"; };
+		C9CF39E622A8F07200BB1FA8 /* NSObject+classNameCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+classNameCollection.m"; sourceTree = "<group>"; };
+		C9CF39E822A9094700BB1FA8 /* UIViewController+nibCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+nibCollection.m"; sourceTree = "<group>"; };
+		C9CF39E922A9094700BB1FA8 /* UIViewController+nibCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+nibCollection.h"; sourceTree = "<group>"; };
+		C9CF39EB22A90C2500BB1FA8 /* NSBundle+nibCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+nibCollection.m"; sourceTree = "<group>"; };
+		C9CF39EC22A90C2500BB1FA8 /* NSBundle+nibCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+nibCollection.h"; sourceTree = "<group>"; };
+		C9CF39EE22A90E2D00BB1FA8 /* Heqingzhao_RubishTestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Heqingzhao_RubishTestViewController.xib; sourceTree = "<group>"; };
+		C9CF39F022A912B100BB1FA8 /* UIImage+nameCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+nameCollection.m"; sourceTree = "<group>"; };
+		C9CF39F122A912B100BB1FA8 /* UIImage+nameCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+nameCollection.h"; sourceTree = "<group>"; };
 		C9D260BD2228D962009AE2EF /* TableControllerDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableControllerDemoViewController.h; sourceTree = "<group>"; };
 		C9D260BE2228D962009AE2EF /* TableControllerDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableControllerDemoViewController.m; sourceTree = "<group>"; };
 		C9D260C02228DCCC009AE2EF /* TableControllerDemoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableControllerDemoCell.h; sourceTree = "<group>"; };
@@ -227,6 +247,7 @@
 				C9D260BE2228D962009AE2EF /* TableControllerDemoViewController.m */,
 				C9D260C02228DCCC009AE2EF /* TableControllerDemoCell.h */,
 				C9D260C12228DCCC009AE2EF /* TableControllerDemoCell.m */,
+				C9CF39EE22A90E2D00BB1FA8 /* Heqingzhao_RubishTestViewController.xib */,
 				C9E86ACF222FB7C500F85E19 /* DUDemoObject.h */,
 				C9E86AD0222FB7C500F85E19 /* DUDemoObject.m */,
 				C9E86AD2222FB7DC00F85E19 /* DUDemoChildObject.h */,
@@ -253,6 +274,7 @@
 				C9DFFD2A222806B100A8374C /* ui */,
 				C952BC8A222CFF20006B22DC /* dynamicupdate */,
 				C9D4A94422978C9000FEFD5E /* crashvc */,
+				C9CF39DE22A8EFE100BB1FA8 /* rubishAnalyze */,
 			);
 			path = component;
 			sourceTree = "<group>";
@@ -310,6 +332,23 @@
 			path = resource;
 			sourceTree = "<group>";
 		};
+		C9CF39DE22A8EFE100BB1FA8 /* rubishAnalyze */ = {
+			isa = PBXGroup;
+			children = (
+				C9CF39E222A8F05B00BB1FA8 /* Heqingzhao_RubishManager.h */,
+				C9CF39E322A8F05B00BB1FA8 /* Heqingzhao_RubishManager.m */,
+				C9CF39E522A8F07200BB1FA8 /* NSObject+classNameCollection.h */,
+				C9CF39E622A8F07200BB1FA8 /* NSObject+classNameCollection.m */,
+				C9CF39E922A9094700BB1FA8 /* UIViewController+nibCollection.h */,
+				C9CF39E822A9094700BB1FA8 /* UIViewController+nibCollection.m */,
+				C9CF39EC22A90C2500BB1FA8 /* NSBundle+nibCollection.h */,
+				C9CF39EB22A90C2500BB1FA8 /* NSBundle+nibCollection.m */,
+				C9CF39F122A912B100BB1FA8 /* UIImage+nameCollection.h */,
+				C9CF39F022A912B100BB1FA8 /* UIImage+nameCollection.m */,
+			);
+			path = rubishAnalyze;
+			sourceTree = "<group>";
+		};
 		C9D4A94422978C9000FEFD5E /* crashvc */ = {
 			isa = PBXGroup;
 			children = (
@@ -332,6 +371,8 @@
 				C9F74AE722A60481001ACF3F /* Heqingzhao_PageControl.m */,
 				C9F74AEB22A63C58001ACF3F /* Heqingzhao_ScrollAdListView.h */,
 				C9F74AEC22A63C58001ACF3F /* Heqingzhao_ScrollAdListView.m */,
+				C9CF39DA22A8AE8700BB1FA8 /* Heqingzhao_BaseViewController.h */,
+				C9CF39DB22A8AE8700BB1FA8 /* Heqingzhao_BaseViewController.m */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -402,6 +443,7 @@
 				C9BB1E50221551DC0050B493 /* Assets.xcassets in Resources */,
 				C9D3B4E8221ECECC00A8E573 /* navi_back@3x.png in Resources */,
 				C9BB1E4E221551D90050B493 /* Main.storyboard in Resources */,
+				C9CF39EF22A90E2D00BB1FA8 /* Heqingzhao_RubishTestViewController.xib in Resources */,
 				C9D3B4DF221ECA3C00A8E573 /* label_delete@2x.png in Resources */,
 				C9BDB030221BFB3700FC4168 /* down_arrow@3x.png in Resources */,
 				C952BC92222D4625006B22DC /* du_main.js in Resources */,
@@ -422,12 +464,15 @@
 			files = (
 				C9BA872322A69BF5008A60A1 /* cat01.jpeg in Sources */,
 				C9BA872422A69BF5008A60A1 /* cat02.jpeg in Sources */,
+				C9CF39E422A8F05B00BB1FA8 /* Heqingzhao_RubishManager.m in Sources */,
 				C9BA872522A69BF5008A60A1 /* cat03.jpeg in Sources */,
 				C9BA872622A69BF5008A60A1 /* cat04.jpeg in Sources */,
 				C9BA872722A69BF5008A60A1 /* cat05.jpeg in Sources */,
 				C9BA872822A69BF5008A60A1 /* cat06.jpeg in Sources */,
+				C9CF39E722A8F07300BB1FA8 /* NSObject+classNameCollection.m in Sources */,
 				C9BDB068221C237100FC4168 /* Heqingzhao_MultiChannelEditViewController.m in Sources */,
 				C96DEB462226597F00538E65 /* Heqingzhao_TableViewBaseCell.m in Sources */,
+				C9CF39DC22A8AE8700BB1FA8 /* Heqingzhao_BaseViewController.m in Sources */,
 				C9B0AD6E221D32DA00F747B1 /* Heqingzhao_MultiChannelEditCell.m in Sources */,
 				C9BB1E962216CEAC0050B493 /* Heqingzhao_TabbarAdjustPosition.m in Sources */,
 				C9E86AD1222FB7C500F85E19 /* DUDemoObject.m in Sources */,
@@ -437,11 +482,13 @@
 				C9B0AD6B221D259C00F747B1 /* Heqingzhao_SinglePixelView.m in Sources */,
 				C94138DC221A476800AFA04F /* Heqingzhao_MultiChannelContentView.m in Sources */,
 				C952BC8D222D0DE7006B22DC /* Heqingzhao_DUContext.m in Sources */,
+				C9CF39ED22A90C2500BB1FA8 /* NSBundle+nibCollection.m in Sources */,
 				C9B4E3B62223B78A00454349 /* Heqingzhao_TableViewController.m in Sources */,
 				C9052A4622201449003EF4B8 /* Heqingzhao_AppContext.m in Sources */,
 				C9D260BF2228D962009AE2EF /* TableControllerDemoViewController.m in Sources */,
 				C9BB1E982216CEAC0050B493 /* Heqingzhao_MultiChannelConfig.m in Sources */,
 				C9BB1E4B221551D90050B493 /* ViewController.m in Sources */,
+				C9CF39EA22A9094700BB1FA8 /* UIViewController+nibCollection.m in Sources */,
 				C9F74AED22A63C58001ACF3F /* Heqingzhao_ScrollAdListView.m in Sources */,
 				C9DFFD29222802D500A8374C /* Heqingzhao_TopLoadingView.m in Sources */,
 				C9BB1E992216CEAC0050B493 /* Heqingzhao_MultiChannelTopBar.m in Sources */,
@@ -453,6 +500,7 @@
 				C9D4A95C2297EA7B00FEFD5E /* UINavigationBar+layoutSubViews.m in Sources */,
 				C9F74AE822A60481001ACF3F /* Heqingzhao_PageControl.m in Sources */,
 				C9BDB028221BF5BB00FC4168 /* MultiChannelDemoViewController.m in Sources */,
+				C9CF39F222A912B200BB1FA8 /* UIImage+nameCollection.m in Sources */,
 				C9E86AD4222FB7DC00F85E19 /* DUDemoChildObject.m in Sources */,
 				C9D3B4E5221ECE8D00A8E573 /* Heqingzhao_ImageLoader.m in Sources */,
 				C9D260C22228DCCC009AE2EF /* TableControllerDemoCell.m in Sources */,
