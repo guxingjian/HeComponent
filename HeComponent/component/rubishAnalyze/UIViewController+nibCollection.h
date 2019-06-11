@@ -10,4 +10,6 @@
 
 @interface UIViewController(nibCollection)
 
++(void)exchangeInitWithNibName;
+
 @end

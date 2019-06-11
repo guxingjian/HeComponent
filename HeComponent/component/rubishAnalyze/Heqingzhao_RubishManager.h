@@ -10,10 +10,21 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol Heqingzhao_RubishManagerDelegate <NSObject>
+
+- (void)analyzeDidFinished;
+
+@end
+
 @interface Heqingzhao_RubishManager : NSObject
 
 // 指定收集的类的前缀
 @property(nonatomic, strong)NSArray* arrayClassPreStr;
+
+@property(nonatomic, weak)id<Heqingzhao_RubishManagerDelegate> delegate;
+
+// 是否记录上次使用过的资源
+@property(nonatomic, assign)BOOL bRememberFlag;
 
 + (instancetype)sharedManager;
 

@@ -13,7 +13,7 @@
 
 @implementation NSBundle(nibCollection)
 
-+(void)load{
++(void)exchangeLoadNibNamed{
     Method originalMethod = class_getInstanceMethod(self, @selector(loadNibNamed:owner:options:));
     Method targetMethod = class_getInstanceMethod(self, @selector(heqingzhao_loadNibNamed:owner:options:));
     method_exchangeImplementations(originalMethod, targetMethod);

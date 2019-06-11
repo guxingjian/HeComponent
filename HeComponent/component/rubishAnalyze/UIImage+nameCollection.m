@@ -11,9 +11,9 @@
 
 #import <objc/runtime.h>
 
-@implementation UIImage(nibCollection)
+@implementation UIImage(nameCollection)
 
-+(void)load{
++(void)exchangeImageNamed{
     Method originalMethod = class_getClassMethod(self, @selector(imageNamed:));
     Method targetMethod = class_getClassMethod(self, @selector(heqingzhao_imageNamed:));
     method_exchangeImplementations(originalMethod, targetMethod);
@@ -36,3 +36,5 @@
 }
 
 @end
+
+

@@ -10,4 +10,6 @@
 
 @interface NSObject(classNameCollection)
 
++ (void)exchangeAllocWithZone;
+
 @end

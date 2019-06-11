@@ -13,7 +13,7 @@
 
 @implementation UIViewController(nibCollection)
 
-+(void)load{
++(void)exchangeInitWithNibName{
     Method originalMethod = class_getInstanceMethod(self, @selector(initWithNibName:bundle:));
     Method targetMethod = class_getInstanceMethod(self, @selector(heqingzhao_initWithNibName:bundle:));
     method_exchangeImplementations(originalMethod, targetMethod);

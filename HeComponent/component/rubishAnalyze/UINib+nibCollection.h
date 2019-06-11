@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NSBundle(nibCollection)
+@interface UINib(nibCollection)
 
-+(void)exchangeLoadNibNamed;
++(void)exchangeNibNamed;
 
 @end
