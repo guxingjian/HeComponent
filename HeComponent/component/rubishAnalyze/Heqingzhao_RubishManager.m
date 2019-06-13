@@ -80,7 +80,7 @@
     if(!_dicUsedClassName){
         if(self.bRememberFlag){
             NSString* strPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
-            NSString* lastUsedPath = [strPath stringByAppendingPathComponent:@"lastUsedClassName.txt"];
+            NSString* lastUsedPath = [strPath stringByAppendingPathComponent:@"lastUsedClassName.plist"];
             if([[NSFileManager defaultManager] fileExistsAtPath:lastUsedPath]){
                 _dicUsedClassName = [NSMutableDictionary dictionaryWithContentsOfFile:lastUsedPath];
             }else{
@@ -129,7 +129,7 @@
     if(!_dicUsedImageName){
         if(self.bRememberFlag){
             NSString* strPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
-            NSString* lastUsedPath = [strPath stringByAppendingPathComponent:@"lastUsedImageName.txt"];
+            NSString* lastUsedPath = [strPath stringByAppendingPathComponent:@"lastUsedImageName.plist"];
             if([[NSFileManager defaultManager] fileExistsAtPath:lastUsedPath]){
                 _dicUsedImageName = [NSMutableDictionary dictionaryWithContentsOfFile:lastUsedPath];
             }else{
@@ -178,7 +178,7 @@
     if(!_dicUsedXibName){
         if(self.bRememberFlag){
             NSString* strPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
-            NSString* lastUsedPath = [strPath stringByAppendingPathComponent:@"lastUsedXibName.txt"];
+            NSString* lastUsedPath = [strPath stringByAppendingPathComponent:@"lastUsedXibName.plist"];
             if([[NSFileManager defaultManager] fileExistsAtPath:lastUsedPath]){
                 _dicUsedXibName = [NSMutableDictionary dictionaryWithContentsOfFile:lastUsedPath];
             }else{
@@ -241,15 +241,26 @@
         [strUnUsedXib writeToFile:xibNamePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
         
         if(self.bRememberFlag){
-            NSString* lastUsedClassPath = [strPath stringByAppendingPathComponent:@"lastUsedClassName.txt"];
+            NSString* lastUsedClassPath = [strPath stringByAppendingPathComponent:@"lastUsedClassName.plist"];
             [self.dicUsedClassName writeToFile:lastUsedClassPath atomically:YES];
             
-            NSString* lastUsedImagePath = [strPath stringByAppendingPathComponent:@"lastUsedImageName.txt"];
+            NSString* lastUsedImagePath = [strPath stringByAppendingPathComponent:@"lastUsedImageName.plist"];
             [self.dicUsedImageName writeToFile:lastUsedImagePath atomically:YES];
             
-            NSString* lastUsedXibPath = [strPath stringByAppendingPathComponent:@"lastUsedXibName.txt"];
+            NSString* lastUsedXibPath = [strPath stringByAppendingPathComponent:@"lastUsedXibName.plist"];
             [self.dicUsedXibName writeToFile:lastUsedXibPath atomically:YES];
         }
+        NSString* allClassPath = [strPath stringByAppendingPathComponent:@"AllClassName.plist"];
+        [self.arrayAllClassName writeToFile:allClassPath atomically:YES];
+        [self saveArrayName:self.arrayAllClassName fileName:@"AllClassName.txt"];
+        
+        NSString* allXibPath = [strPath stringByAppendingPathComponent:@"AllXibName.plist"];
+        [self.arrayAllXibName writeToFile:allXibPath atomically:YES];
+        [self saveArrayName:self.arrayAllXibName fileName:@"AllXibName.txt"];
+        
+        NSString* allImagePath = [strPath stringByAppendingPathComponent:@"AllImageName.plist"];
+        [arrayAllImage writeToFile:allImagePath atomically:YES];
+        [self saveArrayName:arrayAllImage fileName:@"AllImageName.txt"];
         
         if([self.delegate respondsToSelector:@selector(analyzeDidFinished)]){
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -257,6 +268,17 @@
             });
         }
     });
+}
+
+- (void)saveArrayName:(NSArray*)arrayName fileName:(NSString*)fileName{
+    NSString* strPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
+    NSString* strNamePath = [strPath stringByAppendingPathComponent:fileName];
+    NSMutableString* saveStr = [[NSMutableString alloc] init];
+    for(NSString* str in arrayName){
+        [saveStr appendString:str];
+        [saveStr appendString:@","];
+    }
+    [saveStr writeToFile:strNamePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
 }
 
 @end

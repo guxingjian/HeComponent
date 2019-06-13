@@ -11,6 +11,7 @@
 #import "DUDemoChildObject.h"
 #import "UIView+view_frame.h"
 #import "Heqingzhao_RubishManager.h"
+#import "HeqingzhaoTestViewController.h"
 
 #import <objc/runtime.h>
 
@@ -111,7 +112,10 @@
 }
 
 - (void)collectAction:(UIButton*)btn{
-    [[Heqingzhao_RubishManager sharedManager] analyzeUnUsedResource];
+//    [[Heqingzhao_RubishManager sharedManager] analyzeUnUsedResource];
+    
+    HeqingzhaoTestViewController* testVc = [[HeqingzhaoTestViewController alloc] init];
+    [self.navigationController pushViewController:testVc animated:YES];
 }
 
 /*

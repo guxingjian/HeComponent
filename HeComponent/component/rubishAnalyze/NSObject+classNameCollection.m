@@ -8,6 +8,8 @@
 
 #import "NSObject+classNameCollection.h"
 #import "Heqingzhao_RubishManager.h"
+
+#import <UIKit/UIKit.h>
 #import <objc/runtime.h>
 
 @implementation NSObject(classNameCollection)
