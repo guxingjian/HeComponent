@@ -12,6 +12,8 @@
 
 #define Heqingzhao_ScreenWidth [UIScreen mainScreen].bounds.size.width
 #define Heqingzhao_ScreenHeight [UIScreen mainScreen].bounds.size.height
+#define Heqingzhao_ScreenSafeAreaInsets [[Heqingzhao_AppContext sharedAppContext] safeAreaInsets]
+#define Heqingzhao_ScreenSafeAreaRect [[Heqingzhao_AppContext sharedAppContext] safeAreaRect]
 
 typedef NS_OPTIONS(NSInteger, Heqingzhao_IPhoneType){
     Heqingzhao_IPhoneType_Unknown,
@@ -30,15 +32,10 @@ typedef NS_OPTIONS(NSInteger, Heqingzhao_IPhoneType){
 
 + (instancetype)sharedAppContext;
 
-// 竖屏顶部导航栏高度
-- (CGFloat)topNaviHeight;
-// 竖屏顶部状态栏高度
-- (CGFloat)topStatusBarHeight;
+// 有导航栏的情况下，页面的safeArea
+- (UIEdgeInsets)safeAreaInsets;
+- (CGRect)safeAreaRect;
 
-// 竖屏顶部导航栏+状态栏高度
-- (CGFloat)topBarHeight;
-
-// 屏幕底部间距
 - (CGFloat)screenBottomEdge;
 
 @end

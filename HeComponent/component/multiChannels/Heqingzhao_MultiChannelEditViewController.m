@@ -61,18 +61,12 @@
         return ;
     }
     
-    CGFloat fNaviHeight = [[Heqingzhao_AppContext sharedAppContext] topNaviHeight];
-    CGFloat fStatusHeight = [[Heqingzhao_AppContext sharedAppContext] topStatusBarHeight];
-    
-    UIView* naviContentView = [[UIView alloc] initWithFrame:CGRectMake(0, fStatusHeight, self.view.width, fNaviHeight)];
-    [self.view addSubview:naviContentView];
-    
-    UINavigationBar* naviBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, fStatusHeight, self.view.width, fNaviHeight)];
+    UINavigationBar* naviBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.width, Heqingzhao_ScreenSafeAreaInsets.top)];
     UINavigationItem* naviItem = [[UINavigationItem alloc] initWithTitle:self.title];
     naviItem.rightBarButtonItem = btnItem;
     naviItem.leftBarButtonItem = backItem;
     naviBar.items = @[naviItem];
-    [naviContentView addSubview:naviBar];
+    [self.view addSubview:naviBar];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -109,8 +103,7 @@
     layout.sectionInset = UIEdgeInsetsMake(15, 15, 0, 15);
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
     
-    CGFloat fTopBarHeight = [[Heqingzhao_AppContext sharedAppContext] topBarHeight];
-    UICollectionView* collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, fTopBarHeight, self.view.width, self.view.height - fTopBarHeight) collectionViewLayout:layout];
+    UICollectionView* collectionView = [[UICollectionView alloc] initWithFrame:Heqingzhao_ScreenSafeAreaRect collectionViewLayout:layout];
     collectionView.backgroundColor = [UIColor whiteColor];
     collectionView.alwaysBounceVertical = YES;
     [collectionView registerClass:[Heqingzhao_MultiChannelEditCell class] forCellWithReuseIdentifier:@"editCell"];

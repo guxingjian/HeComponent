@@ -11,7 +11,7 @@
 #import "DUDemoChildObject.h"
 #import "UIView+view_frame.h"
 #import "Heqingzhao_RubishManager.h"
-#import "HeqingzhaoTestViewController.h"
+#import "DemoBaseViewController.h"
 
 #import <objc/runtime.h>
 
@@ -104,6 +104,14 @@
         btnCollect.titleLabel.font = [UIFont systemFontOfSize:15];
         [btnCollect addTarget:self action:@selector(collectAction:) forControlEvents:UIControlEventTouchUpInside];
         [contentView addSubview:btnCollect];
+    }else if([config.topBarConfig.normalTitle isEqualToString:@"tab2"]){
+        contentView = [[UIView alloc] initWithFrame:self.contentView.bounds];
+        UIButton* btnBaseVc = [[UIButton alloc] initWithFrame:CGRectMake(0, contentView.height/2 - 80/2, contentView.width, 80)];
+        [btnBaseVc setTitle:@"点击进入BaseViewController Demo" forState:UIControlStateNormal];
+        [btnBaseVc setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        btnBaseVc.titleLabel.font = [UIFont systemFontOfSize:15];
+        [btnBaseVc addTarget:self action:@selector(baseViewControllerAction:) forControlEvents:UIControlEventTouchUpInside];
+        [contentView addSubview:btnBaseVc];
     }else{
         contentView = [super contentViewWithIndex:nIndex config:config];
     }
@@ -112,9 +120,11 @@
 }
 
 - (void)collectAction:(UIButton*)btn{
-//    [[Heqingzhao_RubishManager sharedManager] analyzeUnUsedResource];
-    
-    HeqingzhaoTestViewController* testVc = [[HeqingzhaoTestViewController alloc] init];
+    [[Heqingzhao_RubishManager sharedManager] analyzeUnUsedResource];
+}
+
+- (void)baseViewControllerAction:(UIButton*)btn{
+    DemoBaseViewController* testVc = [[DemoBaseViewController alloc] init];
     [self.navigationController pushViewController:testVc animated:YES];
 }
 

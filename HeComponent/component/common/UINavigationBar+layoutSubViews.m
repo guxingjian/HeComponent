@@ -22,20 +22,8 @@
     [self heqingzhao_layoutSubviews];
     
     if ([self requireLayoutBarFrame]) {
-        CGFloat naviBarHeight = 64;
-        CGFloat statusBarHeight = 20;
-        //注意导航栏及状态栏高度适配
-        self.frame = CGRectMake(0, 0, CGRectGetWidth(self.frame), naviBarHeight);
         for (UIView *view in self.subviews) {
-            if([NSStringFromClass([view class]) containsString:@"Background"]) {
-                view.frame = self.bounds;
-            }
-            else if ([NSStringFromClass([view class]) containsString:@"ContentView"]) {
-                CGRect frame = view.frame;
-                frame.origin.y = statusBarHeight;
-                frame.size.height = self.bounds.size.height - frame.origin.y;
-                view.frame = frame;
-            }
+            view.frame = CGRectMake(view.frame.origin.x, self.bounds.size.height - view.frame.size.height, view.frame.size.width, view.frame.size.height);
         }
     }
 }

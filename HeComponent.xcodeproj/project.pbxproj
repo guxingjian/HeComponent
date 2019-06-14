@@ -13,10 +13,7 @@
 		C952BC90222D1802006B22DC /* Heqingzhao_MethodCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = C952BC8F222D1802006B22DC /* Heqingzhao_MethodCollection.m */; };
 		C952BC92222D4625006B22DC /* du_main.js in Resources */ = {isa = PBXBuildFile; fileRef = C952BC91222D4625006B22DC /* du_main.js */; };
 		C952BC94222D47EE006B22DC /* MultiChannelDemoViewController.js in Resources */ = {isa = PBXBuildFile; fileRef = C952BC93222D47EE006B22DC /* MultiChannelDemoViewController.js */; };
-		C969E23D22B1000D00CEFB82 /* HeqingzhaoTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C969E23A22B1000C00CEFB82 /* HeqingzhaoTestViewController.m */; };
-		C969E23E22B1000D00CEFB82 /* HeqingzhaoTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C969E23C22B1000D00CEFB82 /* HeqingzhaoTestViewController.xib */; };
-		C969E24122B1008300CEFB82 /* 4.1.1_top_share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C969E23F22B1008200CEFB82 /* 4.1.1_top_share@2x.png */; };
-		C969E24222B1008300CEFB82 /* 4.1.1_top_share@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C969E24022B1008300CEFB82 /* 4.1.1_top_share@3x.png */; };
+		C969E23D22B1000D00CEFB82 /* DemoBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C969E23A22B1000C00CEFB82 /* DemoBaseViewController.m */; };
 		C96DEB462226597F00538E65 /* Heqingzhao_TableViewBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C96DEB452226597F00538E65 /* Heqingzhao_TableViewBaseCell.m */; };
 		C98C3B3B22AE81270085A7C8 /* UINib+nibCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = C98C3B3922AE81270085A7C8 /* UINib+nibCollection.m */; };
 		C9B0AD6B221D259C00F747B1 /* Heqingzhao_SinglePixelView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B0AD69221D259C00F747B1 /* Heqingzhao_SinglePixelView.m */; };
@@ -87,11 +84,8 @@
 		C952BC8F222D1802006B22DC /* Heqingzhao_MethodCollection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_MethodCollection.m; sourceTree = "<group>"; };
 		C952BC91222D4625006B22DC /* du_main.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = du_main.js; sourceTree = "<group>"; };
 		C952BC93222D47EE006B22DC /* MultiChannelDemoViewController.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = MultiChannelDemoViewController.js; sourceTree = "<group>"; };
-		C969E23A22B1000C00CEFB82 /* HeqingzhaoTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeqingzhaoTestViewController.m; sourceTree = "<group>"; };
-		C969E23B22B1000C00CEFB82 /* HeqingzhaoTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeqingzhaoTestViewController.h; sourceTree = "<group>"; };
-		C969E23C22B1000D00CEFB82 /* HeqingzhaoTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeqingzhaoTestViewController.xib; sourceTree = "<group>"; };
-		C969E23F22B1008200CEFB82 /* 4.1.1_top_share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "4.1.1_top_share@2x.png"; sourceTree = "<group>"; };
-		C969E24022B1008300CEFB82 /* 4.1.1_top_share@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "4.1.1_top_share@3x.png"; sourceTree = "<group>"; };
+		C969E23A22B1000C00CEFB82 /* DemoBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoBaseViewController.m; sourceTree = "<group>"; };
+		C969E23B22B1000C00CEFB82 /* DemoBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoBaseViewController.h; sourceTree = "<group>"; };
 		C96DEB442226597F00538E65 /* Heqingzhao_TableViewBaseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_TableViewBaseCell.h; sourceTree = "<group>"; };
 		C96DEB452226597F00538E65 /* Heqingzhao_TableViewBaseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_TableViewBaseCell.m; sourceTree = "<group>"; };
 		C98C3B3922AE81270085A7C8 /* UINib+nibCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINib+nibCollection.m"; sourceTree = "<group>"; };
@@ -259,11 +253,8 @@
 				C9D260BE2228D962009AE2EF /* TableControllerDemoViewController.m */,
 				C9D260C02228DCCC009AE2EF /* TableControllerDemoCell.h */,
 				C9D260C12228DCCC009AE2EF /* TableControllerDemoCell.m */,
-				C969E23F22B1008200CEFB82 /* 4.1.1_top_share@2x.png */,
-				C969E24022B1008300CEFB82 /* 4.1.1_top_share@3x.png */,
-				C969E23B22B1000C00CEFB82 /* HeqingzhaoTestViewController.h */,
-				C969E23A22B1000C00CEFB82 /* HeqingzhaoTestViewController.m */,
-				C969E23C22B1000D00CEFB82 /* HeqingzhaoTestViewController.xib */,
+				C969E23B22B1000C00CEFB82 /* DemoBaseViewController.h */,
+				C969E23A22B1000C00CEFB82 /* DemoBaseViewController.m */,
 				C9CF39EE22A90E2D00BB1FA8 /* Heqingzhao_RubishTestViewController.xib */,
 				C9E86ACF222FB7C500F85E19 /* DUDemoObject.h */,
 				C9E86AD0222FB7C500F85E19 /* DUDemoObject.m */,
@@ -459,14 +450,11 @@
 				C9BB1E53221551DC0050B493 /* LaunchScreen.storyboard in Resources */,
 				C9BA871F22A69613008A60A1 /* cat02.jpeg in Resources */,
 				C9D3B4E9221ECECC00A8E573 /* navi_back@2x.png in Resources */,
-				C969E23E22B1000D00CEFB82 /* HeqingzhaoTestViewController.xib in Resources */,
 				C9BB1E50221551DC0050B493 /* Assets.xcassets in Resources */,
 				C9D3B4E8221ECECC00A8E573 /* navi_back@3x.png in Resources */,
-				C969E24122B1008300CEFB82 /* 4.1.1_top_share@2x.png in Resources */,
 				C9BB1E4E221551D90050B493 /* Main.storyboard in Resources */,
 				C9CF39EF22A90E2D00BB1FA8 /* Heqingzhao_RubishTestViewController.xib in Resources */,
 				C9D3B4DF221ECA3C00A8E573 /* label_delete@2x.png in Resources */,
-				C969E24222B1008300CEFB82 /* 4.1.1_top_share@3x.png in Resources */,
 				C9BDB030221BFB3700FC4168 /* down_arrow@3x.png in Resources */,
 				C952BC92222D4625006B22DC /* du_main.js in Resources */,
 				C9BA872122A69613008A60A1 /* cat06.jpeg in Resources */,
@@ -528,7 +516,7 @@
 				C9D3B4E5221ECE8D00A8E573 /* Heqingzhao_ImageLoader.m in Sources */,
 				C9D260C22228DCCC009AE2EF /* TableControllerDemoCell.m in Sources */,
 				C9DFFD3022280B4D00A8374C /* Heqingzhao_BottomLoadingView.m in Sources */,
-				C969E23D22B1000D00CEFB82 /* HeqingzhaoTestViewController.m in Sources */,
+				C969E23D22B1000D00CEFB82 /* DemoBaseViewController.m in Sources */,
 				C9BB1E952216CEAC0050B493 /* UIView+view_frame.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -73,30 +73,49 @@ static Heqingzhao_AppContext* appContext = nil;
     }
 }
 
-- (CGFloat)topNaviHeight{
-    return 44;
-}
-
-- (CGFloat)topStatusBarHeight{
+- (CGFloat)topBarHeight{
     if(Heqingzhao_IPhoneType_IPhoneX == _iPhoneType ||
        Heqingzhao_IPhoneType_IPhoneXR == _iPhoneType ||
        Heqingzhao_IPhoneType_IPhoneXSMax == _iPhoneType){
-        return 44;
+        return 84;
     }
-    return 20;
-}
-
-- (CGFloat)topBarHeight{
-    return [self topNaviHeight] + [self topStatusBarHeight];
+    return 64;
 }
 
 - (CGFloat)screenBottomEdge{
+    UIEdgeInsets insets = [self safeAreaInsets];
+    return insets.bottom;
+}
+
+- (UIEdgeInsets)safeAreaInsets{
+    UIEdgeInsets insets = UIEdgeInsetsZero;
+    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
     if(Heqingzhao_IPhoneType_IPhoneX == _iPhoneType ||
        Heqingzhao_IPhoneType_IPhoneXR == _iPhoneType ||
        Heqingzhao_IPhoneType_IPhoneXSMax == _iPhoneType){
-        return 34;
+        if(UIDeviceOrientationIsPortrait(orientation)){
+            insets.top = 88;
+            insets.bottom = 34;
+        }else if(UIDeviceOrientationIsLandscape(orientation)){
+            insets.top = 44;
+            insets.left = 44;
+            insets.bottom = 21;
+            insets.right = 44;
+        }
+    }else{
+        if(UIDeviceOrientationIsPortrait(orientation)){
+            insets.top = 64;
+        }else if(UIDeviceOrientationIsLandscape(orientation)){
+            insets.top = 32;
+        }
     }
-    return 0;
+    return insets;
+}
+
+- (CGRect)safeAreaRect{
+    UIEdgeInsets insets = [self safeAreaInsets];
+    CGRect rt = CGRectMake(insets.left, insets.top, Heqingzhao_ScreenWidth - insets.left - insets.right, Heqingzhao_ScreenHeight - insets.top - insets.bottom);
+    return rt;
 }
 
 @end
