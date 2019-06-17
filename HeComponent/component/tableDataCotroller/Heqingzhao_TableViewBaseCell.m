@@ -23,4 +23,10 @@
     return nil;
 }
 
+- (void)triggerActionWithInfo:(id)info{
+    if([self.delegate respondsToSelector:@selector(baseCell:doActionWithInfo:)]){
+        [self.delegate baseCell:self doActionWithInfo:info];
+    }
+}
+
 @end

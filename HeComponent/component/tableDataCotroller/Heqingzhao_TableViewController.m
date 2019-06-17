@@ -121,10 +121,6 @@
     return 0;
 }
 
-- (void)baseCell:(Heqingzhao_TableViewBaseCell *)cell doActionWithInfo:(id)info{
-    
-}
-
 - (UITableViewCell*)cellWithCellConfig:(Heqingzhao_TableViewCellConfig*)cellConfig tableView:(UITableView*)tableView{
     if(cellConfig.cell)
         return cellConfig.cell;
@@ -173,6 +169,22 @@
     }
     
     return cell;
+}
+
+- (void)baseCell:(Heqingzhao_TableViewBaseCell *)cell doActionWithInfo:(id)info{
+    if([self.delegate respondsToSelector:@selector(tableController:tableCell:doActionWithInfo:)]){
+        [self.delegate tableController:self tableCell:cell doActionWithInfo:info];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if([self.delegate respondsToSelector:@selector(tableController:tableCell:doActionWithInfo:)]){
+        Heqingzhao_TableViewBaseCell* cell = [tableView cellForRowAtIndexPath:indexPath];
+        if([cell isKindOfClass:[Heqingzhao_TableViewBaseCell class]]){
+            NSDictionary* dic = @{@"userInfo":@"selectCell"};
+            [self.delegate tableController:self tableCell:cell doActionWithInfo:dic];
+        }
+    }
 }
 
 - (void)reloadData{

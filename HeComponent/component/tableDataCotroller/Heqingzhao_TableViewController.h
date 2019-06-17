@@ -17,6 +17,7 @@
 
 - (void)triggerTopLoadingWithTableController:(Heqingzhao_TableViewController*)tableController;
 - (void)triggerBottomLoadingWithTableController:(Heqingzhao_TableViewController*)tableController;
+- (void)tableController:(Heqingzhao_TableViewController*)controller tableCell:(Heqingzhao_TableViewBaseCell*)cell doActionWithInfo:(id)info;
 
 @end
 

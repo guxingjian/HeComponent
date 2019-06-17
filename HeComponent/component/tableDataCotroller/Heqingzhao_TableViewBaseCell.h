@@ -22,5 +22,6 @@
 @property(nonatomic, weak)id<Heqingzhao_TableViewBaseCellDelegate> delegate;
 
 +(UITableViewCell*) tableViewCellWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil;
+- (void)triggerActionWithInfo:(id)info;
 
 @end

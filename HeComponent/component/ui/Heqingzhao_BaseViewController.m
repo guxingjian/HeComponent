@@ -58,6 +58,7 @@
 - (Heqingzhao_TableViewController *)tableController{
     if(!_tableController){
         _tableController = [[Heqingzhao_TableViewController alloc] init];
+        _tableController.delegate = self;
         _tableController.tableView = self.safeAreaTableView;
     }
     return _tableController;
@@ -71,6 +72,13 @@
     [super setTitle:title];
 }
 
+- (void)setDisableDefaultNavibar:(BOOL)disableDefaultNavibar{
+    _disableDefaultNavibar = disableDefaultNavibar;
+    if(self.defaultNavibar){
+        self.defaultNavibar.hidden = disableDefaultNavibar;
+    }
+}
+
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator{
     UIEdgeInsets insets = Heqingzhao_ScreenSafeAreaInsets;
     if(self.defaultNavibar){
@@ -80,6 +88,18 @@
         _safeAreaTableView.frame = CGRectMake(insets.left, insets.top, size.width - insets.left - insets.right, size.height - insets.top - insets.bottom);
         [_safeAreaTableView reloadData];
     }
+}
+
+- (void)tableController:(Heqingzhao_TableViewController *)controller tableCell:(Heqingzhao_TableViewBaseCell *)cell doActionWithInfo:(id)info{
+    
+}
+
+- (void)triggerTopLoadingWithTableController:(Heqingzhao_TableViewController *)tableController{
+    
+}
+
+- (void)triggerBottomLoadingWithTableController:(Heqingzhao_TableViewController *)tableController{
+    
 }
 
 /*
