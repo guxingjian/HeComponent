@@ -30,6 +30,7 @@
 }
 
 - (void)setUserData:(id)userData{
+    [super setUserData:userData];
     NSString* text = (NSString*)userData;
     self.labelText.text = text;
 }

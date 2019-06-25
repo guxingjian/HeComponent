@@ -50,6 +50,7 @@
 - (UITableView *)safeAreaTableView{
     if(!_safeAreaTableView){
         _safeAreaTableView = [[UITableView alloc] initWithFrame:Heqingzhao_ScreenSafeAreaRect style:UITableViewStylePlain];
+        _safeAreaTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
         [self.view addSubview:_safeAreaTableView];
     }
     return _safeAreaTableView;

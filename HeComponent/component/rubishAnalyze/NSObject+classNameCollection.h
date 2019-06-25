@@ -10,6 +10,6 @@
 
 @interface NSObject(classNameCollection)
 
-+ (void)exchangeAllocWithZone;
++ (void)exchangeInitialize;
 
 @end

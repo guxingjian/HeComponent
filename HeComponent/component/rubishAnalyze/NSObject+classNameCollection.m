@@ -14,17 +14,17 @@
 
 @implementation NSObject(classNameCollection)
 
-+ (void)exchangeAllocWithZone{
-    Method originalMethod = class_getClassMethod(self, @selector(allocWithZone:));
-    Method targetMethod = class_getClassMethod(self, @selector(heqingzhao_allocWithZone:));
++ (void)exchangeInitialize{
+    Method originalMethod = class_getClassMethod(self, @selector(initialize));
+    Method targetMethod = class_getClassMethod(self, @selector(heqingzhao_initialize));
     method_exchangeImplementations(originalMethod, targetMethod);
 }
 
-+ (instancetype)heqingzhao_allocWithZone:(struct _NSZone *)zone{
++ (void)heqingzhao_initialize{
+    [self heqingzhao_initialize];
     dispatch_async(dispatch_get_main_queue(), ^{
         [[Heqingzhao_RubishManager sharedManager] collectUsedClassName:NSStringFromClass(self)];
     });
-    return [self heqingzhao_allocWithZone:zone];
 }
 
 @end
