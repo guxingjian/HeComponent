@@ -62,7 +62,7 @@
 }
 
 - (void)collectAllClassName{
-    [NSObject exchangeAllocWithZone];
+    [NSObject exchangeInitialize];
     dispatch_async(self.workQueue, ^{
         unsigned int count;
         Class* clsBuf = objc_copyClassList(&count);

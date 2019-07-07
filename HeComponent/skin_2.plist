@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>test-view</key>
+	<dict>
+		<key>backgroundColor</key>
+		<string>#212121</string>
+	</dict>
+	<key>test-label</key>
+	<dict>
+		<key>textColor</key>
+		<string>#333333</string>
+		<key>backgroundColor</key>
+		<string>#FFFFFF</string>
+		<key>borderColor</key>
+		<string>#00FF00</string>
+		<key>borderWidth</key>
+		<string>2</string>
+		<key>font</key>
+		<dict>
+			<key>fontSize</key>
+			<string>13</string>
+		</dict>
+	</dict>
+	<key>test-button</key>
+	<dict>
+		<key>textColor</key>
+		<string>#333333</string>
+		<key>backgroundColor</key>
+		<string>00FA11</string>
+		<key>cornerRadius</key>
+		<integer>5</integer>
+	</dict>
+</dict>
+</plist>

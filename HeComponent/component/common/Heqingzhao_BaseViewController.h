@@ -19,4 +19,7 @@
 @property(nonatomic,strong)UITableView* safeAreaTableView;
 @property(nonatomic,strong)Heqingzhao_TableViewController* tableController;
 
+- (void)viewWillAppearHandleTheme;
+- (void)viewWillDisappearHandleTheme;
+
 @end

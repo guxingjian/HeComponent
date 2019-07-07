@@ -12,6 +12,7 @@
 #import "UIView+view_frame.h"
 #import "Heqingzhao_RubishManager.h"
 #import "DemoBaseViewController.h"
+#import "ThemeDemoViewController.h"
 
 #import <objc/runtime.h>
 
@@ -76,13 +77,14 @@
 //    Method me = class_getInstanceMethod([self class], @selector(test:));
 //    const char* methodDes = method_getTypeEncoding(me);
 //    NSLog(@"methodDes: %s", methodDes);
+//
+//    unsigned int methodCount;
+//    Method* methodBuffer = class_copyMethodList([NSObject class], &methodCount);
+//    for(unsigned int i = 0; i < methodCount; ++ i){
+//        method_getDescription(methodBuffer[i]);
+//        method_getName(methodBuffer[i]);
+//    }
     
-    unsigned int methodCount;
-    Method* methodBuffer = class_copyMethodList([NSObject class], &methodCount);
-    for(unsigned int i = 0; i < methodCount; ++ i){
-        method_getDescription(methodBuffer[i]);
-        method_getName(methodBuffer[i]);
-    }
 }
 
 - (void)test:(void(^)(NSInteger nIndex))compleHandler{
@@ -112,7 +114,16 @@
         btnBaseVc.titleLabel.font = [UIFont systemFontOfSize:15];
         [btnBaseVc addTarget:self action:@selector(baseViewControllerAction:) forControlEvents:UIControlEventTouchUpInside];
         [contentView addSubview:btnBaseVc];
-    }else{
+    }else if([config.topBarConfig.normalTitle isEqualToString:@"tab3"]){
+        contentView = [[UIView alloc] initWithFrame:self.contentView.bounds];
+        UIButton* btnSkinVc = [[UIButton alloc] initWithFrame:CGRectMake(0, contentView.height/2 - 80/2, contentView.width, 80)];
+        [btnSkinVc setTitle:@"点击进入皮肤切换 demo" forState:UIControlStateNormal];
+        [btnSkinVc setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        btnSkinVc.titleLabel.font = [UIFont systemFontOfSize:15];
+        [btnSkinVc addTarget:self action:@selector(changeSkinVc:) forControlEvents:UIControlEventTouchUpInside];
+        [contentView addSubview:btnSkinVc];
+    }
+    else{
         contentView = [super contentViewWithIndex:nIndex config:config];
     }
     
@@ -126,6 +137,11 @@
 - (void)baseViewControllerAction:(UIButton*)btn{
     DemoBaseViewController* testVc = [[DemoBaseViewController alloc] init];
     [self.navigationController pushViewController:testVc animated:YES];
+}
+
+- (void)changeSkinVc:(UIButton*)btn{
+    UIViewController* vc = [[ThemeDemoViewController alloc] initWithNibName:@"ThemeDemoViewController" bundle:nil];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 /*

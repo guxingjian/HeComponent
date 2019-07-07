@@ -12,6 +12,8 @@
 #import "UIView+view_frame.h"
 #import "Heqingzhao_SinglePixelView.h"
 #import "UIColor+extension_qingzhao.h"
+#import "Heqingzhao_ThemeStyleManager.h"
+#import "UIView+ThemeConfig.h"
 
 @interface Heqingzhao_BaseViewController ()
 
@@ -29,7 +31,7 @@
         [btnBack addTarget:self action:@selector(naviBack:) forControlEvents:UIControlEventTouchUpInside];
         UIBarButtonItem* backItem = [[UIBarButtonItem alloc] initWithCustomView:btnBack];
         
-        UINavigationBar* naviBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.width, Heqingzhao_ScreenSafeAreaInsets.top)];
+        UINavigationBar* naviBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, Heqingzhao_ScreenWidth, Heqingzhao_ScreenSafeAreaInsets.top)];
         naviBar.barTintColor = [UIColor colorWithHexString:@"#EAEAEA"];
         naviBar.backgroundColor = [UIColor colorWithHexString:@"#EAEAEA"];
         UINavigationItem* naviItem = [[UINavigationItem alloc] initWithTitle:self.title];
@@ -102,6 +104,41 @@
 - (void)triggerBottomLoadingWithTableController:(Heqingzhao_TableViewController *)tableController{
     
 }
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self viewWillAppearHandleTheme];
+}
+
+- (void)viewWillAppearHandleTheme{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(themeChanged) name:Heqingzhao_ThemeStyleChanged object:nil];
+    [self themeChanged];
+}
+
+- (void)themeChanged{
+    Heqingzhao_ThemeStyleManager* themeMgr = [Heqingzhao_ThemeStyleManager defaultThemeStyleManager];
+    
+    // 避免样式的重复设置
+    if([themeMgr.currentTheme isEqualToString:self.view.currentConfigFile])
+        return ;
+    
+    [themeMgr decorateView:self.view];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self viewWillDisappearHandleTheme];
+}
+
+- (void)viewWillDisappearHandleTheme{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:Heqingzhao_ThemeStyleChanged object:nil];
+}
+
+- (void)dealloc{
+    [self viewWillDisappearHandleTheme];
+}
+
+
 
 /*
 #pragma mark - Navigation

@@ -11,5 +11,6 @@
 @interface UIColor(UIColor_extension_qingzhao)
 
 + (UIColor*)colorWithHexString:(NSString*)stringToConvert;
++ (UIImage*)imageWithColor:(UIColor*)color size:(CGSize)size;
 
 @end
