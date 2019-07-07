@@ -19,10 +19,6 @@ NSString* const Heqingzhao_ThemeStyleChanged = @"Heqingzhao_ThemeStyleChanged";
 
 @interface Heqingzhao_ThemeStyleManager()
 
-@property(nonatomic, strong)NSMutableDictionary* dicThemeConfig;
-@property(nonatomic, strong)NSDictionary* dicCurrentThemeConfig;
-@property(nonatomic, strong)NSMutableDictionary* dicViewDecorater;
-
 @end
 
 @implementation Heqingzhao_ThemeStyleManager
