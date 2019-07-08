@@ -20,6 +20,8 @@
 @property(nonatomic,strong)Heqingzhao_TableViewController* tableController;
 
 - (void)viewWillAppearHandleTheme;
+- (void)decorateView;
+
 - (void)viewWillDisappearHandleTheme;
 
 @end

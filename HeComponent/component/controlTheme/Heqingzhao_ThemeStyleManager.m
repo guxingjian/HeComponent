@@ -86,20 +86,27 @@ NSString* const Heqingzhao_ThemeStyleChanged = @"Heqingzhao_ThemeStyleChanged";
     [self.dicViewDecorater setObject:viewDecorater forKey:viewKind];
 }
 
-- (void)decorateView:(UIView *)view{
+- (void)decorateView:(UIView *)view ignoreOriginalSetting:(BOOL)ignore{
+    if(!ignore && [self.currentTheme isEqualToString:view.currentConfigFile]){
+        return ;
+    }
+    if(view.themeStyle.length == 0)
+        return ;
+    
+    Heqingzhao_ViewThemeDecorater* viewDecorater = [self.dicViewDecorater objectForKey:view.controlKind];
+    if(!viewDecorater)
+        return ;
+    [viewDecorater decorateView:view withConfig:[self.dicCurrentThemeConfig objectForKey:view.themeStyle]];
+    view.currentConfigFile = self.currentTheme;
+}
+
+- (void)decorateViewAndSubView:(UIView *)view ignoreOriginalSetting:(BOOL)ignore{
     NSMutableArray* arrayViews = [NSMutableArray array]; // 递归效率低，按层级遍历view的子view
     [arrayViews addObject:view];
     while (arrayViews.count > 0) {
         NSMutableArray* arrayTemp = [NSMutableArray array];
         for(UIView* v in arrayViews){
-            if(v.themeStyle.length == 0)
-                continue ;
-            
-            Heqingzhao_ViewThemeDecorater* viewDecorater = [self.dicViewDecorater objectForKey:v.controlKind];
-            if(!viewDecorater)
-                continue ;
-            [viewDecorater decorateView:v withConfig:[_dicCurrentThemeConfig objectForKey:v.themeStyle]];
-            v.currentConfigFile = self.currentTheme;
+            [self decorateView:v ignoreOriginalSetting:ignore];
             if(v.subviews.count > 0){
                 [arrayTemp addObjectsFromArray:v.subviews];
             }

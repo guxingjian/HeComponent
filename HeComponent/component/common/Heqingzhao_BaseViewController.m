@@ -21,10 +21,13 @@
 
 @implementation Heqingzhao_BaseViewController
 
+- (void)awakeFromNib{
+    [super awakeFromNib];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor whiteColor];
     if(self.navigationController.navigationBar.hidden && !self.disableDefaultNavibar){
         UIButton* btnBack = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 60)];
         [btnBack setImage:[UIImage imageNamed:@"navi_back"] forState:UIControlStateNormal];
@@ -53,6 +56,7 @@
     if(!_safeAreaTableView){
         _safeAreaTableView = [[UITableView alloc] initWithFrame:Heqingzhao_ScreenSafeAreaRect style:UITableViewStylePlain];
         _safeAreaTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+        _safeAreaTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [self.view addSubview:_safeAreaTableView];
     }
     return _safeAreaTableView;
@@ -111,18 +115,15 @@
 }
 
 - (void)viewWillAppearHandleTheme{
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(themeChanged) name:Heqingzhao_ThemeStyleChanged object:nil];
-    [self themeChanged];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(decorateView) name:Heqingzhao_ThemeStyleChanged object:nil];
+    Heqingzhao_ThemeStyleManager* themeMgr = [Heqingzhao_ThemeStyleManager defaultThemeStyleManager];
+    if(![themeMgr.currentTheme isEqualToString:self.view.currentConfigFile]){ // 避免重复设置theme
+        [self decorateView];
+    };
 }
 
-- (void)themeChanged{
-    Heqingzhao_ThemeStyleManager* themeMgr = [Heqingzhao_ThemeStyleManager defaultThemeStyleManager];
-    
-    // 避免样式的重复设置
-    if([themeMgr.currentTheme isEqualToString:self.view.currentConfigFile])
-        return ;
-    
-    [themeMgr decorateView:self.view];
+- (void)decorateView{
+    [[Heqingzhao_ThemeStyleManager defaultThemeStyleManager] decorateViewAndSubView:self.view ignoreOriginalSetting:NO];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{

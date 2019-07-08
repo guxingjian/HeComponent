@@ -1,52 +1,52 @@
 //
-//  SkinDemoViewController.m
+//  ThemeDemo2ViewController.m
 //  HeComponent
 //
-//  Created by qingzhao on 2019/7/4.
+//  Created by qingzhao on 2019/7/8.
 //  Copyright © 2019年 qingzhao. All rights reserved.
 //
 
-#import "ThemeDemoViewController.h"
-#import "UIView+ThemeConfig.h"
-#import "Heqingzhao_ThemeStyleManager.h"
 #import "ThemeDemo2ViewController.h"
+#import "Heqingzhao_ThemeStyleManager.h"
+#import "UIView+themeConfig.h"
 
-@interface ThemeDemoViewController ()
+@interface ThemeDemo2ViewController ()
 
 @end
 
-@implementation ThemeDemoViewController
+@implementation ThemeDemo2ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.title = @"切换主题demo";
-    
     UIButton* btnRight = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 40)];
-    [btnRight addTarget:self action:@selector(nextPage) forControlEvents:UIControlEventTouchUpInside];
-    [btnRight setTitle:@"下一页" forState:UIControlStateNormal];
+    [btnRight addTarget:self action:@selector(changeSkin:) forControlEvents:UIControlEventTouchUpInside];
+    [btnRight setTitle:@"切换主题" forState:UIControlStateNormal];
     [btnRight setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     UIBarButtonItem* rightItem = [[UIBarButtonItem alloc] initWithCustomView:btnRight];
     self.defaultNavibar.topItem.rightBarButtonItem = rightItem;
     
-    UILabel* labelTest = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 200, 50)];
-    labelTest.text = @"UILabel 皮肤测试";
-    labelTest.themeStyle = @"test-label";
-    [self.view addSubview:labelTest];
+    self.title = @"切换主题demo";
     
-    Heqingzhao_ThemeStyleManager* themeMgr = [Heqingzhao_ThemeStyleManager defaultThemeStyleManager];
-    if(themeMgr.currentTheme.length == 0){
-        [self changeSkin:nil];
-    }
-}
-
-- (void)nextPage{
-    ThemeDemo2ViewController* vc = [[ThemeDemo2ViewController alloc] initWithNibName:@"ThemeDemo2ViewController" bundle:nil];
-    [self.navigationController pushViewController:vc animated:YES];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        NSMutableArray* arrayCells = [NSMutableArray array];
+        for(NSInteger i = 0; i < 30; ++ i){
+            Heqingzhao_TableViewCellConfig* cellConfig = [[Heqingzhao_TableViewCellConfig alloc] init];
+            cellConfig.cellHeight = 80;
+            cellConfig.userData = [NSString stringWithFormat:@"cell_%ld", i];
+            cellConfig.cellName = @"ThemeTableViewCell";
+            [arrayCells addObject:cellConfig];
+        }
+        self.tableController.arrayCells = arrayCells;
+        [self.tableController reloadData];
+    });
+    
+    self.safeAreaTableView.themeStyle = self.view.themeStyle;
 }
 
 - (IBAction)changeSkin:(UIButton*)sender{
+    //    NSLog(@"sender: %@", sender);
     Heqingzhao_ThemeStyleManager* themeMgr = [Heqingzhao_ThemeStyleManager defaultThemeStyleManager];
     if([themeMgr.currentTheme isEqualToString:@"skin_1.plist"]){
         [themeMgr setCurrentTheme:@"skin_2.plist"];

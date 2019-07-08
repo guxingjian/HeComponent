@@ -24,7 +24,8 @@ extern NSString* const controlKind_button;
 // 注册控件类型对应的装饰器
 - (void)registeDecoraterClass:(Class)cls forViewKind:(NSString*)viewKind;
 // 设置view及其子view的theme
-- (void)decorateView:(UIView*)view;
+- (void)decorateView:(UIView*)view ignoreOriginalSetting:(BOOL)ignore;
+- (void)decorateViewAndSubView:(UIView*)view ignoreOriginalSetting:(BOOL)ignore;
 
 @end
 

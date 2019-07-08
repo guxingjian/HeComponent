@@ -7,12 +7,14 @@
 //
 
 #import "UIView+ThemeConfig.h"
+#import "Heqingzhao_ThemeStyleManager.h"
 #import <objc/runtime.h>
 
 @implementation UIView(ThemeConfig)
 
 - (void)setThemeStyle:(NSString *)themeStyle{
     objc_setAssociatedObject(self, @"themeStyle", themeStyle, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [[Heqingzhao_ThemeStyleManager defaultThemeStyleManager] decorateView:self ignoreOriginalSetting:NO];
 }
 
 - (NSString *)themeStyle{

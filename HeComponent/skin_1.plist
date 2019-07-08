@@ -32,5 +32,20 @@
 		<key>cornerRadius</key>
 		<true/>
 	</dict>
+	<key>cell-back</key>
+	<dict>
+		<key>backgroundColor</key>
+		<string>#FFFFFF</string>
+	</dict>
+	<key>cell-line</key>
+	<dict>
+		<key>backgroundColor</key>
+		<string>#333333</string>
+	</dict>
+	<key>cell-label</key>
+	<dict>
+		<key>textColor</key>
+		<string>#00FFFF</string>
+	</dict>
 </dict>
 </plist>

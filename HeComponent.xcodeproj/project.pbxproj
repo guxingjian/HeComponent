@@ -20,6 +20,9 @@
 		C99BACB422CE3473000991CE /* skin_2.plist in Resources */ = {isa = PBXBuildFile; fileRef = C99BACB322CE3473000991CE /* skin_2.plist */; };
 		C99BACB822CE3519000991CE /* ThemeDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C99BACB622CE3519000991CE /* ThemeDemoViewController.m */; };
 		C99BACB922CE3519000991CE /* ThemeDemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C99BACB722CE3519000991CE /* ThemeDemoViewController.xib */; };
+		C9A3FDA722D33B790054B17A /* ThemeDemo2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A3FDA522D33B790054B17A /* ThemeDemo2ViewController.m */; };
+		C9A3FDAC22D33C0A0054B17A /* ThemeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A3FDAA22D33C0A0054B17A /* ThemeTableViewCell.m */; };
+		C9A3FDAF22D342600054B17A /* ThemeDemo2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9A3FDAE22D342600054B17A /* ThemeDemo2ViewController.xib */; };
 		C9AE410F22CF1C0B0092E00A /* Heqingzhao_LabelThemeDecorater.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AE410522CF1C0B0092E00A /* Heqingzhao_LabelThemeDecorater.m */; };
 		C9AE411022CF1C0B0092E00A /* Heqingzhao_ButtonThemeDecorater.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AE410622CF1C0B0092E00A /* Heqingzhao_ButtonThemeDecorater.m */; };
 		C9AE411122CF1C0B0092E00A /* Heqingzhao_ThemeStyleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AE410822CF1C0B0092E00A /* Heqingzhao_ThemeStyleManager.m */; };
@@ -104,6 +107,11 @@
 		C99BACB522CE3519000991CE /* ThemeDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemeDemoViewController.h; sourceTree = "<group>"; };
 		C99BACB622CE3519000991CE /* ThemeDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThemeDemoViewController.m; sourceTree = "<group>"; };
 		C99BACB722CE3519000991CE /* ThemeDemoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThemeDemoViewController.xib; sourceTree = "<group>"; };
+		C9A3FDA422D33B790054B17A /* ThemeDemo2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemeDemo2ViewController.h; sourceTree = "<group>"; };
+		C9A3FDA522D33B790054B17A /* ThemeDemo2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThemeDemo2ViewController.m; sourceTree = "<group>"; };
+		C9A3FDA922D33C0A0054B17A /* ThemeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemeTableViewCell.h; sourceTree = "<group>"; };
+		C9A3FDAA22D33C0A0054B17A /* ThemeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThemeTableViewCell.m; sourceTree = "<group>"; };
+		C9A3FDAE22D342600054B17A /* ThemeDemo2ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThemeDemo2ViewController.xib; sourceTree = "<group>"; };
 		C9AE410522CF1C0B0092E00A /* Heqingzhao_LabelThemeDecorater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_LabelThemeDecorater.m; sourceTree = "<group>"; };
 		C9AE410622CF1C0B0092E00A /* Heqingzhao_ButtonThemeDecorater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_ButtonThemeDecorater.m; sourceTree = "<group>"; };
 		C9AE410722CF1C0B0092E00A /* UIView+ThemeConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ThemeConfig.h"; sourceTree = "<group>"; };
@@ -299,6 +307,11 @@
 				C99BACB522CE3519000991CE /* ThemeDemoViewController.h */,
 				C99BACB622CE3519000991CE /* ThemeDemoViewController.m */,
 				C99BACB722CE3519000991CE /* ThemeDemoViewController.xib */,
+				C9A3FDA422D33B790054B17A /* ThemeDemo2ViewController.h */,
+				C9A3FDA522D33B790054B17A /* ThemeDemo2ViewController.m */,
+				C9A3FDAE22D342600054B17A /* ThemeDemo2ViewController.xib */,
+				C9A3FDA922D33C0A0054B17A /* ThemeTableViewCell.h */,
+				C9A3FDAA22D33C0A0054B17A /* ThemeTableViewCell.m */,
 				C99BACB122CE3382000991CE /* skin_1.plist */,
 				C99BACB322CE3473000991CE /* skin_2.plist */,
 				C9CF39EE22A90E2D00BB1FA8 /* Heqingzhao_RubishTestViewController.xib */,
@@ -337,8 +350,6 @@
 		C9BB1E892216CEAC0050B493 /* common */ = {
 			isa = PBXGroup;
 			children = (
-				C9B0AD6A221D259C00F747B1 /* Heqingzhao_SinglePixelView.h */,
-				C9B0AD69221D259C00F747B1 /* Heqingzhao_SinglePixelView.m */,
 				C9BB1E8B2216CEAC0050B493 /* UIView+view_frame.h */,
 				C9BB1E8A2216CEAC0050B493 /* UIView+view_frame.m */,
 				C9BDB029221BF6D800FC4168 /* UIColor+extension_qingzhao.h */,
@@ -347,8 +358,6 @@
 				C9D3B4E4221ECE8D00A8E573 /* Heqingzhao_ImageLoader.m */,
 				C9052A4422201449003EF4B8 /* Heqingzhao_AppContext.h */,
 				C9052A4522201449003EF4B8 /* Heqingzhao_AppContext.m */,
-				C9D4A95A2297EA7B00FEFD5E /* UINavigationBar+layoutSubViews.h */,
-				C9D4A95B2297EA7B00FEFD5E /* UINavigationBar+layoutSubViews.m */,
 				C9CF39DA22A8AE8700BB1FA8 /* Heqingzhao_BaseViewController.h */,
 				C9CF39DB22A8AE8700BB1FA8 /* Heqingzhao_BaseViewController.m */,
 			);
@@ -420,6 +429,8 @@
 		C9DFFD2A222806B100A8374C /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				C9B0AD6A221D259C00F747B1 /* Heqingzhao_SinglePixelView.h */,
+				C9B0AD69221D259C00F747B1 /* Heqingzhao_SinglePixelView.m */,
 				C9DFFD2B222806DE00A8374C /* Heqingzhao_LoadingView.h */,
 				C9DFFD2C222806DE00A8374C /* Heqingzhao_LoadingView.m */,
 				C9DFFD27222802D500A8374C /* Heqingzhao_TopLoadingView.h */,
@@ -430,6 +441,8 @@
 				C9F74AE722A60481001ACF3F /* Heqingzhao_PageControl.m */,
 				C9F74AEB22A63C58001ACF3F /* Heqingzhao_ScrollAdListView.h */,
 				C9F74AEC22A63C58001ACF3F /* Heqingzhao_ScrollAdListView.m */,
+				C9D4A95A2297EA7B00FEFD5E /* UINavigationBar+layoutSubViews.h */,
+				C9D4A95B2297EA7B00FEFD5E /* UINavigationBar+layoutSubViews.m */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -509,6 +522,7 @@
 				C9BA871E22A69613008A60A1 /* cat03.jpeg in Resources */,
 				C9BA872022A69613008A60A1 /* cat04.jpeg in Resources */,
 				C99BACB222CE3382000991CE /* skin_1.plist in Resources */,
+				C9A3FDAF22D342600054B17A /* ThemeDemo2ViewController.xib in Resources */,
 				C99BACB922CE3519000991CE /* ThemeDemoViewController.xib in Resources */,
 				C9BA872222A69613008A60A1 /* cat01.jpeg in Resources */,
 				C9BA871D22A69613008A60A1 /* cat05.jpeg in Resources */,
@@ -527,6 +541,7 @@
 				C9CF39E422A8F05B00BB1FA8 /* Heqingzhao_RubishManager.m in Sources */,
 				C9AE411022CF1C0B0092E00A /* Heqingzhao_ButtonThemeDecorater.m in Sources */,
 				C9BA872522A69BF5008A60A1 /* cat03.jpeg in Sources */,
+				C9A3FDAC22D33C0A0054B17A /* ThemeTableViewCell.m in Sources */,
 				C9BA872622A69BF5008A60A1 /* cat04.jpeg in Sources */,
 				C9BA872722A69BF5008A60A1 /* cat05.jpeg in Sources */,
 				C9AE411122CF1C0B0092E00A /* Heqingzhao_ThemeStyleManager.m in Sources */,
@@ -564,6 +579,7 @@
 				C9BB1E48221551D90050B493 /* AppDelegate.m in Sources */,
 				C9BB1E972216CEAC0050B493 /* Heqingzhao_MultiChannelViewController.m in Sources */,
 				C952BC90222D1802006B22DC /* Heqingzhao_MethodCollection.m in Sources */,
+				C9A3FDA722D33B790054B17A /* ThemeDemo2ViewController.m in Sources */,
 				C9D4A95C2297EA7B00FEFD5E /* UINavigationBar+layoutSubViews.m in Sources */,
 				C9F74AE822A60481001ACF3F /* Heqingzhao_PageControl.m in Sources */,
 				C9BDB028221BF5BB00FC4168 /* MultiChannelDemoViewController.m in Sources */,
