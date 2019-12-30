@@ -6,25 +6,25 @@
 //  Copyright © 2019年 qingzhao. All rights reserved.
 //
 
-#import "Heqingzhao_ThemeStyleManager.h"
+#import "Heqingzhao_ThemeSkinManager.h"
 #import "Heqingzhao_ViewThemeDecorater.h"
 #import "Heqingzhao_LabelThemeDecorater.h"
 #import "Heqingzhao_ButtonThemeDecorater.h"
 #import "UIView+ThemeConfig.h"
 
-NSString* const controlKind_view = @"controlKind_view";
-NSString* const controlKind_label = @"controlKind_label";
-NSString* const controlKind_button = @"controlKind_button";
-NSString* const Heqingzhao_ThemeStyleChanged = @"Heqingzhao_ThemeStyleChanged";
+NSString* const Heqingzhao_ControlCategory_view = @"Heqingzhao_ControlCategory_view";
+NSString* const Heqingzhao_ControlCategory_label = @"Heqingzhao_ControlCategory_label";
+NSString* const Heqingzhao_ControlCategory_button = @"Heqingzhao_ControlCategory_button";
+NSString* const Heqingzhao_ThemeSkinChanged = @"Heqingzhao_ThemeSkinChanged";
 
-@interface Heqingzhao_ThemeStyleManager()
+@interface Heqingzhao_ThemeSkinManager()
 
 @end
 
-@implementation Heqingzhao_ThemeStyleManager
+@implementation Heqingzhao_ThemeSkinManager
 
-+ (instancetype)defaultThemeStyleManager{
-    static Heqingzhao_ThemeStyleManager* skinApp = nil;
++ (instancetype)defaultThemeSkinManager{
+    static Heqingzhao_ThemeSkinManager* skinApp = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         skinApp = [[self alloc] init];
@@ -34,9 +34,9 @@ NSString* const Heqingzhao_ThemeStyleChanged = @"Heqingzhao_ThemeStyleChanged";
 
 - (instancetype)init{
     if(self = [super init]){
-        [self registeDecoraterClass:[Heqingzhao_ViewThemeDecorater class] forViewKind:controlKind_view];
-        [self registeDecoraterClass:[Heqingzhao_LabelThemeDecorater class] forViewKind:controlKind_label];
-        [self registeDecoraterClass:[Heqingzhao_ButtonThemeDecorater class] forViewKind:controlKind_button];
+        [self registeDecoraterClass:[Heqingzhao_ViewThemeDecorater class] forViewCategory:Heqingzhao_ControlCategory_view];
+        [self registeDecoraterClass:[Heqingzhao_LabelThemeDecorater class] forViewCategory:Heqingzhao_ControlCategory_label];
+        [self registeDecoraterClass:[Heqingzhao_ButtonThemeDecorater class] forViewCategory:Heqingzhao_ControlCategory_button];
     }
     return self;
 }
@@ -69,7 +69,7 @@ NSString* const Heqingzhao_ThemeStyleChanged = @"Heqingzhao_ThemeStyleChanged";
     _currentTheme = currentTheme;
     [self loadThemeStyleFile:currentTheme];
     self.dicCurrentThemeConfig = [self.dicThemeConfig objectForKey:_currentTheme];
-    [[NSNotificationCenter defaultCenter] postNotificationName:Heqingzhao_ThemeStyleChanged object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:Heqingzhao_ThemeSkinChanged object:nil];
 }
 
 - (NSMutableDictionary *)dicViewDecorater{
@@ -79,25 +79,28 @@ NSString* const Heqingzhao_ThemeStyleChanged = @"Heqingzhao_ThemeStyleChanged";
     return _dicViewDecorater;
 }
 
-- (void)registeDecoraterClass:(Class)cls forViewKind:(NSString *)viewKind{
+- (void)registeDecoraterClass:(Class)cls forViewCategory:(NSString *)category{
     Heqingzhao_ViewThemeDecorater* viewDecorater = [[cls alloc] init];
     if(![viewDecorater isKindOfClass:[Heqingzhao_ViewThemeDecorater class]])
         return ;
-    [self.dicViewDecorater setObject:viewDecorater forKey:viewKind];
+    [self.dicViewDecorater setObject:viewDecorater forKey:category];
 }
 
 - (void)decorateView:(UIView *)view ignoreOriginalSetting:(BOOL)ignore{
     if(!ignore && [self.currentTheme isEqualToString:view.currentConfigFile]){
         return ;
     }
-    if(view.themeStyle.length == 0)
+    if(view.themeSkin.length == 0)
         return ;
     
-    Heqingzhao_ViewThemeDecorater* viewDecorater = [self.dicViewDecorater objectForKey:view.controlKind];
+    Heqingzhao_ViewThemeDecorater* viewDecorater = [self.dicViewDecorater objectForKey:view.controlCategory];
     if(!viewDecorater)
         return ;
-    [viewDecorater decorateView:view withConfig:[self.dicCurrentThemeConfig objectForKey:view.themeStyle]];
+    [viewDecorater decorateView:view withConfig:[self.dicCurrentThemeConfig objectForKey:view.themeSkin]];
     view.currentConfigFile = self.currentTheme;
+    if(view.decorateHandller){
+        view.decorateHandller();
+    }
 }
 
 - (void)decorateViewAndSubView:(UIView *)view ignoreOriginalSetting:(BOOL)ignore{

@@ -10,9 +10,8 @@
 		C9052A4622201449003EF4B8 /* Heqingzhao_AppContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C9052A4522201449003EF4B8 /* Heqingzhao_AppContext.m */; };
 		C94138DC221A476800AFA04F /* Heqingzhao_MultiChannelContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = C94138DB221A476800AFA04F /* Heqingzhao_MultiChannelContentView.m */; };
 		C952BC8D222D0DE7006B22DC /* Heqingzhao_DUContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C952BC8C222D0DE7006B22DC /* Heqingzhao_DUContext.m */; };
-		C952BC90222D1802006B22DC /* Heqingzhao_MethodCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = C952BC8F222D1802006B22DC /* Heqingzhao_MethodCollection.m */; };
 		C952BC92222D4625006B22DC /* du_main.js in Resources */ = {isa = PBXBuildFile; fileRef = C952BC91222D4625006B22DC /* du_main.js */; };
-		C952BC94222D47EE006B22DC /* MultiChannelDemoViewController.js in Resources */ = {isa = PBXBuildFile; fileRef = C952BC93222D47EE006B22DC /* MultiChannelDemoViewController.js */; };
+		C952BC94222D47EE006B22DC /* du_instanceMethod.js in Resources */ = {isa = PBXBuildFile; fileRef = C952BC93222D47EE006B22DC /* du_instanceMethod.js */; };
 		C969E23D22B1000D00CEFB82 /* DemoBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C969E23A22B1000C00CEFB82 /* DemoBaseViewController.m */; };
 		C96DEB462226597F00538E65 /* Heqingzhao_TableViewBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C96DEB452226597F00538E65 /* Heqingzhao_TableViewBaseCell.m */; };
 		C98C3B3B22AE81270085A7C8 /* UINib+nibCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = C98C3B3922AE81270085A7C8 /* UINib+nibCollection.m */; };
@@ -25,7 +24,7 @@
 		C9A3FDAF22D342600054B17A /* ThemeDemo2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9A3FDAE22D342600054B17A /* ThemeDemo2ViewController.xib */; };
 		C9AE410F22CF1C0B0092E00A /* Heqingzhao_LabelThemeDecorater.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AE410522CF1C0B0092E00A /* Heqingzhao_LabelThemeDecorater.m */; };
 		C9AE411022CF1C0B0092E00A /* Heqingzhao_ButtonThemeDecorater.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AE410622CF1C0B0092E00A /* Heqingzhao_ButtonThemeDecorater.m */; };
-		C9AE411122CF1C0B0092E00A /* Heqingzhao_ThemeStyleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AE410822CF1C0B0092E00A /* Heqingzhao_ThemeStyleManager.m */; };
+		C9AE411122CF1C0B0092E00A /* Heqingzhao_ThemeSkinManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AE410822CF1C0B0092E00A /* Heqingzhao_ThemeSkinManager.m */; };
 		C9AE411222CF1C0B0092E00A /* Heqingzhao_ViewThemeDecorater.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AE410922CF1C0B0092E00A /* Heqingzhao_ViewThemeDecorater.m */; };
 		C9AE411322CF1C0B0092E00A /* UIView+ThemeConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AE410D22CF1C0B0092E00A /* UIView+ThemeConfig.m */; };
 		C9B0AD6B221D259C00F747B1 /* Heqingzhao_SinglePixelView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B0AD69221D259C00F747B1 /* Heqingzhao_SinglePixelView.m */; };
@@ -60,6 +59,7 @@
 		C9BDB02F221BFB3700FC4168 /* down_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9BDB02D221BFB3700FC4168 /* down_arrow@2x.png */; };
 		C9BDB030221BFB3700FC4168 /* down_arrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9BDB02E221BFB3700FC4168 /* down_arrow@3x.png */; };
 		C9BDB068221C237100FC4168 /* Heqingzhao_MultiChannelEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BDB067221C237100FC4168 /* Heqingzhao_MultiChannelEditViewController.m */; };
+		C9BE042823B5D783006BD92B /* NSObject+DU.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BE042723B5D783006BD92B /* NSObject+DU.m */; };
 		C9CF39DC22A8AE8700BB1FA8 /* Heqingzhao_BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CF39DB22A8AE8700BB1FA8 /* Heqingzhao_BaseViewController.m */; };
 		C9CF39E422A8F05B00BB1FA8 /* Heqingzhao_RubishManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CF39E322A8F05B00BB1FA8 /* Heqingzhao_RubishManager.m */; };
 		C9CF39E722A8F07300BB1FA8 /* NSObject+classNameCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CF39E622A8F07200BB1FA8 /* NSObject+classNameCollection.m */; };
@@ -92,10 +92,8 @@
 		C94138DB221A476800AFA04F /* Heqingzhao_MultiChannelContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_MultiChannelContentView.m; sourceTree = "<group>"; };
 		C952BC8B222D0DE7006B22DC /* Heqingzhao_DUContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_DUContext.h; sourceTree = "<group>"; };
 		C952BC8C222D0DE7006B22DC /* Heqingzhao_DUContext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_DUContext.m; sourceTree = "<group>"; };
-		C952BC8E222D1802006B22DC /* Heqingzhao_MethodCollection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_MethodCollection.h; sourceTree = "<group>"; };
-		C952BC8F222D1802006B22DC /* Heqingzhao_MethodCollection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_MethodCollection.m; sourceTree = "<group>"; };
 		C952BC91222D4625006B22DC /* du_main.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = du_main.js; sourceTree = "<group>"; };
-		C952BC93222D47EE006B22DC /* MultiChannelDemoViewController.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = MultiChannelDemoViewController.js; sourceTree = "<group>"; };
+		C952BC93222D47EE006B22DC /* du_instanceMethod.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = du_instanceMethod.js; sourceTree = "<group>"; };
 		C969E23A22B1000C00CEFB82 /* DemoBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoBaseViewController.m; sourceTree = "<group>"; };
 		C969E23B22B1000C00CEFB82 /* DemoBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoBaseViewController.h; sourceTree = "<group>"; };
 		C96DEB442226597F00538E65 /* Heqingzhao_TableViewBaseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_TableViewBaseCell.h; sourceTree = "<group>"; };
@@ -115,11 +113,11 @@
 		C9AE410522CF1C0B0092E00A /* Heqingzhao_LabelThemeDecorater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_LabelThemeDecorater.m; sourceTree = "<group>"; };
 		C9AE410622CF1C0B0092E00A /* Heqingzhao_ButtonThemeDecorater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_ButtonThemeDecorater.m; sourceTree = "<group>"; };
 		C9AE410722CF1C0B0092E00A /* UIView+ThemeConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ThemeConfig.h"; sourceTree = "<group>"; };
-		C9AE410822CF1C0B0092E00A /* Heqingzhao_ThemeStyleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_ThemeStyleManager.m; sourceTree = "<group>"; };
+		C9AE410822CF1C0B0092E00A /* Heqingzhao_ThemeSkinManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_ThemeSkinManager.m; sourceTree = "<group>"; };
 		C9AE410922CF1C0B0092E00A /* Heqingzhao_ViewThemeDecorater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_ViewThemeDecorater.m; sourceTree = "<group>"; };
 		C9AE410A22CF1C0B0092E00A /* Heqingzhao_LabelThemeDecorater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_LabelThemeDecorater.h; sourceTree = "<group>"; };
 		C9AE410B22CF1C0B0092E00A /* Heqingzhao_ButtonThemeDecorater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_ButtonThemeDecorater.h; sourceTree = "<group>"; };
-		C9AE410C22CF1C0B0092E00A /* Heqingzhao_ThemeStyleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_ThemeStyleManager.h; sourceTree = "<group>"; };
+		C9AE410C22CF1C0B0092E00A /* Heqingzhao_ThemeSkinManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_ThemeSkinManager.h; sourceTree = "<group>"; };
 		C9AE410D22CF1C0B0092E00A /* UIView+ThemeConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ThemeConfig.m"; sourceTree = "<group>"; };
 		C9AE410E22CF1C0B0092E00A /* Heqingzhao_ViewThemeDecorater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_ViewThemeDecorater.h; sourceTree = "<group>"; };
 		C9B0AD69221D259C00F747B1 /* Heqingzhao_SinglePixelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_SinglePixelView.m; sourceTree = "<group>"; };
@@ -164,6 +162,8 @@
 		C9BDB02E221BFB3700FC4168 /* down_arrow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down_arrow@3x.png"; sourceTree = "<group>"; };
 		C9BDB066221C237100FC4168 /* Heqingzhao_MultiChannelEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_MultiChannelEditViewController.h; sourceTree = "<group>"; };
 		C9BDB067221C237100FC4168 /* Heqingzhao_MultiChannelEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_MultiChannelEditViewController.m; sourceTree = "<group>"; };
+		C9BE042623B5D783006BD92B /* NSObject+DU.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+DU.h"; sourceTree = "<group>"; };
+		C9BE042723B5D783006BD92B /* NSObject+DU.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DU.m"; sourceTree = "<group>"; };
 		C9CF39DA22A8AE8700BB1FA8 /* Heqingzhao_BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_BaseViewController.h; sourceTree = "<group>"; };
 		C9CF39DB22A8AE8700BB1FA8 /* Heqingzhao_BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_BaseViewController.m; sourceTree = "<group>"; };
 		C9CF39E222A8F05B00BB1FA8 /* Heqingzhao_RubishManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_RubishManager.h; sourceTree = "<group>"; };
@@ -223,19 +223,19 @@
 			children = (
 				C952BC8B222D0DE7006B22DC /* Heqingzhao_DUContext.h */,
 				C952BC8C222D0DE7006B22DC /* Heqingzhao_DUContext.m */,
-				C952BC8E222D1802006B22DC /* Heqingzhao_MethodCollection.h */,
-				C952BC8F222D1802006B22DC /* Heqingzhao_MethodCollection.m */,
+				C9BE042623B5D783006BD92B /* NSObject+DU.h */,
+				C9BE042723B5D783006BD92B /* NSObject+DU.m */,
 				C952BC91222D4625006B22DC /* du_main.js */,
-				C952BC93222D47EE006B22DC /* MultiChannelDemoViewController.js */,
+				C952BC93222D47EE006B22DC /* du_instanceMethod.js */,
 			);
 			path = dynamicupdate;
 			sourceTree = "<group>";
 		};
-		C9AE410422CF1C0B0092E00A /* controlTheme */ = {
+		C9AE410422CF1C0B0092E00A /* controlSkin */ = {
 			isa = PBXGroup;
 			children = (
-				C9AE410C22CF1C0B0092E00A /* Heqingzhao_ThemeStyleManager.h */,
-				C9AE410822CF1C0B0092E00A /* Heqingzhao_ThemeStyleManager.m */,
+				C9AE410C22CF1C0B0092E00A /* Heqingzhao_ThemeSkinManager.h */,
+				C9AE410822CF1C0B0092E00A /* Heqingzhao_ThemeSkinManager.m */,
 				C9AE410722CF1C0B0092E00A /* UIView+ThemeConfig.h */,
 				C9AE410D22CF1C0B0092E00A /* UIView+ThemeConfig.m */,
 				C9AE410E22CF1C0B0092E00A /* Heqingzhao_ViewThemeDecorater.h */,
@@ -245,7 +245,7 @@
 				C9AE410B22CF1C0B0092E00A /* Heqingzhao_ButtonThemeDecorater.h */,
 				C9AE410622CF1C0B0092E00A /* Heqingzhao_ButtonThemeDecorater.m */,
 			);
-			path = controlTheme;
+			path = controlSkin;
 			sourceTree = "<group>";
 		};
 		C9B4E3B32223B75B00454349 /* tableDataCotroller */ = {
@@ -342,7 +342,7 @@
 				C952BC8A222CFF20006B22DC /* dynamicupdate */,
 				C9D4A94422978C9000FEFD5E /* crashvc */,
 				C9CF39DE22A8EFE100BB1FA8 /* rubishAnalyze */,
-				C9AE410422CF1C0B0092E00A /* controlTheme */,
+				C9AE410422CF1C0B0092E00A /* controlSkin */,
 			);
 			path = component;
 			sourceTree = "<group>";
@@ -505,7 +505,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9D3B4E0221ECA3C00A8E573 /* label_delete@3x.png in Resources */,
-				C952BC94222D47EE006B22DC /* MultiChannelDemoViewController.js in Resources */,
+				C952BC94222D47EE006B22DC /* du_instanceMethod.js in Resources */,
 				C9BDB02F221BFB3700FC4168 /* down_arrow@2x.png in Resources */,
 				C9BB1E53221551DC0050B493 /* LaunchScreen.storyboard in Resources */,
 				C9BA871F22A69613008A60A1 /* cat02.jpeg in Resources */,
@@ -542,9 +542,10 @@
 				C9AE411022CF1C0B0092E00A /* Heqingzhao_ButtonThemeDecorater.m in Sources */,
 				C9BA872522A69BF5008A60A1 /* cat03.jpeg in Sources */,
 				C9A3FDAC22D33C0A0054B17A /* ThemeTableViewCell.m in Sources */,
+				C9BE042823B5D783006BD92B /* NSObject+DU.m in Sources */,
 				C9BA872622A69BF5008A60A1 /* cat04.jpeg in Sources */,
 				C9BA872722A69BF5008A60A1 /* cat05.jpeg in Sources */,
-				C9AE411122CF1C0B0092E00A /* Heqingzhao_ThemeStyleManager.m in Sources */,
+				C9AE411122CF1C0B0092E00A /* Heqingzhao_ThemeSkinManager.m in Sources */,
 				C9BA872822A69BF5008A60A1 /* cat06.jpeg in Sources */,
 				C9CF39E722A8F07300BB1FA8 /* NSObject+classNameCollection.m in Sources */,
 				C9BDB068221C237100FC4168 /* Heqingzhao_MultiChannelEditViewController.m in Sources */,
@@ -578,7 +579,6 @@
 				C9BDB02B221BF6D800FC4168 /* UIColor+extension_qingzhao.m in Sources */,
 				C9BB1E48221551D90050B493 /* AppDelegate.m in Sources */,
 				C9BB1E972216CEAC0050B493 /* Heqingzhao_MultiChannelViewController.m in Sources */,
-				C952BC90222D1802006B22DC /* Heqingzhao_MethodCollection.m in Sources */,
 				C9A3FDA722D33B790054B17A /* ThemeDemo2ViewController.m in Sources */,
 				C9D4A95C2297EA7B00FEFD5E /* UINavigationBar+layoutSubViews.m in Sources */,
 				C9F74AE822A60481001ACF3F /* Heqingzhao_PageControl.m in Sources */,

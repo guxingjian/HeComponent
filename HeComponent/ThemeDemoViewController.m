@@ -8,7 +8,7 @@
 
 #import "ThemeDemoViewController.h"
 #import "UIView+ThemeConfig.h"
-#import "Heqingzhao_ThemeStyleManager.h"
+#import "Heqingzhao_ThemeSkinManager.h"
 #import "ThemeDemo2ViewController.h"
 
 @interface ThemeDemoViewController ()
@@ -21,7 +21,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.title = @"切换主题demo";
+    self.title = @"切换皮肤demo";
     
     UIButton* btnRight = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 40)];
     [btnRight addTarget:self action:@selector(nextPage) forControlEvents:UIControlEventTouchUpInside];
@@ -32,10 +32,10 @@
     
     UILabel* labelTest = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 200, 50)];
     labelTest.text = @"UILabel 皮肤测试";
-    labelTest.themeStyle = @"test-label";
+    labelTest.themeSkin = @"test-label";
     [self.view addSubview:labelTest];
     
-    Heqingzhao_ThemeStyleManager* themeMgr = [Heqingzhao_ThemeStyleManager defaultThemeStyleManager];
+    Heqingzhao_ThemeSkinManager* themeMgr = [Heqingzhao_ThemeSkinManager defaultThemeSkinManager];
     if(themeMgr.currentTheme.length == 0){
         [self changeSkin:nil];
     }
@@ -47,7 +47,7 @@
 }
 
 - (IBAction)changeSkin:(UIButton*)sender{
-    Heqingzhao_ThemeStyleManager* themeMgr = [Heqingzhao_ThemeStyleManager defaultThemeStyleManager];
+    Heqingzhao_ThemeSkinManager* themeMgr = [Heqingzhao_ThemeSkinManager defaultThemeSkinManager];
     if([themeMgr.currentTheme isEqualToString:@"skin_1.plist"]){
         [themeMgr setCurrentTheme:@"skin_2.plist"];
     }else{

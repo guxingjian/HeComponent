@@ -13,16 +13,50 @@ static CGRect CGRectFromDictionary(NSDictionary* dictonary){
     return CGRectMake([[dictonary objectForKey:@"x"] floatValue], [[dictonary objectForKey:@"y"] floatValue], [[dictonary objectForKey:@"width"] floatValue], [[dictonary objectForKey:@"height"] floatValue]);
 }
 
+static NSDictionary* CGRectToDictionary(CGRect rect){
+    NSMutableDictionary* dicRect = [NSMutableDictionary dictionary];
+    [dicRect setObject:[NSNumber numberWithFloat:rect.origin.x] forKey:@"x"];
+    [dicRect setObject:[NSNumber numberWithFloat:rect.origin.y] forKey:@"y"];
+    [dicRect setObject:[NSNumber numberWithFloat:rect.size.width] forKey:@"width"];
+    [dicRect setObject:[NSNumber numberWithFloat:rect.size.height] forKey:@"height"];
+    
+    return dicRect;
+}
+
 static CGSize CGSizeFromDictionary(NSDictionary* dictonary){
     return CGSizeMake([[dictonary objectForKey:@"width"] floatValue], [[dictonary objectForKey:@"height"] floatValue]);
+}
+
+static NSDictionary* CGSizeToDictionary(CGSize size){
+    NSMutableDictionary* dicSize = [NSMutableDictionary dictionary];
+    [dicSize setObject:[NSNumber numberWithFloat:size.width] forKey:@"width"];
+    [dicSize setObject:[NSNumber numberWithFloat:size.height] forKey:@"height"];
+    
+    return dicSize;
 }
 
 static CGPoint CGPointFromDictionary(NSDictionary* dictonary){
     return CGPointMake([[dictonary objectForKey:@"x"] floatValue], [[dictonary objectForKey:@"y"] floatValue]);
 }
 
+static NSDictionary* CGPointToDictionary(CGPoint point){
+    NSMutableDictionary* dicPoint = [NSMutableDictionary dictionary];
+    [dicPoint setObject:[NSNumber numberWithFloat:point.x] forKey:@"x"];
+    [dicPoint setObject:[NSNumber numberWithFloat:point.y] forKey:@"y"];
+    
+    return dicPoint;
+}
+
 static NSRange NSRangeFromDictionary(NSDictionary* dictonary){
     return NSMakeRange([[dictonary objectForKey:@"location"] floatValue], [[dictonary objectForKey:@"length"] floatValue]);
+}
+
+static NSDictionary* NSRangeToDictionary(NSRange range){
+    NSMutableDictionary* dicRange = [NSMutableDictionary dictionary];
+    [dicRange setObject:[NSNumber numberWithFloat:range.location] forKey:@"location"];
+    [dicRange setObject:[NSNumber numberWithFloat:range.length] forKey:@"length"];
+    
+    return dicRange;
 }
 
 @interface Heqingzhao_DUContext()
@@ -71,47 +105,41 @@ static NSRange NSRangeFromDictionary(NSDictionary* dictonary){
     return _dicJSCacheData;
 }
 
-- (void)exchangeOriginalClass:(NSString*)oriClass originalSel:(NSString*)strOriSel targetSel:(NSString*)strTarSel{
-    Class cls = NSClassFromString(oriClass);
-    Class targetCls = NSClassFromString(@"Heqingzhao_MethodCollection");
-    if(!cls || !targetCls)
-        return ;
-    
-    SEL oriSel = NSSelectorFromString(strOriSel);
-    SEL tarSel = NSSelectorFromString(strTarSel);
-    
-    if(!oriSel || !tarSel)
-        return ;
-    
+- (void)exchangeOriginalClass:(NSString*)strClass instanceSelector:(NSString*)strSel {
     // 保证同一个方法只被swizzle一次
-    NSString* cacheKey = [NSString stringWithFormat:@"%@_%@", oriClass, strOriSel];
+    NSString* cacheKey = [self cacheKeyWithCalss:strClass selector:strSel];
     if([self.dicClassSel objectForKey:cacheKey])
         return ;
     
-    Method originalMethod = class_getInstanceMethod(cls, oriSel);
-    Method targetMethod = class_getInstanceMethod(targetCls, tarSel);
-    if(class_addMethod(cls, tarSel, method_getImplementation(targetMethod), method_getTypeEncoding(targetMethod))){
-        targetMethod = class_getInstanceMethod(cls, tarSel);
-        method_exchangeImplementations(originalMethod, targetMethod);
-        [self.dicClassSel setObject:@YES forKey:cacheKey];
-    }
+    Class cls = NSClassFromString(strClass);
+    
+    NSString* strDuSel = [NSString stringWithFormat:@"du_%@", strSel];
+    IMP duImp = class_getMethodImplementation(cls, NSSelectorFromString(strDuSel));
+    
+    Method originalMethod = class_getInstanceMethod(cls, NSSelectorFromString(strSel));
+    IMP originImp = method_getImplementation(originalMethod);
+    
+    class_addMethod(cls, NSSelectorFromString(strDuSel), originImp, method_getTypeEncoding(originalMethod));
+    method_setImplementation(originalMethod, duImp);
+    
+    [self.dicClassSel setObject:@"1" forKey:cacheKey];
 }
 
 - (void)setupJSContext{
-    self.jsContext[@"JS_NSLog"] = ^(NSString* str){
+    self.jsContext[@"js_NSLog"] = ^(NSString* str){
         NSLog(@"%@", str);
     };
     __weak typeof(self) weakSelf = self;
-    self.jsContext[@"exchangeImplementation"] = ^(NSString* originalClass, NSString* originalSel, NSString* targetSel){
-        [weakSelf exchangeOriginalClass:originalClass originalSel:originalSel targetSel:targetSel];
+    self.jsContext[@"js_exchangeImplementation"] = ^(NSString* originalClass, NSString* originalSel){
+        [weakSelf exchangeOriginalClass:originalClass instanceSelector:originalSel];
     };
-    self.jsContext[@"msg_send"] = ^(id obj, NSString* sel, NSArray* args){
+    self.jsContext[@"js_msgSend"] = ^(id obj, NSString* sel, NSArray* args){
         return [weakSelf dynamicMsgSend:obj sel:sel args:args];
     };
-    self.jsContext[@"msg_send_super"] = ^(id obj, NSString* sel, NSArray* args){
+    self.jsContext[@"js_msgSendSuper"] = ^(id obj, NSString* sel, NSArray* args){
         return [weakSelf dynamicMsgSendSuper:obj sel:sel args:args];
     };
-    self.jsContext[@"class_msg_send"] = ^(NSString* clsName, NSString* sel, NSArray* args){
+    self.jsContext[@"js_classMsgSend"] = ^(NSString* clsName, NSString* sel, NSArray* args){
         return [weakSelf duClassMsgSend:clsName sel:sel args:args];
     };
 }
@@ -360,76 +388,211 @@ static NSRange NSRangeFromDictionary(NSDictionary* dictonary){
         NSString* strJs = [[NSString alloc] initWithData:jsData encoding:NSUTF8StringEncoding];
         if(strJs.length > 0){
             [self.dicJSCacheData setObject:strJs forKey:[jsFile substringToIndex:jsFile.length - 3]];
+            [self.jsContext evaluateScript:strJs];
         }
     }
-
-    [self hookMethods];
 }
 
-- (void)hookMethods{
-    NSString* strMainJS = [self.dicJSCacheData objectForKey:@"du_main"];
-    if(strMainJS.length == 0)
-        return ;
-    
-    [self.jsContext evaluateScript:strMainJS];
+- (NSString*)cacheKeyWithCalss:(NSString*)strClass selector:(NSString*)strSel{
+    return [NSString stringWithFormat:@"%@_%@", strClass, strSel];
 }
 
-- (JSValue*)callJSFuncWithObj:(id)obj currentsel:(SEL)sel originalSel:(SEL)oriSel args:(NSArray *)args shouldReturn:(BOOL)bReturn{
-    NSString* strSel = NSStringFromSelector(sel);
-    strSel = [strSel stringByReplacingOccurrencesOfString:@":" withString:@"_"];
-    NSString* strKey = NSStringFromClass([obj class]);
-    NSString* strJs = [self.dicJSCacheData objectForKey:strKey];
-    if(strJs.length == 0)
-        return nil;
-    [self.jsContext evaluateScript:strJs];
-    if(!args){
-        args = @[];
+- (BOOL)isClass:(NSString *)strClass registeredSector:(NSString *)strSel{
+    NSString* cacheKey = [self cacheKeyWithCalss:strClass selector:strSel];
+    if([self.dicClassSel objectForKey:cacheKey]){
+        return YES;
     }
-    
-    if(!bReturn){
-        [self.jsContext[strSel] callWithArguments:@[obj, NSStringFromSelector(oriSel), args]];
-        return nil;
+    return NO;
+}
+
+- (void)addArgsWithArray:(NSMutableArray*)arrayArgs invocation:(NSInvocation *)invocation{
+    for(NSInteger i = 2; i < invocation.methodSignature.numberOfArguments; ++ i){
+        const char* argTypeBuf = [invocation.methodSignature getArgumentTypeAtIndex:i];
+        char argType;
+        if(argTypeBuf[0] == 'r'){
+            argType = argTypeBuf[1];
+        }else{
+            argType = argTypeBuf[0];
+        }
+        if('c' == argType){
+            char arg;
+            [invocation getArgument:&arg atIndex:i];
+            [arrayArgs addObject:[NSNumber numberWithChar:arg]];
+        }else if('C' == argType){
+            unsigned char arg;
+            [invocation getArgument:&arg atIndex:i];
+            [arrayArgs addObject:[NSNumber numberWithUnsignedChar:arg]];
+        }else if('i' == argType){
+            int arg = 0;
+            [invocation getArgument:&arg atIndex:i];
+            [arrayArgs addObject:[NSNumber numberWithInt:arg]];
+        }else if('s' == argType){
+            short arg = 0;
+            [invocation getArgument:&arg atIndex:i];
+            [arrayArgs addObject:[NSNumber numberWithShort:arg]];
+        }else if('l' == argType){
+            long arg = 0;
+            [invocation getArgument:&arg atIndex:i];
+            [arrayArgs addObject:[NSNumber numberWithLong:arg]];
+        }else if('q' == argType){
+            long long arg = 0;
+            [invocation getArgument:&arg atIndex:i];
+            [arrayArgs addObject:[NSNumber numberWithLongLong:arg]];
+        }else if('I' == argType){
+            unsigned int arg = 0;
+            [invocation getArgument:&arg atIndex:i];
+            [arrayArgs addObject:[NSNumber numberWithUnsignedInt:arg]];
+        }else if('S' == argType){
+            unsigned short arg = 0;
+            [invocation getArgument:&arg atIndex:i];
+            [arrayArgs addObject:[NSNumber numberWithUnsignedShort:arg]];
+        }else if('L' == argType){
+            unsigned long arg = 0;
+            [invocation getArgument:&arg atIndex:i];
+            [arrayArgs addObject:[NSNumber numberWithUnsignedLong:arg]];
+        }else if('Q' == argType){
+            unsigned long long arg = 0;
+            [invocation getArgument:&arg atIndex:i];
+            [arrayArgs addObject:[NSNumber numberWithUnsignedLongLong:arg]];
+        }else if('f' == argType){
+            float arg = 0;
+            [invocation getArgument:&arg atIndex:i];
+            [arrayArgs addObject:[NSNumber numberWithFloat:arg]];
+        }else if('d' == argType){
+            double arg = 0;
+            [invocation getArgument:&arg atIndex:i];
+            [arrayArgs addObject:[NSNumber numberWithDouble:arg]];
+        }else if('B' == argType){
+            BOOL arg = 0;
+            [invocation getArgument:&arg atIndex:i];
+            [arrayArgs addObject:[NSNumber numberWithBool:arg]];
+        }else if('@' == argType){
+            id arg = 0;
+            [invocation getArgument:&arg atIndex:i];
+            [arrayArgs addObject:arg];
+        }else if(':' == argType){
+            SEL arg = 0;
+            [invocation getArgument:&arg atIndex:i];
+            [arrayArgs addObject:NSStringFromSelector(arg)];
+        }else if('#' == argType){
+            Class arg = 0;
+            [invocation getArgument:&arg atIndex:i];
+            [arrayArgs addObject:NSStringFromClass(arg)];
+        }else if('*' == argType || '^' == argType){
+            // to do ...
+        }else if('{' == argType){
+            NSString* strStructType = [NSString stringWithUTF8String:argTypeBuf];
+            if([strStructType hasPrefix:@"{CGRect"]){
+                CGRect rt = CGRectZero;
+                [invocation getArgument:&rt atIndex:i];
+                [arrayArgs addObject:CGRectToDictionary(rt)];
+            }else if([strStructType hasPrefix:@"{CGSize"]){
+                CGSize size = CGSizeZero;
+                [invocation getArgument:&size atIndex:i];
+                [arrayArgs addObject:CGSizeToDictionary(size)];
+            }else if([strStructType hasPrefix:@"{CGPoint"]){
+                CGPoint pt = CGPointZero;
+                [invocation getArgument:&pt atIndex:i];
+                [arrayArgs addObject:CGPointToDictionary(pt)];
+            }else if([strStructType hasPrefix:@"{_NSRange"]){
+                NSRange range = NSMakeRange(0, 0);
+                [invocation getArgument:&range atIndex:i];
+                [arrayArgs addObject:NSRangeToDictionary(range)];
+            }
+        }
     }
+}
+
+- (void)setupReturnValue:(JSValue*)value invocation:(NSInvocation*)invocation{
+    const char* retTypeBuf = invocation.methodSignature.methodReturnType;
+    char retType;
+    if(retTypeBuf[0] == 'r'){
+        retType = retTypeBuf[1];
+    }else{
+        retType = retTypeBuf[0];
+    }
+    if(retType != 'v'){
+        if('c' == retType){
+            char arg = [[value toNumber] charValue];
+            [invocation setReturnValue:&arg];
+        }else if('i' == retType){
+            int arg = [[value toNumber] intValue];;
+            [invocation setReturnValue:&arg];
+        }else if('s' == retType){
+            short arg = [[value toNumber] shortValue];;
+            [invocation setReturnValue:&arg];
+        }else if('l' == retType){
+            long arg = [[value toNumber] longValue];;
+            [invocation setReturnValue:&arg];
+        }else if('q' == retType){
+            long long arg = [[value toNumber] longLongValue];;
+            [invocation setReturnValue:&arg];
+        }else if('C' == retType){
+            unsigned char arg = [[value toNumber] unsignedCharValue];
+            [invocation setReturnValue:&arg];
+        }else if('I' == retType){
+            unsigned int arg = [[value toNumber] unsignedIntValue];
+            [invocation setReturnValue:&arg];
+        }else if('S' == retType){
+            unsigned short arg = [[value toNumber] unsignedShortValue];
+            [invocation setReturnValue:&arg];
+        }else if('L' == retType){
+            unsigned long arg = [[value toNumber] unsignedLongValue];
+            [invocation setReturnValue:&arg];
+        }else if('Q' == retType){
+            unsigned long long arg = [[value toNumber] unsignedLongLongValue];
+            [invocation setReturnValue:&arg];
+        }else if('f' == retType){
+            float arg = [[value toNumber] floatValue];
+            [invocation setReturnValue:&arg];
+        }else if('d' == retType){
+            double arg = [[value toNumber] doubleValue];
+            [invocation setReturnValue:&arg];
+        }else if('B' == retType){
+            BOOL arg = [[value toNumber] boolValue];
+            [invocation setReturnValue:&arg];
+        }else if('@' == retType){
+            id arg = [value toObject];
+            [invocation setReturnValue:&arg];
+        }else if(':' == retType){
+            SEL arg = NSSelectorFromString([value toString]);
+            [invocation setReturnValue:&arg];
+        }else if('#' == retType){
+            Class arg = NSClassFromString([value toString]);
+            [invocation setReturnValue:&arg];
+        }else if('*' == retType || '^' == retType){
+            // to do ...
+        }else if(retType == '{'){
+            NSString* strStructType = [NSString stringWithUTF8String:retTypeBuf];
+            if([strStructType hasPrefix:@"{CGRect"]){
+                CGRect rt = CGRectFromDictionary([value toDictionary]);
+                [invocation setReturnValue:&rt];
+            }else if([strStructType hasPrefix:@"{CGSize"]){
+                CGSize size = CGSizeFromDictionary([value toDictionary]);
+                [invocation setReturnValue:&size];
+            }else if([strStructType hasPrefix:@"{CGPoint"]){
+                CGPoint pt = CGPointFromDictionary([value toDictionary]);
+                [invocation setReturnValue:&pt];
+            }else if([strStructType hasPrefix:@"{_NSRange"]){
+                NSRange range = NSRangeFromDictionary([value toDictionary]);
+                [invocation setReturnValue:&range];
+            }
+        }
+    }
+}
+
+- (void)callJsFunctionWithObj:(id)obj invocation:(NSInvocation *)invocation{
+    NSMutableArray* arrayArgs = [NSMutableArray array];
+    [self addArgsWithArray:arrayArgs invocation:invocation];
     
-    return [self.jsContext[strSel] callWithArguments:@[obj, NSStringFromSelector(oriSel), args]];;
-}
-
-- (void)excuteJSStringWithObj:(id)obj currentsel:(SEL)sel originalSel:(SEL)oriSel args:(NSArray *)args{
-    [self callJSFuncWithObj:obj currentsel:sel originalSel:oriSel args:args shouldReturn:NO];
-}
-
-- (id)id_excuteJSStringWithObj:(id)obj currentsel:(SEL)sel originalSel:(SEL)oriSel args:(NSArray *)args{
-    return [self callJSFuncWithObj:obj currentsel:sel originalSel:oriSel args:args shouldReturn:YES];;
-}
-
-- (NSInteger)i_excuteJSStringWithObj:(id)obj currentsel:(SEL)sel originalSel:(SEL)oriSel args:(NSArray *)args{
-    JSValue* iVal = [self callJSFuncWithObj:obj currentsel:sel originalSel:oriSel args:args shouldReturn:YES];
-    return [iVal toInt32];
-}
-
-- (CGFloat)f_excuteJSStringWithObj:(id)obj currentsel:(SEL)sel originalSel:(SEL)oriSel args:(NSArray *)args{
-    JSValue* fVal = [self callJSFuncWithObj:obj currentsel:sel originalSel:oriSel args:args shouldReturn:YES];
-    return [fVal toDouble];
-}
-
-- (BOOL)b_excuteJSStringWithObj:(id)obj currentsel:(SEL)sel originalSel:(SEL)oriSel args:(NSArray *)args{
-    JSValue* bVal = [self callJSFuncWithObj:obj currentsel:sel originalSel:oriSel args:args shouldReturn:YES];
-    return [bVal toBool];
-}
-
-- (CGRect)rect_excuteJSStringWithObj:(id)obj currentsel:(SEL)sel originalSel:(SEL)oriSel args:(NSArray *)args{
-    JSValue* rectVal = [self callJSFuncWithObj:obj currentsel:sel originalSel:oriSel args:args shouldReturn:YES];
-    return CGRectFromDictionary([rectVal toDictionary]);
-}
-
-- (CGSize)size_excuteJSStringWithObj:(id)obj currentsel:(SEL)sel originalSel:(SEL)oriSel args:(NSArray *)args{
-    JSValue* sizeVal = [self callJSFuncWithObj:obj currentsel:sel originalSel:oriSel args:args shouldReturn:YES];
-    return CGSizeFromDictionary([sizeVal toDictionary]);
-}
-
-- (CGPoint)point_excuteJSStringWithObj:(id)obj currentsel:(SEL)sel originalSel:(SEL)oriSel args:(NSArray *)args{
-    JSValue* pointVal = [self callJSFuncWithObj:obj currentsel:sel originalSel:oriSel args:args shouldReturn:YES];
-    return CGPointFromDictionary([pointVal toDictionary]);
+    NSString* strSel = NSStringFromSelector(invocation.selector);
+    NSString* jsFunc = [strSel stringByReplacingOccurrencesOfString:@":" withString:@"_"];
+    jsFunc = [NSString stringWithFormat:@"%@_%@", NSStringFromClass([obj class]), jsFunc];
+    
+    JSValue* jsRet = [self.jsContext[jsFunc] callWithArguments:@[obj, strSel, arrayArgs]];
+    if(jsRet){
+        [self setupReturnValue:jsRet invocation:invocation];
+    }
 }
 
 @end

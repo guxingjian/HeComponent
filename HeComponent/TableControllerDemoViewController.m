@@ -89,7 +89,7 @@
     }
 }
 
-- (void)setupAdListView:(Heqingzhao_ScrollAdListView*)adListView{
+- (void) setupAdListView:(Heqingzhao_ScrollAdListView*)adListView{
     NSArray* arrayWebsits = @[@"https://www.baidu.com/", @"https://music.163.com", @"https://www.bilibili.com/", @"https://www.taobao.com/", @"https://www.jd.com/", @"https://github.com/"];
     NSMutableArray* arrayModels = [NSMutableArray array];
     for(NSInteger i = 0; i < 6; ++ i){

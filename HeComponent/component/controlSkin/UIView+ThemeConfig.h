@@ -10,11 +10,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void (^ThemeDecorateHandller)(void);
+
 @interface UIView(ThemeConfig)
 
-@property(nonatomic, strong)NSString* themeStyle;
+@property(nonatomic, strong)NSString* themeSkin;
+@property(nonatomic, strong)ThemeDecorateHandller decorateHandller;
 @property(nonatomic, strong)NSString* currentConfigFile;
-@property(nonatomic, readonly)NSString* controlKind;
+@property(nonatomic, readonly)NSString* controlCategory;
 
 @end
 

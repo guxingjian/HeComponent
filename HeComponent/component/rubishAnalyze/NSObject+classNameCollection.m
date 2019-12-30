@@ -18,7 +18,7 @@
     Method originalMethod = class_getClassMethod(self, @selector(initialize));
     Method targetMethod = class_getClassMethod(self, @selector(heqingzhao_initialize));
     method_exchangeImplementations(originalMethod, targetMethod);
-}
+} 
 
 + (void)heqingzhao_initialize{
     [self heqingzhao_initialize];

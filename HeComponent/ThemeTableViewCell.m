@@ -8,6 +8,7 @@
 
 #import "ThemeTableViewCell.h"
 #import "UIView+ThemeConfig.h"
+#import "Heqingzhao_AppContext.h"
 
 @interface ThemeTableViewCell()
 
@@ -19,9 +20,9 @@
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if(self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]){
-        self.contentView.themeStyle = @"cell-back";
+        self.contentView.themeSkin = @"cell-back";
         UIView* lineView = [[UIView alloc] initWithFrame:CGRectMake(0, self.contentView.frame.size.height - 1, self.frame.size.width, 1)];
-        lineView.themeStyle = @"cell-line";
+        lineView.themeSkin = @"cell-line";
         lineView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
         [self.contentView addSubview:lineView];
     }
@@ -41,7 +42,7 @@
         _labelText.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
         _labelText.font = [UIFont systemFontOfSize:15];
         _labelText.textColor = [UIColor blackColor];
-        _labelText.themeStyle = @"cell-label";
+        _labelText.themeSkin = @"cell-label";
         [self.contentView addSubview:_labelText];
     }
     return _labelText;
@@ -50,7 +51,14 @@
 - (void)setUserData:(id)userData{
     [super setUserData:userData];
     NSString* text = (NSString*)userData;
+    if(text.length == 0)
+        return ;
     self.labelText.text = text;
 }
+
+//- (void)layoutSubviews{
+//    [super layoutSubviews];
+//    self.labelText.frame = CGRectMake(0, 0, Heqingzhao_ScreenWidth, self.bounds.size.height);
+//}
 
 @end

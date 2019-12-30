@@ -45,7 +45,7 @@
             item.topBarConfig.selectedTextColor = selectedColor;
             item.topBarConfig.selectedScale = 1.1;
             item.contentProvider = self;// 可以自由设定，可以是当前类，也可以是指定的类
-            item.contentResuseIdentifier = @"contentView"; // 设置contentView重用标识
+//            item.contentResuseIdentifier = @"contentView"; // 设置contentView重用标识
             
             [arrayItems addObject:item];
         }
@@ -68,10 +68,8 @@
 //    DUDemoChildObject* childObj = [[DUDemoChildObject alloc] init];
 //    [childObj test];
     
-    [self test:^(NSInteger nIndex) {
-        NSLog(@"nIndex: %ld", nIndex);
-    }];
-
+    int nRet = [self test:200];
+    NSLog(@"nRet: %d", nRet);
 
 //
 //    Method me = class_getInstanceMethod([self class], @selector(test:));
@@ -87,9 +85,9 @@
     
 }
 
-- (void)test:(void(^)(NSInteger nIndex))compleHandler{
-    NSLog(@"test");
-    compleHandler(100);
+- (int)test:(CGFloat)fVal{
+    NSLog(@"test: %f", fVal);
+    return 100;
 }
 
 - (UIView *)contentViewWithIndex:(NSInteger)nIndex config:(Heqingzhao_MultiChannelConfig *)config{

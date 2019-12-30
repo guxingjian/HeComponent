@@ -12,7 +12,7 @@
 #import "UIView+view_frame.h"
 #import "Heqingzhao_SinglePixelView.h"
 #import "UIColor+extension_qingzhao.h"
-#import "Heqingzhao_ThemeStyleManager.h"
+#import "Heqingzhao_ThemeSkinManager.h"
 #import "UIView+ThemeConfig.h"
 
 @interface Heqingzhao_BaseViewController ()
@@ -29,23 +29,28 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     if(self.navigationController.navigationBar.hidden && !self.disableDefaultNavibar){
-        UIButton* btnBack = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 60)];
-        [btnBack setImage:[UIImage imageNamed:@"navi_back"] forState:UIControlStateNormal];
-        [btnBack addTarget:self action:@selector(naviBack:) forControlEvents:UIControlEventTouchUpInside];
-        UIBarButtonItem* backItem = [[UIBarButtonItem alloc] initWithCustomView:btnBack];
-        
-        UINavigationBar* naviBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, Heqingzhao_ScreenWidth, Heqingzhao_ScreenSafeAreaInsets.top)];
-        naviBar.barTintColor = [UIColor colorWithHexString:@"#EAEAEA"];
-        naviBar.backgroundColor = [UIColor colorWithHexString:@"#EAEAEA"];
-        UINavigationItem* naviItem = [[UINavigationItem alloc] initWithTitle:self.title];
-        naviItem.leftBarButtonItem = backItem;
-        naviBar.items = @[naviItem];
-        [self.view addSubview:naviBar];
-        self.defaultNavibar = naviBar;
-        
-        Heqingzhao_SinglePixelHorizontalView* horiLine = [[Heqingzhao_SinglePixelHorizontalView alloc] initWithFrame:CGRectMake(0, naviBar.height - 1, naviBar.width, 1)];
-        [naviBar addSubview:horiLine];
+        [self createDefaultNavigationBar];
     }
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(decorateView) name:Heqingzhao_ThemeSkinChanged object:nil];
+}
+
+- (void)createDefaultNavigationBar{
+    UIButton* btnBack = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 60)];
+    [btnBack setImage:[UIImage imageNamed:@"navi_back"] forState:UIControlStateNormal];
+    [btnBack addTarget:self action:@selector(naviBack:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem* backItem = [[UIBarButtonItem alloc] initWithCustomView:btnBack];
+    
+    UINavigationBar* naviBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, Heqingzhao_ScreenWidth, Heqingzhao_ScreenSafeAreaInsets.top)];
+    naviBar.barTintColor = [UIColor colorWithHexString:@"#EAEAEA"];
+    naviBar.backgroundColor = [UIColor colorWithHexString:@"#EAEAEA"];
+    UINavigationItem* naviItem = [[UINavigationItem alloc] initWithTitle:self.title];
+    naviItem.leftBarButtonItem = backItem;
+    naviBar.items = @[naviItem];
+    [self.view addSubview:naviBar];
+    self.defaultNavibar = naviBar;
+    
+    Heqingzhao_SinglePixelHorizontalView* horiLine = [[Heqingzhao_SinglePixelHorizontalView alloc] initWithFrame:CGRectMake(0, naviBar.height - 1, naviBar.width, 1)];
+    [naviBar addSubview:horiLine];
 }
 
 - (void)naviBack:(UIButton*)btn{
@@ -55,7 +60,6 @@
 - (UITableView *)safeAreaTableView{
     if(!_safeAreaTableView){
         _safeAreaTableView = [[UITableView alloc] initWithFrame:Heqingzhao_ScreenSafeAreaRect style:UITableViewStylePlain];
-        _safeAreaTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
         _safeAreaTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [self.view addSubview:_safeAreaTableView];
     }
@@ -115,15 +119,14 @@
 }
 
 - (void)viewWillAppearHandleTheme{
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(decorateView) name:Heqingzhao_ThemeStyleChanged object:nil];
-    Heqingzhao_ThemeStyleManager* themeMgr = [Heqingzhao_ThemeStyleManager defaultThemeStyleManager];
+    Heqingzhao_ThemeSkinManager* themeMgr = [Heqingzhao_ThemeSkinManager defaultThemeSkinManager];
     if(![themeMgr.currentTheme isEqualToString:self.view.currentConfigFile]){ // 避免重复设置theme
         [self decorateView];
     };
 }
 
 - (void)decorateView{
-    [[Heqingzhao_ThemeStyleManager defaultThemeStyleManager] decorateViewAndSubView:self.view ignoreOriginalSetting:NO];
+    [[Heqingzhao_ThemeSkinManager defaultThemeSkinManager] decorateViewAndSubView:self.view ignoreOriginalSetting:NO];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -132,7 +135,7 @@
 }
 
 - (void)viewWillDisappearHandleTheme{
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:Heqingzhao_ThemeStyleChanged object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:Heqingzhao_ThemeSkinChanged object:nil];
 }
 
 - (void)dealloc{
