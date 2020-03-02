@@ -7,17 +7,17 @@
 //
 
 #import "TableControllerDemoViewController.h"
-#import "Heqingzhao_TableViewController.h"
-#import "Heqingzhao_TopLoadingView.h"
+#import "Heqz_TableViewController.h"
+#import "Heqz_TopLoadingView.h"
 #import "UIView+view_frame.h"
-#import "Heqingzhao_AppContext.h"
-#import "Heqingzhao_BottomLoadingView.h"
-#import "Heqingzhao_ScrollAdListView.h"
+#import "Heqz_AppContext.h"
+#import "Heqz_BottomLoadingView.h"
+#import "Heqz_ScrollAdListView.h"
 #import "UIColor+extension_qingzhao.h"
 
-@interface TableControllerDemoViewController ()<Heqingzhao_ScrollAdListViewDelegate>
+@interface TableControllerDemoViewController ()<Heqz_ScrollAdListViewDelegate>
 
-@property(nonatomic, strong)Heqingzhao_TableViewController* tableController;
+@property(nonatomic, strong)Heqz_TableViewController* tableController;
 @property(nonatomic, assign)NSInteger pageIndex;
 @property(nonatomic, assign)NSInteger pageSize;
 
@@ -40,15 +40,15 @@
     UIView* headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 120)];
     headerView.backgroundColor = [UIColor colorWithHexString:@"#908CEE"];
     tableView.tableHeaderView = headerView;
-    Heqingzhao_ScrollAdListView* adListView = [[Heqingzhao_ScrollAdListView alloc] initWithFrame:headerView.bounds];
+    Heqz_ScrollAdListView* adListView = [[Heqz_ScrollAdListView alloc] initWithFrame:headerView.bounds];
     [headerView addSubview:adListView];
     [self setupAdListView:adListView];
     
-    Heqingzhao_TableViewController* tableController = [[Heqingzhao_TableViewController alloc] init];
+    Heqz_TableViewController* tableController = [[Heqz_TableViewController alloc] init];
     self.tableController = tableController;
     
     tableController.tableView = tableView;
-    Heqingzhao_TopLoadingView* topLoadingView = [[Heqingzhao_TopLoadingView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 50)];
+    Heqz_TopLoadingView* topLoadingView = [[Heqz_TopLoadingView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 50)];
     
     weak_Self;
     [tableController installTopLoadingView:topLoadingView loadingHandler:^{
@@ -56,7 +56,7 @@
     }];
     NSMutableArray* arrayCells = [NSMutableArray array];
     for(NSInteger i = 0; i < self.pageSize; ++ i){
-        Heqingzhao_TableViewCellConfig* cellConfig = [[Heqingzhao_TableViewCellConfig alloc] init];
+        Heqz_TableViewCellConfig* cellConfig = [[Heqz_TableViewCellConfig alloc] init];
         cellConfig.cellHeight = 80;
         cellConfig.userData = [NSString stringWithFormat:@"cell_%ld", i];
         cellConfig.cellName = @"TableControllerDemoCell";
@@ -65,13 +65,13 @@
     self.tableController.arrayCells = arrayCells;
     [self.tableController reloadData];
     
-    Heqingzhao_BottomLoadingView* bottomLoadingView = [[Heqingzhao_BottomLoadingView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 50)];
+    Heqz_BottomLoadingView* bottomLoadingView = [[Heqz_BottomLoadingView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 50)];
     [tableController installBottomLoadingView:bottomLoadingView loadingHandler:^{
         [weakSelf loadMoreData];
     }];
 }
 
-- (void)adListView:(Heqingzhao_ScrollAdListView *)listView setupItemView:(UIView *)itemView itemIndex:(NSInteger)nIndex itemModel:(id)model{
+- (void)adListView:(Heqz_ScrollAdListView *)listView setupItemView:(UIView *)itemView itemIndex:(NSInteger)nIndex itemModel:(id)model{
     UIImageView* imageView = [listView viewWithTag:2001];
     if(imageView)
         return ;
@@ -82,14 +82,14 @@
     [itemView addSubview:imageView];
 }
 
-- (void)adListView:(Heqingzhao_ScrollAdListView *)listView didSelectIndex:(NSInteger)nIndex itemModel:(id)model{
+- (void)adListView:(Heqz_ScrollAdListView *)listView didSelectIndex:(NSInteger)nIndex itemModel:(id)model{
     NSString* website = [model valueForKey:@"website"];
     if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:website]]){
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:website]];
     }
 }
 
-- (void) setupAdListView:(Heqingzhao_ScrollAdListView*)adListView{
+- (void) setupAdListView:(Heqz_ScrollAdListView*)adListView{
     NSArray* arrayWebsits = @[@"https://www.baidu.com/", @"https://music.163.com", @"https://www.bilibili.com/", @"https://www.taobao.com/", @"https://www.jd.com/", @"https://github.com/"];
     NSMutableArray* arrayModels = [NSMutableArray array];
     for(NSInteger i = 0; i < 6; ++ i){
@@ -113,7 +113,7 @@
         self.pageIndex = 0;
         NSMutableArray* arrayCells = [NSMutableArray array];
         for(NSInteger i = 0; i < self.pageSize; ++ i){
-            Heqingzhao_TableViewCellConfig* cellConfig = [[Heqingzhao_TableViewCellConfig alloc] init];
+            Heqz_TableViewCellConfig* cellConfig = [[Heqz_TableViewCellConfig alloc] init];
             cellConfig.cellHeight = 80;
             cellConfig.userData = [NSString stringWithFormat:@"cell_%ld", i];
             cellConfig.cellName = @"TableControllerDemoCell";
@@ -130,7 +130,7 @@
         NSMutableArray* arrayCells = [NSMutableArray arrayWithArray:self.tableController.arrayCells];
         self.pageIndex ++;
         for(NSInteger i = self.pageSize*self.pageIndex; i < self.pageSize*self.pageIndex + self.pageSize; ++ i){
-            Heqingzhao_TableViewCellConfig* cellConfig = [[Heqingzhao_TableViewCellConfig alloc] init];
+            Heqz_TableViewCellConfig* cellConfig = [[Heqz_TableViewCellConfig alloc] init];
             cellConfig.cellHeight = 80;
             cellConfig.userData = [NSString stringWithFormat:@"cell_%ld", i];
             cellConfig.cellName = @"TableControllerDemoCell";

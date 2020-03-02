@@ -1,5 +1,5 @@
 //
-//  Heqingzhao_RubishManager.m
+//  Heqz_RubishManager.m
 //  HeComponent
 //
 //  Created by qingzhao on 2019/6/6.
@@ -7,7 +7,7 @@
 //
 
 #import "UIImage+nameCollection.h"
-#import "Heqingzhao_RubishManager.h"
+#import "Heqz_RubishManager.h"
 
 #import <objc/runtime.h>
 
@@ -24,14 +24,14 @@
 }
 
 + (UIImage *)heqingzhao_imageNamed:(NSString *)name{
-    [[Heqingzhao_RubishManager sharedManager] collectUsedImageName:name];
+    [[Heqz_RubishManager sharedManager] collectUsedImageName:name];
     return [self heqingzhao_imageNamed:name];
 }
 
 - (instancetype)heqingzhao_initWithContentsOfFile:(NSString *)path{
     NSString* imageName = [path pathComponents].lastObject;
     imageName = [imageName componentsSeparatedByString:@"@"].firstObject;
-    [[Heqingzhao_RubishManager sharedManager] collectUsedImageName:imageName];
+    [[Heqz_RubishManager sharedManager] collectUsedImageName:imageName];
     return [self heqingzhao_initWithContentsOfFile:path];
 }
 

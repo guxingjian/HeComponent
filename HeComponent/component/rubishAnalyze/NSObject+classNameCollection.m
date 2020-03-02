@@ -1,5 +1,5 @@
 //
-//  Heqingzhao_RubishManager.m
+//  Heqz_RubishManager.m
 //  HeComponent
 //
 //  Created by qingzhao on 2019/6/6.
@@ -7,7 +7,7 @@
 //
 
 #import "NSObject+classNameCollection.h"
-#import "Heqingzhao_RubishManager.h"
+#import "Heqz_RubishManager.h"
 
 #import <UIKit/UIKit.h>
 #import <objc/runtime.h>
@@ -23,7 +23,7 @@
 + (void)heqingzhao_initialize{
     [self heqingzhao_initialize];
     dispatch_async(dispatch_get_main_queue(), ^{
-        [[Heqingzhao_RubishManager sharedManager] collectUsedClassName:NSStringFromClass(self)];
+        [[Heqz_RubishManager sharedManager] collectUsedClassName:NSStringFromClass(self)];
     });
 }
 

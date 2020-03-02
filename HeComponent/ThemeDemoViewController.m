@@ -8,7 +8,7 @@
 
 #import "ThemeDemoViewController.h"
 #import "UIView+ThemeConfig.h"
-#import "Heqingzhao_ThemeSkinManager.h"
+#import "Heqz_ThemeSkinManager.h"
 #import "ThemeDemo2ViewController.h"
 
 @interface ThemeDemoViewController ()
@@ -35,7 +35,7 @@
     labelTest.themeSkin = @"test-label";
     [self.view addSubview:labelTest];
     
-    Heqingzhao_ThemeSkinManager* themeMgr = [Heqingzhao_ThemeSkinManager defaultThemeSkinManager];
+    Heqz_ThemeSkinManager* themeMgr = [Heqz_ThemeSkinManager defaultThemeSkinManager];
     if(themeMgr.currentTheme.length == 0){
         [self changeSkin:nil];
     }
@@ -47,7 +47,7 @@
 }
 
 - (IBAction)changeSkin:(UIButton*)sender{
-    Heqingzhao_ThemeSkinManager* themeMgr = [Heqingzhao_ThemeSkinManager defaultThemeSkinManager];
+    Heqz_ThemeSkinManager* themeMgr = [Heqz_ThemeSkinManager defaultThemeSkinManager];
     if([themeMgr.currentTheme isEqualToString:@"skin_1.plist"]){
         [themeMgr setCurrentTheme:@"skin_2.plist"];
     }else{

@@ -8,7 +8,7 @@
 
 #import "ThemeTableViewCell.h"
 #import "UIView+ThemeConfig.h"
-#import "Heqingzhao_AppContext.h"
+#import "Heqz_AppContext.h"
 
 @interface ThemeTableViewCell()
 
@@ -58,7 +58,7 @@
 
 //- (void)layoutSubviews{
 //    [super layoutSubviews];
-//    self.labelText.frame = CGRectMake(0, 0, Heqingzhao_ScreenWidth, self.bounds.size.height);
+//    self.labelText.frame = CGRectMake(0, 0, Heqz_ScreenWidth, self.bounds.size.height);
 //}
 
 @end

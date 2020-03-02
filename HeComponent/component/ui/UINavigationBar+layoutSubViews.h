@@ -1,5 +1,5 @@
 //
-//  Heqingzhao_NavigationBar+layoutSubViews.h
+//  Heqz_NavigationBar+layoutSubViews.h
 //  HeComponent
 //
 //  Created by qingzhao on 2019/5/24.

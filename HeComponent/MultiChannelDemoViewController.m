@@ -10,7 +10,7 @@
 #import "TableControllerDemoViewController.h"
 #import "DUDemoChildObject.h"
 #import "UIView+view_frame.h"
-#import "Heqingzhao_RubishManager.h"
+#import "Heqz_RubishManager.h"
 #import "DemoBaseViewController.h"
 #import "ThemeDemoViewController.h"
 
@@ -26,9 +26,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    Heqingzhao_MultiChannelTopBar* topBar = self.topBar;
+    Heqz_MultiChannelTopBar* topBar = self.topBar;
     
-    NSArray* arrayConfig = [Heqingzhao_MultiChannelConfig getConfigArrayWithKey:MultiChannel_SelectedChannel_Key contentProvider:self];
+    NSArray* arrayConfig = [Heqz_MultiChannelConfig getConfigArrayWithKey:MultiChannel_SelectedChannel_Key contentProvider:self];
     if(arrayConfig.count == 0){
         NSMutableArray* arrayItems = [NSMutableArray array];
         
@@ -37,7 +37,7 @@
         UIColor* selectedColor = [UIColor blueColor];
         for(NSInteger i = 0; i < 20; ++ i){
             NSString* title = [NSString stringWithFormat:@"tab%ld", i];
-            Heqingzhao_MultiChannelConfig* item = [[Heqingzhao_MultiChannelConfig alloc] init];
+            Heqz_MultiChannelConfig* item = [[Heqz_MultiChannelConfig alloc] init];
             item.topBarConfig.normalTitle = title;
             item.topBarConfig.normalTextColor = normalColor;
             item.topBarConfig.normalFont = font;
@@ -90,7 +90,7 @@
     return 100;
 }
 
-- (UIView *)contentViewWithIndex:(NSInteger)nIndex config:(Heqingzhao_MultiChannelConfig *)config{
+- (UIView *)contentViewWithIndex:(NSInteger)nIndex config:(Heqz_MultiChannelConfig *)config{
     UIView* contentView = nil;
     if([config.topBarConfig.normalTitle isEqualToString:@"tab0"]){
         TableControllerDemoViewController* tableViewController = [[TableControllerDemoViewController alloc] init];
@@ -129,7 +129,7 @@
 }
 
 - (void)collectAction:(UIButton*)btn{
-    [[Heqingzhao_RubishManager sharedManager] analyzeUnUsedResource];
+    [[Heqz_RubishManager sharedManager] analyzeUnUsedResource];
 }
 
 - (void)baseViewControllerAction:(UIButton*)btn{

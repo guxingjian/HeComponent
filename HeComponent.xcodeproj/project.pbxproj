@@ -7,39 +7,64 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C9052A4622201449003EF4B8 /* Heqingzhao_AppContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C9052A4522201449003EF4B8 /* Heqingzhao_AppContext.m */; };
-		C94138DC221A476800AFA04F /* Heqingzhao_MultiChannelContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = C94138DB221A476800AFA04F /* Heqingzhao_MultiChannelContentView.m */; };
-		C952BC8D222D0DE7006B22DC /* Heqingzhao_DUContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C952BC8C222D0DE7006B22DC /* Heqingzhao_DUContext.m */; };
+		C92D50BA240CC22800B03B46 /* Heqz_AppContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D50B4240CC22800B03B46 /* Heqz_AppContext.m */; };
+		C92D50BB240CC22800B03B46 /* Heqz_BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D50B7240CC22800B03B46 /* Heqz_BaseViewController.m */; };
+		C92D50BC240CC22800B03B46 /* Heqz_ImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D50B8240CC22800B03B46 /* Heqz_ImageLoader.m */; };
+		C92D50CB240CC23800B03B46 /* Heqz_MultiChannelConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D50BE240CC23700B03B46 /* Heqz_MultiChannelConfig.m */; };
+		C92D50CC240CC23800B03B46 /* Heqz_MultiChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D50C0240CC23700B03B46 /* Heqz_MultiChannelViewController.m */; };
+		C92D50CD240CC23800B03B46 /* Heqz_MultiChannelTopBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D50C2240CC23700B03B46 /* Heqz_MultiChannelTopBar.m */; };
+		C92D50CE240CC23800B03B46 /* Heqz_MultiChannelEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D50C3240CC23700B03B46 /* Heqz_MultiChannelEditCell.m */; };
+		C92D50CF240CC23800B03B46 /* Heqz_MultiChannelEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D50C5240CC23700B03B46 /* Heqz_MultiChannelEditViewController.m */; };
+		C92D50D0240CC23800B03B46 /* Heqz_MultiChannelContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D50C6240CC23800B03B46 /* Heqz_MultiChannelContentView.m */; };
+		C92D50D1240CC23800B03B46 /* Heqz_TabbarAdjustPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D50C8240CC23800B03B46 /* Heqz_TabbarAdjustPosition.m */; };
+		C92D50D9240CC24500B03B46 /* Heqz_TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D50D2240CC24400B03B46 /* Heqz_TableViewController.m */; };
+		C92D50DA240CC24500B03B46 /* Heqz_TableViewSectionConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D50D3240CC24400B03B46 /* Heqz_TableViewSectionConfig.m */; };
+		C92D50DB240CC24500B03B46 /* Heqz_TableViewBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D50D4240CC24400B03B46 /* Heqz_TableViewBaseCell.m */; };
+		C92D50EA240CC25400B03B46 /* Heqz_BottomLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D50DF240CC25300B03B46 /* Heqz_BottomLoadingView.m */; };
+		C92D50EB240CC25400B03B46 /* Heqz_TopLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D50E0240CC25300B03B46 /* Heqz_TopLoadingView.m */; };
+		C92D50EC240CC25400B03B46 /* UINavigationBar+layoutSubViews.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D50E4240CC25300B03B46 /* UINavigationBar+layoutSubViews.m */; };
+		C92D50ED240CC25400B03B46 /* Heqz_PageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D50E5240CC25300B03B46 /* Heqz_PageControl.m */; };
+		C92D50EE240CC25400B03B46 /* Heqz_SinglePixelView.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D50E7240CC25400B03B46 /* Heqz_SinglePixelView.m */; };
+		C92D50EF240CC25400B03B46 /* Heqz_LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D50E8240CC25400B03B46 /* Heqz_LoadingView.m */; };
+		C92D50F0240CC25400B03B46 /* Heqz_ScrollAdListView.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D50E9240CC25400B03B46 /* Heqz_ScrollAdListView.m */; };
+		C92D50F3240CC26000B03B46 /* Heqz_DUContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D50F2240CC26000B03B46 /* Heqz_DUContext.m */; };
+		C92D50F6240CC27300B03B46 /* Heqz_CrashCatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D50F4240CC27300B03B46 /* Heqz_CrashCatcher.m */; };
+		C92D50F9240CC28D00B03B46 /* Heqz_RubishManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D50F8240CC28D00B03B46 /* Heqz_RubishManager.m */; };
+		C92D5104240CC2A300B03B46 /* Heqz_LabelThemeDecorater.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D50FB240CC2A200B03B46 /* Heqz_LabelThemeDecorater.m */; };
+		C92D5105240CC2A300B03B46 /* UIView+ThemeConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D50FD240CC2A200B03B46 /* UIView+ThemeConfig.m */; };
+		C92D5106240CC2A300B03B46 /* Heqz_ThemeSkinManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D50FF240CC2A300B03B46 /* Heqz_ThemeSkinManager.m */; };
+		C92D5107240CC2A300B03B46 /* Heqz_ButtonThemeDecorater.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D5101240CC2A300B03B46 /* Heqz_ButtonThemeDecorater.m */; };
+		C92D5108240CC2A300B03B46 /* Heqz_ViewThemeDecorater.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D5102240CC2A300B03B46 /* Heqz_ViewThemeDecorater.m */; };
+		C92D510B240CC2B100B03B46 /* Heqz_Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D510A240CC2B100B03B46 /* Heqz_Reachability.m */; };
+		C92D5111240CC32E00B03B46 /* Heqz_ChartRange.c in Sources */ = {isa = PBXBuildFile; fileRef = C92D510C240CC32E00B03B46 /* Heqz_ChartRange.c */; };
+		C92D5112240CC32E00B03B46 /* Heqz_ChartCommonFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D510E240CC32E00B03B46 /* Heqz_ChartCommonFunc.m */; };
+		C92D511B240CC33A00B03B46 /* Heqz_ChartElement.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D5115240CC33900B03B46 /* Heqz_ChartElement.m */; };
+		C92D511C240CC33A00B03B46 /* Heqz_ChartChart.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D5116240CC33900B03B46 /* Heqz_ChartChart.m */; };
+		C92D511D240CC33A00B03B46 /* Heqz_ChartLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D5119240CC33900B03B46 /* Heqz_ChartLayer.m */; };
+		C92D511E240CC33A00B03B46 /* Heqz_ChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D511A240CC33A00B03B46 /* Heqz_ChartView.m */; };
+		C92D5129240CC34600B03B46 /* Heqz_ChartCoordinateHorizontalAxis.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D511F240CC34400B03B46 /* Heqz_ChartCoordinateHorizontalAxis.m */; };
+		C92D512A240CC34600B03B46 /* Heqz_ChartCoordinateAxis.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D5120240CC34400B03B46 /* Heqz_ChartCoordinateAxis.m */; };
+		C92D512B240CC34600B03B46 /* Heqz_ChartAxisMarkLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D5121240CC34500B03B46 /* Heqz_ChartAxisMarkLabel.m */; };
+		C92D512C240CC34600B03B46 /* Heqz_ChartCoordinateHorizontalAxisAnimatable.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D5124240CC34500B03B46 /* Heqz_ChartCoordinateHorizontalAxisAnimatable.m */; };
+		C92D512D240CC34600B03B46 /* Heqz_ChartCoordinateVerticalAxis.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D5127240CC34500B03B46 /* Heqz_ChartCoordinateVerticalAxis.m */; };
+		C92D5136240CC35100B03B46 /* Heqz_ChartPillarDrawable.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D512F240CC35100B03B46 /* Heqz_ChartPillarDrawable.m */; };
+		C92D5137240CC35100B03B46 /* Heqz_ChartPointCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D5131240CC35100B03B46 /* Heqz_ChartPointCollection.m */; };
+		C92D5138240CC35100B03B46 /* Heqz_ChartPolylineDrawable.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D5132240CC35100B03B46 /* Heqz_ChartPolylineDrawable.m */; };
+		C92D5139240CC35100B03B46 /* Heqz_ChartFillDrawable.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D5133240CC35100B03B46 /* Heqz_ChartFillDrawable.m */; };
+		C92D5146240CC35E00B03B46 /* Heqz_ChartTextAnimatable.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D513A240CC35D00B03B46 /* Heqz_ChartTextAnimatable.m */; };
+		C92D5147240CC35E00B03B46 /* Heqz_ChartPillarAnimatable.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D513E240CC35E00B03B46 /* Heqz_ChartPillarAnimatable.m */; };
+		C92D5148240CC35E00B03B46 /* Heqz_ChartPolylineAnimatable.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D5141240CC35E00B03B46 /* Heqz_ChartPolylineAnimatable.m */; };
+		C92D5149240CC35E00B03B46 /* Heqz_ChartPtCollectionAnimatable.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D5142240CC35E00B03B46 /* Heqz_ChartPtCollectionAnimatable.m */; };
+		C92D514A240CC35E00B03B46 /* Heqz_ChartFillAnimatable.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D5144240CC35E00B03B46 /* Heqz_ChartFillAnimatable.m */; };
+		C92D514B240CC35E00B03B46 /* Heqz_ChartImageAnimatable.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D5145240CC35E00B03B46 /* Heqz_ChartImageAnimatable.m */; };
+		C92D5154240CC36B00B03B46 /* Heqz_ChartTextGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D514C240CC36B00B03B46 /* Heqz_ChartTextGrid.m */; };
+		C92D5155240CC36B00B03B46 /* Heqz_ChartStandardGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D514D240CC36B00B03B46 /* Heqz_ChartStandardGrid.m */; };
+		C92D5156240CC36B00B03B46 /* Heqz_ChartGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D514F240CC36B00B03B46 /* Heqz_ChartGrid.m */; };
+		C92D5157240CC36B00B03B46 /* Heqz_ChartGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D5150240CC36B00B03B46 /* Heqz_ChartGridView.m */; };
 		C952BC92222D4625006B22DC /* du_main.js in Resources */ = {isa = PBXBuildFile; fileRef = C952BC91222D4625006B22DC /* du_main.js */; };
 		C952BC94222D47EE006B22DC /* du_instanceMethod.js in Resources */ = {isa = PBXBuildFile; fileRef = C952BC93222D47EE006B22DC /* du_instanceMethod.js */; };
 		C969E23D22B1000D00CEFB82 /* DemoBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C969E23A22B1000C00CEFB82 /* DemoBaseViewController.m */; };
-		C96C417423BAF390002F61B0 /* SFChartPolylineAnimatable.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C413423BAF38F002F61B0 /* SFChartPolylineAnimatable.m */; };
-		C96C417523BAF390002F61B0 /* SFChartImageAnimatable.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C413523BAF38F002F61B0 /* SFChartImageAnimatable.m */; };
-		C96C417623BAF390002F61B0 /* SFChartPillarAnimatable.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C413623BAF38F002F61B0 /* SFChartPillarAnimatable.m */; };
-		C96C417723BAF390002F61B0 /* SFChartFillAnimatable.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C413723BAF38F002F61B0 /* SFChartFillAnimatable.m */; };
-		C96C417823BAF390002F61B0 /* SFChartTextAnimatable.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C413A23BAF38F002F61B0 /* SFChartTextAnimatable.m */; };
-		C96C417923BAF390002F61B0 /* SFChartPtCollectionAnimatable.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C413E23BAF38F002F61B0 /* SFChartPtCollectionAnimatable.m */; };
-		C96C417A23BAF390002F61B0 /* SFChartAxisMarkLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C414123BAF38F002F61B0 /* SFChartAxisMarkLabel.m */; };
-		C96C417B23BAF390002F61B0 /* SFChartCoordinateVerticalAxis.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C414523BAF38F002F61B0 /* SFChartCoordinateVerticalAxis.m */; };
-		C96C417C23BAF390002F61B0 /* SFChartCoordinateHorizontalAxisAnimatable.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C414723BAF38F002F61B0 /* SFChartCoordinateHorizontalAxisAnimatable.m */; };
-		C96C417D23BAF390002F61B0 /* SFChartCoordinateAxis.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C414823BAF38F002F61B0 /* SFChartCoordinateAxis.m */; };
-		C96C417E23BAF390002F61B0 /* SFChartCoordinateHorizontalAxis.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C414923BAF38F002F61B0 /* SFChartCoordinateHorizontalAxis.m */; };
-		C96C417F23BAF390002F61B0 /* SFChartPillarDrawable.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C414B23BAF38F002F61B0 /* SFChartPillarDrawable.m */; };
-		C96C418023BAF390002F61B0 /* SFChartFillDrawable.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C414E23BAF38F002F61B0 /* SFChartFillDrawable.m */; };
-		C96C418123BAF390002F61B0 /* SFChartPolylineDrawable.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C414F23BAF38F002F61B0 /* SFChartPolylineDrawable.m */; };
-		C96C418223BAF390002F61B0 /* SFChartPointCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C415023BAF38F002F61B0 /* SFChartPointCollection.m */; };
-		C96C418323BAF390002F61B0 /* SFChartChart.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C415423BAF38F002F61B0 /* SFChartChart.m */; };
-		C96C418423BAF390002F61B0 /* SFChartLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C415523BAF38F002F61B0 /* SFChartLayer.m */; };
-		C96C418523BAF390002F61B0 /* SFChartElement.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C415A23BAF38F002F61B0 /* SFChartElement.m */; };
-		C96C418623BAF390002F61B0 /* SFChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C415B23BAF38F002F61B0 /* SFChartView.m */; };
-		C96C418823BAF390002F61B0 /* SFChartTextGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C415E23BAF390002F61B0 /* SFChartTextGrid.m */; };
-		C96C418923BAF390002F61B0 /* SFChartGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C415F23BAF390002F61B0 /* SFChartGridView.m */; };
-		C96C418A23BAF390002F61B0 /* SFChartStandardGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C416023BAF390002F61B0 /* SFChartStandardGrid.m */; };
-		C96C418B23BAF390002F61B0 /* SFChartGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C416423BAF390002F61B0 /* SFChartGrid.m */; };
 		C96C418F23BAF390002F61B0 /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = C96C416D23BAF390002F61B0 /* readme.md */; };
-		C96C419023BAF390002F61B0 /* SFChartRange.c in Sources */ = {isa = PBXBuildFile; fileRef = C96C417023BAF390002F61B0 /* SFChartRange.c */; };
-		C96C419123BAF390002F61B0 /* SFChartCommonFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C417123BAF390002F61B0 /* SFChartCommonFunc.m */; };
-		C96DEB462226597F00538E65 /* Heqingzhao_TableViewBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C96DEB452226597F00538E65 /* Heqingzhao_TableViewBaseCell.m */; };
 		C98C3B3B22AE81270085A7C8 /* UINib+nibCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = C98C3B3922AE81270085A7C8 /* UINib+nibCollection.m */; };
 		C99BACB222CE3382000991CE /* skin_1.plist in Resources */ = {isa = PBXBuildFile; fileRef = C99BACB122CE3382000991CE /* skin_1.plist */; };
 		C99BACB422CE3473000991CE /* skin_2.plist in Resources */ = {isa = PBXBuildFile; fileRef = C99BACB322CE3473000991CE /* skin_2.plist */; };
@@ -48,16 +73,6 @@
 		C9A3FDA722D33B790054B17A /* ThemeDemo2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A3FDA522D33B790054B17A /* ThemeDemo2ViewController.m */; };
 		C9A3FDAC22D33C0A0054B17A /* ThemeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A3FDAA22D33C0A0054B17A /* ThemeTableViewCell.m */; };
 		C9A3FDAF22D342600054B17A /* ThemeDemo2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9A3FDAE22D342600054B17A /* ThemeDemo2ViewController.xib */; };
-		C9A645ED23B9F3C200BD7B6E /* Heqingzhao_Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A645EC23B9F3C200BD7B6E /* Heqingzhao_Reachability.m */; };
-		C9AE410F22CF1C0B0092E00A /* Heqingzhao_LabelThemeDecorater.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AE410522CF1C0B0092E00A /* Heqingzhao_LabelThemeDecorater.m */; };
-		C9AE411022CF1C0B0092E00A /* Heqingzhao_ButtonThemeDecorater.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AE410622CF1C0B0092E00A /* Heqingzhao_ButtonThemeDecorater.m */; };
-		C9AE411122CF1C0B0092E00A /* Heqingzhao_ThemeSkinManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AE410822CF1C0B0092E00A /* Heqingzhao_ThemeSkinManager.m */; };
-		C9AE411222CF1C0B0092E00A /* Heqingzhao_ViewThemeDecorater.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AE410922CF1C0B0092E00A /* Heqingzhao_ViewThemeDecorater.m */; };
-		C9AE411322CF1C0B0092E00A /* UIView+ThemeConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AE410D22CF1C0B0092E00A /* UIView+ThemeConfig.m */; };
-		C9B0AD6B221D259C00F747B1 /* Heqingzhao_SinglePixelView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B0AD69221D259C00F747B1 /* Heqingzhao_SinglePixelView.m */; };
-		C9B0AD6E221D32DA00F747B1 /* Heqingzhao_MultiChannelEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B0AD6D221D32DA00F747B1 /* Heqingzhao_MultiChannelEditCell.m */; };
-		C9B4E3B62223B78A00454349 /* Heqingzhao_TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B4E3B52223B78A00454349 /* Heqingzhao_TableViewController.m */; };
-		C9B4E3B92223B80300454349 /* Heqingzhao_TableViewSectionConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B4E3B82223B80300454349 /* Heqingzhao_TableViewSectionConfig.m */; };
 		C9BA871D22A69613008A60A1 /* cat05.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C9BA871722A69613008A60A1 /* cat05.jpeg */; };
 		C9BA871E22A69613008A60A1 /* cat03.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C9BA871822A69613008A60A1 /* cat03.jpeg */; };
 		C9BA871F22A69613008A60A1 /* cat02.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C9BA871922A69613008A60A1 /* cat02.jpeg */; };
@@ -77,18 +92,11 @@
 		C9BB1E53221551DC0050B493 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9BB1E51221551DC0050B493 /* LaunchScreen.storyboard */; };
 		C9BB1E56221551DC0050B493 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BB1E55221551DC0050B493 /* main.m */; };
 		C9BB1E952216CEAC0050B493 /* UIView+view_frame.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BB1E8A2216CEAC0050B493 /* UIView+view_frame.m */; };
-		C9BB1E962216CEAC0050B493 /* Heqingzhao_TabbarAdjustPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BB1E8D2216CEAC0050B493 /* Heqingzhao_TabbarAdjustPosition.m */; };
-		C9BB1E972216CEAC0050B493 /* Heqingzhao_MultiChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BB1E8E2216CEAC0050B493 /* Heqingzhao_MultiChannelViewController.m */; };
-		C9BB1E982216CEAC0050B493 /* Heqingzhao_MultiChannelConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BB1E8F2216CEAC0050B493 /* Heqingzhao_MultiChannelConfig.m */; };
-		C9BB1E992216CEAC0050B493 /* Heqingzhao_MultiChannelTopBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BB1E932216CEAC0050B493 /* Heqingzhao_MultiChannelTopBar.m */; };
 		C9BDB028221BF5BB00FC4168 /* MultiChannelDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BDB027221BF5BB00FC4168 /* MultiChannelDemoViewController.m */; };
 		C9BDB02B221BF6D800FC4168 /* UIColor+extension_qingzhao.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BDB02A221BF6D800FC4168 /* UIColor+extension_qingzhao.m */; };
 		C9BDB02F221BFB3700FC4168 /* down_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9BDB02D221BFB3700FC4168 /* down_arrow@2x.png */; };
 		C9BDB030221BFB3700FC4168 /* down_arrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9BDB02E221BFB3700FC4168 /* down_arrow@3x.png */; };
-		C9BDB068221C237100FC4168 /* Heqingzhao_MultiChannelEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BDB067221C237100FC4168 /* Heqingzhao_MultiChannelEditViewController.m */; };
 		C9BE042823B5D783006BD92B /* NSObject+DU.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BE042723B5D783006BD92B /* NSObject+DU.m */; };
-		C9CF39DC22A8AE8700BB1FA8 /* Heqingzhao_BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CF39DB22A8AE8700BB1FA8 /* Heqingzhao_BaseViewController.m */; };
-		C9CF39E422A8F05B00BB1FA8 /* Heqingzhao_RubishManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CF39E322A8F05B00BB1FA8 /* Heqingzhao_RubishManager.m */; };
 		C9CF39E722A8F07300BB1FA8 /* NSObject+classNameCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CF39E622A8F07200BB1FA8 /* NSObject+classNameCollection.m */; };
 		C9CF39EA22A9094700BB1FA8 /* UIViewController+nibCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CF39E822A9094700BB1FA8 /* UIViewController+nibCollection.m */; };
 		C9CF39ED22A90C2500BB1FA8 /* NSBundle+nibCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CF39EB22A90C2500BB1FA8 /* NSBundle+nibCollection.m */; };
@@ -98,85 +106,127 @@
 		C9D260C22228DCCC009AE2EF /* TableControllerDemoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D260C12228DCCC009AE2EF /* TableControllerDemoCell.m */; };
 		C9D3B4DF221ECA3C00A8E573 /* label_delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9D3B4DD221ECA3B00A8E573 /* label_delete@2x.png */; };
 		C9D3B4E0221ECA3C00A8E573 /* label_delete@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9D3B4DE221ECA3B00A8E573 /* label_delete@3x.png */; };
-		C9D3B4E5221ECE8D00A8E573 /* Heqingzhao_ImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D3B4E4221ECE8D00A8E573 /* Heqingzhao_ImageLoader.m */; };
 		C9D3B4E8221ECECC00A8E573 /* navi_back@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9D3B4E6221ECECC00A8E573 /* navi_back@3x.png */; };
 		C9D3B4E9221ECECC00A8E573 /* navi_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9D3B4E7221ECECC00A8E573 /* navi_back@2x.png */; };
-		C9D4A94722978DC800FEFD5E /* Heqingzhao_CrashCatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D4A94622978DC800FEFD5E /* Heqingzhao_CrashCatcher.m */; };
-		C9D4A95C2297EA7B00FEFD5E /* UINavigationBar+layoutSubViews.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D4A95B2297EA7B00FEFD5E /* UINavigationBar+layoutSubViews.m */; };
-		C9DFFD29222802D500A8374C /* Heqingzhao_TopLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DFFD28222802D500A8374C /* Heqingzhao_TopLoadingView.m */; };
-		C9DFFD2D222806DE00A8374C /* Heqingzhao_LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DFFD2C222806DE00A8374C /* Heqingzhao_LoadingView.m */; };
-		C9DFFD3022280B4D00A8374C /* Heqingzhao_BottomLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DFFD2F22280B4D00A8374C /* Heqingzhao_BottomLoadingView.m */; };
 		C9E86AD1222FB7C500F85E19 /* DUDemoObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E86AD0222FB7C500F85E19 /* DUDemoObject.m */; };
 		C9E86AD4222FB7DC00F85E19 /* DUDemoChildObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E86AD3222FB7DC00F85E19 /* DUDemoChildObject.m */; };
-		C9F74AE822A60481001ACF3F /* Heqingzhao_PageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F74AE722A60481001ACF3F /* Heqingzhao_PageControl.m */; };
-		C9F74AED22A63C58001ACF3F /* Heqingzhao_ScrollAdListView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F74AEC22A63C58001ACF3F /* Heqingzhao_ScrollAdListView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C9052A4422201449003EF4B8 /* Heqingzhao_AppContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_AppContext.h; sourceTree = "<group>"; };
-		C9052A4522201449003EF4B8 /* Heqingzhao_AppContext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_AppContext.m; sourceTree = "<group>"; };
-		C94138DA221A476800AFA04F /* Heqingzhao_MultiChannelContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_MultiChannelContentView.h; sourceTree = "<group>"; };
-		C94138DB221A476800AFA04F /* Heqingzhao_MultiChannelContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_MultiChannelContentView.m; sourceTree = "<group>"; };
-		C952BC8B222D0DE7006B22DC /* Heqingzhao_DUContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_DUContext.h; sourceTree = "<group>"; };
-		C952BC8C222D0DE7006B22DC /* Heqingzhao_DUContext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_DUContext.m; sourceTree = "<group>"; };
+		C92D50B4240CC22800B03B46 /* Heqz_AppContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_AppContext.m; sourceTree = "<group>"; };
+		C92D50B5240CC22800B03B46 /* Heqz_AppContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_AppContext.h; sourceTree = "<group>"; };
+		C92D50B6240CC22800B03B46 /* Heqz_BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_BaseViewController.h; sourceTree = "<group>"; };
+		C92D50B7240CC22800B03B46 /* Heqz_BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_BaseViewController.m; sourceTree = "<group>"; };
+		C92D50B8240CC22800B03B46 /* Heqz_ImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_ImageLoader.m; sourceTree = "<group>"; };
+		C92D50B9240CC22800B03B46 /* Heqz_ImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_ImageLoader.h; sourceTree = "<group>"; };
+		C92D50BD240CC23700B03B46 /* Heqz_MultiChannelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_MultiChannelViewController.h; sourceTree = "<group>"; };
+		C92D50BE240CC23700B03B46 /* Heqz_MultiChannelConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_MultiChannelConfig.m; sourceTree = "<group>"; };
+		C92D50BF240CC23700B03B46 /* Heqz_MultiChannelEditCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_MultiChannelEditCell.h; sourceTree = "<group>"; };
+		C92D50C0240CC23700B03B46 /* Heqz_MultiChannelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_MultiChannelViewController.m; sourceTree = "<group>"; };
+		C92D50C1240CC23700B03B46 /* Heqz_MultiChannelConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_MultiChannelConfig.h; sourceTree = "<group>"; };
+		C92D50C2240CC23700B03B46 /* Heqz_MultiChannelTopBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_MultiChannelTopBar.m; sourceTree = "<group>"; };
+		C92D50C3240CC23700B03B46 /* Heqz_MultiChannelEditCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_MultiChannelEditCell.m; sourceTree = "<group>"; };
+		C92D50C4240CC23700B03B46 /* Heqz_MultiChannelContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_MultiChannelContentView.h; sourceTree = "<group>"; };
+		C92D50C5240CC23700B03B46 /* Heqz_MultiChannelEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_MultiChannelEditViewController.m; sourceTree = "<group>"; };
+		C92D50C6240CC23800B03B46 /* Heqz_MultiChannelContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_MultiChannelContentView.m; sourceTree = "<group>"; };
+		C92D50C7240CC23800B03B46 /* Heqz_MultiChannelTopBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_MultiChannelTopBar.h; sourceTree = "<group>"; };
+		C92D50C8240CC23800B03B46 /* Heqz_TabbarAdjustPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_TabbarAdjustPosition.m; sourceTree = "<group>"; };
+		C92D50C9240CC23800B03B46 /* Heqz_TabbarAdjustPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_TabbarAdjustPosition.h; sourceTree = "<group>"; };
+		C92D50CA240CC23800B03B46 /* Heqz_MultiChannelEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_MultiChannelEditViewController.h; sourceTree = "<group>"; };
+		C92D50D2240CC24400B03B46 /* Heqz_TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_TableViewController.m; sourceTree = "<group>"; };
+		C92D50D3240CC24400B03B46 /* Heqz_TableViewSectionConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_TableViewSectionConfig.m; sourceTree = "<group>"; };
+		C92D50D4240CC24400B03B46 /* Heqz_TableViewBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_TableViewBaseCell.m; sourceTree = "<group>"; };
+		C92D50D5240CC24400B03B46 /* Heqz_TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_TableViewController.h; sourceTree = "<group>"; };
+		C92D50D7240CC24400B03B46 /* Heqz_TableViewSectionConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_TableViewSectionConfig.h; sourceTree = "<group>"; };
+		C92D50D8240CC24400B03B46 /* Heqz_TableViewBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_TableViewBaseCell.h; sourceTree = "<group>"; };
+		C92D50DC240CC25200B03B46 /* Heqz_TopLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_TopLoadingView.h; sourceTree = "<group>"; };
+		C92D50DD240CC25300B03B46 /* Heqz_ScrollAdListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_ScrollAdListView.h; sourceTree = "<group>"; };
+		C92D50DE240CC25300B03B46 /* Heqz_BottomLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_BottomLoadingView.h; sourceTree = "<group>"; };
+		C92D50DF240CC25300B03B46 /* Heqz_BottomLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_BottomLoadingView.m; sourceTree = "<group>"; };
+		C92D50E0240CC25300B03B46 /* Heqz_TopLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_TopLoadingView.m; sourceTree = "<group>"; };
+		C92D50E1240CC25300B03B46 /* Heqz_PageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_PageControl.h; sourceTree = "<group>"; };
+		C92D50E2240CC25300B03B46 /* Heqz_SinglePixelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_SinglePixelView.h; sourceTree = "<group>"; };
+		C92D50E3240CC25300B03B46 /* UINavigationBar+layoutSubViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+layoutSubViews.h"; sourceTree = "<group>"; };
+		C92D50E4240CC25300B03B46 /* UINavigationBar+layoutSubViews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+layoutSubViews.m"; sourceTree = "<group>"; };
+		C92D50E5240CC25300B03B46 /* Heqz_PageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_PageControl.m; sourceTree = "<group>"; };
+		C92D50E6240CC25400B03B46 /* Heqz_LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_LoadingView.h; sourceTree = "<group>"; };
+		C92D50E7240CC25400B03B46 /* Heqz_SinglePixelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_SinglePixelView.m; sourceTree = "<group>"; };
+		C92D50E8240CC25400B03B46 /* Heqz_LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_LoadingView.m; sourceTree = "<group>"; };
+		C92D50E9240CC25400B03B46 /* Heqz_ScrollAdListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_ScrollAdListView.m; sourceTree = "<group>"; };
+		C92D50F1240CC26000B03B46 /* Heqz_DUContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_DUContext.h; sourceTree = "<group>"; };
+		C92D50F2240CC26000B03B46 /* Heqz_DUContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_DUContext.m; sourceTree = "<group>"; };
+		C92D50F4240CC27300B03B46 /* Heqz_CrashCatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_CrashCatcher.m; sourceTree = "<group>"; };
+		C92D50F5240CC27300B03B46 /* Heqz_CrashCatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_CrashCatcher.h; sourceTree = "<group>"; };
+		C92D50F7240CC28D00B03B46 /* Heqz_RubishManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_RubishManager.h; sourceTree = "<group>"; };
+		C92D50F8240CC28D00B03B46 /* Heqz_RubishManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_RubishManager.m; sourceTree = "<group>"; };
+		C92D50FA240CC2A200B03B46 /* Heqz_LabelThemeDecorater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_LabelThemeDecorater.h; sourceTree = "<group>"; };
+		C92D50FB240CC2A200B03B46 /* Heqz_LabelThemeDecorater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_LabelThemeDecorater.m; sourceTree = "<group>"; };
+		C92D50FC240CC2A200B03B46 /* Heqz_ThemeSkinManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_ThemeSkinManager.h; sourceTree = "<group>"; };
+		C92D50FD240CC2A200B03B46 /* UIView+ThemeConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ThemeConfig.m"; sourceTree = "<group>"; };
+		C92D50FE240CC2A200B03B46 /* Heqz_ButtonThemeDecorater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_ButtonThemeDecorater.h; sourceTree = "<group>"; };
+		C92D50FF240CC2A300B03B46 /* Heqz_ThemeSkinManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_ThemeSkinManager.m; sourceTree = "<group>"; };
+		C92D5100240CC2A300B03B46 /* UIView+ThemeConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ThemeConfig.h"; sourceTree = "<group>"; };
+		C92D5101240CC2A300B03B46 /* Heqz_ButtonThemeDecorater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_ButtonThemeDecorater.m; sourceTree = "<group>"; };
+		C92D5102240CC2A300B03B46 /* Heqz_ViewThemeDecorater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_ViewThemeDecorater.m; sourceTree = "<group>"; };
+		C92D5103240CC2A300B03B46 /* Heqz_ViewThemeDecorater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_ViewThemeDecorater.h; sourceTree = "<group>"; };
+		C92D5109240CC2B100B03B46 /* Heqz_Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_Reachability.h; sourceTree = "<group>"; };
+		C92D510A240CC2B100B03B46 /* Heqz_Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_Reachability.m; sourceTree = "<group>"; };
+		C92D510C240CC32E00B03B46 /* Heqz_ChartRange.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Heqz_ChartRange.c; sourceTree = "<group>"; };
+		C92D510D240CC32E00B03B46 /* Heqz_ChartRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_ChartRange.h; sourceTree = "<group>"; };
+		C92D510E240CC32E00B03B46 /* Heqz_ChartCommonFunc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_ChartCommonFunc.m; sourceTree = "<group>"; };
+		C92D510F240CC32E00B03B46 /* Heqz_ChartCommonFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_ChartCommonFunc.h; sourceTree = "<group>"; };
+		C92D5110240CC32E00B03B46 /* Heqz_Chart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_Chart.h; sourceTree = "<group>"; };
+		C92D5113240CC33900B03B46 /* Heqz_ChartChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_ChartChart.h; sourceTree = "<group>"; };
+		C92D5114240CC33900B03B46 /* Heqz_ChartElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_ChartElement.h; sourceTree = "<group>"; };
+		C92D5115240CC33900B03B46 /* Heqz_ChartElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_ChartElement.m; sourceTree = "<group>"; };
+		C92D5116240CC33900B03B46 /* Heqz_ChartChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_ChartChart.m; sourceTree = "<group>"; };
+		C92D5117240CC33900B03B46 /* Heqz_ChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_ChartView.h; sourceTree = "<group>"; };
+		C92D5118240CC33900B03B46 /* Heqz_ChartLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_ChartLayer.h; sourceTree = "<group>"; };
+		C92D5119240CC33900B03B46 /* Heqz_ChartLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_ChartLayer.m; sourceTree = "<group>"; };
+		C92D511A240CC33A00B03B46 /* Heqz_ChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_ChartView.m; sourceTree = "<group>"; };
+		C92D511F240CC34400B03B46 /* Heqz_ChartCoordinateHorizontalAxis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_ChartCoordinateHorizontalAxis.m; sourceTree = "<group>"; };
+		C92D5120240CC34400B03B46 /* Heqz_ChartCoordinateAxis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_ChartCoordinateAxis.m; sourceTree = "<group>"; };
+		C92D5121240CC34500B03B46 /* Heqz_ChartAxisMarkLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_ChartAxisMarkLabel.m; sourceTree = "<group>"; };
+		C92D5122240CC34500B03B46 /* Heqz_ChartCoordinateAxis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_ChartCoordinateAxis.h; sourceTree = "<group>"; };
+		C92D5123240CC34500B03B46 /* Heqz_ChartCoordinateHorizontalAxisAnimatable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_ChartCoordinateHorizontalAxisAnimatable.h; sourceTree = "<group>"; };
+		C92D5124240CC34500B03B46 /* Heqz_ChartCoordinateHorizontalAxisAnimatable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_ChartCoordinateHorizontalAxisAnimatable.m; sourceTree = "<group>"; };
+		C92D5125240CC34500B03B46 /* Heqz_ChartAxisMarkLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_ChartAxisMarkLabel.h; sourceTree = "<group>"; };
+		C92D5126240CC34500B03B46 /* Heqz_ChartCoordinateVerticalAxis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_ChartCoordinateVerticalAxis.h; sourceTree = "<group>"; };
+		C92D5127240CC34500B03B46 /* Heqz_ChartCoordinateVerticalAxis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_ChartCoordinateVerticalAxis.m; sourceTree = "<group>"; };
+		C92D5128240CC34500B03B46 /* Heqz_ChartCoordinateHorizontalAxis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_ChartCoordinateHorizontalAxis.h; sourceTree = "<group>"; };
+		C92D512E240CC35100B03B46 /* Heqz_ChartPointCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_ChartPointCollection.h; sourceTree = "<group>"; };
+		C92D512F240CC35100B03B46 /* Heqz_ChartPillarDrawable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_ChartPillarDrawable.m; sourceTree = "<group>"; };
+		C92D5130240CC35100B03B46 /* Heqz_ChartPillarDrawable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_ChartPillarDrawable.h; sourceTree = "<group>"; };
+		C92D5131240CC35100B03B46 /* Heqz_ChartPointCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_ChartPointCollection.m; sourceTree = "<group>"; };
+		C92D5132240CC35100B03B46 /* Heqz_ChartPolylineDrawable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_ChartPolylineDrawable.m; sourceTree = "<group>"; };
+		C92D5133240CC35100B03B46 /* Heqz_ChartFillDrawable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_ChartFillDrawable.m; sourceTree = "<group>"; };
+		C92D5134240CC35100B03B46 /* Heqz_ChartFillDrawable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_ChartFillDrawable.h; sourceTree = "<group>"; };
+		C92D5135240CC35100B03B46 /* Heqz_ChartPolylineDrawable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_ChartPolylineDrawable.h; sourceTree = "<group>"; };
+		C92D513A240CC35D00B03B46 /* Heqz_ChartTextAnimatable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_ChartTextAnimatable.m; sourceTree = "<group>"; };
+		C92D513B240CC35D00B03B46 /* Heqz_ChartImageAnimatable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_ChartImageAnimatable.h; sourceTree = "<group>"; };
+		C92D513C240CC35D00B03B46 /* Heqz_ChartFillAnimatable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_ChartFillAnimatable.h; sourceTree = "<group>"; };
+		C92D513D240CC35E00B03B46 /* Heqz_ChartPillarAnimatable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_ChartPillarAnimatable.h; sourceTree = "<group>"; };
+		C92D513E240CC35E00B03B46 /* Heqz_ChartPillarAnimatable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_ChartPillarAnimatable.m; sourceTree = "<group>"; };
+		C92D513F240CC35E00B03B46 /* Heqz_ChartPolylineAnimatable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_ChartPolylineAnimatable.h; sourceTree = "<group>"; };
+		C92D5140240CC35E00B03B46 /* Heqz_ChartPtCollectionAnimatable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_ChartPtCollectionAnimatable.h; sourceTree = "<group>"; };
+		C92D5141240CC35E00B03B46 /* Heqz_ChartPolylineAnimatable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_ChartPolylineAnimatable.m; sourceTree = "<group>"; };
+		C92D5142240CC35E00B03B46 /* Heqz_ChartPtCollectionAnimatable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_ChartPtCollectionAnimatable.m; sourceTree = "<group>"; };
+		C92D5143240CC35E00B03B46 /* Heqz_ChartTextAnimatable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_ChartTextAnimatable.h; sourceTree = "<group>"; };
+		C92D5144240CC35E00B03B46 /* Heqz_ChartFillAnimatable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_ChartFillAnimatable.m; sourceTree = "<group>"; };
+		C92D5145240CC35E00B03B46 /* Heqz_ChartImageAnimatable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_ChartImageAnimatable.m; sourceTree = "<group>"; };
+		C92D514C240CC36B00B03B46 /* Heqz_ChartTextGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_ChartTextGrid.m; sourceTree = "<group>"; };
+		C92D514D240CC36B00B03B46 /* Heqz_ChartStandardGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_ChartStandardGrid.m; sourceTree = "<group>"; };
+		C92D514E240CC36B00B03B46 /* Heqz_ChartTextGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_ChartTextGrid.h; sourceTree = "<group>"; };
+		C92D514F240CC36B00B03B46 /* Heqz_ChartGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_ChartGrid.m; sourceTree = "<group>"; };
+		C92D5150240CC36B00B03B46 /* Heqz_ChartGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqz_ChartGridView.m; sourceTree = "<group>"; };
+		C92D5151240CC36B00B03B46 /* Heqz_ChartStandardGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_ChartStandardGrid.h; sourceTree = "<group>"; };
+		C92D5152240CC36B00B03B46 /* Heqz_ChartGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_ChartGrid.h; sourceTree = "<group>"; };
+		C92D5153240CC36B00B03B46 /* Heqz_ChartGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqz_ChartGridView.h; sourceTree = "<group>"; };
 		C952BC91222D4625006B22DC /* du_main.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = du_main.js; sourceTree = "<group>"; };
 		C952BC93222D47EE006B22DC /* du_instanceMethod.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = du_instanceMethod.js; sourceTree = "<group>"; };
 		C969E23A22B1000C00CEFB82 /* DemoBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoBaseViewController.m; sourceTree = "<group>"; };
 		C969E23B22B1000C00CEFB82 /* DemoBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoBaseViewController.h; sourceTree = "<group>"; };
-		C96C413323BAF38F002F61B0 /* SFChartTextAnimatable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartTextAnimatable.h; sourceTree = "<group>"; };
-		C96C413423BAF38F002F61B0 /* SFChartPolylineAnimatable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartPolylineAnimatable.m; sourceTree = "<group>"; };
-		C96C413523BAF38F002F61B0 /* SFChartImageAnimatable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartImageAnimatable.m; sourceTree = "<group>"; };
-		C96C413623BAF38F002F61B0 /* SFChartPillarAnimatable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartPillarAnimatable.m; sourceTree = "<group>"; };
-		C96C413723BAF38F002F61B0 /* SFChartFillAnimatable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartFillAnimatable.m; sourceTree = "<group>"; };
-		C96C413823BAF38F002F61B0 /* SFChartPtCollectionAnimatable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartPtCollectionAnimatable.h; sourceTree = "<group>"; };
-		C96C413923BAF38F002F61B0 /* SFChartPolylineAnimatable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartPolylineAnimatable.h; sourceTree = "<group>"; };
-		C96C413A23BAF38F002F61B0 /* SFChartTextAnimatable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartTextAnimatable.m; sourceTree = "<group>"; };
-		C96C413B23BAF38F002F61B0 /* SFChartPillarAnimatable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartPillarAnimatable.h; sourceTree = "<group>"; };
-		C96C413C23BAF38F002F61B0 /* SFChartImageAnimatable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartImageAnimatable.h; sourceTree = "<group>"; };
-		C96C413D23BAF38F002F61B0 /* SFChartFillAnimatable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartFillAnimatable.h; sourceTree = "<group>"; };
-		C96C413E23BAF38F002F61B0 /* SFChartPtCollectionAnimatable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartPtCollectionAnimatable.m; sourceTree = "<group>"; };
-		C96C414023BAF38F002F61B0 /* SFChartCoordinateVerticalAxis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartCoordinateVerticalAxis.h; sourceTree = "<group>"; };
-		C96C414123BAF38F002F61B0 /* SFChartAxisMarkLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartAxisMarkLabel.m; sourceTree = "<group>"; };
-		C96C414223BAF38F002F61B0 /* SFChartCoordinateAxis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartCoordinateAxis.h; sourceTree = "<group>"; };
-		C96C414323BAF38F002F61B0 /* SFChartCoordinateHorizontalAxis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartCoordinateHorizontalAxis.h; sourceTree = "<group>"; };
-		C96C414423BAF38F002F61B0 /* SFChartCoordinateHorizontalAxisAnimatable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartCoordinateHorizontalAxisAnimatable.h; sourceTree = "<group>"; };
-		C96C414523BAF38F002F61B0 /* SFChartCoordinateVerticalAxis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartCoordinateVerticalAxis.m; sourceTree = "<group>"; };
-		C96C414623BAF38F002F61B0 /* SFChartAxisMarkLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartAxisMarkLabel.h; sourceTree = "<group>"; };
-		C96C414723BAF38F002F61B0 /* SFChartCoordinateHorizontalAxisAnimatable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartCoordinateHorizontalAxisAnimatable.m; sourceTree = "<group>"; };
-		C96C414823BAF38F002F61B0 /* SFChartCoordinateAxis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartCoordinateAxis.m; sourceTree = "<group>"; };
-		C96C414923BAF38F002F61B0 /* SFChartCoordinateHorizontalAxis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartCoordinateHorizontalAxis.m; sourceTree = "<group>"; };
-		C96C414B23BAF38F002F61B0 /* SFChartPillarDrawable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartPillarDrawable.m; sourceTree = "<group>"; };
-		C96C414C23BAF38F002F61B0 /* SFChartPointCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartPointCollection.h; sourceTree = "<group>"; };
-		C96C414D23BAF38F002F61B0 /* SFChartPolylineDrawable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartPolylineDrawable.h; sourceTree = "<group>"; };
-		C96C414E23BAF38F002F61B0 /* SFChartFillDrawable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartFillDrawable.m; sourceTree = "<group>"; };
-		C96C414F23BAF38F002F61B0 /* SFChartPolylineDrawable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartPolylineDrawable.m; sourceTree = "<group>"; };
-		C96C415023BAF38F002F61B0 /* SFChartPointCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartPointCollection.m; sourceTree = "<group>"; };
-		C96C415123BAF38F002F61B0 /* SFChartPillarDrawable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartPillarDrawable.h; sourceTree = "<group>"; };
-		C96C415223BAF38F002F61B0 /* SFChartFillDrawable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartFillDrawable.h; sourceTree = "<group>"; };
-		C96C415423BAF38F002F61B0 /* SFChartChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartChart.m; sourceTree = "<group>"; };
-		C96C415523BAF38F002F61B0 /* SFChartLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartLayer.m; sourceTree = "<group>"; };
-		C96C415623BAF38F002F61B0 /* SFChartElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartElement.h; sourceTree = "<group>"; };
-		C96C415723BAF38F002F61B0 /* SFChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartView.h; sourceTree = "<group>"; };
-		C96C415823BAF38F002F61B0 /* SFChartLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartLayer.h; sourceTree = "<group>"; };
-		C96C415923BAF38F002F61B0 /* SFChartChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartChart.h; sourceTree = "<group>"; };
-		C96C415A23BAF38F002F61B0 /* SFChartElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartElement.m; sourceTree = "<group>"; };
-		C96C415B23BAF38F002F61B0 /* SFChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartView.m; sourceTree = "<group>"; };
-		C96C415E23BAF390002F61B0 /* SFChartTextGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartTextGrid.m; sourceTree = "<group>"; };
-		C96C415F23BAF390002F61B0 /* SFChartGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartGridView.m; sourceTree = "<group>"; };
-		C96C416023BAF390002F61B0 /* SFChartStandardGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartStandardGrid.m; sourceTree = "<group>"; };
-		C96C416123BAF390002F61B0 /* SFChartGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartGrid.h; sourceTree = "<group>"; };
-		C96C416223BAF390002F61B0 /* SFChartTextGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartTextGrid.h; sourceTree = "<group>"; };
-		C96C416323BAF390002F61B0 /* SFChartStandardGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartStandardGrid.h; sourceTree = "<group>"; };
-		C96C416423BAF390002F61B0 /* SFChartGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartGrid.m; sourceTree = "<group>"; };
-		C96C416523BAF390002F61B0 /* SFChartGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartGridView.h; sourceTree = "<group>"; };
 		C96C416D23BAF390002F61B0 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
-		C96C416F23BAF390002F61B0 /* SFChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChart.h; sourceTree = "<group>"; };
-		C96C417023BAF390002F61B0 /* SFChartRange.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SFChartRange.c; sourceTree = "<group>"; };
-		C96C417123BAF390002F61B0 /* SFChartCommonFunc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartCommonFunc.m; sourceTree = "<group>"; };
-		C96C417223BAF390002F61B0 /* SFChartRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartRange.h; sourceTree = "<group>"; };
-		C96C417323BAF390002F61B0 /* SFChartCommonFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartCommonFunc.h; sourceTree = "<group>"; };
-		C96DEB442226597F00538E65 /* Heqingzhao_TableViewBaseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_TableViewBaseCell.h; sourceTree = "<group>"; };
-		C96DEB452226597F00538E65 /* Heqingzhao_TableViewBaseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_TableViewBaseCell.m; sourceTree = "<group>"; };
 		C98C3B3922AE81270085A7C8 /* UINib+nibCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINib+nibCollection.m"; sourceTree = "<group>"; };
 		C98C3B3A22AE81270085A7C8 /* UINib+nibCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINib+nibCollection.h"; sourceTree = "<group>"; };
 		C99BACB122CE3382000991CE /* skin_1.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = skin_1.plist; sourceTree = "<group>"; };
@@ -189,26 +239,6 @@
 		C9A3FDA922D33C0A0054B17A /* ThemeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemeTableViewCell.h; sourceTree = "<group>"; };
 		C9A3FDAA22D33C0A0054B17A /* ThemeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThemeTableViewCell.m; sourceTree = "<group>"; };
 		C9A3FDAE22D342600054B17A /* ThemeDemo2ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThemeDemo2ViewController.xib; sourceTree = "<group>"; };
-		C9A645EB23B9F3C200BD7B6E /* Heqingzhao_Reachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_Reachability.h; sourceTree = "<group>"; };
-		C9A645EC23B9F3C200BD7B6E /* Heqingzhao_Reachability.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_Reachability.m; sourceTree = "<group>"; };
-		C9AE410522CF1C0B0092E00A /* Heqingzhao_LabelThemeDecorater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_LabelThemeDecorater.m; sourceTree = "<group>"; };
-		C9AE410622CF1C0B0092E00A /* Heqingzhao_ButtonThemeDecorater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_ButtonThemeDecorater.m; sourceTree = "<group>"; };
-		C9AE410722CF1C0B0092E00A /* UIView+ThemeConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ThemeConfig.h"; sourceTree = "<group>"; };
-		C9AE410822CF1C0B0092E00A /* Heqingzhao_ThemeSkinManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_ThemeSkinManager.m; sourceTree = "<group>"; };
-		C9AE410922CF1C0B0092E00A /* Heqingzhao_ViewThemeDecorater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_ViewThemeDecorater.m; sourceTree = "<group>"; };
-		C9AE410A22CF1C0B0092E00A /* Heqingzhao_LabelThemeDecorater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_LabelThemeDecorater.h; sourceTree = "<group>"; };
-		C9AE410B22CF1C0B0092E00A /* Heqingzhao_ButtonThemeDecorater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_ButtonThemeDecorater.h; sourceTree = "<group>"; };
-		C9AE410C22CF1C0B0092E00A /* Heqingzhao_ThemeSkinManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_ThemeSkinManager.h; sourceTree = "<group>"; };
-		C9AE410D22CF1C0B0092E00A /* UIView+ThemeConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ThemeConfig.m"; sourceTree = "<group>"; };
-		C9AE410E22CF1C0B0092E00A /* Heqingzhao_ViewThemeDecorater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_ViewThemeDecorater.h; sourceTree = "<group>"; };
-		C9B0AD69221D259C00F747B1 /* Heqingzhao_SinglePixelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_SinglePixelView.m; sourceTree = "<group>"; };
-		C9B0AD6A221D259C00F747B1 /* Heqingzhao_SinglePixelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_SinglePixelView.h; sourceTree = "<group>"; };
-		C9B0AD6C221D32DA00F747B1 /* Heqingzhao_MultiChannelEditCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_MultiChannelEditCell.h; sourceTree = "<group>"; };
-		C9B0AD6D221D32DA00F747B1 /* Heqingzhao_MultiChannelEditCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_MultiChannelEditCell.m; sourceTree = "<group>"; };
-		C9B4E3B42223B78A00454349 /* Heqingzhao_TableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_TableViewController.h; sourceTree = "<group>"; };
-		C9B4E3B52223B78A00454349 /* Heqingzhao_TableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_TableViewController.m; sourceTree = "<group>"; };
-		C9B4E3B72223B80300454349 /* Heqingzhao_TableViewSectionConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_TableViewSectionConfig.h; sourceTree = "<group>"; };
-		C9B4E3B82223B80300454349 /* Heqingzhao_TableViewSectionConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_TableViewSectionConfig.m; sourceTree = "<group>"; };
 		C9BA871722A69613008A60A1 /* cat05.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cat05.jpeg; sourceTree = "<group>"; };
 		C9BA871822A69613008A60A1 /* cat03.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cat03.jpeg; sourceTree = "<group>"; };
 		C9BA871922A69613008A60A1 /* cat02.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cat02.jpeg; sourceTree = "<group>"; };
@@ -227,28 +257,14 @@
 		C9BB1E55221551DC0050B493 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C9BB1E8A2216CEAC0050B493 /* UIView+view_frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+view_frame.m"; sourceTree = "<group>"; };
 		C9BB1E8B2216CEAC0050B493 /* UIView+view_frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+view_frame.h"; sourceTree = "<group>"; };
-		C9BB1E8D2216CEAC0050B493 /* Heqingzhao_TabbarAdjustPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_TabbarAdjustPosition.m; sourceTree = "<group>"; };
-		C9BB1E8E2216CEAC0050B493 /* Heqingzhao_MultiChannelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_MultiChannelViewController.m; sourceTree = "<group>"; };
-		C9BB1E8F2216CEAC0050B493 /* Heqingzhao_MultiChannelConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_MultiChannelConfig.m; sourceTree = "<group>"; };
-		C9BB1E902216CEAC0050B493 /* Heqingzhao_MultiChannelTopBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_MultiChannelTopBar.h; sourceTree = "<group>"; };
-		C9BB1E912216CEAC0050B493 /* Heqingzhao_TabbarAdjustPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_TabbarAdjustPosition.h; sourceTree = "<group>"; };
-		C9BB1E922216CEAC0050B493 /* Heqingzhao_MultiChannelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_MultiChannelViewController.h; sourceTree = "<group>"; };
-		C9BB1E932216CEAC0050B493 /* Heqingzhao_MultiChannelTopBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_MultiChannelTopBar.m; sourceTree = "<group>"; };
-		C9BB1E942216CEAC0050B493 /* Heqingzhao_MultiChannelConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_MultiChannelConfig.h; sourceTree = "<group>"; };
 		C9BDB026221BF5BB00FC4168 /* MultiChannelDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultiChannelDemoViewController.h; sourceTree = "<group>"; };
 		C9BDB027221BF5BB00FC4168 /* MultiChannelDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultiChannelDemoViewController.m; sourceTree = "<group>"; };
 		C9BDB029221BF6D800FC4168 /* UIColor+extension_qingzhao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+extension_qingzhao.h"; sourceTree = "<group>"; };
 		C9BDB02A221BF6D800FC4168 /* UIColor+extension_qingzhao.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+extension_qingzhao.m"; sourceTree = "<group>"; };
 		C9BDB02D221BFB3700FC4168 /* down_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down_arrow@2x.png"; sourceTree = "<group>"; };
 		C9BDB02E221BFB3700FC4168 /* down_arrow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down_arrow@3x.png"; sourceTree = "<group>"; };
-		C9BDB066221C237100FC4168 /* Heqingzhao_MultiChannelEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_MultiChannelEditViewController.h; sourceTree = "<group>"; };
-		C9BDB067221C237100FC4168 /* Heqingzhao_MultiChannelEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_MultiChannelEditViewController.m; sourceTree = "<group>"; };
 		C9BE042623B5D783006BD92B /* NSObject+DU.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+DU.h"; sourceTree = "<group>"; };
 		C9BE042723B5D783006BD92B /* NSObject+DU.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DU.m"; sourceTree = "<group>"; };
-		C9CF39DA22A8AE8700BB1FA8 /* Heqingzhao_BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_BaseViewController.h; sourceTree = "<group>"; };
-		C9CF39DB22A8AE8700BB1FA8 /* Heqingzhao_BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_BaseViewController.m; sourceTree = "<group>"; };
-		C9CF39E222A8F05B00BB1FA8 /* Heqingzhao_RubishManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_RubishManager.h; sourceTree = "<group>"; };
-		C9CF39E322A8F05B00BB1FA8 /* Heqingzhao_RubishManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_RubishManager.m; sourceTree = "<group>"; };
 		C9CF39E522A8F07200BB1FA8 /* NSObject+classNameCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+classNameCollection.h"; sourceTree = "<group>"; };
 		C9CF39E622A8F07200BB1FA8 /* NSObject+classNameCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+classNameCollection.m"; sourceTree = "<group>"; };
 		C9CF39E822A9094700BB1FA8 /* UIViewController+nibCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+nibCollection.m"; sourceTree = "<group>"; };
@@ -264,28 +280,12 @@
 		C9D260C12228DCCC009AE2EF /* TableControllerDemoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableControllerDemoCell.m; sourceTree = "<group>"; };
 		C9D3B4DD221ECA3B00A8E573 /* label_delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "label_delete@2x.png"; sourceTree = "<group>"; };
 		C9D3B4DE221ECA3B00A8E573 /* label_delete@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "label_delete@3x.png"; sourceTree = "<group>"; };
-		C9D3B4E3221ECE8D00A8E573 /* Heqingzhao_ImageLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_ImageLoader.h; sourceTree = "<group>"; };
-		C9D3B4E4221ECE8D00A8E573 /* Heqingzhao_ImageLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_ImageLoader.m; sourceTree = "<group>"; };
 		C9D3B4E6221ECECC00A8E573 /* navi_back@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navi_back@3x.png"; sourceTree = "<group>"; };
 		C9D3B4E7221ECECC00A8E573 /* navi_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navi_back@2x.png"; sourceTree = "<group>"; };
-		C9D4A94522978DC800FEFD5E /* Heqingzhao_CrashCatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_CrashCatcher.h; sourceTree = "<group>"; };
-		C9D4A94622978DC800FEFD5E /* Heqingzhao_CrashCatcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_CrashCatcher.m; sourceTree = "<group>"; };
-		C9D4A95A2297EA7B00FEFD5E /* UINavigationBar+layoutSubViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+layoutSubViews.h"; sourceTree = "<group>"; };
-		C9D4A95B2297EA7B00FEFD5E /* UINavigationBar+layoutSubViews.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+layoutSubViews.m"; sourceTree = "<group>"; };
-		C9DFFD27222802D500A8374C /* Heqingzhao_TopLoadingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_TopLoadingView.h; sourceTree = "<group>"; };
-		C9DFFD28222802D500A8374C /* Heqingzhao_TopLoadingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_TopLoadingView.m; sourceTree = "<group>"; };
-		C9DFFD2B222806DE00A8374C /* Heqingzhao_LoadingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_LoadingView.h; sourceTree = "<group>"; };
-		C9DFFD2C222806DE00A8374C /* Heqingzhao_LoadingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_LoadingView.m; sourceTree = "<group>"; };
-		C9DFFD2E22280B4D00A8374C /* Heqingzhao_BottomLoadingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_BottomLoadingView.h; sourceTree = "<group>"; };
-		C9DFFD2F22280B4D00A8374C /* Heqingzhao_BottomLoadingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_BottomLoadingView.m; sourceTree = "<group>"; };
 		C9E86ACF222FB7C500F85E19 /* DUDemoObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DUDemoObject.h; sourceTree = "<group>"; };
 		C9E86AD0222FB7C500F85E19 /* DUDemoObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DUDemoObject.m; sourceTree = "<group>"; };
 		C9E86AD2222FB7DC00F85E19 /* DUDemoChildObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DUDemoChildObject.h; sourceTree = "<group>"; };
 		C9E86AD3222FB7DC00F85E19 /* DUDemoChildObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DUDemoChildObject.m; sourceTree = "<group>"; };
-		C9F74AE622A60481001ACF3F /* Heqingzhao_PageControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_PageControl.h; sourceTree = "<group>"; };
-		C9F74AE722A60481001ACF3F /* Heqingzhao_PageControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_PageControl.m; sourceTree = "<group>"; };
-		C9F74AEB22A63C58001ACF3F /* Heqingzhao_ScrollAdListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_ScrollAdListView.h; sourceTree = "<group>"; };
-		C9F74AEC22A63C58001ACF3F /* Heqingzhao_ScrollAdListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_ScrollAdListView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -302,8 +302,8 @@
 		C952BC8A222CFF20006B22DC /* dynamicupdate */ = {
 			isa = PBXGroup;
 			children = (
-				C952BC8B222D0DE7006B22DC /* Heqingzhao_DUContext.h */,
-				C952BC8C222D0DE7006B22DC /* Heqingzhao_DUContext.m */,
+				C92D50F1240CC26000B03B46 /* Heqz_DUContext.h */,
+				C92D50F2240CC26000B03B46 /* Heqz_DUContext.m */,
 				C9BE042623B5D783006BD92B /* NSObject+DU.h */,
 				C9BE042723B5D783006BD92B /* NSObject+DU.m */,
 				C952BC91222D4625006B22DC /* du_main.js */,
@@ -329,18 +329,18 @@
 		C96C413223BAF38F002F61B0 /* animatableElement */ = {
 			isa = PBXGroup;
 			children = (
-				C96C413823BAF38F002F61B0 /* SFChartPtCollectionAnimatable.h */,
-				C96C413E23BAF38F002F61B0 /* SFChartPtCollectionAnimatable.m */,
-				C96C413923BAF38F002F61B0 /* SFChartPolylineAnimatable.h */,
-				C96C413423BAF38F002F61B0 /* SFChartPolylineAnimatable.m */,
-				C96C413C23BAF38F002F61B0 /* SFChartImageAnimatable.h */,
-				C96C413523BAF38F002F61B0 /* SFChartImageAnimatable.m */,
-				C96C413323BAF38F002F61B0 /* SFChartTextAnimatable.h */,
-				C96C413A23BAF38F002F61B0 /* SFChartTextAnimatable.m */,
-				C96C413B23BAF38F002F61B0 /* SFChartPillarAnimatable.h */,
-				C96C413623BAF38F002F61B0 /* SFChartPillarAnimatable.m */,
-				C96C413D23BAF38F002F61B0 /* SFChartFillAnimatable.h */,
-				C96C413723BAF38F002F61B0 /* SFChartFillAnimatable.m */,
+				C92D513C240CC35D00B03B46 /* Heqz_ChartFillAnimatable.h */,
+				C92D5144240CC35E00B03B46 /* Heqz_ChartFillAnimatable.m */,
+				C92D513B240CC35D00B03B46 /* Heqz_ChartImageAnimatable.h */,
+				C92D5145240CC35E00B03B46 /* Heqz_ChartImageAnimatable.m */,
+				C92D513D240CC35E00B03B46 /* Heqz_ChartPillarAnimatable.h */,
+				C92D513E240CC35E00B03B46 /* Heqz_ChartPillarAnimatable.m */,
+				C92D513F240CC35E00B03B46 /* Heqz_ChartPolylineAnimatable.h */,
+				C92D5141240CC35E00B03B46 /* Heqz_ChartPolylineAnimatable.m */,
+				C92D5140240CC35E00B03B46 /* Heqz_ChartPtCollectionAnimatable.h */,
+				C92D5142240CC35E00B03B46 /* Heqz_ChartPtCollectionAnimatable.m */,
+				C92D5143240CC35E00B03B46 /* Heqz_ChartTextAnimatable.h */,
+				C92D513A240CC35D00B03B46 /* Heqz_ChartTextAnimatable.m */,
 			);
 			path = animatableElement;
 			sourceTree = "<group>";
@@ -348,16 +348,16 @@
 		C96C413F23BAF38F002F61B0 /* coordinateAxis */ = {
 			isa = PBXGroup;
 			children = (
-				C96C414623BAF38F002F61B0 /* SFChartAxisMarkLabel.h */,
-				C96C414123BAF38F002F61B0 /* SFChartAxisMarkLabel.m */,
-				C96C414223BAF38F002F61B0 /* SFChartCoordinateAxis.h */,
-				C96C414823BAF38F002F61B0 /* SFChartCoordinateAxis.m */,
-				C96C414023BAF38F002F61B0 /* SFChartCoordinateVerticalAxis.h */,
-				C96C414523BAF38F002F61B0 /* SFChartCoordinateVerticalAxis.m */,
-				C96C414323BAF38F002F61B0 /* SFChartCoordinateHorizontalAxis.h */,
-				C96C414923BAF38F002F61B0 /* SFChartCoordinateHorizontalAxis.m */,
-				C96C414423BAF38F002F61B0 /* SFChartCoordinateHorizontalAxisAnimatable.h */,
-				C96C414723BAF38F002F61B0 /* SFChartCoordinateHorizontalAxisAnimatable.m */,
+				C92D5125240CC34500B03B46 /* Heqz_ChartAxisMarkLabel.h */,
+				C92D5121240CC34500B03B46 /* Heqz_ChartAxisMarkLabel.m */,
+				C92D5122240CC34500B03B46 /* Heqz_ChartCoordinateAxis.h */,
+				C92D5120240CC34400B03B46 /* Heqz_ChartCoordinateAxis.m */,
+				C92D5128240CC34500B03B46 /* Heqz_ChartCoordinateHorizontalAxis.h */,
+				C92D511F240CC34400B03B46 /* Heqz_ChartCoordinateHorizontalAxis.m */,
+				C92D5123240CC34500B03B46 /* Heqz_ChartCoordinateHorizontalAxisAnimatable.h */,
+				C92D5124240CC34500B03B46 /* Heqz_ChartCoordinateHorizontalAxisAnimatable.m */,
+				C92D5126240CC34500B03B46 /* Heqz_ChartCoordinateVerticalAxis.h */,
+				C92D5127240CC34500B03B46 /* Heqz_ChartCoordinateVerticalAxis.m */,
 			);
 			path = coordinateAxis;
 			sourceTree = "<group>";
@@ -365,14 +365,14 @@
 		C96C414A23BAF38F002F61B0 /* element */ = {
 			isa = PBXGroup;
 			children = (
-				C96C414C23BAF38F002F61B0 /* SFChartPointCollection.h */,
-				C96C415023BAF38F002F61B0 /* SFChartPointCollection.m */,
-				C96C414D23BAF38F002F61B0 /* SFChartPolylineDrawable.h */,
-				C96C414F23BAF38F002F61B0 /* SFChartPolylineDrawable.m */,
-				C96C415223BAF38F002F61B0 /* SFChartFillDrawable.h */,
-				C96C414E23BAF38F002F61B0 /* SFChartFillDrawable.m */,
-				C96C415123BAF38F002F61B0 /* SFChartPillarDrawable.h */,
-				C96C414B23BAF38F002F61B0 /* SFChartPillarDrawable.m */,
+				C92D5134240CC35100B03B46 /* Heqz_ChartFillDrawable.h */,
+				C92D5133240CC35100B03B46 /* Heqz_ChartFillDrawable.m */,
+				C92D5130240CC35100B03B46 /* Heqz_ChartPillarDrawable.h */,
+				C92D512F240CC35100B03B46 /* Heqz_ChartPillarDrawable.m */,
+				C92D512E240CC35100B03B46 /* Heqz_ChartPointCollection.h */,
+				C92D5131240CC35100B03B46 /* Heqz_ChartPointCollection.m */,
+				C92D5135240CC35100B03B46 /* Heqz_ChartPolylineDrawable.h */,
+				C92D5132240CC35100B03B46 /* Heqz_ChartPolylineDrawable.m */,
 			);
 			path = element;
 			sourceTree = "<group>";
@@ -380,14 +380,14 @@
 		C96C415323BAF38F002F61B0 /* base */ = {
 			isa = PBXGroup;
 			children = (
-				C96C415623BAF38F002F61B0 /* SFChartElement.h */,
-				C96C415A23BAF38F002F61B0 /* SFChartElement.m */,
-				C96C415723BAF38F002F61B0 /* SFChartView.h */,
-				C96C415B23BAF38F002F61B0 /* SFChartView.m */,
-				C96C415923BAF38F002F61B0 /* SFChartChart.h */,
-				C96C415423BAF38F002F61B0 /* SFChartChart.m */,
-				C96C415823BAF38F002F61B0 /* SFChartLayer.h */,
-				C96C415523BAF38F002F61B0 /* SFChartLayer.m */,
+				C92D5113240CC33900B03B46 /* Heqz_ChartChart.h */,
+				C92D5116240CC33900B03B46 /* Heqz_ChartChart.m */,
+				C92D5114240CC33900B03B46 /* Heqz_ChartElement.h */,
+				C92D5115240CC33900B03B46 /* Heqz_ChartElement.m */,
+				C92D5118240CC33900B03B46 /* Heqz_ChartLayer.h */,
+				C92D5119240CC33900B03B46 /* Heqz_ChartLayer.m */,
+				C92D5117240CC33900B03B46 /* Heqz_ChartView.h */,
+				C92D511A240CC33A00B03B46 /* Heqz_ChartView.m */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -395,14 +395,14 @@
 		C96C415D23BAF390002F61B0 /* grid */ = {
 			isa = PBXGroup;
 			children = (
-				C96C416123BAF390002F61B0 /* SFChartGrid.h */,
-				C96C416423BAF390002F61B0 /* SFChartGrid.m */,
-				C96C416523BAF390002F61B0 /* SFChartGridView.h */,
-				C96C415F23BAF390002F61B0 /* SFChartGridView.m */,
-				C96C416323BAF390002F61B0 /* SFChartStandardGrid.h */,
-				C96C416023BAF390002F61B0 /* SFChartStandardGrid.m */,
-				C96C416223BAF390002F61B0 /* SFChartTextGrid.h */,
-				C96C415E23BAF390002F61B0 /* SFChartTextGrid.m */,
+				C92D5152240CC36B00B03B46 /* Heqz_ChartGrid.h */,
+				C92D514F240CC36B00B03B46 /* Heqz_ChartGrid.m */,
+				C92D5153240CC36B00B03B46 /* Heqz_ChartGridView.h */,
+				C92D5150240CC36B00B03B46 /* Heqz_ChartGridView.m */,
+				C92D5151240CC36B00B03B46 /* Heqz_ChartStandardGrid.h */,
+				C92D514D240CC36B00B03B46 /* Heqz_ChartStandardGrid.m */,
+				C92D514E240CC36B00B03B46 /* Heqz_ChartTextGrid.h */,
+				C92D514C240CC36B00B03B46 /* Heqz_ChartTextGrid.m */,
 			);
 			path = grid;
 			sourceTree = "<group>";
@@ -410,11 +410,11 @@
 		C96C416E23BAF390002F61B0 /* common */ = {
 			isa = PBXGroup;
 			children = (
-				C96C416F23BAF390002F61B0 /* SFChart.h */,
-				C96C417223BAF390002F61B0 /* SFChartRange.h */,
-				C96C417023BAF390002F61B0 /* SFChartRange.c */,
-				C96C417123BAF390002F61B0 /* SFChartCommonFunc.m */,
-				C96C417323BAF390002F61B0 /* SFChartCommonFunc.h */,
+				C92D5110240CC32E00B03B46 /* Heqz_Chart.h */,
+				C92D510F240CC32E00B03B46 /* Heqz_ChartCommonFunc.h */,
+				C92D510E240CC32E00B03B46 /* Heqz_ChartCommonFunc.m */,
+				C92D510C240CC32E00B03B46 /* Heqz_ChartRange.c */,
+				C92D510D240CC32E00B03B46 /* Heqz_ChartRange.h */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -422,8 +422,8 @@
 		C9A645E823B9F0EC00BD7B6E /* network */ = {
 			isa = PBXGroup;
 			children = (
-				C9A645EB23B9F3C200BD7B6E /* Heqingzhao_Reachability.h */,
-				C9A645EC23B9F3C200BD7B6E /* Heqingzhao_Reachability.m */,
+				C92D5109240CC2B100B03B46 /* Heqz_Reachability.h */,
+				C92D510A240CC2B100B03B46 /* Heqz_Reachability.m */,
 			);
 			path = network;
 			sourceTree = "<group>";
@@ -431,16 +431,16 @@
 		C9AE410422CF1C0B0092E00A /* controlSkin */ = {
 			isa = PBXGroup;
 			children = (
-				C9AE410C22CF1C0B0092E00A /* Heqingzhao_ThemeSkinManager.h */,
-				C9AE410822CF1C0B0092E00A /* Heqingzhao_ThemeSkinManager.m */,
-				C9AE410722CF1C0B0092E00A /* UIView+ThemeConfig.h */,
-				C9AE410D22CF1C0B0092E00A /* UIView+ThemeConfig.m */,
-				C9AE410E22CF1C0B0092E00A /* Heqingzhao_ViewThemeDecorater.h */,
-				C9AE410922CF1C0B0092E00A /* Heqingzhao_ViewThemeDecorater.m */,
-				C9AE410A22CF1C0B0092E00A /* Heqingzhao_LabelThemeDecorater.h */,
-				C9AE410522CF1C0B0092E00A /* Heqingzhao_LabelThemeDecorater.m */,
-				C9AE410B22CF1C0B0092E00A /* Heqingzhao_ButtonThemeDecorater.h */,
-				C9AE410622CF1C0B0092E00A /* Heqingzhao_ButtonThemeDecorater.m */,
+				C92D50FE240CC2A200B03B46 /* Heqz_ButtonThemeDecorater.h */,
+				C92D5101240CC2A300B03B46 /* Heqz_ButtonThemeDecorater.m */,
+				C92D50FA240CC2A200B03B46 /* Heqz_LabelThemeDecorater.h */,
+				C92D50FB240CC2A200B03B46 /* Heqz_LabelThemeDecorater.m */,
+				C92D50FC240CC2A200B03B46 /* Heqz_ThemeSkinManager.h */,
+				C92D50FF240CC2A300B03B46 /* Heqz_ThemeSkinManager.m */,
+				C92D5103240CC2A300B03B46 /* Heqz_ViewThemeDecorater.h */,
+				C92D5102240CC2A300B03B46 /* Heqz_ViewThemeDecorater.m */,
+				C92D5100240CC2A300B03B46 /* UIView+ThemeConfig.h */,
+				C92D50FD240CC2A200B03B46 /* UIView+ThemeConfig.m */,
 			);
 			path = controlSkin;
 			sourceTree = "<group>";
@@ -448,12 +448,12 @@
 		C9B4E3B32223B75B00454349 /* tableDataCotroller */ = {
 			isa = PBXGroup;
 			children = (
-				C9B4E3B72223B80300454349 /* Heqingzhao_TableViewSectionConfig.h */,
-				C9B4E3B82223B80300454349 /* Heqingzhao_TableViewSectionConfig.m */,
-				C96DEB442226597F00538E65 /* Heqingzhao_TableViewBaseCell.h */,
-				C96DEB452226597F00538E65 /* Heqingzhao_TableViewBaseCell.m */,
-				C9B4E3B42223B78A00454349 /* Heqingzhao_TableViewController.h */,
-				C9B4E3B52223B78A00454349 /* Heqingzhao_TableViewController.m */,
+				C92D50D8240CC24400B03B46 /* Heqz_TableViewBaseCell.h */,
+				C92D50D4240CC24400B03B46 /* Heqz_TableViewBaseCell.m */,
+				C92D50D5240CC24400B03B46 /* Heqz_TableViewController.h */,
+				C92D50D2240CC24400B03B46 /* Heqz_TableViewController.m */,
+				C92D50D7240CC24400B03B46 /* Heqz_TableViewSectionConfig.h */,
+				C92D50D3240CC24400B03B46 /* Heqz_TableViewSectionConfig.m */,
 			);
 			path = tableDataCotroller;
 			sourceTree = "<group>";
@@ -553,12 +553,12 @@
 				C9BB1E8A2216CEAC0050B493 /* UIView+view_frame.m */,
 				C9BDB029221BF6D800FC4168 /* UIColor+extension_qingzhao.h */,
 				C9BDB02A221BF6D800FC4168 /* UIColor+extension_qingzhao.m */,
-				C9D3B4E3221ECE8D00A8E573 /* Heqingzhao_ImageLoader.h */,
-				C9D3B4E4221ECE8D00A8E573 /* Heqingzhao_ImageLoader.m */,
-				C9052A4422201449003EF4B8 /* Heqingzhao_AppContext.h */,
-				C9052A4522201449003EF4B8 /* Heqingzhao_AppContext.m */,
-				C9CF39DA22A8AE8700BB1FA8 /* Heqingzhao_BaseViewController.h */,
-				C9CF39DB22A8AE8700BB1FA8 /* Heqingzhao_BaseViewController.m */,
+				C92D50B5240CC22800B03B46 /* Heqz_AppContext.h */,
+				C92D50B4240CC22800B03B46 /* Heqz_AppContext.m */,
+				C92D50B6240CC22800B03B46 /* Heqz_BaseViewController.h */,
+				C92D50B7240CC22800B03B46 /* Heqz_BaseViewController.m */,
+				C92D50B9240CC22800B03B46 /* Heqz_ImageLoader.h */,
+				C92D50B8240CC22800B03B46 /* Heqz_ImageLoader.m */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -566,20 +566,20 @@
 		C9BB1E8C2216CEAC0050B493 /* multiChannels */ = {
 			isa = PBXGroup;
 			children = (
-				C9BB1E912216CEAC0050B493 /* Heqingzhao_TabbarAdjustPosition.h */,
-				C9BB1E8D2216CEAC0050B493 /* Heqingzhao_TabbarAdjustPosition.m */,
-				C9BB1E942216CEAC0050B493 /* Heqingzhao_MultiChannelConfig.h */,
-				C9BB1E8F2216CEAC0050B493 /* Heqingzhao_MultiChannelConfig.m */,
-				C9BB1E902216CEAC0050B493 /* Heqingzhao_MultiChannelTopBar.h */,
-				C9BB1E932216CEAC0050B493 /* Heqingzhao_MultiChannelTopBar.m */,
-				C94138DA221A476800AFA04F /* Heqingzhao_MultiChannelContentView.h */,
-				C94138DB221A476800AFA04F /* Heqingzhao_MultiChannelContentView.m */,
-				C9BB1E922216CEAC0050B493 /* Heqingzhao_MultiChannelViewController.h */,
-				C9BB1E8E2216CEAC0050B493 /* Heqingzhao_MultiChannelViewController.m */,
-				C9BDB066221C237100FC4168 /* Heqingzhao_MultiChannelEditViewController.h */,
-				C9BDB067221C237100FC4168 /* Heqingzhao_MultiChannelEditViewController.m */,
-				C9B0AD6C221D32DA00F747B1 /* Heqingzhao_MultiChannelEditCell.h */,
-				C9B0AD6D221D32DA00F747B1 /* Heqingzhao_MultiChannelEditCell.m */,
+				C92D50C1240CC23700B03B46 /* Heqz_MultiChannelConfig.h */,
+				C92D50BE240CC23700B03B46 /* Heqz_MultiChannelConfig.m */,
+				C92D50C4240CC23700B03B46 /* Heqz_MultiChannelContentView.h */,
+				C92D50C6240CC23800B03B46 /* Heqz_MultiChannelContentView.m */,
+				C92D50BF240CC23700B03B46 /* Heqz_MultiChannelEditCell.h */,
+				C92D50C3240CC23700B03B46 /* Heqz_MultiChannelEditCell.m */,
+				C92D50CA240CC23800B03B46 /* Heqz_MultiChannelEditViewController.h */,
+				C92D50C5240CC23700B03B46 /* Heqz_MultiChannelEditViewController.m */,
+				C92D50C7240CC23800B03B46 /* Heqz_MultiChannelTopBar.h */,
+				C92D50C2240CC23700B03B46 /* Heqz_MultiChannelTopBar.m */,
+				C92D50BD240CC23700B03B46 /* Heqz_MultiChannelViewController.h */,
+				C92D50C0240CC23700B03B46 /* Heqz_MultiChannelViewController.m */,
+				C92D50C9240CC23800B03B46 /* Heqz_TabbarAdjustPosition.h */,
+				C92D50C8240CC23800B03B46 /* Heqz_TabbarAdjustPosition.m */,
 			);
 			path = multiChannels;
 			sourceTree = "<group>";
@@ -600,8 +600,8 @@
 		C9CF39DE22A8EFE100BB1FA8 /* rubishAnalyze */ = {
 			isa = PBXGroup;
 			children = (
-				C9CF39E222A8F05B00BB1FA8 /* Heqingzhao_RubishManager.h */,
-				C9CF39E322A8F05B00BB1FA8 /* Heqingzhao_RubishManager.m */,
+				C92D50F7240CC28D00B03B46 /* Heqz_RubishManager.h */,
+				C92D50F8240CC28D00B03B46 /* Heqz_RubishManager.m */,
 				C9CF39E522A8F07200BB1FA8 /* NSObject+classNameCollection.h */,
 				C9CF39E622A8F07200BB1FA8 /* NSObject+classNameCollection.m */,
 				C9CF39E922A9094700BB1FA8 /* UIViewController+nibCollection.h */,
@@ -619,8 +619,8 @@
 		C9D4A94422978C9000FEFD5E /* crashvc */ = {
 			isa = PBXGroup;
 			children = (
-				C9D4A94522978DC800FEFD5E /* Heqingzhao_CrashCatcher.h */,
-				C9D4A94622978DC800FEFD5E /* Heqingzhao_CrashCatcher.m */,
+				C92D50F5240CC27300B03B46 /* Heqz_CrashCatcher.h */,
+				C92D50F4240CC27300B03B46 /* Heqz_CrashCatcher.m */,
 			);
 			path = crashvc;
 			sourceTree = "<group>";
@@ -628,20 +628,20 @@
 		C9DFFD2A222806B100A8374C /* ui */ = {
 			isa = PBXGroup;
 			children = (
-				C9B0AD6A221D259C00F747B1 /* Heqingzhao_SinglePixelView.h */,
-				C9B0AD69221D259C00F747B1 /* Heqingzhao_SinglePixelView.m */,
-				C9DFFD2B222806DE00A8374C /* Heqingzhao_LoadingView.h */,
-				C9DFFD2C222806DE00A8374C /* Heqingzhao_LoadingView.m */,
-				C9DFFD27222802D500A8374C /* Heqingzhao_TopLoadingView.h */,
-				C9DFFD28222802D500A8374C /* Heqingzhao_TopLoadingView.m */,
-				C9DFFD2E22280B4D00A8374C /* Heqingzhao_BottomLoadingView.h */,
-				C9DFFD2F22280B4D00A8374C /* Heqingzhao_BottomLoadingView.m */,
-				C9F74AE622A60481001ACF3F /* Heqingzhao_PageControl.h */,
-				C9F74AE722A60481001ACF3F /* Heqingzhao_PageControl.m */,
-				C9F74AEB22A63C58001ACF3F /* Heqingzhao_ScrollAdListView.h */,
-				C9F74AEC22A63C58001ACF3F /* Heqingzhao_ScrollAdListView.m */,
-				C9D4A95A2297EA7B00FEFD5E /* UINavigationBar+layoutSubViews.h */,
-				C9D4A95B2297EA7B00FEFD5E /* UINavigationBar+layoutSubViews.m */,
+				C92D50DE240CC25300B03B46 /* Heqz_BottomLoadingView.h */,
+				C92D50DF240CC25300B03B46 /* Heqz_BottomLoadingView.m */,
+				C92D50E6240CC25400B03B46 /* Heqz_LoadingView.h */,
+				C92D50E8240CC25400B03B46 /* Heqz_LoadingView.m */,
+				C92D50E1240CC25300B03B46 /* Heqz_PageControl.h */,
+				C92D50E5240CC25300B03B46 /* Heqz_PageControl.m */,
+				C92D50DD240CC25300B03B46 /* Heqz_ScrollAdListView.h */,
+				C92D50E9240CC25400B03B46 /* Heqz_ScrollAdListView.m */,
+				C92D50E2240CC25300B03B46 /* Heqz_SinglePixelView.h */,
+				C92D50E7240CC25400B03B46 /* Heqz_SinglePixelView.m */,
+				C92D50DC240CC25200B03B46 /* Heqz_TopLoadingView.h */,
+				C92D50E0240CC25300B03B46 /* Heqz_TopLoadingView.m */,
+				C92D50E3240CC25300B03B46 /* UINavigationBar+layoutSubViews.h */,
+				C92D50E4240CC25300B03B46 /* UINavigationBar+layoutSubViews.m */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -736,86 +736,86 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C96C417D23BAF390002F61B0 /* SFChartCoordinateAxis.m in Sources */,
+				C92D514B240CC35E00B03B46 /* Heqz_ChartImageAnimatable.m in Sources */,
 				C9BA872322A69BF5008A60A1 /* cat01.jpeg in Sources */,
+				C92D512D240CC34600B03B46 /* Heqz_ChartCoordinateVerticalAxis.m in Sources */,
+				C92D50EC240CC25400B03B46 /* UINavigationBar+layoutSubViews.m in Sources */,
 				C9BA872422A69BF5008A60A1 /* cat02.jpeg in Sources */,
-				C9CF39E422A8F05B00BB1FA8 /* Heqingzhao_RubishManager.m in Sources */,
-				C96C418223BAF390002F61B0 /* SFChartPointCollection.m in Sources */,
-				C96C418B23BAF390002F61B0 /* SFChartGrid.m in Sources */,
-				C9AE411022CF1C0B0092E00A /* Heqingzhao_ButtonThemeDecorater.m in Sources */,
+				C92D50F0240CC25400B03B46 /* Heqz_ScrollAdListView.m in Sources */,
+				C92D5139240CC35100B03B46 /* Heqz_ChartFillDrawable.m in Sources */,
+				C92D50CB240CC23800B03B46 /* Heqz_MultiChannelConfig.m in Sources */,
+				C92D510B240CC2B100B03B46 /* Heqz_Reachability.m in Sources */,
+				C92D5105240CC2A300B03B46 /* UIView+ThemeConfig.m in Sources */,
+				C92D50CE240CC23800B03B46 /* Heqz_MultiChannelEditCell.m in Sources */,
 				C9BA872522A69BF5008A60A1 /* cat03.jpeg in Sources */,
+				C92D50CF240CC23800B03B46 /* Heqz_MultiChannelEditViewController.m in Sources */,
 				C9A3FDAC22D33C0A0054B17A /* ThemeTableViewCell.m in Sources */,
-				C96C418523BAF390002F61B0 /* SFChartElement.m in Sources */,
-				C96C418123BAF390002F61B0 /* SFChartPolylineDrawable.m in Sources */,
-				C96C417C23BAF390002F61B0 /* SFChartCoordinateHorizontalAxisAnimatable.m in Sources */,
-				C96C418023BAF390002F61B0 /* SFChartFillDrawable.m in Sources */,
-				C96C417E23BAF390002F61B0 /* SFChartCoordinateHorizontalAxis.m in Sources */,
-				C96C418A23BAF390002F61B0 /* SFChartStandardGrid.m in Sources */,
+				C92D5147240CC35E00B03B46 /* Heqz_ChartPillarAnimatable.m in Sources */,
+				C92D50CD240CC23800B03B46 /* Heqz_MultiChannelTopBar.m in Sources */,
+				C92D5106240CC2A300B03B46 /* Heqz_ThemeSkinManager.m in Sources */,
 				C9BE042823B5D783006BD92B /* NSObject+DU.m in Sources */,
 				C9BA872622A69BF5008A60A1 /* cat04.jpeg in Sources */,
+				C92D50BA240CC22800B03B46 /* Heqz_AppContext.m in Sources */,
 				C9BA872722A69BF5008A60A1 /* cat05.jpeg in Sources */,
-				C96C419123BAF390002F61B0 /* SFChartCommonFunc.m in Sources */,
-				C9AE411122CF1C0B0092E00A /* Heqingzhao_ThemeSkinManager.m in Sources */,
-				C96C417723BAF390002F61B0 /* SFChartFillAnimatable.m in Sources */,
-				C96C418423BAF390002F61B0 /* SFChartLayer.m in Sources */,
-				C9A645ED23B9F3C200BD7B6E /* Heqingzhao_Reachability.m in Sources */,
+				C92D50EE240CC25400B03B46 /* Heqz_SinglePixelView.m in Sources */,
+				C92D50F9240CC28D00B03B46 /* Heqz_RubishManager.m in Sources */,
 				C9BA872822A69BF5008A60A1 /* cat06.jpeg in Sources */,
+				C92D50F6240CC27300B03B46 /* Heqz_CrashCatcher.m in Sources */,
+				C92D50F3240CC26000B03B46 /* Heqz_DUContext.m in Sources */,
 				C9CF39E722A8F07300BB1FA8 /* NSObject+classNameCollection.m in Sources */,
-				C9BDB068221C237100FC4168 /* Heqingzhao_MultiChannelEditViewController.m in Sources */,
-				C96DEB462226597F00538E65 /* Heqingzhao_TableViewBaseCell.m in Sources */,
 				C98C3B3B22AE81270085A7C8 /* UINib+nibCollection.m in Sources */,
-				C9CF39DC22A8AE8700BB1FA8 /* Heqingzhao_BaseViewController.m in Sources */,
 				C99BACB822CE3519000991CE /* ThemeDemoViewController.m in Sources */,
-				C9B0AD6E221D32DA00F747B1 /* Heqingzhao_MultiChannelEditCell.m in Sources */,
-				C9BB1E962216CEAC0050B493 /* Heqingzhao_TabbarAdjustPosition.m in Sources */,
 				C9E86AD1222FB7C500F85E19 /* DUDemoObject.m in Sources */,
-				C9D4A94722978DC800FEFD5E /* Heqingzhao_CrashCatcher.m in Sources */,
-				C9AE411222CF1C0B0092E00A /* Heqingzhao_ViewThemeDecorater.m in Sources */,
-				C96C418923BAF390002F61B0 /* SFChartGridView.m in Sources */,
-				C9AE411322CF1C0B0092E00A /* UIView+ThemeConfig.m in Sources */,
-				C96C417B23BAF390002F61B0 /* SFChartCoordinateVerticalAxis.m in Sources */,
-				C9DFFD2D222806DE00A8374C /* Heqingzhao_LoadingView.m in Sources */,
-				C9B4E3B92223B80300454349 /* Heqingzhao_TableViewSectionConfig.m in Sources */,
-				C9B0AD6B221D259C00F747B1 /* Heqingzhao_SinglePixelView.m in Sources */,
-				C96C417F23BAF390002F61B0 /* SFChartPillarDrawable.m in Sources */,
-				C94138DC221A476800AFA04F /* Heqingzhao_MultiChannelContentView.m in Sources */,
-				C952BC8D222D0DE7006B22DC /* Heqingzhao_DUContext.m in Sources */,
+				C92D50EA240CC25400B03B46 /* Heqz_BottomLoadingView.m in Sources */,
+				C92D50ED240CC25400B03B46 /* Heqz_PageControl.m in Sources */,
+				C92D50DB240CC24500B03B46 /* Heqz_TableViewBaseCell.m in Sources */,
+				C92D5155240CC36B00B03B46 /* Heqz_ChartStandardGrid.m in Sources */,
 				C9CF39ED22A90C2500BB1FA8 /* NSBundle+nibCollection.m in Sources */,
-				C9B4E3B62223B78A00454349 /* Heqingzhao_TableViewController.m in Sources */,
-				C9AE410F22CF1C0B0092E00A /* Heqingzhao_LabelThemeDecorater.m in Sources */,
-				C9052A4622201449003EF4B8 /* Heqingzhao_AppContext.m in Sources */,
 				C9D260BF2228D962009AE2EF /* TableControllerDemoViewController.m in Sources */,
-				C9BB1E982216CEAC0050B493 /* Heqingzhao_MultiChannelConfig.m in Sources */,
-				C96C417A23BAF390002F61B0 /* SFChartAxisMarkLabel.m in Sources */,
-				C96C418323BAF390002F61B0 /* SFChartChart.m in Sources */,
-				C96C417923BAF390002F61B0 /* SFChartPtCollectionAnimatable.m in Sources */,
-				C96C417423BAF390002F61B0 /* SFChartPolylineAnimatable.m in Sources */,
-				C96C418623BAF390002F61B0 /* SFChartView.m in Sources */,
+				C92D5104240CC2A300B03B46 /* Heqz_LabelThemeDecorater.m in Sources */,
+				C92D5108240CC2A300B03B46 /* Heqz_ViewThemeDecorater.m in Sources */,
+				C92D511E240CC33A00B03B46 /* Heqz_ChartView.m in Sources */,
+				C92D5137240CC35100B03B46 /* Heqz_ChartPointCollection.m in Sources */,
+				C92D5146240CC35E00B03B46 /* Heqz_ChartTextAnimatable.m in Sources */,
+				C92D5157240CC36B00B03B46 /* Heqz_ChartGridView.m in Sources */,
+				C92D50EF240CC25400B03B46 /* Heqz_LoadingView.m in Sources */,
+				C92D511D240CC33A00B03B46 /* Heqz_ChartLayer.m in Sources */,
 				C9BB1E4B221551D90050B493 /* ViewController.m in Sources */,
 				C9CF39EA22A9094700BB1FA8 /* UIViewController+nibCollection.m in Sources */,
-				C9F74AED22A63C58001ACF3F /* Heqingzhao_ScrollAdListView.m in Sources */,
-				C9DFFD29222802D500A8374C /* Heqingzhao_TopLoadingView.m in Sources */,
-				C9BB1E992216CEAC0050B493 /* Heqingzhao_MultiChannelTopBar.m in Sources */,
-				C96C417523BAF390002F61B0 /* SFChartImageAnimatable.m in Sources */,
+				C92D50D9240CC24500B03B46 /* Heqz_TableViewController.m in Sources */,
+				C92D50D1240CC23800B03B46 /* Heqz_TabbarAdjustPosition.m in Sources */,
+				C92D5148240CC35E00B03B46 /* Heqz_ChartPolylineAnimatable.m in Sources */,
+				C92D50CC240CC23800B03B46 /* Heqz_MultiChannelViewController.m in Sources */,
 				C9BB1E56221551DC0050B493 /* main.m in Sources */,
+				C92D511B240CC33A00B03B46 /* Heqz_ChartElement.m in Sources */,
+				C92D5149240CC35E00B03B46 /* Heqz_ChartPtCollectionAnimatable.m in Sources */,
 				C9BDB02B221BF6D800FC4168 /* UIColor+extension_qingzhao.m in Sources */,
+				C92D50D0240CC23800B03B46 /* Heqz_MultiChannelContentView.m in Sources */,
+				C92D514A240CC35E00B03B46 /* Heqz_ChartFillAnimatable.m in Sources */,
+				C92D50BB240CC22800B03B46 /* Heqz_BaseViewController.m in Sources */,
+				C92D5112240CC32E00B03B46 /* Heqz_ChartCommonFunc.m in Sources */,
 				C9BB1E48221551D90050B493 /* AppDelegate.m in Sources */,
-				C96C417623BAF390002F61B0 /* SFChartPillarAnimatable.m in Sources */,
-				C9BB1E972216CEAC0050B493 /* Heqingzhao_MultiChannelViewController.m in Sources */,
+				C92D512B240CC34600B03B46 /* Heqz_ChartAxisMarkLabel.m in Sources */,
+				C92D511C240CC33A00B03B46 /* Heqz_ChartChart.m in Sources */,
 				C9A3FDA722D33B790054B17A /* ThemeDemo2ViewController.m in Sources */,
-				C9D4A95C2297EA7B00FEFD5E /* UINavigationBar+layoutSubViews.m in Sources */,
-				C9F74AE822A60481001ACF3F /* Heqingzhao_PageControl.m in Sources */,
-				C96C418823BAF390002F61B0 /* SFChartTextGrid.m in Sources */,
+				C92D512A240CC34600B03B46 /* Heqz_ChartCoordinateAxis.m in Sources */,
+				C92D50EB240CC25400B03B46 /* Heqz_TopLoadingView.m in Sources */,
+				C92D5129240CC34600B03B46 /* Heqz_ChartCoordinateHorizontalAxis.m in Sources */,
+				C92D5136240CC35100B03B46 /* Heqz_ChartPillarDrawable.m in Sources */,
+				C92D512C240CC34600B03B46 /* Heqz_ChartCoordinateHorizontalAxisAnimatable.m in Sources */,
+				C92D5154240CC36B00B03B46 /* Heqz_ChartTextGrid.m in Sources */,
 				C9BDB028221BF5BB00FC4168 /* MultiChannelDemoViewController.m in Sources */,
 				C9CF39F222A912B200BB1FA8 /* UIImage+nameCollection.m in Sources */,
 				C9E86AD4222FB7DC00F85E19 /* DUDemoChildObject.m in Sources */,
-				C9D3B4E5221ECE8D00A8E573 /* Heqingzhao_ImageLoader.m in Sources */,
+				C92D5156240CC36B00B03B46 /* Heqz_ChartGrid.m in Sources */,
 				C9D260C22228DCCC009AE2EF /* TableControllerDemoCell.m in Sources */,
-				C96C417823BAF390002F61B0 /* SFChartTextAnimatable.m in Sources */,
-				C9DFFD3022280B4D00A8374C /* Heqingzhao_BottomLoadingView.m in Sources */,
-				C96C419023BAF390002F61B0 /* SFChartRange.c in Sources */,
+				C92D5111240CC32E00B03B46 /* Heqz_ChartRange.c in Sources */,
+				C92D50DA240CC24500B03B46 /* Heqz_TableViewSectionConfig.m in Sources */,
 				C969E23D22B1000D00CEFB82 /* DemoBaseViewController.m in Sources */,
+				C92D5107240CC2A300B03B46 /* Heqz_ButtonThemeDecorater.m in Sources */,
+				C92D50BC240CC22800B03B46 /* Heqz_ImageLoader.m in Sources */,
 				C9BB1E952216CEAC0050B493 /* UIView+view_frame.m in Sources */,
+				C92D5138240CC35100B03B46 /* Heqz_ChartPolylineDrawable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

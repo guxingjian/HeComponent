@@ -7,14 +7,14 @@
 //
 
 #import "ViewController.h"
-#import "Heqingzhao_MultiChannelTopBar.h"
+#import "Heqz_MultiChannelTopBar.h"
 #import "UIView+view_frame.h"
-#import "Heqingzhao_MultiChannelContentView.h"
+#import "Heqz_MultiChannelContentView.h"
 
-@interface ViewController ()<Heqingzhao_MultiChannelConfigProtocol, Heqingzhao_MultiChannelTopBarDelegate, Heqingzhao_MultiChannelContentViewDelegate>
+@interface ViewController ()<Heqz_MultiChannelConfigProtocol, Heqz_MultiChannelTopBarDelegate, Heqz_MultiChannelContentViewDelegate>
 
-@property(nonatomic, strong)Heqingzhao_MultiChannelTopBar* topBar;
-@property(nonatomic, strong)Heqingzhao_MultiChannelContentView* contentView;
+@property(nonatomic, strong)Heqz_MultiChannelTopBar* topBar;
+@property(nonatomic, strong)Heqz_MultiChannelContentView* contentView;
 
 @end
 
@@ -24,9 +24,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    Heqingzhao_MultiChannelTopBar* topBar = [[Heqingzhao_MultiChannelTopBar alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 80)];
+    Heqz_MultiChannelTopBar* topBar = [[Heqz_MultiChannelTopBar alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 80)];
     topBar.delegate = self;
-    topBar.tabItemLayout = Heqingzhao_MultiChannelTopBarLayout_Divide;
+    topBar.tabItemLayout = Heqz_MultiChannelTopBarLayout_Divide;
     topBar.hideAnimatedLine = YES;
     
     NSArray* arrayChannels = @[@"沪深", @"港股",@"美股"];
@@ -36,7 +36,7 @@
     UIColor* normalColor = [UIColor blackColor];
     UIColor* selectedColor = [UIColor blueColor];
     for(NSString* title in arrayChannels){
-        Heqingzhao_MultiChannelConfig* item = [[Heqingzhao_MultiChannelConfig alloc] init];
+        Heqz_MultiChannelConfig* item = [[Heqz_MultiChannelConfig alloc] init];
         item.topBarConfig.normalTitle = title;
         item.topBarConfig.normalTextColor = normalColor;
         item.topBarConfig.normalFont = font;
@@ -58,7 +58,7 @@
     
     self.topBar = topBar;
     
-    Heqingzhao_MultiChannelContentView* channelContentView = [[Heqingzhao_MultiChannelContentView alloc] initWithFrame:CGRectMake(0, topBar.bottom, self.view.width, self.view.height - topBar.bottom)];
+    Heqz_MultiChannelContentView* channelContentView = [[Heqz_MultiChannelContentView alloc] initWithFrame:CGRectMake(0, topBar.bottom, self.view.width, self.view.height - topBar.bottom)];
     channelContentView.delegate = self;
     channelContentView.arrayTabItem = arrayItems;
     
@@ -70,7 +70,7 @@
     return @[[UIColor whiteColor], [UIColor grayColor], [UIColor greenColor], [UIColor blueColor], [UIColor yellowColor]];
 }
 
-- (UIView *)contentViewWithIndex:(NSInteger)nIndex config:(Heqingzhao_MultiChannelConfig *)config{
+- (UIView *)contentViewWithIndex:(NSInteger)nIndex config:(Heqz_MultiChannelConfig *)config{
     UIView* contentView = [[UIView alloc] initWithFrame:self.contentView.bounds];
     
     UILabel* labelContent = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 100, 80)];
@@ -85,23 +85,23 @@
     return contentView;
 }
 
-- (void)topBar:(Heqingzhao_MultiChannelTopBar *)topBar willSelectIndex:(NSInteger)index item:(Heqingzhao_MultiChannelConfig *)item{
+- (void)topBar:(Heqz_MultiChannelTopBar *)topBar willSelectIndex:(NSInteger)index item:(Heqz_MultiChannelConfig *)item{
 //    self.contentView.selectedIndex = index;
 }
 
-- (void)topBar:(Heqingzhao_MultiChannelTopBar *)topBar didSelectIndex:(NSInteger)index item:(Heqingzhao_MultiChannelConfig *)item{
+- (void)topBar:(Heqz_MultiChannelTopBar *)topBar didSelectIndex:(NSInteger)index item:(Heqz_MultiChannelConfig *)item{
     self.contentView.selectedIndex = index;
 }
 
-- (void)multiChannelContentView:(Heqingzhao_MultiChannelContentView *)contentView willSelectIndex:(NSInteger)nIndex withChannelView:(UIView *)view andConfig:(Heqingzhao_MultiChannelConfig *)config{
+- (void)multiChannelContentView:(Heqz_MultiChannelContentView *)contentView willSelectIndex:(NSInteger)nIndex withChannelView:(UIView *)view andConfig:(Heqz_MultiChannelConfig *)config{
     self.topBar.selectedIndex = nIndex;
 }
 
-- (void)multiChannelContentView:(Heqingzhao_MultiChannelContentView *)contentView didSelectIndex:(NSInteger)nIndex withChannelView:(UIView *)view andConfig:(Heqingzhao_MultiChannelConfig *)config{
+- (void)multiChannelContentView:(Heqz_MultiChannelContentView *)contentView didSelectIndex:(NSInteger)nIndex withChannelView:(UIView *)view andConfig:(Heqz_MultiChannelConfig *)config{
     self.topBar.selectedIndex = nIndex;
 }
 
-- (void)multiChannelContentView:(Heqingzhao_MultiChannelContentView *)contentView scrollingWithIndex:(CGFloat)fIndex{
+- (void)multiChannelContentView:(Heqz_MultiChannelContentView *)contentView scrollingWithIndex:(CGFloat)fIndex{
     [self.topBar scrollToIndex:fIndex gradient:YES];
 }
 

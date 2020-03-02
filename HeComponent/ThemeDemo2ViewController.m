@@ -7,7 +7,7 @@
 //
 
 #import "ThemeDemo2ViewController.h"
-#import "Heqingzhao_ThemeSkinManager.h"
+#import "Heqz_ThemeSkinManager.h"
 #import "UIView+themeConfig.h"
 
 @interface ThemeDemo2ViewController ()
@@ -32,7 +32,7 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         NSMutableArray* arrayCells = [NSMutableArray array];
         for(NSInteger i = 0; i < 30; ++ i){
-            Heqingzhao_TableViewCellConfig* cellConfig = [[Heqingzhao_TableViewCellConfig alloc] init];
+            Heqz_TableViewCellConfig* cellConfig = [[Heqz_TableViewCellConfig alloc] init];
             cellConfig.cellHeight = 80;
             cellConfig.userData = [NSString stringWithFormat:@"cell_%ld", i];
             cellConfig.cellName = @"ThemeTableViewCell";
@@ -47,7 +47,7 @@
 
 - (IBAction)changeSkin:(UIButton*)sender{
     //    NSLog(@"sender: %@", sender);
-    Heqingzhao_ThemeSkinManager* themeMgr = [Heqingzhao_ThemeSkinManager defaultThemeSkinManager];
+    Heqz_ThemeSkinManager* themeMgr = [Heqz_ThemeSkinManager defaultThemeSkinManager];
     if([themeMgr.currentTheme isEqualToString:@"skin_1.plist"]){
         [themeMgr setCurrentTheme:@"skin_2.plist"];
     }else{

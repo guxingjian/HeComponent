@@ -6,11 +6,11 @@
 //  Copyright © 2019年 qingzhao. All rights reserved.
 //
 
-#import "Heqingzhao_TableViewBaseCell.h"
+#import "Heqz_TableViewBaseCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ThemeTableViewCell : Heqingzhao_TableViewBaseCell
+@interface ThemeTableViewCell : Heqz_TableViewBaseCell
 
 @end
 

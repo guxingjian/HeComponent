@@ -1,5 +1,5 @@
 //
-//  Heqingzhao_RubishManager.h
+//  Heqz_RubishManager.h
 //  HeComponent
 //
 //  Created by qingzhao on 2019/6/6.

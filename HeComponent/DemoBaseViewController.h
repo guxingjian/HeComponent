@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Heqingzhao_BaseViewController.h"
+#import "Heqz_BaseViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DemoBaseViewController : Heqingzhao_BaseViewController
+@interface DemoBaseViewController : Heqz_BaseViewController
 
 @end
 

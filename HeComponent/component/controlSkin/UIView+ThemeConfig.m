@@ -7,14 +7,14 @@
 //
 
 #import "UIView+ThemeConfig.h"
-#import "Heqingzhao_ThemeSkinManager.h"
+#import "Heqz_ThemeSkinManager.h"
 #import <objc/runtime.h>
 
 @implementation UIView(ThemeConfig)
 
 - (void)setThemeSkin:(NSString *)themeSkin{
     objc_setAssociatedObject(self, @"themeSkin", themeSkin, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [[Heqingzhao_ThemeSkinManager defaultThemeSkinManager] decorateView:self ignoreOriginalSetting:NO];
+    [[Heqz_ThemeSkinManager defaultThemeSkinManager] decorateView:self ignoreOriginalSetting:NO];
 }
 
 - (NSString *)themeSkin{
@@ -31,11 +31,11 @@
 
 - (NSString *)controlCategory{
     if([self isKindOfClass:[UIButton class]]){
-        return Heqingzhao_ControlCategory_button;
+        return Heqz_ControlCategory_button;
     }else if([self isKindOfClass:[UILabel class]]){
-        return Heqingzhao_ControlCategory_label;
+        return Heqz_ControlCategory_label;
     }else{
-        return Heqingzhao_ControlCategory_view;
+        return Heqz_ControlCategory_view;
     }
 }
 

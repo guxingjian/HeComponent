@@ -24,7 +24,7 @@
     
     NSMutableArray* arrayCells = [NSMutableArray array];
     for(NSInteger i = 0; i < 30; ++ i){
-        Heqingzhao_TableViewCellConfig* cellConfig = [[Heqingzhao_TableViewCellConfig alloc] init];
+        Heqz_TableViewCellConfig* cellConfig = [[Heqz_TableViewCellConfig alloc] init];
         cellConfig.cellHeight = 80;
         cellConfig.userData = [NSString stringWithFormat:@"cell_%ld", i];
         cellConfig.cellName = @"TableControllerDemoCell";
@@ -34,7 +34,7 @@
     [self.tableController reloadData];
 }
 
-- (void)tableController:(Heqingzhao_TableViewController *)controller tableCell:(Heqingzhao_TableViewBaseCell *)cell doActionWithInfo:(id)info{
+- (void)tableController:(Heqz_TableViewController *)controller tableCell:(Heqz_TableViewBaseCell *)cell doActionWithInfo:(id)info{
     NSString* userData = cell.userData;
     NSDictionary* dic = (NSDictionary*)info;
     NSString* userInfo = [dic objectForKey:@"userInfo"];

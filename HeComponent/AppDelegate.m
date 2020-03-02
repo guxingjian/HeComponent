@@ -7,9 +7,9 @@
 //
 
 #import "AppDelegate.h"
-#import "Heqingzhao_DUContext.h"
+#import "Heqz_DUContext.h"
 #import "MultiChannelDemoViewController.h"
-#import "Heqingzhao_RubishManager.h"
+#import "Heqz_RubishManager.h"
 
 @interface AppDelegate ()
 
@@ -18,15 +18,15 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
-    [[Heqingzhao_DUContext sharedDUContext] resetJSDataWithDirectory:[[NSBundle mainBundle] bundlePath]];
+    [[Heqz_DUContext sharedDUContext] resetJSDataWithDirectory:[[NSBundle mainBundle] bundlePath]];
     
     // 可以在测试阶段运行所有功能，收集未使用过的垃圾资源
 #if DEBUG
-    Heqingzhao_RubishManager* rubishManager = [Heqingzhao_RubishManager sharedManager];
+    Heqz_RubishManager* rubishManager = [Heqz_RubishManager sharedManager];
     rubishManager.arrayClassPreStr = @[@"DUDemo"];
-    [[Heqingzhao_RubishManager sharedManager] collectAllClassName];
-    [[Heqingzhao_RubishManager sharedManager] collectAllImageName];
-    [[Heqingzhao_RubishManager sharedManager] collectAllXibName];
+    [[Heqz_RubishManager sharedManager] collectAllClassName];
+    [[Heqz_RubishManager sharedManager] collectAllImageName];
+    [[Heqz_RubishManager sharedManager] collectAllXibName];
 #endif
     
     return YES;

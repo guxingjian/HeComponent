@@ -6,11 +6,11 @@
 //  Copyright © 2019年 qingzhao. All rights reserved.
 //
 
-#import "Heqingzhao_BaseViewController.h"
+#import "Heqz_BaseViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ThemeDemo2ViewController : Heqingzhao_BaseViewController
+@interface ThemeDemo2ViewController : Heqz_BaseViewController
 
 @end
 

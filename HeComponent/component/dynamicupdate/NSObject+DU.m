@@ -8,7 +8,7 @@
 
 #import "NSObject+DU.h"
 #import <objc/runtime.h>
-#import "Heqingzhao_DUContext.h"
+#import "Heqz_DUContext.h"
 
 @implementation NSObject(DU)
 
@@ -22,7 +22,7 @@
     NSString* strClass = NSStringFromClass([self class]);
     NSString* strSel = NSStringFromSelector(anInvocation.selector);
     
-    Heqingzhao_DUContext* duContext = [Heqingzhao_DUContext sharedDUContext];
+    Heqz_DUContext* duContext = [Heqz_DUContext sharedDUContext];
     if(![duContext isClass:strClass registeredSector:strSel]){
         [self du_forwardInvocation:anInvocation];
         return ;

@@ -6,8 +6,8 @@
 //  Copyright © 2019年 qingzhao. All rights reserved.
 //
 
-#import "Heqingzhao_MultiChannelViewController.h"
+#import "Heqz_MultiChannelViewController.h"
 
-@interface MultiChannelDemoViewController : Heqingzhao_MultiChannelViewController
+@interface MultiChannelDemoViewController : Heqz_MultiChannelViewController
 
 @end

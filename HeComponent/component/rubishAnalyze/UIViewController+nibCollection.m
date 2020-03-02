@@ -1,5 +1,5 @@
 //
-//  Heqingzhao_RubishManager.m
+//  Heqz_RubishManager.m
 //  HeComponent
 //
 //  Created by qingzhao on 2019/6/6.
@@ -7,7 +7,7 @@
 //
 
 #import "UIViewController+nibCollection.h"
-#import "Heqingzhao_RubishManager.h"
+#import "Heqz_RubishManager.h"
 
 #import <objc/runtime.h>
 
@@ -20,7 +20,7 @@
 }
 
 - (instancetype)heqingzhao_initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
-    [[Heqingzhao_RubishManager sharedManager] collectUsedXibName:nibNameOrNil];
+    [[Heqz_RubishManager sharedManager] collectUsedXibName:nibNameOrNil];
     return [self heqingzhao_initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
 }
 
