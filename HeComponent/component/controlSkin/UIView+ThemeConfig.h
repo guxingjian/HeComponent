@@ -16,7 +16,6 @@ typedef void (^ThemeDecorateHandller)(void);
 
 @property(nonatomic, strong)NSString* themeSkin;
 @property(nonatomic, strong)ThemeDecorateHandller decorateHandller;
-@property(nonatomic, strong)NSString* currentConfigFile;
 @property(nonatomic, readonly)NSString* controlCategory;
 
 @end

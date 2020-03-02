@@ -13,6 +13,32 @@
 		C952BC92222D4625006B22DC /* du_main.js in Resources */ = {isa = PBXBuildFile; fileRef = C952BC91222D4625006B22DC /* du_main.js */; };
 		C952BC94222D47EE006B22DC /* du_instanceMethod.js in Resources */ = {isa = PBXBuildFile; fileRef = C952BC93222D47EE006B22DC /* du_instanceMethod.js */; };
 		C969E23D22B1000D00CEFB82 /* DemoBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C969E23A22B1000C00CEFB82 /* DemoBaseViewController.m */; };
+		C96C417423BAF390002F61B0 /* SFChartPolylineAnimatable.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C413423BAF38F002F61B0 /* SFChartPolylineAnimatable.m */; };
+		C96C417523BAF390002F61B0 /* SFChartImageAnimatable.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C413523BAF38F002F61B0 /* SFChartImageAnimatable.m */; };
+		C96C417623BAF390002F61B0 /* SFChartPillarAnimatable.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C413623BAF38F002F61B0 /* SFChartPillarAnimatable.m */; };
+		C96C417723BAF390002F61B0 /* SFChartFillAnimatable.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C413723BAF38F002F61B0 /* SFChartFillAnimatable.m */; };
+		C96C417823BAF390002F61B0 /* SFChartTextAnimatable.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C413A23BAF38F002F61B0 /* SFChartTextAnimatable.m */; };
+		C96C417923BAF390002F61B0 /* SFChartPtCollectionAnimatable.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C413E23BAF38F002F61B0 /* SFChartPtCollectionAnimatable.m */; };
+		C96C417A23BAF390002F61B0 /* SFChartAxisMarkLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C414123BAF38F002F61B0 /* SFChartAxisMarkLabel.m */; };
+		C96C417B23BAF390002F61B0 /* SFChartCoordinateVerticalAxis.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C414523BAF38F002F61B0 /* SFChartCoordinateVerticalAxis.m */; };
+		C96C417C23BAF390002F61B0 /* SFChartCoordinateHorizontalAxisAnimatable.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C414723BAF38F002F61B0 /* SFChartCoordinateHorizontalAxisAnimatable.m */; };
+		C96C417D23BAF390002F61B0 /* SFChartCoordinateAxis.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C414823BAF38F002F61B0 /* SFChartCoordinateAxis.m */; };
+		C96C417E23BAF390002F61B0 /* SFChartCoordinateHorizontalAxis.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C414923BAF38F002F61B0 /* SFChartCoordinateHorizontalAxis.m */; };
+		C96C417F23BAF390002F61B0 /* SFChartPillarDrawable.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C414B23BAF38F002F61B0 /* SFChartPillarDrawable.m */; };
+		C96C418023BAF390002F61B0 /* SFChartFillDrawable.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C414E23BAF38F002F61B0 /* SFChartFillDrawable.m */; };
+		C96C418123BAF390002F61B0 /* SFChartPolylineDrawable.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C414F23BAF38F002F61B0 /* SFChartPolylineDrawable.m */; };
+		C96C418223BAF390002F61B0 /* SFChartPointCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C415023BAF38F002F61B0 /* SFChartPointCollection.m */; };
+		C96C418323BAF390002F61B0 /* SFChartChart.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C415423BAF38F002F61B0 /* SFChartChart.m */; };
+		C96C418423BAF390002F61B0 /* SFChartLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C415523BAF38F002F61B0 /* SFChartLayer.m */; };
+		C96C418523BAF390002F61B0 /* SFChartElement.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C415A23BAF38F002F61B0 /* SFChartElement.m */; };
+		C96C418623BAF390002F61B0 /* SFChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C415B23BAF38F002F61B0 /* SFChartView.m */; };
+		C96C418823BAF390002F61B0 /* SFChartTextGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C415E23BAF390002F61B0 /* SFChartTextGrid.m */; };
+		C96C418923BAF390002F61B0 /* SFChartGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C415F23BAF390002F61B0 /* SFChartGridView.m */; };
+		C96C418A23BAF390002F61B0 /* SFChartStandardGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C416023BAF390002F61B0 /* SFChartStandardGrid.m */; };
+		C96C418B23BAF390002F61B0 /* SFChartGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C416423BAF390002F61B0 /* SFChartGrid.m */; };
+		C96C418F23BAF390002F61B0 /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = C96C416D23BAF390002F61B0 /* readme.md */; };
+		C96C419023BAF390002F61B0 /* SFChartRange.c in Sources */ = {isa = PBXBuildFile; fileRef = C96C417023BAF390002F61B0 /* SFChartRange.c */; };
+		C96C419123BAF390002F61B0 /* SFChartCommonFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = C96C417123BAF390002F61B0 /* SFChartCommonFunc.m */; };
 		C96DEB462226597F00538E65 /* Heqingzhao_TableViewBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C96DEB452226597F00538E65 /* Heqingzhao_TableViewBaseCell.m */; };
 		C98C3B3B22AE81270085A7C8 /* UINib+nibCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = C98C3B3922AE81270085A7C8 /* UINib+nibCollection.m */; };
 		C99BACB222CE3382000991CE /* skin_1.plist in Resources */ = {isa = PBXBuildFile; fileRef = C99BACB122CE3382000991CE /* skin_1.plist */; };
@@ -22,6 +48,7 @@
 		C9A3FDA722D33B790054B17A /* ThemeDemo2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A3FDA522D33B790054B17A /* ThemeDemo2ViewController.m */; };
 		C9A3FDAC22D33C0A0054B17A /* ThemeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A3FDAA22D33C0A0054B17A /* ThemeTableViewCell.m */; };
 		C9A3FDAF22D342600054B17A /* ThemeDemo2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9A3FDAE22D342600054B17A /* ThemeDemo2ViewController.xib */; };
+		C9A645ED23B9F3C200BD7B6E /* Heqingzhao_Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A645EC23B9F3C200BD7B6E /* Heqingzhao_Reachability.m */; };
 		C9AE410F22CF1C0B0092E00A /* Heqingzhao_LabelThemeDecorater.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AE410522CF1C0B0092E00A /* Heqingzhao_LabelThemeDecorater.m */; };
 		C9AE411022CF1C0B0092E00A /* Heqingzhao_ButtonThemeDecorater.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AE410622CF1C0B0092E00A /* Heqingzhao_ButtonThemeDecorater.m */; };
 		C9AE411122CF1C0B0092E00A /* Heqingzhao_ThemeSkinManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AE410822CF1C0B0092E00A /* Heqingzhao_ThemeSkinManager.m */; };
@@ -96,6 +123,58 @@
 		C952BC93222D47EE006B22DC /* du_instanceMethod.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = du_instanceMethod.js; sourceTree = "<group>"; };
 		C969E23A22B1000C00CEFB82 /* DemoBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoBaseViewController.m; sourceTree = "<group>"; };
 		C969E23B22B1000C00CEFB82 /* DemoBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoBaseViewController.h; sourceTree = "<group>"; };
+		C96C413323BAF38F002F61B0 /* SFChartTextAnimatable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartTextAnimatable.h; sourceTree = "<group>"; };
+		C96C413423BAF38F002F61B0 /* SFChartPolylineAnimatable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartPolylineAnimatable.m; sourceTree = "<group>"; };
+		C96C413523BAF38F002F61B0 /* SFChartImageAnimatable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartImageAnimatable.m; sourceTree = "<group>"; };
+		C96C413623BAF38F002F61B0 /* SFChartPillarAnimatable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartPillarAnimatable.m; sourceTree = "<group>"; };
+		C96C413723BAF38F002F61B0 /* SFChartFillAnimatable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartFillAnimatable.m; sourceTree = "<group>"; };
+		C96C413823BAF38F002F61B0 /* SFChartPtCollectionAnimatable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartPtCollectionAnimatable.h; sourceTree = "<group>"; };
+		C96C413923BAF38F002F61B0 /* SFChartPolylineAnimatable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartPolylineAnimatable.h; sourceTree = "<group>"; };
+		C96C413A23BAF38F002F61B0 /* SFChartTextAnimatable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartTextAnimatable.m; sourceTree = "<group>"; };
+		C96C413B23BAF38F002F61B0 /* SFChartPillarAnimatable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartPillarAnimatable.h; sourceTree = "<group>"; };
+		C96C413C23BAF38F002F61B0 /* SFChartImageAnimatable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartImageAnimatable.h; sourceTree = "<group>"; };
+		C96C413D23BAF38F002F61B0 /* SFChartFillAnimatable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartFillAnimatable.h; sourceTree = "<group>"; };
+		C96C413E23BAF38F002F61B0 /* SFChartPtCollectionAnimatable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartPtCollectionAnimatable.m; sourceTree = "<group>"; };
+		C96C414023BAF38F002F61B0 /* SFChartCoordinateVerticalAxis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartCoordinateVerticalAxis.h; sourceTree = "<group>"; };
+		C96C414123BAF38F002F61B0 /* SFChartAxisMarkLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartAxisMarkLabel.m; sourceTree = "<group>"; };
+		C96C414223BAF38F002F61B0 /* SFChartCoordinateAxis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartCoordinateAxis.h; sourceTree = "<group>"; };
+		C96C414323BAF38F002F61B0 /* SFChartCoordinateHorizontalAxis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartCoordinateHorizontalAxis.h; sourceTree = "<group>"; };
+		C96C414423BAF38F002F61B0 /* SFChartCoordinateHorizontalAxisAnimatable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartCoordinateHorizontalAxisAnimatable.h; sourceTree = "<group>"; };
+		C96C414523BAF38F002F61B0 /* SFChartCoordinateVerticalAxis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartCoordinateVerticalAxis.m; sourceTree = "<group>"; };
+		C96C414623BAF38F002F61B0 /* SFChartAxisMarkLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartAxisMarkLabel.h; sourceTree = "<group>"; };
+		C96C414723BAF38F002F61B0 /* SFChartCoordinateHorizontalAxisAnimatable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartCoordinateHorizontalAxisAnimatable.m; sourceTree = "<group>"; };
+		C96C414823BAF38F002F61B0 /* SFChartCoordinateAxis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartCoordinateAxis.m; sourceTree = "<group>"; };
+		C96C414923BAF38F002F61B0 /* SFChartCoordinateHorizontalAxis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartCoordinateHorizontalAxis.m; sourceTree = "<group>"; };
+		C96C414B23BAF38F002F61B0 /* SFChartPillarDrawable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartPillarDrawable.m; sourceTree = "<group>"; };
+		C96C414C23BAF38F002F61B0 /* SFChartPointCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartPointCollection.h; sourceTree = "<group>"; };
+		C96C414D23BAF38F002F61B0 /* SFChartPolylineDrawable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartPolylineDrawable.h; sourceTree = "<group>"; };
+		C96C414E23BAF38F002F61B0 /* SFChartFillDrawable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartFillDrawable.m; sourceTree = "<group>"; };
+		C96C414F23BAF38F002F61B0 /* SFChartPolylineDrawable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartPolylineDrawable.m; sourceTree = "<group>"; };
+		C96C415023BAF38F002F61B0 /* SFChartPointCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartPointCollection.m; sourceTree = "<group>"; };
+		C96C415123BAF38F002F61B0 /* SFChartPillarDrawable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartPillarDrawable.h; sourceTree = "<group>"; };
+		C96C415223BAF38F002F61B0 /* SFChartFillDrawable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartFillDrawable.h; sourceTree = "<group>"; };
+		C96C415423BAF38F002F61B0 /* SFChartChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartChart.m; sourceTree = "<group>"; };
+		C96C415523BAF38F002F61B0 /* SFChartLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartLayer.m; sourceTree = "<group>"; };
+		C96C415623BAF38F002F61B0 /* SFChartElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartElement.h; sourceTree = "<group>"; };
+		C96C415723BAF38F002F61B0 /* SFChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartView.h; sourceTree = "<group>"; };
+		C96C415823BAF38F002F61B0 /* SFChartLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartLayer.h; sourceTree = "<group>"; };
+		C96C415923BAF38F002F61B0 /* SFChartChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartChart.h; sourceTree = "<group>"; };
+		C96C415A23BAF38F002F61B0 /* SFChartElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartElement.m; sourceTree = "<group>"; };
+		C96C415B23BAF38F002F61B0 /* SFChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartView.m; sourceTree = "<group>"; };
+		C96C415E23BAF390002F61B0 /* SFChartTextGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartTextGrid.m; sourceTree = "<group>"; };
+		C96C415F23BAF390002F61B0 /* SFChartGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartGridView.m; sourceTree = "<group>"; };
+		C96C416023BAF390002F61B0 /* SFChartStandardGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartStandardGrid.m; sourceTree = "<group>"; };
+		C96C416123BAF390002F61B0 /* SFChartGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartGrid.h; sourceTree = "<group>"; };
+		C96C416223BAF390002F61B0 /* SFChartTextGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartTextGrid.h; sourceTree = "<group>"; };
+		C96C416323BAF390002F61B0 /* SFChartStandardGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartStandardGrid.h; sourceTree = "<group>"; };
+		C96C416423BAF390002F61B0 /* SFChartGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartGrid.m; sourceTree = "<group>"; };
+		C96C416523BAF390002F61B0 /* SFChartGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartGridView.h; sourceTree = "<group>"; };
+		C96C416D23BAF390002F61B0 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
+		C96C416F23BAF390002F61B0 /* SFChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChart.h; sourceTree = "<group>"; };
+		C96C417023BAF390002F61B0 /* SFChartRange.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SFChartRange.c; sourceTree = "<group>"; };
+		C96C417123BAF390002F61B0 /* SFChartCommonFunc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFChartCommonFunc.m; sourceTree = "<group>"; };
+		C96C417223BAF390002F61B0 /* SFChartRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartRange.h; sourceTree = "<group>"; };
+		C96C417323BAF390002F61B0 /* SFChartCommonFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFChartCommonFunc.h; sourceTree = "<group>"; };
 		C96DEB442226597F00538E65 /* Heqingzhao_TableViewBaseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_TableViewBaseCell.h; sourceTree = "<group>"; };
 		C96DEB452226597F00538E65 /* Heqingzhao_TableViewBaseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_TableViewBaseCell.m; sourceTree = "<group>"; };
 		C98C3B3922AE81270085A7C8 /* UINib+nibCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINib+nibCollection.m"; sourceTree = "<group>"; };
@@ -110,6 +189,8 @@
 		C9A3FDA922D33C0A0054B17A /* ThemeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemeTableViewCell.h; sourceTree = "<group>"; };
 		C9A3FDAA22D33C0A0054B17A /* ThemeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThemeTableViewCell.m; sourceTree = "<group>"; };
 		C9A3FDAE22D342600054B17A /* ThemeDemo2ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThemeDemo2ViewController.xib; sourceTree = "<group>"; };
+		C9A645EB23B9F3C200BD7B6E /* Heqingzhao_Reachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heqingzhao_Reachability.h; sourceTree = "<group>"; };
+		C9A645EC23B9F3C200BD7B6E /* Heqingzhao_Reachability.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_Reachability.m; sourceTree = "<group>"; };
 		C9AE410522CF1C0B0092E00A /* Heqingzhao_LabelThemeDecorater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_LabelThemeDecorater.m; sourceTree = "<group>"; };
 		C9AE410622CF1C0B0092E00A /* Heqingzhao_ButtonThemeDecorater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heqingzhao_ButtonThemeDecorater.m; sourceTree = "<group>"; };
 		C9AE410722CF1C0B0092E00A /* UIView+ThemeConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ThemeConfig.h"; sourceTree = "<group>"; };
@@ -231,6 +312,122 @@
 			path = dynamicupdate;
 			sourceTree = "<group>";
 		};
+		C96C412F23BAF2CB002F61B0 /* chart */ = {
+			isa = PBXGroup;
+			children = (
+				C96C416E23BAF390002F61B0 /* common */,
+				C96C415323BAF38F002F61B0 /* base */,
+				C96C413F23BAF38F002F61B0 /* coordinateAxis */,
+				C96C414A23BAF38F002F61B0 /* element */,
+				C96C413223BAF38F002F61B0 /* animatableElement */,
+				C96C415D23BAF390002F61B0 /* grid */,
+				C96C416D23BAF390002F61B0 /* readme.md */,
+			);
+			path = chart;
+			sourceTree = "<group>";
+		};
+		C96C413223BAF38F002F61B0 /* animatableElement */ = {
+			isa = PBXGroup;
+			children = (
+				C96C413823BAF38F002F61B0 /* SFChartPtCollectionAnimatable.h */,
+				C96C413E23BAF38F002F61B0 /* SFChartPtCollectionAnimatable.m */,
+				C96C413923BAF38F002F61B0 /* SFChartPolylineAnimatable.h */,
+				C96C413423BAF38F002F61B0 /* SFChartPolylineAnimatable.m */,
+				C96C413C23BAF38F002F61B0 /* SFChartImageAnimatable.h */,
+				C96C413523BAF38F002F61B0 /* SFChartImageAnimatable.m */,
+				C96C413323BAF38F002F61B0 /* SFChartTextAnimatable.h */,
+				C96C413A23BAF38F002F61B0 /* SFChartTextAnimatable.m */,
+				C96C413B23BAF38F002F61B0 /* SFChartPillarAnimatable.h */,
+				C96C413623BAF38F002F61B0 /* SFChartPillarAnimatable.m */,
+				C96C413D23BAF38F002F61B0 /* SFChartFillAnimatable.h */,
+				C96C413723BAF38F002F61B0 /* SFChartFillAnimatable.m */,
+			);
+			path = animatableElement;
+			sourceTree = "<group>";
+		};
+		C96C413F23BAF38F002F61B0 /* coordinateAxis */ = {
+			isa = PBXGroup;
+			children = (
+				C96C414623BAF38F002F61B0 /* SFChartAxisMarkLabel.h */,
+				C96C414123BAF38F002F61B0 /* SFChartAxisMarkLabel.m */,
+				C96C414223BAF38F002F61B0 /* SFChartCoordinateAxis.h */,
+				C96C414823BAF38F002F61B0 /* SFChartCoordinateAxis.m */,
+				C96C414023BAF38F002F61B0 /* SFChartCoordinateVerticalAxis.h */,
+				C96C414523BAF38F002F61B0 /* SFChartCoordinateVerticalAxis.m */,
+				C96C414323BAF38F002F61B0 /* SFChartCoordinateHorizontalAxis.h */,
+				C96C414923BAF38F002F61B0 /* SFChartCoordinateHorizontalAxis.m */,
+				C96C414423BAF38F002F61B0 /* SFChartCoordinateHorizontalAxisAnimatable.h */,
+				C96C414723BAF38F002F61B0 /* SFChartCoordinateHorizontalAxisAnimatable.m */,
+			);
+			path = coordinateAxis;
+			sourceTree = "<group>";
+		};
+		C96C414A23BAF38F002F61B0 /* element */ = {
+			isa = PBXGroup;
+			children = (
+				C96C414C23BAF38F002F61B0 /* SFChartPointCollection.h */,
+				C96C415023BAF38F002F61B0 /* SFChartPointCollection.m */,
+				C96C414D23BAF38F002F61B0 /* SFChartPolylineDrawable.h */,
+				C96C414F23BAF38F002F61B0 /* SFChartPolylineDrawable.m */,
+				C96C415223BAF38F002F61B0 /* SFChartFillDrawable.h */,
+				C96C414E23BAF38F002F61B0 /* SFChartFillDrawable.m */,
+				C96C415123BAF38F002F61B0 /* SFChartPillarDrawable.h */,
+				C96C414B23BAF38F002F61B0 /* SFChartPillarDrawable.m */,
+			);
+			path = element;
+			sourceTree = "<group>";
+		};
+		C96C415323BAF38F002F61B0 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				C96C415623BAF38F002F61B0 /* SFChartElement.h */,
+				C96C415A23BAF38F002F61B0 /* SFChartElement.m */,
+				C96C415723BAF38F002F61B0 /* SFChartView.h */,
+				C96C415B23BAF38F002F61B0 /* SFChartView.m */,
+				C96C415923BAF38F002F61B0 /* SFChartChart.h */,
+				C96C415423BAF38F002F61B0 /* SFChartChart.m */,
+				C96C415823BAF38F002F61B0 /* SFChartLayer.h */,
+				C96C415523BAF38F002F61B0 /* SFChartLayer.m */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
+		C96C415D23BAF390002F61B0 /* grid */ = {
+			isa = PBXGroup;
+			children = (
+				C96C416123BAF390002F61B0 /* SFChartGrid.h */,
+				C96C416423BAF390002F61B0 /* SFChartGrid.m */,
+				C96C416523BAF390002F61B0 /* SFChartGridView.h */,
+				C96C415F23BAF390002F61B0 /* SFChartGridView.m */,
+				C96C416323BAF390002F61B0 /* SFChartStandardGrid.h */,
+				C96C416023BAF390002F61B0 /* SFChartStandardGrid.m */,
+				C96C416223BAF390002F61B0 /* SFChartTextGrid.h */,
+				C96C415E23BAF390002F61B0 /* SFChartTextGrid.m */,
+			);
+			path = grid;
+			sourceTree = "<group>";
+		};
+		C96C416E23BAF390002F61B0 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				C96C416F23BAF390002F61B0 /* SFChart.h */,
+				C96C417223BAF390002F61B0 /* SFChartRange.h */,
+				C96C417023BAF390002F61B0 /* SFChartRange.c */,
+				C96C417123BAF390002F61B0 /* SFChartCommonFunc.m */,
+				C96C417323BAF390002F61B0 /* SFChartCommonFunc.h */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		C9A645E823B9F0EC00BD7B6E /* network */ = {
+			isa = PBXGroup;
+			children = (
+				C9A645EB23B9F3C200BD7B6E /* Heqingzhao_Reachability.h */,
+				C9A645EC23B9F3C200BD7B6E /* Heqingzhao_Reachability.m */,
+			);
+			path = network;
+			sourceTree = "<group>";
+		};
 		C9AE410422CF1C0B0092E00A /* controlSkin */ = {
 			isa = PBXGroup;
 			children = (
@@ -343,6 +540,8 @@
 				C9D4A94422978C9000FEFD5E /* crashvc */,
 				C9CF39DE22A8EFE100BB1FA8 /* rubishAnalyze */,
 				C9AE410422CF1C0B0092E00A /* controlSkin */,
+				C9A645E823B9F0EC00BD7B6E /* network */,
+				C96C412F23BAF2CB002F61B0 /* chart */,
 			);
 			path = component;
 			sourceTree = "<group>";
@@ -525,6 +724,7 @@
 				C9A3FDAF22D342600054B17A /* ThemeDemo2ViewController.xib in Resources */,
 				C99BACB922CE3519000991CE /* ThemeDemoViewController.xib in Resources */,
 				C9BA872222A69613008A60A1 /* cat01.jpeg in Resources */,
+				C96C418F23BAF390002F61B0 /* readme.md in Resources */,
 				C9BA871D22A69613008A60A1 /* cat05.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -536,16 +736,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C96C417D23BAF390002F61B0 /* SFChartCoordinateAxis.m in Sources */,
 				C9BA872322A69BF5008A60A1 /* cat01.jpeg in Sources */,
 				C9BA872422A69BF5008A60A1 /* cat02.jpeg in Sources */,
 				C9CF39E422A8F05B00BB1FA8 /* Heqingzhao_RubishManager.m in Sources */,
+				C96C418223BAF390002F61B0 /* SFChartPointCollection.m in Sources */,
+				C96C418B23BAF390002F61B0 /* SFChartGrid.m in Sources */,
 				C9AE411022CF1C0B0092E00A /* Heqingzhao_ButtonThemeDecorater.m in Sources */,
 				C9BA872522A69BF5008A60A1 /* cat03.jpeg in Sources */,
 				C9A3FDAC22D33C0A0054B17A /* ThemeTableViewCell.m in Sources */,
+				C96C418523BAF390002F61B0 /* SFChartElement.m in Sources */,
+				C96C418123BAF390002F61B0 /* SFChartPolylineDrawable.m in Sources */,
+				C96C417C23BAF390002F61B0 /* SFChartCoordinateHorizontalAxisAnimatable.m in Sources */,
+				C96C418023BAF390002F61B0 /* SFChartFillDrawable.m in Sources */,
+				C96C417E23BAF390002F61B0 /* SFChartCoordinateHorizontalAxis.m in Sources */,
+				C96C418A23BAF390002F61B0 /* SFChartStandardGrid.m in Sources */,
 				C9BE042823B5D783006BD92B /* NSObject+DU.m in Sources */,
 				C9BA872622A69BF5008A60A1 /* cat04.jpeg in Sources */,
 				C9BA872722A69BF5008A60A1 /* cat05.jpeg in Sources */,
+				C96C419123BAF390002F61B0 /* SFChartCommonFunc.m in Sources */,
 				C9AE411122CF1C0B0092E00A /* Heqingzhao_ThemeSkinManager.m in Sources */,
+				C96C417723BAF390002F61B0 /* SFChartFillAnimatable.m in Sources */,
+				C96C418423BAF390002F61B0 /* SFChartLayer.m in Sources */,
+				C9A645ED23B9F3C200BD7B6E /* Heqingzhao_Reachability.m in Sources */,
 				C9BA872822A69BF5008A60A1 /* cat06.jpeg in Sources */,
 				C9CF39E722A8F07300BB1FA8 /* NSObject+classNameCollection.m in Sources */,
 				C9BDB068221C237100FC4168 /* Heqingzhao_MultiChannelEditViewController.m in Sources */,
@@ -558,10 +771,13 @@
 				C9E86AD1222FB7C500F85E19 /* DUDemoObject.m in Sources */,
 				C9D4A94722978DC800FEFD5E /* Heqingzhao_CrashCatcher.m in Sources */,
 				C9AE411222CF1C0B0092E00A /* Heqingzhao_ViewThemeDecorater.m in Sources */,
+				C96C418923BAF390002F61B0 /* SFChartGridView.m in Sources */,
 				C9AE411322CF1C0B0092E00A /* UIView+ThemeConfig.m in Sources */,
+				C96C417B23BAF390002F61B0 /* SFChartCoordinateVerticalAxis.m in Sources */,
 				C9DFFD2D222806DE00A8374C /* Heqingzhao_LoadingView.m in Sources */,
 				C9B4E3B92223B80300454349 /* Heqingzhao_TableViewSectionConfig.m in Sources */,
 				C9B0AD6B221D259C00F747B1 /* Heqingzhao_SinglePixelView.m in Sources */,
+				C96C417F23BAF390002F61B0 /* SFChartPillarDrawable.m in Sources */,
 				C94138DC221A476800AFA04F /* Heqingzhao_MultiChannelContentView.m in Sources */,
 				C952BC8D222D0DE7006B22DC /* Heqingzhao_DUContext.m in Sources */,
 				C9CF39ED22A90C2500BB1FA8 /* NSBundle+nibCollection.m in Sources */,
@@ -570,24 +786,34 @@
 				C9052A4622201449003EF4B8 /* Heqingzhao_AppContext.m in Sources */,
 				C9D260BF2228D962009AE2EF /* TableControllerDemoViewController.m in Sources */,
 				C9BB1E982216CEAC0050B493 /* Heqingzhao_MultiChannelConfig.m in Sources */,
+				C96C417A23BAF390002F61B0 /* SFChartAxisMarkLabel.m in Sources */,
+				C96C418323BAF390002F61B0 /* SFChartChart.m in Sources */,
+				C96C417923BAF390002F61B0 /* SFChartPtCollectionAnimatable.m in Sources */,
+				C96C417423BAF390002F61B0 /* SFChartPolylineAnimatable.m in Sources */,
+				C96C418623BAF390002F61B0 /* SFChartView.m in Sources */,
 				C9BB1E4B221551D90050B493 /* ViewController.m in Sources */,
 				C9CF39EA22A9094700BB1FA8 /* UIViewController+nibCollection.m in Sources */,
 				C9F74AED22A63C58001ACF3F /* Heqingzhao_ScrollAdListView.m in Sources */,
 				C9DFFD29222802D500A8374C /* Heqingzhao_TopLoadingView.m in Sources */,
 				C9BB1E992216CEAC0050B493 /* Heqingzhao_MultiChannelTopBar.m in Sources */,
+				C96C417523BAF390002F61B0 /* SFChartImageAnimatable.m in Sources */,
 				C9BB1E56221551DC0050B493 /* main.m in Sources */,
 				C9BDB02B221BF6D800FC4168 /* UIColor+extension_qingzhao.m in Sources */,
 				C9BB1E48221551D90050B493 /* AppDelegate.m in Sources */,
+				C96C417623BAF390002F61B0 /* SFChartPillarAnimatable.m in Sources */,
 				C9BB1E972216CEAC0050B493 /* Heqingzhao_MultiChannelViewController.m in Sources */,
 				C9A3FDA722D33B790054B17A /* ThemeDemo2ViewController.m in Sources */,
 				C9D4A95C2297EA7B00FEFD5E /* UINavigationBar+layoutSubViews.m in Sources */,
 				C9F74AE822A60481001ACF3F /* Heqingzhao_PageControl.m in Sources */,
+				C96C418823BAF390002F61B0 /* SFChartTextGrid.m in Sources */,
 				C9BDB028221BF5BB00FC4168 /* MultiChannelDemoViewController.m in Sources */,
 				C9CF39F222A912B200BB1FA8 /* UIImage+nameCollection.m in Sources */,
 				C9E86AD4222FB7DC00F85E19 /* DUDemoChildObject.m in Sources */,
 				C9D3B4E5221ECE8D00A8E573 /* Heqingzhao_ImageLoader.m in Sources */,
 				C9D260C22228DCCC009AE2EF /* TableControllerDemoCell.m in Sources */,
+				C96C417823BAF390002F61B0 /* SFChartTextAnimatable.m in Sources */,
 				C9DFFD3022280B4D00A8374C /* Heqingzhao_BottomLoadingView.m in Sources */,
+				C96C419023BAF390002F61B0 /* SFChartRange.c in Sources */,
 				C969E23D22B1000D00CEFB82 /* DemoBaseViewController.m in Sources */,
 				C9BB1E952216CEAC0050B493 /* UIView+view_frame.m in Sources */,
 			);

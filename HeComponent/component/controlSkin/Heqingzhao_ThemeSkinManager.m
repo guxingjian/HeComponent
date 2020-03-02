@@ -87,17 +87,14 @@ NSString* const Heqingzhao_ThemeSkinChanged = @"Heqingzhao_ThemeSkinChanged";
 }
 
 - (void)decorateView:(UIView *)view ignoreOriginalSetting:(BOOL)ignore{
-    if(!ignore && [self.currentTheme isEqualToString:view.currentConfigFile]){
+    if(ignore || view.themeSkin.length == 0){
         return ;
     }
-    if(view.themeSkin.length == 0)
-        return ;
     
     Heqingzhao_ViewThemeDecorater* viewDecorater = [self.dicViewDecorater objectForKey:view.controlCategory];
     if(!viewDecorater)
         return ;
     [viewDecorater decorateView:view withConfig:[self.dicCurrentThemeConfig objectForKey:view.themeSkin]];
-    view.currentConfigFile = self.currentTheme;
     if(view.decorateHandller){
         view.decorateHandller();
     }

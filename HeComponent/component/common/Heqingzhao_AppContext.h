@@ -30,6 +30,9 @@ typedef NS_OPTIONS(NSInteger, Heqingzhao_IPhoneType){
 
 @property(nonatomic, assign)Heqingzhao_IPhoneType iPhoneType;
 
+// 当前运营商名称
+@property(nonatomic, readonly)NSString* iPhoneCarrier;
+
 + (instancetype)sharedAppContext;
 
 // 有导航栏的情况下，页面的safeArea

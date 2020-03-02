@@ -17,6 +17,8 @@
 
 @interface Heqingzhao_BaseViewController ()
 
+@property(nonatomic, strong)NSString* currentThemeConfigFile;
+
 @end
 
 @implementation Heqingzhao_BaseViewController
@@ -31,7 +33,7 @@
     if(self.navigationController.navigationBar.hidden && !self.disableDefaultNavibar){
         [self createDefaultNavigationBar];
     }
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(decorateView) name:Heqingzhao_ThemeSkinChanged object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(themeSkinChanged:) name:Heqingzhao_ThemeSkinChanged object:nil];
 }
 
 - (void)createDefaultNavigationBar{
@@ -119,27 +121,24 @@
 }
 
 - (void)viewWillAppearHandleTheme{
-    Heqingzhao_ThemeSkinManager* themeMgr = [Heqingzhao_ThemeSkinManager defaultThemeSkinManager];
-    if(![themeMgr.currentTheme isEqualToString:self.view.currentConfigFile]){ // 避免重复设置theme
-        [self decorateView];
+    Heqingzhao_ThemeSkinManager* mgr = [Heqingzhao_ThemeSkinManager defaultThemeSkinManager];
+    if(![mgr.currentTheme isEqualToString:self.currentThemeConfigFile]){ // 避免重复设置theme
+        [mgr decorateViewAndSubView:self.view ignoreOriginalSetting:NO];
+        self.currentThemeConfigFile = mgr.currentTheme;
     };
 }
 
-- (void)decorateView{
-    [[Heqingzhao_ThemeSkinManager defaultThemeSkinManager] decorateViewAndSubView:self.view ignoreOriginalSetting:NO];
-}
-
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    [self viewWillDisappearHandleTheme];
-}
-
-- (void)viewWillDisappearHandleTheme{
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:Heqingzhao_ThemeSkinChanged object:nil];
+- (void)themeSkinChanged:(NSNotification*)notification{
+    if(!self.view.window){
+        return ;
+    }
+    Heqingzhao_ThemeSkinManager* mgr = [Heqingzhao_ThemeSkinManager defaultThemeSkinManager];
+    [mgr decorateViewAndSubView:self.view ignoreOriginalSetting:NO];
+    self.currentThemeConfigFile = mgr.currentTheme;
 }
 
 - (void)dealloc{
-    [self viewWillDisappearHandleTheme];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:Heqingzhao_ThemeSkinChanged object:nil];
 }
 
 

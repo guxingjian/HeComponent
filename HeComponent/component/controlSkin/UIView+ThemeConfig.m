@@ -29,14 +29,6 @@
     return objc_getAssociatedObject(self, @"decorateHandller");
 }
 
-- (void)setCurrentConfigFile:(NSString *)currentConfigFile{
-    objc_setAssociatedObject(self, @"currentConfigFile", currentConfigFile, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-- (NSString *)currentConfigFile{
-    return objc_getAssociatedObject(self, @"currentConfigFile");
-}
-
 - (NSString *)controlCategory{
     if([self isKindOfClass:[UIButton class]]){
         return Heqingzhao_ControlCategory_button;

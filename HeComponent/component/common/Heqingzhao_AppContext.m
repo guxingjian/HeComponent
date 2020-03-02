@@ -7,8 +7,16 @@
 //
 
 #import "Heqingzhao_AppContext.h"
+#import <CoreTelephony/CTTelephonyNetworkInfo.h>
+#import <CoreTelephony/CTCarrier.h>
 
 static Heqingzhao_AppContext* appContext = nil;
+
+@interface Heqingzhao_AppContext()<CTTelephonyNetworkInfoDelegate>
+
+@property(nonatomic, strong)CTTelephonyNetworkInfo* phoneNetInfo;
+
+@end
 
 @implementation Heqingzhao_AppContext
 
@@ -35,6 +43,7 @@ static Heqingzhao_AppContext* appContext = nil;
 - (instancetype)init{
     if(self = [super init]){
         [self setupIPhoneType];
+        [self setupIPhoneCarrier];
     }
     return self;
 }
@@ -70,6 +79,56 @@ static Heqingzhao_AppContext* appContext = nil;
                 _iPhoneType = Heqingzhao_IPhoneType_IPhoneXSMax;
             }
         }
+    }
+}
+
+- (void)dataServiceIdentifierDidChange:(NSString *)identifier{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self setupIPhoneCarrier];
+    });
+}
+
+- (CTTelephonyNetworkInfo *)phoneNetInfo{
+    if(!_phoneNetInfo){
+        _phoneNetInfo = [[CTTelephonyNetworkInfo alloc] init];
+        if(@available(iOS 13.0, *)){
+            _phoneNetInfo.delegate = self;
+        }else if(@available(iOS 12.0, *)){
+            
+            weak_Self;
+            _phoneNetInfo.serviceSubscriberCellularProvidersDidUpdateNotifier = ^(NSString * _Nonnull param) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [weakSelf setupIPhoneCarrier];
+                });
+            };
+        }else{
+            weak_Self;
+            _phoneNetInfo.subscriberCellularProviderDidUpdateNotifier = ^(CTCarrier * _Nonnull carrier) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [weakSelf setupIPhoneCarrier];
+                });
+            };
+        }
+    }
+    return _phoneNetInfo;
+}
+
+- (void)setupIPhoneCarrier{
+    CTTelephonyNetworkInfo* info = self.phoneNetInfo;
+    
+    CTCarrier* carrier = [info subscriberCellularProvider];
+    NSString *code = [carrier mobileNetworkCode];
+    
+    if ([code isEqualToString:@"00"] || [code isEqualToString:@"02"] || [code isEqualToString:@"07"]) {
+        _iPhoneCarrier = @"中国移动";
+    }else if([code isEqualToString:@"01"] || [code isEqualToString:@"06"]){
+        _iPhoneCarrier = @"中国联通";
+    }else if([code isEqualToString:@"03"] || [code isEqualToString:@"05"]){
+        _iPhoneCarrier = @"中国电信";
+    }else if([code isEqualToString:@"20"]){
+        _iPhoneCarrier = @"中国铁通";
+    }else{
+        _iPhoneCarrier = @"";
     }
 }
 
